@@ -34,7 +34,7 @@ export function FinalCta() {
             </div>
             <ul className="grid grid-cols-3 gap-3 lg:col-span-7">
               {content.community.images.map((img) => (
-                <li key={img.src} className="relative aspect-[3/4] overflow-hidden rounded-[14px]">
+                <li key={img.src} className="relative aspect-[3/4] overflow-hidden rounded-card">
                   <Image src={img.src} alt={img.alt} fill sizes="(min-width:1024px) 220px, 33vw" loading="lazy" className="food-image object-cover" />
                 </li>
               ))}

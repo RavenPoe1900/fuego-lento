@@ -30,7 +30,7 @@ export function Hero() {
         <div className="editorial-grid"><div className="col-span-12 max-w-[560px] lg:col-span-6">
           <p className="eyebrow anim-rise mb-5">{content.hero.eyebrow}</p>
           {!ordering && sf.message && (
-            <p className="anim-rise mb-5 inline-flex items-center gap-2 rounded-full bg-white/[0.08] px-4 py-2 text-[0.9375rem] font-semibold backdrop-blur" style={{ animationDelay: "40ms" }}>
+            <p className="anim-rise mb-5 inline-flex items-center gap-2 rounded-ui bg-carbon/60 px-3.5 py-2 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.16em] backdrop-blur" style={{ animationDelay: "40ms" }}>
               <span className={`size-2 rounded-full ${sf.tone === "gold" ? "bg-gold" : "bg-err"}`} aria-hidden /> {sf.message}
             </p>
           )}
@@ -44,7 +44,7 @@ export function Hero() {
               <>
                 <LinkButton href="#menu" size="lg">{content.hero.primaryCta}</LinkButton>
                 {sf.showDelivery && (
-                  <a href="#cobertura" className="py-3 text-[0.9375rem] font-medium text-cream underline underline-offset-4 hover:text-fire">{content.hero.coverageLink}</a>
+                  <a href="#cobertura" className="py-3 text-[0.9375rem] font-medium text-cream underline underline-offset-4 hover:text-accent">{content.hero.coverageLink}</a>
                 )}
               </>
             ) : (

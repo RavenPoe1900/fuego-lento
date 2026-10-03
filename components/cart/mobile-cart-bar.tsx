@@ -1,6 +1,6 @@
 "use client";
 
-import { ShoppingBag } from "lucide-react";
+import { ReceiptText } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
@@ -46,11 +46,10 @@ export function MobileCartBar() {
             animate={{ scale: 1 }}
             transition={{ duration: 0.25, ease: EASE_EDITORIAL }}
           >
-            <Button size="lg" className="w-full justify-between whitespace-nowrap" onClick={open} aria-label={`Ver pedido: ${totals.itemCount} productos, ${formatPrice(totals.subtotal)}`}>
-              <span className="flex items-center gap-2">
-                <ShoppingBag className="size-5" aria-hidden />
-                <span className="rounded-full bg-black/25 px-2 py-0.5 text-sm"><AnimatedCounter value={totals.itemCount} /></span>
-                <span>{totals.itemCount === 1 ? "producto" : "productos"} · <span className="font-bold">Ver pedido</span></span>
+            <Button size="lg" className="w-full !justify-between whitespace-nowrap" onClick={open} aria-label={`Ver comanda: ${totals.itemCount} productos, ${formatPrice(totals.subtotal)}`}>
+              <span className="flex items-center gap-2.5">
+                <ReceiptText className="size-[18px]" aria-hidden />
+                <span>Ver comanda · <AnimatedCounter value={totals.itemCount} /></span>
               </span>
               <span className="tabular-nums">{formatPrice(totals.subtotal)}</span>
             </Button>

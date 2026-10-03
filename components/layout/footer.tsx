@@ -11,7 +11,7 @@ import { isPreview } from "@/lib/dev";
 import { todayHours } from "@/lib/schedule";
 import { useStoreStatus } from "@/lib/use-store-status";
 
-const COL = "mb-4 text-[0.8125rem] font-bold uppercase tracking-[0.14em] text-muted";
+const COL = "eyebrow mb-4 !text-muted";
 
 /** Tres columnas. Cada fila existe solo si el dato está confirmado. */
 export function Footer() {
@@ -32,7 +32,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-3">
           <div className="space-y-4">
             <p className="flex items-center gap-2.5 font-display text-[1.9rem] font-semibold">
-              <Flame className="size-7 text-fire" aria-hidden /> {restaurant.shortName}
+              <Flame className="size-7 text-accent" aria-hidden /> {restaurant.shortName}
             </p>
             <p className="max-w-xs text-base text-cream2">{content.footer.description}</p>
           </div>
@@ -60,13 +60,13 @@ export function Footer() {
               {hoursToday && <li className="text-cream2">Hoy · {hoursToday}</li>}
               {contact.map(({ icon: Icon, label, value, href }) => (
                 <li key={label} className="flex items-start gap-3 text-cream2">
-                  <Icon className="mt-1 size-[18px] shrink-0 text-fire" aria-hidden />
+                  <Icon className="mt-1 size-[18px] shrink-0 text-accent" aria-hidden />
                   <span><span className="sr-only">{label}: </span>{href ? <a href={href} className="hover:text-cream">{value}</a> : value}</span>
                 </li>
               ))}
               <li>
                 <a href={restaurant.instagram.url} target="_blank" rel="noopener noreferrer" className="flex min-h-11 items-center gap-3 text-cream2 hover:text-cream">
-                  <Instagram className="size-[18px] shrink-0 text-fire" /> {restaurant.instagram.handle}
+                  <Instagram className="size-[18px] shrink-0 text-accent" /> {restaurant.instagram.handle}
                   <span className="sr-only">(se abre en una pestaña nueva)</span>
                 </a>
               </li>

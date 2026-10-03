@@ -3,16 +3,13 @@
 import { useMemo, useState } from "react";
 import { ProductCard } from "@/components/menu/product-card";
 import { LinkButton } from "@/components/shared/button";
+import { chipClass as chip } from "@/components/shared/chip";
 import { Container, Section } from "@/components/shared/layout";
 import { content } from "@/config/content";
 import { homeCategoryIds } from "@/data/categories";
 import { getAllProducts, getFeaturedProducts, getVisibleCategories } from "@/lib/catalog";
 import { useStoreStatus } from "@/lib/use-store-status";
 
-const chip = (on: boolean) =>
-  `min-h-11 shrink-0 rounded-full border px-5 text-[0.9375rem] font-semibold transition-colors ${
-    on ? "border-ember bg-ember text-cream" : "border-transparent bg-white/[0.06] text-cream2 hover:bg-white/[0.1] hover:text-cream"
-  }`;
 
 /** Menú dentro de la portada: cuadrícula funcional con selector de familia. Compra o consulta según el estado del servicio. */
 export function HomeMenu() {

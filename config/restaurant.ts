@@ -17,9 +17,10 @@ export const restaurant = {
    * Menú, precios, horarios y cobertura aún no han sido proporcionados.
    */
   storefront: {
-    status: "temporarily_closed",
-    statusMessage: "Temporalmente cerrado por reparaciones",
-    orderingEnabled: false,
+    // TEMPORAL (vista previa del diseño): revertir a "temporarily_closed" / orderingEnabled false / whatsappOrderingEnabled false
+    status: "open",
+    statusMessage: "",
+    orderingEnabled: true,
     hoursStatus: "unavailable",
     coverageEnabled: false,
     historyApproved: false,
@@ -27,7 +28,7 @@ export const restaurant = {
     menuApproved: false,
     pricesConfirmed: false,
     reopeningSignupEnabled: false,
-    whatsappOrderingEnabled: false,
+    whatsappOrderingEnabled: true,
     paymentMethodsConfirmed: false,
   } satisfies StorefrontConfig as StorefrontConfig,
 

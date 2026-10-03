@@ -13,6 +13,27 @@ import type { OptionGroup, Product } from "@/types/product";
 
 export type SelectionError = { groupId: string; message: string };
 
+/**
+ * Selección inicial: en los grupos obligatorios que tienen una opción incluida
+ * disponible se preselecciona esa, para no obligar a decidir. Los que no tienen
+ * una opción incluida clara (cocción, "elige 2 salsas") quedan vacíos.
+ */
+export function defaultSelections(product: Product): Selections {
+  const out: Selections = {};
+  for (const g of product.optionGroups) {
+    if (!g.required && g.kind !== "substitution") continue;
+    if (g.minSelections !== 1) continue;
+    const inc = g.options.find((o) => o.included && o.available);
+    if (inc) out[g.id] = [inc.id];
+  }
+  return out;
+}
+
+/** true si, tras aplicar los valores por defecto, aún falta elegir algo obligatorio. */
+export function needsUserChoice(product: Product): boolean {
+  return validateSelections(product, defaultSelections(product)).length > 0;
+}
+
 /** Texto de la regla del grupo: "Elige 1", "Elige hasta 2"… */
 export function groupRuleText(group: OptionGroup): string {
   const { minSelections: min, maxSelections: max, kind } = group;

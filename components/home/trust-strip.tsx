@@ -23,7 +23,7 @@ export function TrustStrip() {
         <ul className="grid gap-x-6 gap-y-5 sm:grid-cols-2 lg:grid-cols-4">
           {items.map(({ icon: Icon, title, text }) => (
             <li key={title} className="flex items-center gap-4">
-              <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-ember/15 text-fire"><Icon className="size-[22px]" aria-hidden /></span>
+              <span className="flex size-11 shrink-0 items-center justify-center rounded-ui bg-accent/15 text-accent"><Icon className="size-[22px]" aria-hidden /></span>
               <div>
                 <p className="text-base font-semibold leading-tight">{title}</p>
                 <p className="mt-0.5 text-[0.9375rem] leading-snug text-cream2">{text}</p>

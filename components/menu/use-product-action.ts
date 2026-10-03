@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { track } from "@/lib/analytics";
+import { defaultSelections, needsUserChoice } from "@/lib/order-calculations";
 import { useStoreStatus } from "@/lib/use-store-status";
 import { toast } from "sonner";
 import { useCart } from "@/store/cart-store";
@@ -21,7 +22,8 @@ export function useProductAction(product: Product) {
   /** Solo se puede comprar cuando el servicio está habilitado */
   const canBuy = orderingEnabled;
   const showPrice = showPrices;
-  const custom = product.optionGroups.length > 0;
+  /** Hay opciones obligatorias: no se puede añadir sin elegirlas, así que la acción abre el detalle */
+  const needsChoice = needsUserChoice(product);
   /** "Desde" solo si una opción obligatoria cambia el precio */
   const priceVaries = product.optionGroups.some((g) => g.required && new Set(g.options.map((o) => o.priceDelta)).size > 1);
 
@@ -30,7 +32,7 @@ export function useProductAction(product: Product) {
     openProduct(product.id);
   };
   const quickAdd = () => {
-    add({ productId: product.id, quantity: 1, selections: {}, note: "" });
+    add({ productId: product.id, quantity: 1, selections: defaultSelections(product), note: "" });
     track("product_added", { id: product.id });
     toast.success("Producto añadido", { description: product.name });
     setAdded(true);
@@ -38,5 +40,5 @@ export function useProductAction(product: Product) {
     timer.current = setTimeout(() => setAdded(false), 1400);
   };
 
-  return { soldOut, canBuy, showPrice, custom, priceVaries, added, open, quickAdd };
+  return { soldOut, canBuy, showPrice, needsChoice, priceVaries, added, open, quickAdd };
 }

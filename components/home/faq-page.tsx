@@ -17,7 +17,7 @@ function Accordion({ items, name }: { items: FaqItem[]; name: string }) {
         <details key={f.id} name={name} className="group">
           <summary className="flex min-h-[60px] cursor-pointer list-none items-center justify-between gap-4 py-4 text-[1.0625rem] font-semibold [&::-webkit-details-marker]:hidden">
             <span>{f.question}</span>
-            <ChevronDown className="size-5 shrink-0 text-fire transition-transform duration-200 group-open:rotate-180" aria-hidden />
+            <ChevronDown className="size-5 shrink-0 text-accent transition-transform duration-200 group-open:rotate-180" aria-hidden />
           </summary>
           <p className="max-w-2xl pb-6 pr-8 text-base leading-relaxed text-cream2">{f.answer}</p>
         </details>

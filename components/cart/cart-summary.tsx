@@ -18,9 +18,9 @@ export function CartSummary({ totals, method }: { totals: Totals; method: Delive
       )}
       {totals.serviceFee > 0 && <Row label="Cargo por servicio" value={formatPrice(totals.serviceFee)} />}
       {totals.discount > 0 && <Row label="Descuento" value={`−${formatPrice(totals.discount)}`} />}
-      <div className="flex items-baseline justify-between pt-3 text-lg font-bold">
-        <dt>{method === "delivery" && !feeKnown ? "Subtotal estimado" : "Total estimado"}</dt>
-        <dd className="tabular-nums">{formatPrice(totals.total)}</dd>
+      <div className="mt-3 flex items-baseline justify-between gap-4 border-t border-line pt-3">
+        <dt className="label-mono text-accent">{method === "delivery" && !feeKnown ? "Subtotal estimado" : "Total estimado"}</dt>
+        <dd className="font-display text-[2rem] font-light leading-none tabular-nums">{formatPrice(totals.total)}</dd>
       </div>
     </dl>
   );
@@ -30,7 +30,7 @@ function Row({ label, value, muted }: { label: string; value: string; muted?: bo
   return (
     <div className="flex justify-between gap-4">
       <dt className="text-cream2">{label}</dt>
-      <dd className={`tabular-nums ${muted ? "text-cream2" : ""}`}>{value}</dd>
+      <dd className={`font-mono text-[0.875rem] tabular-nums ${muted ? "text-cream2" : ""}`}>{value}</dd>
     </div>
   );
 }

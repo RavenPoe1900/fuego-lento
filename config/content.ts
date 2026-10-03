@@ -23,18 +23,28 @@ export const content = {
 
   /** Texto editorial que describe la oferta sin afirmar historia, trayectoria ni datos. */
   manifesto: {
-    label: "Manifiesto",
+    label: "Oficio",
     title: "El sabor no se improvisa.",
     text: "Cortes, hamburguesas y especialidades preparados al fuego",
     textOrdering: " y personalizados para cada pedido.",
+    /**
+     * Composición 5/4/3: foto de producto · texto · foto de ambiente.
+     * PENDIENTE: fotos de ejemplo. Solo se muestran en la vista previa hasta que `imagesApproved` sea true.
+     */
+    imagesApproved: false,
+    images: [
+      { src: "/img/demo/social-cortes.jpg", alt: "Cortes de carne cruda sobre una tabla de madera" },
+      { src: "/img/demo/brasas.jpg", alt: "Fuego encendido sobre brasas en la oscuridad" },
+    ],
   },
 
-  /** Pausa tipográfica: palabras clave, sin afirmaciones. */
+  /** Pausa tipográfica: palabras clave, sin afirmaciones. PENDIENTE de revisión de copy. */
   pause: ["Fuego.", "Corte.", "Tiempo."],
+  pauseLabel: "Cocina de fuego",
 
   families: {
     title: "Elige tu punto de partida",
-    description: "Cinco familias, una misma cocina de fuego.",
+    description: "Una misma cocina de fuego.",
   },
 
   specialties: {
@@ -45,11 +55,13 @@ export const content = {
 
   /** Secuencia visual: palabras sueltas, sin afirmaciones. */
   experience: {
-    srTitle: "Del fuego a la mesa",
+    eyebrow: "Secuencia",
+    title: "Del fuego a la mesa",
     panels: [
       { word: "Brasas", image: { src: "/img/demo/social-costillas.jpg", alt: "Costillas ahumadas recién cortadas sobre una tabla" } },
       { word: "Corte", image: { src: "/img/demo/corte-rebanado.jpg", alt: "Corte de res jugoso cortado con cuchillo y tenedor" } },
       { word: "Mesa", image: { src: "/img/demo/social-mesa.jpg", alt: "Mesa con brochetas, vegetales asados y salsas" } },
+      { word: "Plancha", image: { src: "/img/demo/parrillada.jpg", alt: "Carne rebanada y papas sobre una plancha de hierro" } },
     ],
   },
 

@@ -168,7 +168,7 @@ export function CheckoutFlow() {
         <ol className="grid grid-cols-3 gap-2">
           {STEPS.map((label, i) => (
             <li key={label} aria-current={i === step ? "step" : undefined}>
-              <div className={`h-1 rounded-full transition-colors duration-200 ${i <= step ? "bg-fire" : "bg-white/10"}`} />
+              <div className={`h-1 rounded-full transition-colors duration-200 ${i <= step ? "bg-accent" : "bg-white/10"}`} />
               <span className={`mt-2 flex items-center gap-1.5 text-sm ${i === step ? "font-semibold text-cream" : "text-cream2"}`}>
                 {i < step && <Check className="size-3.5 text-ok" aria-hidden />}
                 {i + 1}. {label}
@@ -208,7 +208,7 @@ export function CheckoutFlow() {
                         return (
                           <label key={m} className={radioCard(on)}>
                             <input type="radio" name="method" className="sr-only" checked={on} onChange={() => { co.set({ deliveryMethod: m, paymentMethod: null }); track("fulfillment_selected", { method: m }); setErrors({}); }} />
-                            <Icon className="mt-0.5 size-6 text-fire" aria-hidden />
+                            <Icon className="mt-0.5 size-6 text-accent" aria-hidden />
                             <span>
                               <span className="block font-semibold">{m === "delivery" ? "Entrega a domicilio" : "Recogida en el restaurante"}</span>
                               <span className="text-sm text-cream2">{m === "delivery" ? "Te lo llevamos a tu dirección." : "Sin costo de envío."}</span>

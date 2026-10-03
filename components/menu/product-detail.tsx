@@ -13,7 +13,7 @@ import { track } from "@/lib/analytics";
 import { isDev } from "@/lib/dev";
 import { getProduct } from "@/lib/catalog";
 import { formatDelta, formatPrice } from "@/lib/currency";
-import { groupRuleText, normalizeNote, unitPrice, validateSelections } from "@/lib/order-calculations";
+import { defaultSelections, groupRuleText, normalizeNote, unitPrice, validateSelections } from "@/lib/order-calculations";
 import { useStoreStatus } from "@/lib/use-store-status";
 import { useCart } from "@/store/cart-store";
 import { useUi } from "@/store/ui-store";
@@ -39,18 +39,6 @@ export function ProductDetailHost() {
   if (product && key && snap?.key !== key) setSnap({ key, product, line });
   if (!snap) return null;
   return <ProductDetail key={snap.key} open={key === snap.key} product={snap.product} line={snap.line} onClose={close} onExitComplete={() => setSnap(null)} />;
-}
-
-function defaultSelections(product: Product): Selections {
-  const out: Selections = {};
-  for (const g of product.optionGroups) {
-    // Sustituciones: se preselecciona lo incluido para no obligar a decidir.
-    if (g.kind === "substitution") {
-      const inc = g.options.find((o) => o.included && o.available);
-      if (inc) out[g.id] = [inc.id];
-    }
-  }
-  return out;
 }
 
 function ProductDetail({ open, product, line, onClose, onExitComplete }: { open: boolean; product: Product; line?: Snapshot["line"]; onClose: () => void; onExitComplete: () => void }) {
@@ -131,6 +119,7 @@ function ProductDetail({ open, product, line, onClose, onExitComplete }: { open:
       onExitComplete={onExitComplete}
       title={product.name}
       hideTitle
+      split
       footer={
         canBuy ? (
           <div className="flex items-center gap-3">
@@ -147,13 +136,13 @@ function ProductDetail({ open, product, line, onClose, onExitComplete }: { open:
         )
       }
     >
-      <div ref={bodyRef} className="grid sm:grid-cols-[1fr_1.05fr]">
-        <div className="relative sm:sticky sm:top-0 sm:self-start">
-          <ProductImage product={product} ratio="aspect-[4/3] sm:aspect-[4/5]" sizes="(min-width:640px) 480px, 100vw" priority />
+      <div ref={bodyRef} className="sm:grid sm:h-full sm:grid-cols-[1fr_1.05fr] sm:grid-rows-[minmax(0,1fr)]">
+        <div className="relative sm:h-full">
+          <ProductImage product={product} ratio="aspect-[4/3] sm:aspect-auto sm:h-full" sizes="(min-width:640px) 480px, 100vw" priority />
           {product.images[0] && <span className="sr-only">{product.images[0].alt}</span>}
         </div>
 
-        <div className="space-y-6 p-5 sm:p-7">
+        <div className="min-h-0 space-y-6 p-5 sm:overflow-y-auto sm:overscroll-contain sm:p-7">
           <header>
             <div className="mb-3 flex flex-wrap gap-1.5">
               {!product.available ? <Badge tone="err">Agotado</Badge> : <ProductTags product={product} />}
@@ -265,8 +254,8 @@ function OptionGroupField({
           return (
             <label
               key={o.id}
-              className={`flex min-h-12 cursor-pointer items-center gap-3 rounded-ui border px-3 py-2 transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-fire ${
-                checked ? "border-fire bg-ember/15" : "border-line hover:bg-white/5"
+              className={`relative flex min-h-12 cursor-pointer items-center gap-3 rounded-ui border px-3 py-2 transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-fire ${
+                checked ? "border-accent bg-accent/15" : "border-line hover:bg-white/5"
               } ${off && !checked ? "cursor-not-allowed opacity-45" : ""}`}
             >
               <input
@@ -279,7 +268,7 @@ function OptionGroupField({
               />
               <span
                 aria-hidden
-                className={`flex size-5 shrink-0 items-center justify-center border ${single ? "rounded-full" : "rounded-md"} ${checked ? "border-fire bg-fire text-carbon" : "border-cream2/60"}`}
+                className={`flex size-5 shrink-0 items-center justify-center border ${single ? "rounded-full" : "rounded-md"} ${checked ? "border-accent bg-accent text-carbon" : "border-cream2/60"}`}
               >
                 {checked && <Check className="size-3.5" strokeWidth={3} />}
               </span>

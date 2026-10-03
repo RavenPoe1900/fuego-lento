@@ -20,7 +20,7 @@ export function SectionHeading({
 }) {
   return (
     <div className={`mb-10 max-w-2xl lg:mb-12 ${align === "center" ? "mx-auto text-center" : ""}`}>
-      {eyebrow && <p className={`eyebrow mb-4 ${onLight ? "!text-ember" : ""}`}>{eyebrow}</p>}
+      {eyebrow && <p className={`eyebrow mb-4 ${onLight ? "!text-accent-light" : ""}`}>{eyebrow}</p>}
       <h2 id={id} className="t-h2">
         {title}
       </h2>

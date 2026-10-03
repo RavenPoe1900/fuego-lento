@@ -18,7 +18,7 @@ export function ProductImage({
 }) {
   const img = product.images[0];
   return (
-    <div className={`food-wrap relative overflow-hidden bg-surface2 ${ratio} ${className}`}>
+    <div className={`food-wrap @container relative overflow-hidden bg-surface2 ${ratio} ${className}`}>
       {img ? (
         <Image
           src={img.src}
@@ -31,7 +31,7 @@ export function ProductImage({
       ) : (
         <div className="ember-glow flex h-full w-full flex-col items-center justify-center gap-2 text-cream2/60" role="img" aria-label={`${product.name}: sin fotografía`}>
           <Flame className="size-9" aria-hidden />
-          <span className="text-xs uppercase tracking-widest">Foto próximamente</span>
+          <span className="font-mono text-[0.6875rem] uppercase tracking-[0.16em] @max-[10rem]:hidden">Foto próximamente</span>
         </div>
       )}
     </div>

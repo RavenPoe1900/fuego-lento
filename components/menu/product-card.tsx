@@ -19,20 +19,21 @@ type Variant = "default" | "main" | "row";
  * - row: tarjeta compacta horizontal (secundarios de la portada).
  */
 export function ProductCard({ product, variant = "default", priority }: { product: Product; variant?: Variant; priority?: boolean }) {
-  const { soldOut, canBuy, showPrice, custom, priceVaries, added, open, quickAdd } = useProductAction(product);
+  const { soldOut, canBuy, showPrice, needsChoice, priceVaries, added, open, quickAdd } = useProductAction(product);
   const main = variant === "main";
   const row = variant === "row";
 
   const action = soldOut || !canBuy ? (
     <Button variant="soft" size="sm" onClick={open}>Ver detalle</Button>
-  ) : custom ? (
-    <Button variant="soft" size="sm" onClick={open}>
-      <SlidersHorizontal className="size-4" aria-hidden /> Personalizar
+  ) : needsChoice ? (
+    // Falta una elección obligatoria sin valor por defecto (cocción, salsas…): se hace en el detalle
+    <Button variant="soft" size="sm" onClick={open} aria-label={`Elegir opciones de ${product.name}`}>
+      <SlidersHorizontal className="size-4" aria-hidden /> Elegir opciones
     </Button>
   ) : (
     <Button variant="soft" size="sm" onClick={quickAdd} aria-label={`Añadir ${product.name} al pedido`} className={added ? "!bg-ok" : ""}>
       {added ? <Check className="size-4" aria-hidden /> : <Plus className="size-4" aria-hidden />}
-      {added ? "Añadido" : "Añadir"}
+      {added ? "Añadido" : "Añadir al pedido"}
     </Button>
   );
 
@@ -48,7 +49,7 @@ export function ProductCard({ product, variant = "default", priority }: { produc
 
   return (
     <article
-      className={`group relative flex h-full overflow-hidden rounded-[14px] bg-white/[0.03] ring-1 ring-white/[0.07] transition-[transform,background-color,box-shadow] duration-[220ms] ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-1 hover:bg-white/[0.045] hover:shadow-[0_16px_32px_rgba(0,0,0,0.35)] motion-reduce:hover:translate-y-0 ${
+      className={`group relative flex h-full overflow-hidden rounded-card bg-white/[0.03] ring-1 ring-white/[0.07] transition-[transform,background-color,box-shadow] duration-[220ms] ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-1 hover:bg-white/[0.045] hover:shadow-[0_16px_32px_rgba(0,0,0,0.35)] motion-reduce:hover:translate-y-0 ${
         row ? "flex-row" : "flex-col"
       } ${soldOut ? "opacity-75" : ""}`}
     >
@@ -73,7 +74,7 @@ export function ProductCard({ product, variant = "default", priority }: { produc
       <div className={`flex flex-col ${row ? "flex-1 p-4" : main ? "p-6 lg:p-8" : "flex-1 p-5 sm:p-6"}`}>
         {row && tag && <div className="mb-2 flex">{tag}</div>}
         <h3 className={`leading-tight ${main ? "text-[1.75rem] lg:text-[2.25rem]" : row ? "text-[1.25rem]" : "text-[1.375rem]"}`}>
-          <button type="button" onClick={open} className="text-left hover:text-fire focus-visible:text-fire">{product.name}</button>
+          <button type="button" onClick={open} className="text-left hover:text-accent focus-visible:text-accent">{product.name}</button>
         </h3>
         {!row && (
           <p className={`mt-2 text-base leading-relaxed text-cream2 ${main ? "line-clamp-1" : "line-clamp-2"}`}>{product.shortDescription}</p>

@@ -41,9 +41,9 @@ export function CartLines({ onEdit }: { onEdit?: () => void }) {
               <div className="min-w-0 flex-1">
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="text-[1.25rem] leading-tight">{p.name}</h3>
-                  <span className="font-semibold tabular-nums">{formatPrice(p.lineTotal)}</span>
+                  <span className="font-mono text-[0.9375rem] font-medium text-accent tabular-nums">{formatPrice(p.lineTotal)}</span>
                 </div>
-                <p className="text-sm text-muted tabular-nums">{formatPrice(p.unitPrice)} c/u</p>
+                <p className="font-mono text-[0.75rem] text-muted tabular-nums">{formatPrice(p.unitPrice)} c/u</p>
                 {p.details.length > 0 && (
                   <ul className="mt-1.5 text-sm leading-snug text-cream2">{p.details.map((d) => (<li key={d}>{d}</li>))}</ul>
                 )}

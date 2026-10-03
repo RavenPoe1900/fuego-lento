@@ -23,6 +23,7 @@ export function Dialog({
   hideTitle,
   headerExtra,
   onExitComplete,
+  split,
 }: {
   open: boolean;
   onClose: () => void;
@@ -34,13 +35,15 @@ export function Dialog({
   headerExtra?: ReactNode;
   /** Se llama cuando la animación de salida termina (para desmontar contenido). */
   onExitComplete?: () => void;
+  /** Escritorio: altura fija y dos columnas con scroll propio (el panel no cambia de tamaño al elegir). */
+  split?: boolean;
 }) {
   const reduce = useReducedMotion();
 
   const panelClass =
     variant === "drawer"
       ? "ml-auto h-full w-full max-w-[460px] sm:rounded-l-card"
-      : "mt-auto h-[92dvh] w-full rounded-t-[20px] sm:m-auto sm:h-auto sm:max-h-[90dvh] sm:max-w-[980px] sm:rounded-card";
+      : `mt-auto h-[92dvh] w-full rounded-t-card sm:m-auto sm:max-w-[980px] sm:rounded-card ${split ? "sm:h-[min(90dvh,800px)]" : "sm:h-auto sm:max-h-[90dvh]"}`;
 
   const motionProps = reduce
     ? { initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 }, transition: { duration: 0.12 } }
@@ -71,10 +74,10 @@ export function Dialog({
               <DialogPrimitive.Content forceMount asChild aria-describedby={undefined}>
                 <motion.div
                   {...motionProps}
-                  className={`relative flex flex-col overflow-hidden border border-line bg-warm shadow-[var(--shadow)] outline-none ${panelClass}`}
+                  className={`relative flex flex-col overflow-clip border border-line bg-warm shadow-[var(--shadow)] outline-none ${panelClass}`}
                 >
                   <div className="flex shrink-0 items-center justify-between gap-2 border-b border-line px-5 py-2">
-                    <DialogPrimitive.Title className={hideTitle ? "sr-only" : "text-2xl"}>{title}</DialogPrimitive.Title>
+                    <DialogPrimitive.Title className={hideTitle ? "sr-only" : "text-[1.75rem] font-light leading-tight"}>{title}</DialogPrimitive.Title>
                     {hideTitle && <span />}
                     <div className="flex items-center gap-1">
                       {headerExtra}
@@ -85,7 +88,7 @@ export function Dialog({
                       </DialogPrimitive.Close>
                     </div>
                   </div>
-                  <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain">{children}</div>
+                  <div className={`min-h-0 flex-1 overflow-y-auto overscroll-contain ${split ? "sm:overflow-clip" : ""}`}>{children}</div>
                   {footer && <div className="shrink-0 border-t border-line bg-warm p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">{footer}</div>}
                 </motion.div>
               </DialogPrimitive.Content>

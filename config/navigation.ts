@@ -3,11 +3,18 @@ import type { Storefront } from "@/lib/storefront";
 
 export type NavItem = { label: string; href: string };
 
-/** Navegación principal: solo enlaces a contenido que existe y está confirmado. */
+/**
+ * Navegación principal: solo enlaces a secciones que se renderizan.
+ * Manifiesto y Entrega existen siempre (Entrega muestra el estado del servicio);
+ * Familias, Menú y Especialidades dependen de que el menú esté aprobado.
+ */
 export function getMainNavigation(sf: Storefront): NavItem[] {
   return [
+    { label: "Oficio", href: "/#manifiesto" },
+    sf.showMenu && { label: "Familias", href: "/#familias" },
     sf.showMenu && { label: "Menú", href: "/menu/" },
-    sf.showDelivery && { label: "Cobertura", href: "/#cobertura" },
+    sf.showMenu && { label: "Especialidades", href: "/#especialidades" },
+    { label: "Entrega", href: "/#cobertura" },
   ].filter(Boolean) as NavItem[];
 }
 

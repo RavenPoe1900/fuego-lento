@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
-import { PreviewBanner } from "@/components/demo/preview-banner";
+import { Cormorant_Garamond, IBM_Plex_Mono, Manrope } from "next/font/google";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { Providers } from "@/components/providers";
@@ -9,8 +8,10 @@ import { isPreview } from "@/lib/dev";
 import { baseStorefront } from "@/lib/storefront";
 import "./globals.css";
 
-const display = Cormorant_Garamond({ variable: "--font-display", subsets: ["latin"], weight: ["400", "500", "600", "700"] });
+const display = Cormorant_Garamond({ variable: "--font-display", subsets: ["latin"], weight: ["300", "400", "500", "600"] });
 const ui = Manrope({ variable: "--font-ui", subsets: ["latin"] });
+/** Solo etiquetas, precios, filtros, botones y estados. Los párrafos siguen en Manrope. */
+const mono = IBM_Plex_Mono({ variable: "--font-plex-mono", subsets: ["latin"], weight: ["400", "500"] });
 
 const description = baseStorefront.orderingEnabled
   ? restaurant.seo.description
@@ -36,12 +37,11 @@ export const viewport: Viewport = { themeColor: "#0b0b0a", width: "device-width"
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" className={`${display.variable} ${ui.variable}`}>
+    <html lang="es" className={`${display.variable} ${ui.variable} ${mono.variable}`}>
       <body className="flex min-h-dvh flex-col">
         <a href="#contenido" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:rounded-ui focus:bg-ember focus:px-4 focus:py-3">
           Saltar al contenido
         </a>
-        <PreviewBanner />
         <Header />
         <main id="contenido" className="flex-1">
           {children}

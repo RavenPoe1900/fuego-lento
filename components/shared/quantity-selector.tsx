@@ -14,11 +14,11 @@ export function QuantitySelector({
   label: string;
 }) {
   return (
-    <div role="group" aria-label={`Cantidad de ${label}`} className="inline-flex items-center rounded-full border border-line bg-surface">
+    <div role="group" aria-label={`Cantidad de ${label}`} className="inline-flex items-center rounded-ui border border-line bg-surface">
       <button
         type="button"
         aria-label={`Disminuir cantidad de ${label}`}
-        className="inline-flex size-11 items-center justify-center rounded-full hover:bg-white/10 disabled:opacity-35"
+        className="inline-flex size-11 items-center justify-center rounded-ui hover:bg-white/10 disabled:opacity-35"
         onClick={() => onChange(value - 1)}
         disabled={value <= min}
       >
@@ -30,7 +30,7 @@ export function QuantitySelector({
       <button
         type="button"
         aria-label={`Aumentar cantidad de ${label}`}
-        className="inline-flex size-11 items-center justify-center rounded-full hover:bg-white/10 disabled:opacity-35"
+        className="inline-flex size-11 items-center justify-center rounded-ui hover:bg-white/10 disabled:opacity-35"
         onClick={() => onChange(value + 1)}
         disabled={value >= max}
       >

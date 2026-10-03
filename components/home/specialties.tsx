@@ -38,7 +38,7 @@ export function Specialties() {
                     className="group flex w-full items-center gap-5 py-5 text-left lg:gap-7 lg:py-6"
                     aria-label={`Ver ${p.name}`}
                   >
-                    <span className={`w-9 shrink-0 font-display text-[1.375rem] tabular-nums transition-colors ${active === i ? "text-fire" : "text-muted"}`}>{String(i + 1).padStart(2, "0")}</span>
+                    <span className={`w-9 shrink-0 font-display text-[1.375rem] tabular-nums transition-colors ${active === i ? "text-accent" : "text-muted"}`}>{String(i + 1).padStart(2, "0")}</span>
                     <span className="min-w-0 flex-1">
                       <span className={`block font-display text-[clamp(1.6rem,2.6vw,2.4rem)] leading-tight transition-colors ${active === i ? "text-cream" : "text-cream2"}`}>{p.name}</span>
                       <span className="mt-1 block line-clamp-1 text-[0.9375rem] text-muted">{p.shortDescription}</span>
@@ -56,7 +56,7 @@ export function Specialties() {
 
           {/* Vista previa (solo escritorio): se cruza con fundido al cambiar de elemento */}
           <div className="relative hidden lg:col-span-5 lg:col-start-8 lg:block" aria-hidden>
-            <div className="sticky top-[calc(var(--header-height)+32px)] aspect-[4/5] overflow-hidden rounded-[14px]">
+            <div className="sticky top-[calc(var(--header-height)+32px)] aspect-[4/5] overflow-hidden rounded-card">
               {items.map((p, i) => (
                 <Image key={p.id} src={p.images[0].src} alt="" fill sizes="480px" className={`food-image object-cover transition-opacity duration-300 ${active === i ? "opacity-100" : "opacity-0"}`} />
               ))}

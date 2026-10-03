@@ -6,26 +6,32 @@ type Variant = "primary" | "secondary" | "soft" | "ghost" | "link";
 type Size = "md" | "lg" | "sm";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-[11px] font-semibold transition-colors duration-150 select-none active:scale-[0.98] disabled:pointer-events-none disabled:opacity-45 aria-disabled:pointer-events-none aria-disabled:opacity-45";
+  "inline-flex items-center justify-center gap-2 rounded-ui transition-colors duration-150 select-none active:scale-[0.98] disabled:pointer-events-none disabled:opacity-45 aria-disabled:pointer-events-none aria-disabled:opacity-45";
 const variants: Record<Variant, string> = {
   /** Rojo brasa: solo la acción principal de cada sección */
-  primary: "bg-ember text-cream shadow-[0_8px_28px_rgba(214,73,47,0.18)] hover:bg-[var(--ember-hover)]",
+  primary: "bg-ember text-cream shadow-[0_8px_28px_rgba(214,73,47,0.16)] hover:bg-[var(--ember-hover)]",
   /** Borde neutro: acciones secundarias */
   secondary: "border border-cream/[0.22] bg-cream/[0.025] text-cream hover:border-cream/45 hover:bg-cream/[0.07]",
-  /** Acciones repetidas (tarjetas): discretas hasta el hover */
-  soft: "bg-cream/[0.08] text-cream hover:bg-ember",
+  /** Acciones repetidas (tarjetas): discretas también en hover, nunca rojas */
+  soft: "bg-cream/[0.08] text-cream hover:bg-cream/[0.15]",
   ghost: "text-cream2 hover:bg-white/5 hover:text-cream",
   /** Terciaria: texto, sin contenedor */
   link: "!min-h-0 !px-0 gap-1.5 text-cream2 underline-offset-4 hover:text-cream hover:underline",
 };
 const sizes: Record<Size, string> = {
-  sm: "min-h-[46px] px-5 text-[0.9375rem]",
-  md: "min-h-[50px] px-6 text-[0.9375rem]",
-  lg: "min-h-[54px] px-7 text-base",
+  sm: "min-h-[46px] px-5",
+  md: "min-h-[50px] px-6",
+  lg: "min-h-[54px] px-7",
 };
 
+/** Rótulo en mono mayúsculas para botones; el enlace terciario conserva la sans de lectura. */
+function labelClass(variant: Variant, size: Size) {
+  if (variant === "link") return "text-[0.9375rem] font-semibold";
+  return `font-mono font-medium uppercase tracking-[0.16em] ${size === "lg" ? "text-[0.8125rem]" : "text-[0.75rem]"}`;
+}
+
 export function buttonClass(variant: Variant = "primary", size: Size = "md", extra = "") {
-  return `${base} ${variants[variant]} ${sizes[size]} ${extra}`;
+  return `${base} ${variants[variant]} ${sizes[size]} ${labelClass(variant, size)} ${extra}`;
 }
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & {

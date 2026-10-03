@@ -1,5 +1,6 @@
 "use client";
 
+import { chipClass as chip } from "@/components/shared/chip";
 import { Popover } from "radix-ui";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -31,10 +32,6 @@ function matches(p: Product, q: string, catName: string) {
   return q.split(/\s+/).every((word) => hay.includes(word));
 }
 
-const chip = (on: boolean) =>
-  `min-h-11 shrink-0 rounded-full border px-5 text-[0.9375rem] font-semibold transition-colors ${
-    on ? "border-ember bg-ember text-cream" : "border-transparent bg-white/[0.06] text-cream2 hover:bg-white/[0.1] hover:text-cream"
-  }`;
 
 export function MenuView() {
   const sf = useStoreStatus();
