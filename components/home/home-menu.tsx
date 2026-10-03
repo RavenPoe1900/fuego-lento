@@ -43,7 +43,7 @@ export function HomeMenu() {
           ))}
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6 max-sm:[&>*:nth-child(n+5)]:hidden">
+        <div className="grid gap-3 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6 max-sm:[&>*:nth-child(n+5)]:hidden">
           {items.map((p) => (<ProductCard key={p.id} product={p} />))}
         </div>
       </Container>

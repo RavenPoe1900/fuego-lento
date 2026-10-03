@@ -9,7 +9,7 @@ import { useStoreStatus } from "@/lib/use-store-status";
 
 /**
  * Texto editorial con mucho aire. Describe la oferta; no afirma historia ni trayectoria.
- * Con fotos aprobadas (o en la vista previa): 12 columnas en 5/4/3 escalonadas
+ * Con fotos aprobadas (o en la vista previa): 12 columnas en 4/4/4 (en móvil, texto arriba y fotos 6/6)
  * (producto · texto · ambiente). Sin fotos: solo tipografía.
  */
 export function Manifesto() {
@@ -30,15 +30,15 @@ export function Manifesto() {
         </div>
 
         {product && ambience && (
-          <div className="editorial-grid mt-14 items-center gap-y-10 lg:mt-16">
-            <RevealImage className="relative col-span-7 aspect-[4/5] overflow-hidden rounded-card lg:col-span-4">
-              <Image src={product.src} alt={product.alt} fill sizes="(min-width:1024px) 33vw, 58vw" className="food-image object-cover" />
+          <div className="editorial-grid mt-10 items-center gap-y-10 lg:mt-16">
+            <RevealImage className="relative col-span-6 aspect-[4/5] overflow-hidden rounded-card lg:col-span-4">
+              <Image src={product.src} alt={product.alt} fill sizes="(min-width:1024px) 33vw, 50vw" className="food-image object-cover" />
             </RevealImage>
-            <p className="col-span-12 row-start-1 max-w-[34ch] font-display text-[clamp(1.5rem,2.2vw,2.1rem)] font-light leading-snug text-cream2 lg:col-span-4 lg:row-start-auto lg:max-w-none lg:self-center lg:px-4 lg:text-center">
+            <p className="col-span-12 row-start-1 mx-auto max-w-[30ch] text-center font-display text-[clamp(1.375rem,2.2vw,2.1rem)] font-light leading-snug text-cream2 lg:col-span-4 lg:row-start-auto lg:max-w-none lg:self-center lg:px-4">
               {text}
             </p>
-            <RevealImage className="relative col-span-5 mt-20 aspect-[2/3] overflow-hidden rounded-card lg:col-span-4 lg:mt-0 lg:aspect-[4/5]">
-              <Image src={ambience.src} alt={ambience.alt} fill sizes="(min-width:1024px) 33vw, 42vw" className="food-image object-cover object-[10%_55%]" />
+            <RevealImage className="relative col-span-6 aspect-[4/5] overflow-hidden rounded-card lg:col-span-4">
+              <Image src={ambience.src} alt={ambience.alt} fill sizes="(min-width:1024px) 33vw, 50vw" className="food-image object-cover object-[10%_55%]" />
             </RevealImage>
           </div>
         )}
