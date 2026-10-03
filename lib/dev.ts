@@ -2,8 +2,8 @@
 export const isDev = process.env.NODE_ENV === "development";
 
 /**
- * Vista previa del diseño (desarrollo o `npm run build:preview`).
- * Solo aquí se renderiza contenido de ejemplo, siempre bajo una franja que lo
- * identifica. La build pública nunca muestra datos no confirmados.
+ * Vista previa del diseño: activa por defecto en todas las builds (también en Vercel),
+ * con contenido de ejemplo bajo una franja que lo identifica y sin indexar.
+ * Para la build pública que solo muestra datos confirmados: `NEXT_PUBLIC_PREVIEW=0 npm run build`.
  */
-export const isPreview = isDev || process.env.NEXT_PUBLIC_PREVIEW === "1";
+export const isPreview = process.env.NEXT_PUBLIC_PREVIEW !== "0";
