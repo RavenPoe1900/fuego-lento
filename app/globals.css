@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+/* ───────── Tokens ───────── */
+:root {
+  /* Superficies: 4 capas con contraste perceptible */
+  --carbon: #0d0b09;
+  --warm-black: #13100d;
+  --surface: #191511;
+  --surface-2: #211b16;
+  --surface-hover: #2a231d;
+  --terra: #2a130d; /* terracota muy oscuro */
+  --paper: #eee5d7; /* crema cálido para secciones de transición */
+  --ink: #1b1511; /* texto sobre crema */
+
+  --cream: #f4ecdf;
+  --cream-2: #d8cdbd;
+  --muted: #aaa093;
+
+  --ember: #d6492f;
+  --ember-hover: #e45739;
+  --fire: #ef6845;
+  --gold: #b98b58;
+  --available: #7d9b70;
+  --error: #e0594b;
+
+  --border: rgba(244, 236, 223, 0.1);
+  --border-strong: rgba(244, 236, 223, 0.18);
+
+  --radius: 10px;
+  --radius-lg: 16px;
+  --shadow: 0 16px 44px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.35);
+  --copper: #a9683e;
+
+  /* Alturas de navegación (el header NO cambia de altura al hacer scroll) */
+  --header-height: 64px;
+  --chips-height: 64px;
+}
+@media (min-width: 1024px) {
+  :root { --header-height: 76px; }
+  :root[data-scrolled="true"] { --header-height: 64px; }
+}
+
+@theme inline {
+  --color-carbon: var(--carbon);
+  --color-warm: var(--warm-black);
+  --color-surface: var(--surface);
+  --color-surface2: var(--surface-2);
+  --color-hover: var(--surface-hover);
+  --color-terra: var(--terra);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-cream: var(--cream);
+  --color-cream2: var(--cream-2);
+  --color-muted: var(--muted);
+  --color-ember: var(--ember);
+  --color-fire: var(--fire);
+  --color-gold: var(--gold);
+  --color-ok: var(--available);
+  --color-err: var(--error);
+  --color-line: var(--border);
+  --radius-ui: var(--radius);
+  --radius-card: var(--radius-lg);
+}
+
+@layer base {
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 16px);
+  color-scheme: dark;
+  font-size: 16px;
+}
+
+/* Todo destino por ancla queda debajo del header */
+section[id] {
+  scroll-margin-top: calc(var(--header-height) + 24px);
+}
+[id^="cat-"] {
+  scroll-margin-top: calc(var(--header-height) + var(--chips-height) + 24px);
+}
+
+body {
+  background: var(--carbon);
+  color: var(--cream);
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+::selection { background: var(--ember); color: var(--cream); }
+
+:focus-visible {
+  outline: 2px solid var(--fire);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+}
+
+@layer components {
+/* ───────── Escala tipográfica ───────── */
+.t-display { font-size: clamp(2.9rem, 12vw, 4.25rem); line-height: 0.94; letter-spacing: -0.025em; }
+.t-h1 { font-size: clamp(2.6rem, 9vw, 3.5rem); line-height: 0.96; letter-spacing: -0.025em; }
+.t-h2 { font-size: clamp(2.25rem, 7vw, 3rem); line-height: 1; letter-spacing: -0.02em; }
+.t-h3 { font-size: clamp(1.75rem, 5vw, 2.1rem); line-height: 1.05; }
+@media (min-width: 640px) {
+  .t-display { font-size: clamp(4rem, 7vw, 7.5rem); line-height: 0.92; }
+  .t-h1 { font-size: clamp(3.25rem, 5vw, 5.75rem); }
+  .t-h2 { font-size: clamp(2.5rem, 4vw, 4.5rem); }
+  .t-h3 { font-size: clamp(1.75rem, 2.5vw, 2.5rem); }
+}
+.display-hero { font-size: clamp(2.9rem, 12vw, 4.25rem); line-height: 0.94; letter-spacing: -0.025em; }
+.h-section { font-size: clamp(2.25rem, 4vw, 4.5rem); line-height: 1; }
+.h-sub { font-size: clamp(1.75rem, 2.5vw, 2.5rem); line-height: 1.05; }
+.lead { font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.6; max-width: 62ch; }
+
+.eyebrow {
+  font-family: var(--font-ui), sans-serif;
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fire);
+  font-weight: 700;
+}
+
+/* ───────── Contenedores (padding 16/20/32/48/64) ───────── */
+.container-x, .container-wide, .container-narrow {
+  --pad: 16px;
+  --max: 1280px;
+  width: 100%;
+  max-width: calc(var(--max) + 2 * var(--pad));
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+.container-wide { --max: 1440px; }
+.container-narrow { --max: 1100px; }
+@media (min-width: 480px) { .container-x, .container-wide, .container-narrow { --pad: 20px; } }
+@media (min-width: 768px) { .container-x, .container-wide, .container-narrow { --pad: 32px; } }
+@media (min-width: 1100px) { .container-x, .container-wide, .container-narrow { --pad: 48px; } }
+@media (min-width: 1700px) { .container-x, .container-wide, .container-narrow { --pad: 64px; } }
+
+.section-pad { padding-block: 64px; }
+@media (min-width: 768px) { .section-pad { padding-block: 88px; } }
+@media (min-width: 1024px) { .section-pad { padding-block: 112px; } }
+
+/* Luz de brasas muy discreta */
+.ember-glow {
+  background: radial-gradient(60% 55% at 50% 100%, rgba(236, 109, 47, 0.16), transparent 70%);
+}
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+}
+
+@media (max-width: 767px) {
+  body[data-cart-bar] main { padding-bottom: calc(5rem + env(safe-area-inset-bottom)); }
+}
+
+/* ───────── Animaciones (discretas) ───────── */
+@keyframes shimmer { to { background-position: -200% 0; } }
+.skeleton {
+  background: linear-gradient(90deg, var(--surface) 25%, var(--surface-2) 50%, var(--surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+  border-radius: var(--radius);
+}
+
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slide-left { from { transform: translateX(100%); } to { transform: none; } }
+@keyframes slide-up { from { transform: translateY(100%); } to { transform: none; } }
+@keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.25); } 100% { transform: scale(1); } }
+@keyframes pop-in { from { opacity: 0; transform: translateY(8px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes drift { from { transform: scale(1.03); } to { transform: scale(1.08); } }
+
+.anim-rise { animation: rise 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.anim-fade { animation: fade 0.25s ease both; }
+.anim-drawer { animation: slide-left 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.anim-sheet { animation: slide-up 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.anim-pop { animation: pop 0.35s ease; }
+.anim-modal { animation: pop-in 0.25s ease both; }
+.anim-drift { animation: drift 24s ease-in-out infinite alternate; }
+
+/* Aparición por scroll: el contenido es visible por defecto; solo se anima donde el navegador lo soporta */
+@keyframes reveal-in { from { opacity: 0.001; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { animation: none; }
+}
+
+/* ───────── Dirección fotográfica común ───────── */
+.food-image { filter: saturate(0.9) contrast(1.06) brightness(0.92) sepia(0.06); }
+.food-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 58%, rgba(9, 7, 5, 0.5)),
+    radial-gradient(circle at 70% 30%, rgba(218, 91, 41, 0.08), transparent 45%);
+}
+
+/* ───────── Grano casi imperceptible ───────── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.025;
+  background-image: url("/textures/noise.webp");
+  background-size: 180px 180px;
+}
+
+/* ───────── Cuadrícula editorial de 12 columnas ───────── */
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(16px, 2vw, 32px);
+}
