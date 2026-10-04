@@ -1,6 +1,7 @@
 "use client";
 
-import { Flame, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { Instagram } from "@/components/shared/icons";
 import { Container } from "@/components/shared/layout";
@@ -32,7 +33,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-3">
           <div className="space-y-4">
             <p className="flex items-center gap-2.5 font-display text-[1.9rem] font-semibold">
-              <Flame className="size-7 text-accent" aria-hidden /> {restaurant.shortName}
+              <Image src="/img/logo-mark.webp" alt="" width={48} height={48} className="size-11" /> {restaurant.shortName}
             </p>
             <p className="max-w-xs text-base text-cream2">{content.footer.description}</p>
           </div>

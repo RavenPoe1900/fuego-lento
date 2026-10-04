@@ -1,6 +1,7 @@
 "use client";
 
-import { Flame, Menu, ReceiptText } from "lucide-react";
+import { Menu, ReceiptText } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button, IconButton } from "@/components/shared/button";
@@ -41,7 +42,7 @@ export function Header() {
       <header className="sticky top-0 z-40 h-[var(--header-height)] bg-carbon/80 backdrop-blur-md transition-[height] duration-200">
         <div className="container-x flex h-full items-center justify-between gap-4">
           <Link href="/" className="flex shrink-0 items-center gap-2.5 whitespace-nowrap font-display text-[1.65rem] font-semibold tracking-tight lg:text-[1.9rem]" aria-label={`${restaurant.shortName}, inicio`}>
-            <Flame className="size-6 text-accent" aria-hidden />
+            <Image src="/img/logo-mark.webp" alt="" width={40} height={40} preload className="size-9 lg:size-10" />
             {restaurant.shortName}
           </Link>
 

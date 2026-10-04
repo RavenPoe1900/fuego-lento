@@ -28,7 +28,7 @@ export function buildWhatsAppMessage(order: OrderSummary, businessName: string):
   };
 
   out.push(`*NUEVO PEDIDO — ${businessName.toUpperCase()}*`);
-  section("Cliente", [`Nombre: ${order.customer.name}`, `Teléfono: ${order.customer.phone}`]);
+  section("Cliente", [`Nombre: ${order.customer.name}`, order.customer.phone && `Teléfono: ${order.customer.phone}`]);
   section("Modalidad", [order.deliveryMethod === "delivery" ? "Entrega a domicilio" : "Recogida en el restaurante"]);
 
   const a = order.address;
