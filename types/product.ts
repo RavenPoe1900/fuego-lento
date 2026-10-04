@@ -79,3 +79,24 @@ export type Category = {
   description?: string;
   image?: string;
 };
+
+/** Varias categorías agrupadas bajo un mismo filtro (p. ej. todos los vinos). */
+export type CategoryGroup = {
+  id: string;
+  slug: string;
+  name: string;
+  /** Texto del chip que muestra todo el grupo (p. ej. "Todas las bebidas") */
+  allLabel: string;
+  image?: string;
+  children: CategoryGroupChild[];
+};
+
+/**
+ * Subcategoría de un grupo. Sin `sections`, `id` es el de una categoría;
+ * con `sections`, es un chip propio que reúne esas categorías.
+ */
+export type CategoryGroupChild = {
+  id: string;
+  label: string;
+  sections?: { id: string; label: string }[];
+};

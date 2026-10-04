@@ -1,0 +1,258 @@
+id,categoria,producto,descripcion,precio,precio2,visible,imagenes
+aguachile-de-mariscos,Entrantes,Aguachile de Mariscos,"Preparación fresca de mariscos marinados, ideal para comenzar la experiencia.",6100,,True,/img/menu/aguachile-de-mariscos.jpg
+tartaleta-de-tartar,Entrantes,Tartaleta de Tartar,"Solomillo angus macerado con tomate deshidratado, especias, alcaparras, extra virgen, yema curada y mayonesa trufada.",6100,,True,/img/menu/tartaleta-de-tartar.jpg
+carpaccio-de-res-artesanal,Entrantes,Carpaccio de Res Artesanal,"Láminas de angus, pepino escabechado, olivos negros, tomate deshidratado, sal de apio y aire de limón.",7500,,True,/img/menu/carpaccio-de-res-artesanal.jpg
+ramen-steak,Entrantes,Ramen Steak,"Fondo de res, gyozas de carne, huevo duro, hongos, vegetales y solomillo angus.",5400,,True,/img/menu/ramen-steak.jpg
+ensalada-smoke,Entrantes,Ensalada Smoke,"Selección de vegetales, maíz dulce, champiñones, cebolla curtida, solomillo angus y mayonesa ahumada de cilantro.",5300,,True,/img/menu/ensalada-smoke.jpg
+charcuteria-a-la-lena,Entrantes,Charcutería a la Leña,"Chorizo argentino, chorizo parrillero, morcilla, salchicha parrillera y salsa bbq, acompañado con pan.",10500,,True,/img/menu/charcuteria-a-la-lena.jpg
+croquetas-de-la-casa,Entrantes,Croquetas de la Casa,Bechamel enriquecida con hebras de res y espinacas salteadas.,2000,,True,/img/menu/croquetas-de-la-casa.jpg
+pulpo-a-las-brasas-y-romesco,Entrantes,Pulpo a las Brasas y Romesco,Pulpo cocinado a las brasas acompañado de salsa romesco tradicional.,5700,,True,/img/menu/pulpo-a-las-brasas-y-romesco.jpg | /img/menu/pulpo-a-las-brasas-y-romesco-2.jpg
+tabla-fuego-lento,Entrantes,Tabla Fuego Lento,"Selección de cortes angus, costilla de cerdo, chorizo argentino, morcilla y pan.",24100,,True,/img/menu/tabla-fuego-lento.jpg
+provolone-ahumado-a-la-plancha,Entrantes,Provolone Ahumado a la Plancha,Medallón de provolone a la plancha acompañado de tostadas de baguette.,5600,,True,/img/menu/provolone-ahumado-a-la-plancha.jpg
+tabla-de-jamones-y-queso,Entrantes,Tabla de Jamones y Queso,"Selección de jamones ibéricos, quesos de la casa y tomaca.",9800,,True,/img/menu/tabla-de-jamones-y-queso.jpg
+tabla-de-quesos,Entrantes,Tabla de Quesos,Mixtos de quesos condimentados y extra virgen de oliva.,5800,,True,/img/menu/tabla-de-quesos.jpg
+tataki-de-res,Entrantes,Tataki de Res,"Corte tataki de angus, col kimchi, jengibre confitado, wasabi y ponzu del chef.",9300,,True,/img/menu/tataki-de-res.jpg | /img/menu/tataki-de-res-2.jpg
+jamon-iberico,Entrantes,Jamón Ibérico,"Jamón ibérico seleccionado, ideal para abrir el apetito o compartir al centro.",9500,,True,
+empanada-angus-trufada,Entrantes,Empanada Angus Trufada,Empanada crujiente rellena de carne angus con toque aromático trufado.,5500,,True,/img/menu/empanada-angus-trufada.jpg
+ceviche-escarlata,Entrantes,Ceviche Escarlata,"Entrada marina marinada, fresca y llena de sabor equilibrado.",4600,,True,/img/menu/ceviche-escarlata.jpg
+raviolis-de-res-y-pomodoro-asada,Pastas,Raviolis de Res y Pomodoro Asada,"Pasta rellena de angus, aceitunas negras, cebolla y apio, acompañado de salsa roja de la casa, pesto y queso cabra curada.",5800,,True,/img/menu/raviolis-de-res-y-pomodoro-asada.jpg
+pasta-con-res-y-hongos,Pastas,Pasta con Res y Hongos,"Pasta larga salteada con solomillo angus, tomate deshidratado, ajo, hongos, extra virgen de oliva y queso cabra curada.",9200,,True,/img/menu/pasta-con-res-y-hongos.jpg
+raggu-y-pasta-corta,Pastas,Raggú y Pasta Corta,Salsa raggú tradicional y queso parmesano.,4200,,True,
+tagliatelle-y-costillas-guisadas,Pastas,Tagliatelle y Costillas Guisadas,Pasta tagliatelle servida con sabrosas costillas guisadas en su jugo.,15900,,True,/img/menu/tagliatelle-y-costillas-guisadas.jpg
+cesta-de-pan,Principales,Cesta de pan,,3600,,True,
+confitado-de-res,Principales,Confitado de Res,"Dados de angus a baja temperatura, plátano maduro frito y mojo cimarrón.",15800,,True,/img/menu/confitado-de-res.jpg
+costilla-de-cerdo-asadas-y-salsa-cajun,Principales,Costilla de Cerdo Asadas y Salsa Cajún,Costilla de cerdo al carbón y salsa especiada.,11800,,True,/img/menu/costilla-de-cerdo-asadas-y-salsa-cajun.jpg
+cordero-fuego-lento,Principales,Cordero Fuego Lento,"Cordero confitado con olivas, maíz dulce y tomillo.",9500,,True,/img/menu/cordero-fuego-lento.jpg
+langosta-torno-bacon,Principales,Langosta Torno Bacon,Rolos de langosta albardados con bacon y salsa mediterránea blanca.,8200,,True,/img/menu/langosta-torno-bacon.jpg
+filete-blanco-grille-y-crema-de-elotes,Principales,Filete Blanco Grille y Crema de Elotes,Filete de pescado blanco a la grilla acompañado de cremosa salsa de elote.,6200,,True,
+filetillo-de-res,Principales,Filetillo de Res,Fajas de solomillo salteadas con boniato frito y salsa.,11500,,True,/img/menu/filetillo-de-res.jpg
+ocaso-thai-pollo-al-curry-del-chef,Principales,Ocaso Thai (Pollo al Curry del Chef),Especialidad de la casa elaborada con tiernos trozos de pollo en salsa curry.,5100,,True,/img/menu/ocaso-thai-pollo-al-curry-del-chef.jpg | /img/menu/ocaso-thai-pollo-al-curry-del-chef-2.jpg | /img/menu/ocaso-thai-pollo-al-curry-del-chef-3.jpg
+florentina-de-la-casa,Principales,Florentina de la Casa,Tournedo de pollo relleno de espinaca y queso cheddar.,6900,,True,
+montura-de-cerdo,Principales,Montura de Cerdo,Cortes de lomo de cerdo a la brasa con salsa trufada.,5900,,True,
+gambones,Principales,Gambones,Gambones salteados con salsa Fuego Lento y un lecho de tomates asados.,14200,,True,/img/menu/gambones.jpg | /img/menu/gambones-2.jpg | /img/menu/gambones-3.jpg
+marea-roja,Principales,Marea Roja,Churrasco Angus Prime y gambones flameados.,26800,,True,/img/menu/marea-roja.jpg
+hamburguesa-fuego-lento-230-grs,Principales,Hamburguesa Fuego Lento (230 grs),"Molida de angus, piña asada, pepinillos, cebolla curtida, bacon, queso de cabra ahumado, pan de hamburguesas y papas fritas.",11800,,True,/img/menu/hamburguesa-fuego-lento-230-grs.jpg
+hogaza-para-mar,Principales,Hogaza para Mar,"Pan hogaza rústica relleno de gambones salteados al ajo y perejil, con crema blanca y emmental.",20200,,True,
+pesca-a-la-brasa,Principales,Pesca a la brasa,pesca entera al carbón y mantequilla saborizada,6900,,True,
+risotto-de-res-y-berenjena-escabechada,Sartenes,Risotto de Res y Berenjena Escabechada,Arroz cremoso tipo risotto preparado en sartén con hebras de res y berenjena escabechada.,9100,,True,/img/menu/risotto-de-res-y-berenjena-escabechada.jpg | /img/menu/risotto-de-res-y-berenjena-escabechada-2.jpg
+arroz-meloso-de-mariscos-y-curry-verde,Sartenes,Arroz Meloso de Mariscos y Curry Verde,Arroz de textura melosa cocinado en sartén con mariscos variados y curry verde.,7800,,True,
+brocheta-de-res,Carnes Parrilla,Brocheta de Res,"Brocheta de carne de res a la parrilla, sabrosa y jugosa.",14200,,True,/img/menu/brocheta-de-res.jpg
+filetillo-angus-con-esencia-de-ajo-y-miel-250-grs,Carnes Parrilla,Filetillo Angus con Esencia de Ajo y Miel (250 grs),Corte de filetillo angus preparado a la parrilla con sutil toque de ajo y miel.,16400,,True,/img/menu/filetillo-angus-con-esencia-de-ajo-y-miel-250-grs.jpg
+ribeye-angus-prime-350-grs,Carnes Parrilla,Ribeye Angus Prime (350 grs),Corte ribeye angus prime asado a la parrilla en porción individual.,26850,,True,
+ribeye-angus-prime-700-grs,Carnes Parrilla,Ribeye Angus Prime (700 grs),Corte ribeye angus prime asado a la parrilla en formato grande para compartir.,51500,,True,
+picana-angus-prime-230-grs,Carnes Parrilla,Picaña Angus Prime (230 grs),Corte de picaña angus prime asado a la parrilla en porción de 230 gramos.,15950,,True,/img/menu/picana-angus-prime-230-grs.jpg
+picana-angus-prime-460-grs,Carnes Parrilla,Picaña Angus Prime (460 grs),Corte de picaña angus prime asado a la parrilla en porción de 460 gramos.,27600,,True,/img/menu/picana-angus-prime-460-grs.jpg
+picana-angus-prime-300-grs,Carnes Parrilla,Picaña Angus Prime (300 grs),Corte de picaña angus prime asado a la parrilla en porción de 300 gramos.,19800,,True,/img/menu/picana-angus-prime-300-grs.jpg
+picana-angus-prime-600-grs,Carnes Parrilla,Picaña Angus Prime (600 grs),Corte de picaña angus prime asado a la parrilla en porción de 600 gramos.,37500,,True,/img/menu/picana-angus-prime-600-grs.jpg
+churrasco-angus-prime-230-grs,Carnes Parrilla,Churrasco Angus Prime (230 grs),Churrasco de res angus prime a la parrilla en porción de 230 gramos.,20350,,True,/img/menu/churrasco-angus-prime-230-grs.jpg
+churrasco-angus-prime-460-grs,Carnes Parrilla,Churrasco Angus Prime (460 grs),Churrasco de res angus prime a la parrilla en porción de 460 gramos.,34800,,True,/img/menu/churrasco-angus-prime-460-grs.jpg
+new-york-steak-angus-prime-350-grs,Carnes Parrilla,New York Steak Angus Prime (350 grs),Corte clásico new york steak de res angus prime asado a la parrilla.,24900,,True,/img/menu/new-york-steak-angus-prime-350-grs.jpg
+costilla-de-res-angus-prime-500-grs,Carnes Parrilla,Costilla de Res Angus Prime (500 grs),Costilla de res angus prime asada a fuego de parrilla.,22650,,True,
+t-bone-angus-prime-400-grs,Carnes Parrilla,T-Bone Angus Prime (400 grs),Corte t-bone de res angus prime asado a la parrilla.,29400,,True,/img/menu/t-bone-angus-prime-400-grs.jpg
+tomahawk-angus-choice,Carnes Parrilla,Tomahawk Angus Choice,Corte tomahawk angus choice cobrado por peso (precio por kg).,56000,,True,
+tomahawk-angus-prime,Carnes Parrilla,Tomahawk Angus Prime,Corte tomahawk angus prime de calidad superior cobrado por peso (precio por kg).,65900,,True,
+cream-brulee-y-frutos-confitados,Postre,Cream Brûlée y Frutos Confitados,Clásico postre de crema horneada con costra crujiente de caramelo y frutos confitados.,1600,,True,/img/menu/cream-brulee-y-frutos-confitados.jpg
+locura-mi-amor,Postre,Locura Mi Amor,"Flanquesillo, quenelle de vainilla, jalea de frutas y caramelo salado.",2500,,True,/img/menu/locura-mi-amor.jpg
+oasis,Postre,Oasis,"Biscocho de vainilla, boleado de coco, salsa de mango y tajín.",2000,,True,/img/menu/oasis.jpg
+tarta-de-queso,Postre,Tarta de Queso,Postre cremoso de queso horneado al estilo tradicional.,2200,,True,/img/menu/tarta-de-queso.jpg
+tarta-de-la-casa,Postre,Tarta de la Casa,Especialidad dulcera elaborada según la receta artesanal de la casa.,3000,,True,/img/menu/tarta-de-la-casa.jpg | /img/menu/tarta-de-la-casa-2.jpg
+agua-mineral,Bebidas,Agua Mineral,"Bebida purificada y refrescante, perfecta para acompañar la comida.",1050,,True,
+agua-perrier,Bebidas,Agua Perrier,"Agua con gas de burbuja fina, ideal para refrescar el paladar.",2900,,True,
+jugos-naturales,Bebidas,Jugos Naturales,Bebida refrescante preparada con frutas naturales llenas de sabor.,1000,,True,
+refrescos,Bebidas,Refrescos,"Bebida carbonatada fría de sabores variados, ideal para acompañar platos.",1250,,True,
+malta,Bebidas,Malta,"Bebida de cebada nutritiva, dulce y muy reconfortante.",1250,,True,
+limonada-natural,Bebidas,Limonada Natural,"Bebida cítrica preparada al momento, fría y muy refrescante.",1250,,True,
+limonada-frescura,Bebidas,Limonada Frescura,"Variante cítrica de la casa, súper fresca y amena para combatir el calor.",1500,,True,
+copa-de-vino,Bebidas,Copa de Vino,"Selección de vino servido en copa, estupendo para maridar la comida.",1850,,True,
+cerveza-nacional,Bebidas,Cerveza Nacional,"Cerveza local fría y ligera, ideal para refrescar la velada.",1300,,True,
+cerveza-internacional,Bebidas,Cerveza Internacional,"Cerveza embotellada de importación, perfecta para acompañar picoteos.",1550,,True,
+servicio-de-michelada,Bebidas,Servicio de Michelada,Preparación especial cítrica y salada para acompañar su cerveza preferida.,1150,,True,
+servicio-de-chelada,Bebidas,Servicio de Chelada,Toque cítrico y salado listo para añadir a la cerveza de su elección.,800,,True,
+redbull,Bebidas,Redbull,"Bebida energizante fría, perfecta para mantener el impulso en la noche.",2150,,True,
+kermato,Bebidas,Kermato,Preparado ahumado y sazonado ideal para cócteles o mezclas de barra.,1500,,True,
+agua-tonica,Bebidas,Agua Tónica,"Bebida carbonatada con notas amargas, idónea para acompañar con ginebra.",1950,,True,
+bochorno-uva-viera,Vino de la Casa,Bochorno: Uva Viera,"Vino blanco de la casa, variedad Sauvignon Blanc.",1850,,True,/img/menu/bochorno-uva-viera.jpg
+dona-florencia-merlot-valle-central-chile,Vino de la Casa,Doña Florencia (Merlot) - Valle Central Chile,"Vino rosado de la casa, variedad Merlot.",1850,,True,/img/menu/dona-florencia-merlot-valle-central-chile.jpg
+dona-florencia-cabernet-sauvignon-valle-central-chile,Vino de la Casa,Doña Florencia (Cabernet Sauvignon) - Valle Central Chile,"Vino tinto de la casa, variedad Cabernet Sauvignon.",1850,,True,/img/menu/dona-florencia-cabernet-sauvignon-valle-central-chile.jpg
+borges-ruby-vinho-do-porto-portugal,Vinos de Postre,Borges Ruby. Vinho do Porto. Portugal,"Oporto fortificado de perfil dulce e intenso, ideal para cerrar con broche de oro.",10600,,True,
+mouton-cadet-sauternes-a-o-c-francia,Vinos de Postre,Mouton Cadet. Sauternes A.O.C. Francia,"Vino de postre francés de la apelación Sauternes, de gran complejidad dulce y sedosa.",33500,,True,/img/menu/mouton-cadet-sauternes-a-o-c-francia.jpg
+moet-chandon-imperial-brut-champagne-a-o-c-francia,Espumosos,Moët & Chandon Imperial Brut. Champagne A.O.C. Francia,"Emblemático champagne francés de burbuja fina y perfil elegante, ideal para celebraciones.",73500,,True,/img/menu/moet-chandon-imperial-brut-champagne-a-o-c-francia.jpg
+krug-grande-cuvee-brut-champagne-a-o-c-francia,Espumosos,Krug Grande Cuvée Brut. Champagne A.O.C. Francia,"Champagne de alta gama con perfil complejo y sofisticado, perfecto para brindis especiales.",242000,,True,/img/menu/krug-grande-cuvee-brut-champagne-a-o-c-francia.jpg
+juve-camps-essential-rose-pinot-noir-brut-cava-d-o-espana,Espumosos,Juve & Camps Essential Rosé Pinot Noir Brut. Cava. D.O. España,"Cava rosado de variedad Pinot Noir, fresco y de gran finura.",18500,,True,/img/menu/juve-camps-essential-rose-pinot-noir-brut-cava-d-o-espana.jpg
+juve-camps-essential-purpura-brut-2021-cava-d-o-espana,Espumosos,Juve & Camps Essential Púrpura Brut 2021. Cava. D.O. España,Cava brut tradicional con excelente equilibrio y dinamismo en copa.,18500,,True,
+love-story-prosecco-brut-sartori-d-o-c-italia,Espumosos,Love Story Prosecco Brut. Sartori. D.O.C. Italia,"Prosecco italiano brut, alegre y lleno de frescas burbujas para cualquier ocasión.",21900,,True,/img/menu/love-story-prosecco-brut-sartori-d-o-c-italia.jpg
+imperial-reserva-tempranillo-2019-c-v-n-e,Vinos Tintos,Imperial Reserva Tempranillo 2019 C.V.N.E,Reserva clásico de Rioja con excelente guarda y sutileza.,57000,,True,/img/menu/imperial-reserva-tempranillo-2019-c-v-n-e.jpg
+altos-ibericos-crianza-2020-torres,Vinos Tintos,Altos Ibéricos Crianza 2020. Torres,"Tinto crianza riojano, redondo, sabroso y frutal.",12500,,True,/img/menu/altos-ibericos-crianza-2020-torres.jpg
+altos-ibericos-reserva-2018-torres,Vinos Tintos,Altos Ibéricos Reserva 2018. Torres,Tinto reserva maduro con equilibrio entre fruta y madera.,17000,,True,/img/menu/altos-ibericos-reserva-2018-torres.jpg
+cune-crianza-2021-c-v-n-e,Vinos Tintos,Cune Crianza 2021. C.V.N.E,"Crianza riojano suave, fluido y de perfil muy tradicional.",13900,,True,/img/menu/cune-crianza-2021-c-v-n-e.jpg
+marques-de-murrieta-reserva-2021-finca-ygay,Vinos Tintos,Marqués de Murrieta Reserva 2021. Finca Ygay,"Referente de elegancia en Rioja, armonioso y sedoso.",27600,,True,/img/menu/marques-de-murrieta-reserva-2021-finca-ygay.jpg
+macan-clasico-tempranillo-2020-benjamin-de-rothschild-vega-sicilia,Vinos Tintos,Macán Clásico Tempranillo 2020. Benjamin de Rothschild & Vega Sicilia,Tinto de alta gama con notable refinamiento y gran carácter.,65600,,True,/img/menu/macan-clasico-tempranillo-2020-benjamin-de-rothschild-vega-sicilia.jpg
+faustino-vii-c-s-2022-familia-martinez-zabala,Vinos Tintos,Faustino VII c/s 2022. Familia Martínez Zabala,"Tinto clásico y amigable, perfecto para cualquier maridaje.",14200,,True,
+celeste-roble-2023-pago-del-cielo-torres,Vinos Tintos,Celeste Roble 2023. Pago del Cielo. Torres,"Tinto joven de Ribera del Duero, intenso y afrutado.",10800,,True,/img/menu/celeste-roble-2023-pago-del-cielo-torres.jpg
+celeste-crianza-2022-la-habana-city-skyline-edition-pago-del-cielo-torres,Vinos Tintos,Celeste Crianza 2022 La Habana City Skyline Edition. Pago del Cielo. Torres,"Edición especial de crianza, suave y bien pulido.",18200,,True,/img/menu/celeste-crianza-2022-la-habana-city-skyline-edition-pago-del-cielo-torres.jpg
+cepa-21-tinto-fino-2022,Vinos Tintos,Cepa 21 Tinto Fino 2022,"Tinto de perfil moderno de Ribera del Duero, frutal y expresivo.",43200,,True,/img/menu/cepa-21-tinto-fino-2022.jpg
+emilio-moro-2022,Vinos Tintos,Emilio Moro 2022,Tinto insignia con gran fuerza frutal y refinada crianza.,51200,,True,/img/menu/emilio-moro-2022.jpg
+protos-roble-2024,Vinos Tintos,Protos Roble 2024,"Tinto roble ágil, sabroso y de gran intensidad cromática.",19800,,True,/img/menu/protos-roble-2024.jpg
+pruno-tempranillo-cabernet-sauvignon-merlot-2023,Vinos Tintos,"Pruno Tempranillo, Cabernet Sauvignon-Merlot 2023","Ensamblaje tinto muy popular, goloso y redondo.",18600,,True,/img/menu/pruno-tempranillo-cabernet-sauvignon-merlot-2023.jpg
+melior-de-matarromera-2023,Vinos Tintos,Melior de Matarromera 2023,Vino tinto equilibrado de gran presencia frutal.,29600,,True,/img/menu/melior-de-matarromera-2023.jpg
+portia-10-meses-seleccion-de-barricas-2022-familia-martinez-zabala,Vinos Tintos,Portia 10 meses Selección de Barricas 2022. Familia Martínez Zabala,Tinto estructurado con crianza en barrica bien integrada.,23000,,True,/img/menu/portia-10-meses-seleccion-de-barricas-2022-familia-martinez-zabala.jpg
+melior-de-matarromera-crianza-2020,Vinos Tintos,Melior de Matarromera Crianza 2020,Tinto crianza con excelente paso por madera y taninos redondos.,44800,,True,
+mas-la-plana-cabernet-sauvignon-2019-torres,Vinos Tintos,Mas la Plana Cabernet Sauvignon 2019. Torres,"Icono de Cabernet Sauvignon de Penedès, complejo y de gran elegancia.",47500,,True,/img/menu/mas-la-plana-cabernet-sauvignon-2019-torres.jpg
+sangre-de-toro-reserva-2020-torres,Vinos Tintos,Sangre de Toro Reserva 2020. Torres,Tinto reserva con personalidad madura y especiada.,22600,,True,/img/menu/sangre-de-toro-reserva-2020-torres.jpg
+camins-del-priorat-2022-d-o-q-priorat-alvaro-palacios,Vinos Tintos,Camins del Priorat 2022 D.O.Q Priorat. Álvaro Palacios,"Priorat de perfil moderno, expresivo y de fondo mineral.",28200,,True,/img/menu/camins-del-priorat-2022-d-o-q-priorat-alvaro-palacios.jpg
+flor-de-vetus-2021-d-o-toro,Vinos Tintos,Flor de Vetus 2021 D.O. Toro,"Tinto de Toro, potente, goloso y bien estructurado.",21900,,True,/img/menu/flor-de-vetus-2021-d-o-toro.jpg
+mouton-cadet-2022-cuvee-heritage-a-bordeaux-controlee-b-p-rothschild,Vinos Tintos,Mouton Cadet 2022. Cuvée Héritage A. Bordeaux. Controlée. B.P.Rothschild,"Tinto burdeos clásico, elegante y bien balanceado.",33400,,True,/img/menu/mouton-cadet-2022-cuvee-heritage-a-bordeaux-controlee-b-p-rothschild.jpg
+calvet-grande-reserve-merlot-cabernet-sauvignon-2023-bordeaux-superieur-a-o-p,Vinos Tintos,Calvet Grande Reserve Merlot-Cabernet Sauvignon 2023 Bordeaux Supérieur A.O.P,Reserva de Burdeos armonioso y fácil de disfrutar.,20700,,True,/img/menu/calvet-grande-reserve-merlot-cabernet-sauvignon-2023-bordeaux-superieur-a-o-p.jpg
+couvent-des-jacobins-2022-bourgogne-a-o-c-louis-jadot,Vinos Tintos,Couvent des Jacobins 2022. Bourgogne A.O.C. Louis Jadot,"Pinot Noir borgoñés fino, delicado y de paso sutil.",24800,,True,/img/menu/couvent-des-jacobins-2022-bourgogne-a-o-c-louis-jadot.jpg
+combe-aux-jacques-2023-beaujolais-villages-a-o-c-louis-jadot,Vinos Tintos,Combe aux Jacques 2023. Beaujolais. Villages A.O.C. Louis Jadot,"Tinto Beaujolais jugoso, muy frutal y fresco.",24800,,True,
+cotes-du-rhone-2020-guigal,Vinos Tintos,Côtes du Rhône 2020. Guigal,"Tinto del Ródano suave, especiado y con notas de fruta madura.",18900,,True,/img/menu/cotes-du-rhone-2020-guigal.jpg
+la-retro-2024-carinena-syrah-garnacha-tinta-domaine-lafage-d-o-vdp-des-cotes-catalanes-languedoc-rosellon,Vinos Tintos,"La Retro 2024 Cariñena, Syrah, Garnacha Tinta. Domaine Lafage. D.O VDP des Côtes Catalanes, Languedoc - Rosellón",Tinto francés jugoso y directo con varietales mediterráneas.,18500,,True,
+pieve-castelletto-2023-d-o-c-g-chianti,Vinos Tintos,Pieve Castelletto 2023 D.O.C.G. Chianti,"Chianti accesible, ligero y de buena acidez.",10400,,True,/img/menu/pieve-castelletto-2023-d-o-c-g-chianti.jpg
+prunotto-barbaresco-2022-d-o-c-g-alba-piemonte,Vinos Tintos,Prunotto Barbaresco 2022 D.O.C.G. Alba. Piemonte,"Tinto piamontés de gran jerarquía, complejo y longevo.",72500,,True,/img/menu/prunotto-barbaresco-2022-d-o-c-g-alba-piemonte.jpg
+santa-cristina-chianti-superiore-2023-d-o-c-g,Vinos Tintos,Santa Cristina Chianti Superiore 2023. D.O.C.G,"Chianti Superiore italiano, tradicional, fresco y gastronómico.",22500,,True,
+acheclo-syrah-2023-cortona-d-o-c-antinori,Vinos Tintos,Acheclo Syrah 2023 Cortona. D.O.C Antinori,"Syrah italiano especiado, envolvente y de cuerpo estructurado.",37400,,True,
+casillero-del-diablo-2023-d-o-valle-central-concha-y-toro,Vinos Tintos,Casillero del Diablo 2023 D.O. Valle Central. Concha y Toro,Tinto chileno amigable y redondo en boca.,11200,,True,/img/menu/casillero-del-diablo-2023-d-o-valle-central-concha-y-toro.jpg
+marques-de-casa-concha-cabernet-sauvignon-2019-d-o-maipo-concha-y-toro,Vinos Tintos,Marqués de Casa Concha Cabernet Sauvignon 2019 D.O. Maipo Concha y Toro,"Tinto de gran estructura, elegante y con taninos firmes.",47200,,True,/img/menu/marques-de-casa-concha-cabernet-sauvignon-2019-d-o-maipo-concha-y-toro.jpg
+santa-digna-cabernet-sauvignon-2023-d-o-valle-central-torres,Vinos Tintos,Santa Digna Cabernet Sauvignon 2023. D.O. Valle Central. Torres,Cabernet Sauvignon clásico con notas de frutos rojos.,10500,,True,/img/menu/santa-digna-cabernet-sauvignon-2023-d-o-valle-central-torres.jpg
+manso-de-velasco-cabernet-sauvignon-2020-d-o-curico-torres,Vinos Tintos,Manso de Velasco Cabernet Sauvignon 2020. D.O. Curicó. Torres,"Tinto de viñas viejas, potente, profundo y complejo.",43600,,True,/img/menu/manso-de-velasco-cabernet-sauvignon-2020-d-o-curico-torres.jpg
+trapiche-oak-cask-cabernet-sauvignon-2024-mendoza,Vinos Tintos,Trapiche Oak Cask Cabernet Sauvignon 2024. Mendoza,"Tinto argentino con sutil paso por roble, varietal y frutal.",15400,,True,/img/menu/trapiche-oak-cask-cabernet-sauvignon-2024-mendoza.jpg
+trapiche-oak-cask-malbec-2023-mendoza,Vinos Tintos,Trapiche Oak Cask Malbec 2023. Mendoza,"Malbec mendocino redondo, sabroso y muy accesible.",15400,,True,
+wente-southern-hills-cabernet-sauvignon-2020-livermore-central-coast-a-v-a-california,Vinos Tintos,Wente Southern Hills Cabernet Sauvignon 2020. Livermore Central Coast. A.V.A. California,Cabernet Sauvignon californiano con buena estructura y riqueza aromática.,24800,,True,/img/menu/wente-southern-hills-cabernet-sauvignon-2020-livermore-central-coast-a-v-a-california.jpg
+leira-albarino-2024-pazo-pondal-d-o-rias-baixas-galicia,Vinos Blancos,Leira Albariño 2024 Pazo Pondal. D.O. Rías Baixas. Galicia,Albariño vibrante con característicos rasgos atlánticos.,18300,,True,/img/menu/leira-albarino-2024-pazo-pondal-d-o-rias-baixas-galicia.jpg
+jose-pariente-verdejo-2022-d-o-rueda,Vinos Blancos,José Pariente Verdejo 2022. D.O. Rueda,"Emblemático Verdejo de Rueda, muy aromático e intenso.",17500,,True,/img/menu/jose-pariente-verdejo-2022-d-o-rueda.jpg
+melior-de-matarromera-verdejo-2024-d-o-rueda,Vinos Blancos,Melior de Matarromera Verdejo 2024. D.O. Rueda,Blanco joven de Rueda con notas frutales y buena estructura.,20800,,True,/img/menu/melior-de-matarromera-verdejo-2024-d-o-rueda.jpg
+celeste-verdejo-2024-d-o-rueda-torres,Vinos Blancos,Celeste Verdejo 2024. D.O. Rueda. Torres,"Verdejo fresco y brillante, ideal para acompañar platos ligeros.",10500,,True,/img/menu/celeste-verdejo-2024-d-o-rueda-torres.jpg
+vina-esmeralda-gewurztraminer-moscatel-2023-d-o-c-catalunya-torres,Vinos Blancos,Viña Esmeralda Gewürztraminer - Moscatel 2023. D.O.C. Catalunya. Torres,"Blanco aromático y floral, suave y delicado en paladar.",9800,,True,/img/menu/vina-esmeralda-gewurztraminer-moscatel-2023-d-o-c-catalunya-torres.jpg
+placet-de-valtomelloso-2022-d-o-ca-rioja-alvaro-palacios,Vinos Blancos,Placet de Valtomelloso 2022. D.O.Ca. Rioja. Álvaro Palacios,"Blanco de Rioja de autor, complejo y con gran elegancia en boca.",62500,,True,
+fan-doro-chardonnay-fermentado-en-barrica-2021-arzuaga-d-o-ribera-del-duero,Vinos Blancos,Fan D´Oro Chardonnay Fermentado en Barrica 2021. Arzuaga. D.O. Ribera del Duero,"Chardonnay fermentado en barrica, untuoso y repleto de matices.",23000,,True,
+macon-villages-2022-beaune-a-o-c-louis-jadot-bourgogne,Vinos Blancos,Mâcon-Villages 2022. Beaune A.O.C. Louis Jadot. Bourgogne,"Blanco borgoñés de perfil clásico, fresco y mineral.",22800,,True,/img/menu/macon-villages-2022-beaune-a-o-c-louis-jadot-bourgogne.jpg
+chablis-2023-a-o-c-louis-jadot-bourgogne,Vinos Blancos,Chablis 2023. A.O.C. Louis Jadot. Bourgogne,Chablis tradicional con marcada personalidad mineral y perfil limpio.,27900,,True,/img/menu/chablis-2023-a-o-c-louis-jadot-bourgogne.jpg
+gentil-hugel-2023-alsace-a-o-c,Vinos Blancos,Gentil Hugel 2023. Alsace A.O.C,"Ensamblaje blanco de Alsacia, armónico y fragante.",18600,,True,/img/menu/gentil-hugel-2023-alsace-a-o-c.jpg
+les-deux-tours-ladoucette-sauvignon-blanc-2023-de-ladoucette-pouilly-sur-loire-valley,Vinos Blancos,Les Deux Tours Ladoucette Sauvignon Blanc 2023 de Ladoucette. Pouilly-sur-Loire Valley,"Sauvignon Blanc del Valle del Loira, refinado y de limpia acidez.",21400,,True,/img/menu/les-deux-tours-ladoucette-sauvignon-blanc-2023-de-ladoucette-pouilly-sur-loire-valley.jpg
+pirovano-2024-d-o-c-soave,Vinos Blancos,Pirovano 2024. D.O.C. Soave,"Vino blanco de la región de Soave, delicado y agradable de beber.",14000,,True,/img/menu/pirovano-2024-d-o-c-soave.jpg
+collezione-beatrice-pinot-grigio-delle-venezie-2024-d-o-c,Vinos Blancos,Collezione Beatrice Pinot Grigio delle Venezie 2024. D.O.C,"Pinot Grigio fresco y equilibrado, estupendo como aperitivo.",9200,,True,/img/menu/collezione-beatrice-pinot-grigio-delle-venezie-2024-d-o-c.jpg
+albaclara-sauvignon-blanc-2024-leyda-antinori-chile,Vinos Blancos,Albaclara Sauvignon Blanc 2024. Leyda. Antinori. Chile,"Sauvignon Blanc chileno, notablemente dinámico y muy frutal.",22300,,True,/img/menu/albaclara-sauvignon-blanc-2024-leyda-antinori-chile.jpg
+wente-morning-fog-chardonnay-2021-central-coast-a-v-a-california-usa,Vinos Blancos,Wente Morning Fog Chardonnay 2021. Central Coast. A.V.A. California. USA,"Chardonnay californiano balanceado, con agradable untuosidad.",22500,,True,/img/menu/wente-morning-fog-chardonnay-2021-central-coast-a-v-a-california-usa.jpg
+tussock-jumper-sauvignon-blanc-2023-marlborough-new-zealand,Vinos Blancos,Tussock Jumper Sauvignon Blanc 2023. Marlborough. New Zealand,"Sauvignon Blanc neozelandés, súper expresivo con notas herbales y cítricas.",24500,,True,/img/menu/tussock-jumper-sauvignon-blanc-2023-marlborough-new-zealand.jpg
+casillero-del-diablo-sauvignon-blanc-2023-concha-y-toro-valle-central-chile,Vinos Blancos,Casillero del Diablo Sauvignon Blanc 2023 Concha y Toro. Valle Central. Chile,Blanco versátil chileno con marcada frescura.,10500,,True,/img/menu/casillero-del-diablo-sauvignon-blanc-2023-concha-y-toro-valle-central-chile.jpg
+roselin-prestige-2022-cotes-de-provence-a-o-p-francia,Vinos Rosados,Roselin Prestige 2022 Côtes de Provence A.O.P. Francia,"Rosado elegante de Côtes de Provence, equilibrado y muy fresco para acompañar tus momentos.",19300,,True,/img/menu/roselin-prestige-2022-cotes-de-provence-a-o-p-francia.jpg
+minuty-2023-1-5-lt-cotes-de-provence-a-o-p-francia,Vinos Rosados,Minuty 2023 (1.5 Lt) Côtes de Provence A.O.P. Francia,"Presentación en formato magnum de este reconocido rosado francés, ideal para compartir.",39500,,True,/img/menu/minuty-2023-1-5-lt-cotes-de-provence-a-o-p-francia.jpg
+olivia-2022-d-o-pazo-pondal-espana,Vinos Rosados,Olivia 2022. D.O. Pazo Pondal. España,"Vino rosado con denominación de origen, perfecto para disfrutar una copa ligera y aromática.",20500,,True,/img/menu/olivia-2022-d-o-pazo-pondal-espana.jpg
+collezione-beatrice-pinot-grigio-delle-venezie-2023-d-o-c-italia,Vinos Rosados,Collezione Beatrice Pinot Grigio delle Venezie 2023 D.O.C. Italia,"Pinot Grigio rosado italiano, vibrante y refrescante en paladar.",17900,,True,/img/menu/collezione-beatrice-pinot-grigio-delle-venezie-2023-d-o-c-italia.jpg
+espresso,Infusiones,Espresso,"Café corto e intenso, ideal para un impulso de energía directo.",1050,,True,
+americano,Infusiones,Americano,"Café suave diluido en agua caliente, perfecto para beber despacio.",1050,,True,
+carajillo,Infusiones,Carajillo,Bebida reconfortante de café combinada con toque espirituoso digestivo.,1400,,True,
+cartado,Infusiones,Cartado,"Café espresso manchado con una gota de leche, equilibrado y corto.",1050,,True,
+descafeinado,Infusiones,Descafeinado,"Infusión de café sin cafeína, aromática y ligera para cualquier momento.",850,,True,
+capuchino,Infusiones,Capuchino,"Café con leche espumosa y textura cremosa, delicioso al paladar.",1250,,True,
+cafe-con-leche,Infusiones,Café con Leche,Bebida clásica y reconfortante de café combinado con leche tibia.,1250,,True,
+cafe-bombon,Infusiones,Café Bombón,Opción dulce que combina la intensidad del café con leche condensada.,1400,,True,
+nespresso-vertuo,Infusiones,Nespresso Vertuo,Café de cápsula de perfil aromático balanceado y cuerpo definido.,1800,,True,
+nespresso-starbucks,Infusiones,Nespresso Starbucks,"Selección especial de café tostado espresso, expresivo y con cuerpo.",1950,,True,
+te,Infusiones,Té,"Infusión caliente y reconfortante, suave e ideal para momentos de calma.",850,,True,
+mojito,Cocteles,Mojito,"Coctel clásico de menta y lima, sumamente fresco e ideal para la tarde.",1950,,True,
+daiquiri,Cocteles,Daiquirí,"Bebida helada batida, refrescante y de acidez cítrica muy balanceada.",1950,,True,
+pina-colada-con-alcohol,Cocteles,Piña Colada con Alcohol,"Coctel cremoso con perfil tropical de piña y coco, combinado con licor.",3500,,True,
+pina-colada-sin-alcohol,Cocteles,Piña Colada sin Alcohol,"Batido cremoso de frutas tropicales de piña y coco, suave y apto para todos.",3200,,True,
+cuba-libre,Cocteles,Cuba Libre,Trago largo tradicional de refresco de cola con toque de lima y ron.,2250,,True,
+cubata,Cocteles,Cubata,"Variación del trago clásico con perfil intenso, ideal para compartir la mesa.",2400,,True,
+cubanito,Cocteles,Cubanito,"Coctel sazonado y especiado con base cítrica, exótico y tonificante.",1950,,True,
+caipiroska,Cocteles,Caipiroska,Trago refrescante con base de lima macerada y un toque bien helado.,1850,,True,
+ron-collins,Cocteles,Ron Collins,"Bebida larga cítrica y burbujeante, muy liviana de beber.",1950,,True,
+caipirinha,Cocteles,Caipirinha,"Coctel frutal con limas frescas majadas, dulce y ácido a la vez.",1950,,True,
+aperol-spritz,Cocteles,Aperol Spritz,"Bebida efervescente de color naranja y amargo ligero, perfecta para aperitivo.",3350,,True,
+gin-tonic,Cocteles,Gin Tonic,Combinación clásica de ginebra y agua tónica con toques cítricos.,3200,,True,
+sangria,Cocteles,Sangría,"Bebida frutal a base de vino, muy apetecible y fresca para el grupo.",2400,,True,
+bloddy-mary,Cocteles,Bloddy Mary,Coctel sazonado de sabor salado y especiado con toque cítrico.,1950,,True,
+canchanchara,Cocteles,Canchanchara,"Coctel tradicional de sabor dulce cítrico, servido bien frío.",1750,,True,
+margarita,Cocteles,Margarita,"Coctel icónico de perfil ácido y borde salado, muy estimado y festivo.",2600,,True,
+expresso-martini,Cocteles,Expresso Martini,Coctel energizante con espresso y notas de café tostado batido.,2400,,True,
+aloha,Cocteles Tiki de Autor,Aloha,"Mejunje tropical 0% alcohol con orgeat, don's mix, zumo de limón, jugo de piña, maracuyá y agua gaseada.",2150,,True,
+kane,Cocteles Tiki de Autor,Kane,"Preparación tropical de la casa con Johnnie W. Red, zumo de limón, don's spice #9, mix #1, agua de coco, licor de coco y energizante.",3750,,True,
+laka,Cocteles Tiki de Autor,Laka,"Mezcla especial que reúne vodka, zumo de limón, don's spice #9, don's mix, mix #2, zumo de mandarina y energizante.",2750,,True,
+haka,Cocteles Tiki de Autor,Haka,"Combinado especial 0% alcohol elaborado con saúco, lychee, zumo de limón, angostura de naranja y agua tónica.",2150,,True,
+hina,Cocteles Tiki de Autor,Hina,"Creación exótica con olmeca blanco, don's spice #9, zumo de limón, jugo de melón, jugo de maracuyá, aperol y cerveza de jengibre artesanal.",3750,,True,
+kanaloa,Cocteles Tiki de Autor,Kanaloa,"Receta estilo tiki elaborada con ron HC 3 años, zumo de limón, don's spice #9, don's spice #4, mix #1 y zumo de naranja.",2200,,True,
+mojito-sunset,Cocteles Tiki de Autor,Mojito Sunset,"Versión especial de autor inspirada en el mojito clásico, refrescante y frutal.",2250,,True,
+mr-40,Cocteles Clásicos de Autor,Mr. 40,"Coctel exclusivo elaborado con beefeater, bitter de naranja, zumo de limón, licor de manzana, mix #3 y vino espumoso.",2400,,True,
+dulce-veneno,Cocteles Clásicos de Autor,Dulce Veneno,"Elaboración propia con vodka, zumo de limón, don's spice #9, mix #4, mix #5 y Jägermeister.",2050,,True,
+polinesia,Cocteles Clásicos de Autor,Polinesia,"Mezcla caribeña con carta blanca, Santiago 8 años, don's spice #9, mix #1, sirope de maíz y ginger ale.",3100,,True,
+daiquiri-del-don,Cocteles Clásicos de Autor,Daiquirí del Don,Interpretación especial de la casa del tradicional daiquirí helado.,2400,,True,
+beefeater,Ginebras,Beefeater,"Ginebra clásica y equilibrada, perfecta para disfrutar en copa o coctelería.",1750,,True,
+bombay-sapphire,Ginebras,Bombay Sapphire,"Ginebra de perfil botánico y aromático, ideal para un gin tonic fresco.",4550,,True,
+tanqueray-ten,Ginebras,Tanqueray Ten,"Ginebra premium con notas cítricas seleccionadas, excelente para un trago distinguido.",3400,,True,
+tanqueray,Ginebras,Tanqueray,"Ginebra de estilo seco tradicional, estupenda para combinar en coctelería.",2550,,True,
+hendrick-s,Ginebras,Hendrick's,"Ginebra de carácter infusionado y suave, perfecta para saborear lentamente.",3000,,True,
+ciroc,Vodkas,Ciroc,"Vodka premium de textura refinada, ideal para servirse solo o en cócteles.",4250,,True,
+belvedere,Vodkas,Belvedere,"Vodka suave y de trago fluido, genial para acompañar la velada.",2550,,True,
+tito-s,Vodkas,Tito's,Vodka artesanal de perfil neutro y versátil para cualquier mezcla.,2200,,True,
+stolichnaya,Vodkas,Stolichnaya,"Vodka clásico de estilo tradicional, perfecto para combinados refrescantes.",1950,,True,
+absolute,Vodkas,Absolute,"Vodka versátil y conocido, ideal para mezclar en coctelería de barra.",1500,,True,
+absolute-raspberri,Vodkas,Absolute Raspberri,"Vodka saborizado con notas a frambuesa, apetecible y aromático.",1750,,True,
+absolute-citron,Vodkas,Absolute Citron,"Vodka saborizado con toques cítricos, fresco y vibrante.",1750,,True,
+absolute-tabasco,Vodkas,Absolute Tabasco,"Vodka preparado con toque especiado, ideal para tragos con carácter.",1750,,True,
+grey-goose,Vodkas,Grey Goose,"Vodka de alta calidad de acabado elegante, perfecto para saborear bien frío.",3550,,True,
+hennessy,Brandy & Cognac,Hennessy,"Cognac fino y complejo, perfecto para paladear con serenidad.",3550,,True,
+torres-5,Brandy & Cognac,Torres 5,"Brandy añejado de perfil equilibrado, ideal para disfrutar a temperatura.",1150,,True,
+torres-10,Brandy & Cognac,Torres 10,"Brandy tradicional de aroma maduro, excelente para la sobremesa.",1400,,True,
+torres-15,Brandy & Cognac,Torres 15,"Brandy de reserva con notas amaderadas, suave y expresivo.",1750,,True,
+torres-20,Brandy & Cognac,Torres 20,"Brandy distinguido de gran madurez, perfecto para ocasiones especiales.",2050,,True,
+fernet-blanca,Cremas y Licores,Fernet Blanca,"Licor amargo y digestivo, excelente para tomar como aperitivo o digestivo.",1600,,True,
+frangelico,Cremas y Licores,Frangelico,"Licor dulce de avellana, sabroso y reconfortante para la sobremesa.",2900,,True,
+amaretto,Cremas y Licores,Amaretto,"Licor dulce con aromas de almendra, ideal para disfrutar lento tras las comidas.",1250,,True,
+jagermeister,Cremas y Licores,Jägermeister,"Licor herbal de sabor intenso, perfecto para tomas frías o combinados.",1750,,True,
+sambuca,Cremas y Licores,Sambuca,"Licor aromático de anís, ideal para disfrutar solo o como digestivo.",1250,,True,
+licor-43,Cremas y Licores,Licor 43,"Licor dulce con notas doradas y especiadas, agradable al paladar.",1850,,True,
+baileys,Cremas y Licores,Baileys,"Crema de whisky suave y cremosa, perfecta para un toque dulce final.",2200,,True,
+limoncello,Cremas y Licores,Limoncello,"Licor cítrico servido bien frío, perfecto para limpiar el paladar.",1250,,True,
+cinzano-blanco,Cremas y Licores,Cinzano Blanco,"Vermut blanco dulce y aperitivo, ideal para abrir el apetito.",1500,,True,
+cinzano-rojo,Cremas y Licores,Cinzano Rojo,"Vermut rojo especiado, clásico para disfrutar en trago corto o preparado.",1600,,True,
+kahlua,Cremas y Licores,Kahlua,"Licor de café dulce y profundo, ideal para tomar en las tardes o en cócteles.",1950,,True,
+hc-7-anos,Rones,HC 7 Años,"Ron añejo con carácter y notas amaderadas, estupendo para degustar solo.",1500,,True,
+hc-smoky,Rones,HC Smoky,"Ron con perfil ahumado y notas profundas, muy sugerente al paladar.",1450,,True,
+seleccion-de-maestros,Rones,Selección de Maestros,"Ron de perfil complejo y premium, madurado con esmero para beber despacio.",2600,,True,
+hc-15-anos,Rones,HC 15 Años,"Ron añejo de gran reserva con matices de roble, suave y elegante.",7600,,True,
+pacto-navio,Rones,Pacto Navio,"Ron envejecido refinado, ideal para quienes buscan sabores delicados.",4800,,True,
+eminente-3,Rones,Eminente 3,"Ron versátil y joven, idóneo tanto en mezclas como servido con hielo.",2050,,True,
+eminente-7,Rones,Eminente 7,"Ron con siete años de reposo, amaderado y con mucho cuerpo.",3600,,True,
+santisima-trinidad-7,Rones,Santísima Trinidad 7,"Ron suave de maduración intermedia, perfecto para tragos elegantes.",2650,,True,
+santisima-trinidad-15,Rones,Santísima Trinidad 15,"Ron de reserva de sabor profundo y tostado, ideal para acompañar la velada.",3100,,True,
+bacardi,Rones,Bacardí,"Ron blanco muy conocido, ligero e idóneo para combinar en coctelería.",3000,,True,
+zacapa,Rones,Zacapa,Ron premium de altura con cuerpo redondo y notas dulces e intensas.,4350,,True,
+barcelo-imperial,Rones,Barcelo Imperial,"Ron añejo elegante con sutiles matices acaramelados, muy apetecible.",3350,,True,
+santiago-8-anos,Rones,Santiago 8 Años,Ron caribeño equilibrado con notas suaves de barrica.,1500,,True,
+santiago-11-anos,Rones,Santiago 11 Años,"Ron con maduración prolongada, rico en cuerpo y textura.",2300,,True,
+santiago-12-anos,Rones,Santiago 12 Años,"Ron maduro y estructurado, perfecto para servirse solo o en rocas.",2500,,True,
+buchanans-12,Whiskys,Buchanan´s 12,"Whisky escocés de doce años, suave, frutal y fácil de degustar.",4750,,True,
+buchanans-master,Whiskys,Buchanan´s Master,"Mezcla especial del maestro mezclador, de sabor completo y rico.",5500,,True,
+buchanans-18,Whiskys,Buchanan´s 18,"Whisky madurado durante 18 años, con notas profundas y textura sedosa.",5900,,True,
+the-glenlivet,Whiskys,The Glenlivet,Whisky single malt de perfil elegante con notas frutales y florales.,5850,,True,
+macallan-12,Whiskys,Macallan 12,"Whisky malt de gran renombre, rico en matices de roble y frutos secos.",14700,,True,
+macallan-18,Whiskys,Macallan 18,"Whisky exclusivo de gran añejamiento, suave, complejo y memorable.",35000,,True,
+chivas-regal-12,Whiskys,Chivas Regal 12,"Whisky blended emblemático, equilibrado, cremoso y con notas de miel.",2300,,True,
+chivas-regal-15,Whiskys,Chivas Regal 15,"Whisky de quince años reposado en barricas seleccionadas, muy suave.",2400,,True,
+chivas-regal-18,Whiskys,Chivas Regal 18,Whisky de mezcla compleja de 18 años con toques de cacao y sotobosque.,11750,,True,
+chivas-regal-25,Whiskys,Chivas Regal 25,"Edición exclusiva de alto añejamiento, redonda y muy refinada.",32000,,True,
+jw-black,Whiskys,JW Black,Whisky de malta madura con fondo ahumado bien característico.,3900,,True,
+jw-red,Whiskys,JW Red,"Whisky joven y vibrante, idóneo para combinar con agua de soda o hielo.",1950,,True,
+jw-green,Whiskys,JW Green,"Blended malt proveniente de maltas seleccionadas, fresco y estructurado.",5500,,True,
+jw-double-black,Whiskys,JW Double Black,Mezcla con carácter ahumado acentuado e intenso sabor a madera.,4150,,True,
+jw-blue,Whiskys,JW Blue,"Cumbre del destilado con maltas excepcionales, de trago sutil y largo.",19550,,True,
+jack-daniels,Whiskys,Jack Daniels,Whiskey de Tennessee de filtrado suave con matices caramelizados.,3000,,True,
+jack-daniels-honey,Whiskys,Jack Daniels Honey,"Licor de whiskey de Tennessee mezclado con miel, suave y dulce.",2550,,True,
+wild-turkey,Whiskys,Wild Turkey,"Bourbon americano con personalidad firme, especiado y con cuerpo.",2650,,True,
+jameson,Whiskys,Jameson,"Whiskey irlandés de triple destilación, sumamente suave y versátil.",1650,,True,
+j-b,Whiskys,J&B,"Whisky de mezcla ligero y balanceado, idóneo para trago largo.",1600,,True,
+ballantines,Whiskys,Ballantines,Whisky escocés clásico de trago amable y equilibrado.,1850,,True,
+black-and-white,Whiskys,Black and White,"Whisky liviano y refrescante, ideal para acompañar con hielos.",1250,,True,
+olmeca-blanco,Tequilas,Olmeca Blanco,"Tequila transparente de perfil herbal, genial para caballitos o mezclas.",1500,,True,
+olmeca-reposado,Tequilas,Olmeca Reposado,Tequila añejado con matices suavemente dorados y balanceados.,1600,,True,
+patron-blanco,Tequilas,Patrón Blanco,"Tequila suave y fresco elaborado con agave, perfecto para tragos directos.",3350,,True,
+patron-reposado,Tequilas,Patrón Reposado,Tequila en barrica de sabor agradable con notas de madera.,3550,,True,
+don-julio-blanco,Tequilas,Don Julio Blanco,"Tequila de agave puro con acabado limpio, muy apreciado en barra.",3200,,True,
+don-julio-reposado,Tequilas,Don Julio Reposado,Tequila reposado de gran elegancia y paso suave por garganta.,4650,,True,
+olmeca-altos-reposado,Tequilas,Olmeca Altos Reposado,Tequila de calidad superior con notas herbales y tostadas equilibradas.,4800,,True,
+clase-azul-plata,Tequilas,Clase Azul Plata,"Tequila ultra premium artesanal, suave y con perfil refinado de agave.",19300,,True,
+clase-azul-reposado,Tequilas,Clase Azul Reposado,"Tequila de lujo con prolongado reposo, sedoso y muy exclusivo.",21500,,True,
+1800-silver,Tequilas,1800 Silver,"Tequila blanco balanceado, limpio y perfecto para tomar en copa.",3000,,True,
+1800-reposado,Tequilas,1800 Reposado,"Tequila reposado en madera, de color dorado y perfil redondo.",3200,,True,

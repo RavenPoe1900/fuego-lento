@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Fotos originales descargadas de Carrta (pesadas; las optimizadas están en public/img/menu)
+/data/carrta/originales/

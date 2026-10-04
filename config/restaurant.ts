@@ -14,19 +14,19 @@ export const restaurant = {
   /**
    * ESTADO COMERCIAL (solo valores confirmados).
    * Confirmado públicamente (Instagram): cerrado temporalmente por reparaciones.
-   * Menú, precios, horarios y cobertura aún no han sido proporcionados.
+   * Menú, precios y horario: tomados de su carta pública en Carrta (carrta.app/fuegolento). Cobertura aún pendiente.
    */
   storefront: {
     // TEMPORAL (vista previa del diseño): revertir a "temporarily_closed" / orderingEnabled false / whatsappOrderingEnabled false
     status: "open",
     statusMessage: "",
     orderingEnabled: true,
-    hoursStatus: "unavailable",
+    hoursStatus: "confirmed",
     coverageEnabled: false,
     historyApproved: false,
     faqRouteEnabled: true,
-    menuApproved: false,
-    pricesConfirmed: false,
+    menuApproved: true,
+    pricesConfirmed: true,
     reopeningSignupEnabled: false,
     whatsappOrderingEnabled: true,
     paymentMethodsConfirmed: false,
@@ -38,16 +38,15 @@ export const restaurant = {
 
   country: "Cuba",
   timezone: "America/Havana",
-  /** PENDIENTE */
-  city: null as string | null,
-  /** PENDIENTE */
-  address: null as string | null,
+  city: "La Habana" as string | null,
+  /** Según su carta en Carrta (con enlace a Google Maps) */
+  address: "Calle 1ra esquina C, Vedado" as string | null,
   /** PENDIENTE */
   phone: null as string | null,
   /** PENDIENTE */
   email: null as string | null,
-  /** Número en formato internacional sin "+" ni espacios, p. ej. 53XXXXXXXX. Se lee del entorno. */
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || null,
+  /** Número en formato internacional sin "+" ni espacios (53 + 8 dígitos). El entorno puede sobrescribirlo. */
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5358465895",
 
   instagram: {
     handle: "@fuegolento_steakhouse",
@@ -85,16 +84,8 @@ export const restaurant = {
     lastNameRequired: false,
   },
 
-  /** DEMO · horario de ejemplo, sin confirmar. Solo se muestra si storefront.hoursStatus === "confirmed". */
-  hours: [
-    { day: 0, enabled: true, intervals: [{ open: "12:00", close: "22:00" }] },
-    { day: 1, enabled: false, intervals: [] },
-    { day: 2, enabled: true, intervals: [{ open: "12:00", close: "22:00" }] },
-    { day: 3, enabled: true, intervals: [{ open: "12:00", close: "22:00" }] },
-    { day: 4, enabled: true, intervals: [{ open: "12:00", close: "22:00" }] },
-    { day: 5, enabled: true, intervals: [{ open: "12:00", close: "23:00" }] },
-    { day: 6, enabled: true, intervals: [{ open: "12:00", close: "23:00" }] },
-  ] satisfies BusinessHours[],
+  /** Horario real según su carta en Carrta: todos los días de 12:30 a 19:00. */
+  hours: [0, 1, 2, 3, 4, 5, 6].map((day) => ({ day, enabled: true, intervals: [{ open: "12:30", close: "19:00" }] })) satisfies BusinessHours[],
   /** Días cerrados por feriado (YYYY-MM-DD) */
   holidays: [] as string[],
 
@@ -134,8 +125,8 @@ export const restaurant = {
     siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "https://fuegolento.example",
     title: "Fuego Lento Steakhouse · Pedidos a domicilio",
     description:
-      "Cortes, hamburguesas y especialidades preparadas con fuego, tiempo y carácter. Pide Fuego Lento a domicilio o para recoger.",
-    ogImage: "/img/demo/hero.jpg",
+      "Cortes Angus a la parrilla, entrantes, vinos y cócteles en el Vedado, La Habana. Pide Fuego Lento a domicilio o para recoger.",
+    ogImage: "/img/menu/header-2.webp",
   },
 };
 

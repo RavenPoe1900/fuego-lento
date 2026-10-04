@@ -14,7 +14,19 @@ import { useUi } from "@/store/ui-store";
 export function Specialties() {
   const { showPrices } = useStoreStatus();
   const openProduct = useUi((s) => s.openProduct);
-  const items = useMemo(() => getAllProducts().filter((p) => p.available && p.images[0] && (p.categoryId === "especialidades" || p.categoryId === "combos")).slice(0, 5), []);
+  // Cortes a la parrilla con foto, sin repetir los destacados ni el mismo corte en otro peso
+  const items = useMemo(() => {
+    const seen = new Set<string>();
+    return getAllProducts()
+      .filter((p) => p.available && p.images[0] && p.categoryId === "carnes-parrilla" && !p.featured)
+      .filter((p) => {
+        const base = p.name.replace(/\s*\(.*$/, "");
+        if (seen.has(base)) return false;
+        seen.add(base);
+        return true;
+      })
+      .slice(0, 5);
+  }, []);
   const [active, setActive] = useState(0);
   if (items.length < 3) return null;
   const s = content.specialties;

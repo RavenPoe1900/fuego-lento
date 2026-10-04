@@ -7,10 +7,10 @@ export const content = {
   hero: {
     eyebrow: "Steakhouse · Cortes & carnes",
     title: "De las brasas a tu puerta",
-    description: "Cortes, hamburguesas y especialidades preparadas al fuego.",
+    description: "Cortes Angus, parrilla y especialidades preparadas al fuego.",
     primaryCta: "Explorar el menú",
     coverageLink: "Consultar cobertura",
-    image: { src: "/img/demo/hero.jpg", alt: "Corte de res a la brasa rebanado sobre una tabla de madera" },
+    image: { src: "/img/menu/header-2.webp", alt: "Corte de res a la brasa rebanado sobre la mesa de Fuego Lento" },
     /** Cuando no se reciben pedidos */
     closed: {
       title: "Volvemos a encender el fuego",
@@ -25,16 +25,16 @@ export const content = {
   manifesto: {
     label: "Oficio",
     title: "El sabor no se improvisa.",
-    text: "Cortes, hamburguesas y especialidades preparados al fuego",
+    text: "Cortes Angus, parrilla y especialidades preparados al fuego",
     textOrdering: " y personalizados para cada pedido.",
     /**
      * Composición 5/4/3: foto de producto · texto · foto de ambiente.
-     * PENDIENTE: fotos de ejemplo. Solo se muestran en la vista previa hasta que `imagesApproved` sea true.
+     * Fotos reales del restaurante (carta de Carrta).
      */
-    imagesApproved: false,
+    imagesApproved: true,
     images: [
-      { src: "/img/demo/social-cortes.jpg", alt: "Cortes de carne cruda sobre una tabla de madera" },
-      { src: "/img/demo/brasas.jpg", alt: "Fuego encendido sobre brasas en la oscuridad" },
+      { src: "/img/menu/picana-angus-prime-230-grs.webp", alt: "Picaña Angus Prime rebanada con vegetales a la brasa" },
+      { src: "/img/menu/gambones.webp", alt: "Comensal leyendo la carta de Fuego Lento junto a un plato de gambones" },
     ],
   },
 
@@ -58,10 +58,10 @@ export const content = {
     eyebrow: "Secuencia",
     title: "Del fuego a la mesa",
     panels: [
-      { word: "Brasas", image: { src: "/img/demo/social-costillas.jpg", alt: "Costillas ahumadas recién cortadas sobre una tabla" } },
-      { word: "Corte", image: { src: "/img/demo/corte-rebanado.jpg", alt: "Corte de res jugoso cortado con cuchillo y tenedor" } },
-      { word: "Mesa", image: { src: "/img/demo/social-mesa.jpg", alt: "Mesa con brochetas, vegetales asados y salsas" } },
-      { word: "Plancha", image: { src: "/img/demo/parrillada.jpg", alt: "Carne rebanada y papas sobre una plancha de hierro" } },
+      { word: "Brasas", image: { src: "/img/menu/t-bone-angus-prime-400-grs.webp", alt: "T-Bone Angus Prime con marcas de la parrilla" } },
+      { word: "Corte", image: { src: "/img/menu/picana-angus-prime-460-grs.webp", alt: "Picaña Angus Prime rebanada con salsa y vegetales" } },
+      { word: "Mesa", image: { src: "/img/menu/tabla-fuego-lento.webp", alt: "Tabla Fuego Lento servida en la mesa con una copa de vino" } },
+      { word: "Plancha", image: { src: "/img/menu/churrasco-angus-prime-460-grs.webp", alt: "Churrasco Angus Prime sobre tabla de madera" } },
     ],
   },
 
@@ -70,9 +70,9 @@ export const content = {
     description: "Platos, momentos y experiencias compartidas alrededor de Fuego Lento.",
     cta: "Ver Instagram",
     images: [
-      { src: "/img/demo/barra.jpg", alt: "Barra de un restaurante con iluminación cálida" },
-      { src: "/img/demo/trago.jpg", alt: "Cóctel ámbar con hielo y piel de naranja sobre la barra" },
-      { src: "/img/demo/coctel.jpg", alt: "Cóctel con romero y rodaja de cítrico sobre madera" },
+      { src: "/img/menu/header-3.webp", alt: "Corte a la brasa con vegetales y copa de vino en la mesa" },
+      { src: "/img/menu/filetillo-de-res.webp", alt: "Filetillo de res acompañado de un cóctel" },
+      { src: "/img/menu/new-york-steak-angus-prime-350-grs.webp", alt: "New York Steak servido con vino tinto" },
     ],
   },
 

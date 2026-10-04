@@ -1,0 +1,3677 @@
+{
+  "source": "https://carrta.app/fuegolento",
+  "exportedAt": "2026-10-03",
+  "currency": "CUP",
+  "business": {
+    "headerImages": [
+      {
+        "url": "https://i.ibb.co/27bddfkg/Snap-Insta-Ai-3855829283315598298-76263123243-cropped.jpg",
+        "local": "/img/menu/header-1.jpg"
+      },
+      {
+        "url": "https://i.ibb.co/9k1QhBFH/Snap-Insta-Ai-3923107383081857408-76263123243-cropped.jpg",
+        "local": "/img/menu/header-2.jpg"
+      },
+      {
+        "url": "https://i.ibb.co/Kcd8VRNv/Snap-Insta-Ai-3923107343789500400-76263123243-cropped.jpg",
+        "local": "/img/menu/header-3.jpg"
+      }
+    ],
+    "instagram": "https://www.instagram.com/fuegolento_steakhouse",
+    "whatsapp": "+5352145269",
+    "name": "Fuego Lento",
+    "logo": {
+      "url": "https://i.ibb.co/3YhTsbtd/Chat-GPT-Image-Jul-10-2026-04-39-56-PM-cropped.png",
+      "local": "/img/menu/logo.png"
+    },
+    "services": {
+      "availableLocal": true,
+      "availableDelivery": true,
+      "availablePickup": false
+    },
+    "category": "Cortes y Carnes",
+    "hours": [
+      {
+        "day": "Lunes",
+        "open": "12:30 PM",
+        "close": "7:00 PM"
+      },
+      {
+        "day": "Martes",
+        "open": "12:30 PM",
+        "close": "7:00 PM"
+      },
+      {
+        "day": "Miercoles",
+        "open": "12:30 PM",
+        "close": "7:00 PM"
+      },
+      {
+        "day": "Jueves",
+        "open": "12:30 PM",
+        "close": "7:00 PM"
+      },
+      {
+        "day": "Viernes",
+        "open": "12:30 PM",
+        "close": "7:00 PM"
+      },
+      {
+        "day": "Sábado",
+        "open": "12:30 PM",
+        "close": "7:00 PM"
+      },
+      {
+        "day": "Domingo",
+        "open": "12:30 PM",
+        "close": "7:00 PM"
+      }
+    ],
+    "deliveryPhone": "+5352145269",
+    "address": "Calle 1ra Esquina C, Vedado, La Habana",
+    "mapsUrl": "https://www.google.com/maps/place/Fuego+Lento+Steakhouse/@23.1424594,-82.3999169,18.94z/data=!4m6!3m5!1s0x88cd770025138d19:0x7ff201a4db10d70b!8m2!3d23.1425384!4d-82.3995098!16s%2Fg%2F11y06hx6kf?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D",
+    "googleReviewUrl": "https://search.google.com/local/writereview?placeid=ChIJGY0TJQB3zYgRC9cQ26QB8n8"
+  },
+  "categories": [
+    {
+      "id": "entrantes",
+      "name": "Entrantes",
+      "order": 1,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "pastas",
+      "name": "Pastas",
+      "order": 2,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "principales",
+      "name": "Principales",
+      "order": 3,
+      "visible": true,
+      "modals": [
+        "guarniciones"
+      ]
+    },
+    {
+      "id": "sartenes",
+      "name": "Sartenes",
+      "order": 4,
+      "visible": true,
+      "modals": [
+        "guarniciones"
+      ]
+    },
+    {
+      "id": "carnes-parrilla",
+      "name": "Carnes Parrilla",
+      "order": 5,
+      "visible": true,
+      "modals": [
+        "guarniciones",
+        "salsas-a-elegir"
+      ]
+    },
+    {
+      "id": "postre",
+      "name": "Postre",
+      "order": 7,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "bebidas",
+      "name": "Bebidas",
+      "order": 8,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "vino-de-la-casa",
+      "name": "Vino de la Casa",
+      "order": 9,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "vinos-de-postre",
+      "name": "Vinos de Postre",
+      "order": 10,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "espumosos",
+      "name": "Espumosos",
+      "order": 11,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "vinos-tintos",
+      "name": "Vinos Tintos",
+      "order": 12,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "vinos-blancos",
+      "name": "Vinos Blancos",
+      "order": 13,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "vinos-rosados",
+      "name": "Vinos Rosados",
+      "order": 14,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "infusiones",
+      "name": "Infusiones",
+      "order": 15,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "cocteles",
+      "name": "Cocteles",
+      "order": 16,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "cocteles-tiki-de-autor",
+      "name": "Cocteles Tiki de Autor",
+      "order": 17,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "cocteles-clasicos-de-autor",
+      "name": "Cocteles Clásicos de Autor",
+      "order": 18,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "ginebras",
+      "name": "Ginebras",
+      "order": 19,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "vodkas",
+      "name": "Vodkas",
+      "order": 20,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "brandy-cognac",
+      "name": "Brandy & Cognac",
+      "order": 21,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "cremas-y-licores",
+      "name": "Cremas y Licores",
+      "order": 22,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "rones",
+      "name": "Rones",
+      "order": 23,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "whiskys",
+      "name": "Whiskys",
+      "order": 24,
+      "visible": true,
+      "modals": []
+    },
+    {
+      "id": "tequilas",
+      "name": "Tequilas",
+      "order": 25,
+      "visible": true,
+      "modals": []
+    }
+  ],
+  "modals": [
+    {
+      "items": [
+        {
+          "name": "Pasta de ajo y mantequilla",
+          "description": "Sencilla y deliciosa pasta salteada en ajo y mantequilla.",
+          "price": 1100
+        },
+        {
+          "name": "Arroz Montero",
+          "description": "salteado con champiñones, habichuela y salsa inglesa",
+          "price": 2000
+        },
+        {
+          "name": "Puré del día",
+          "description": "Suave y cremoso puré preparado con ingredientes frescos del día.",
+          "price": 990
+        },
+        {
+          "name": "Vegetales grillados y salsa de yogurt",
+          "description": "Selección de vegetales de temporada asados a la parrilla con dip de yogurt.",
+          "price": 990
+        },
+        {
+          "name": "Papas fritas gratinadas",
+          "description": "Clásicas papas fritas cubiertas de queso gratinado.",
+          "price": 1700
+        }
+      ],
+      "name": "Guarniciones",
+      "id": "guarniciones"
+    },
+    {
+      "items": [
+        {
+          "name": "Chimichurri",
+          "description": "Clásica salsa de hierbas aromáticas, ideal para carnes.",
+          "price": null
+        },
+        {
+          "name": "Barbecue de la Casa",
+          "description": "Salsa barbacoa elaborada con la receta secreta del chef.",
+          "price": null
+        },
+        {
+          "name": "Salsa Fuego Lento",
+          "description": "La salsa insignia del restaurante, llena de sabor y carácter.",
+          "price": null
+        },
+        {
+          "name": "Refrito de Ajo y Tomate Deshidratado",
+          "description": "Preparación intensa de ajo sofrito con tomates secos.",
+          "price": null
+        },
+        {
+          "name": "Pico de Gallo",
+          "description": "Fresca combinación de tomate, cebolla, cilantro y un toque de limón.",
+          "price": null
+        }
+      ],
+      "name": "Salsas a Elegir",
+      "id": "salsas-a-elegir"
+    }
+  ],
+  "products": [
+    {
+      "id": "aguachile-de-mariscos",
+      "name": "Aguachile de Mariscos",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Preparación fresca de mariscos marinados, ideal para comenzar la experiencia.",
+      "price": 6100,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/C5BrVqCN/IMG-0094-cropped.jpg",
+          "local": "/img/menu/aguachile-de-mariscos.jpg"
+        }
+      ]
+    },
+    {
+      "id": "tartaleta-de-tartar",
+      "name": "Tartaleta de Tartar",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Solomillo angus macerado con tomate deshidratado, especias, alcaparras, extra virgen, yema curada y mayonesa trufada.",
+      "price": 6100,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/k6PrHg2f/IMG-1319-JPG-cropped.jpg",
+          "local": "/img/menu/tartaleta-de-tartar.jpg"
+        }
+      ]
+    },
+    {
+      "id": "carpaccio-de-res-artesanal",
+      "name": "Carpaccio de Res Artesanal",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Láminas de angus, pepino escabechado, olivos negros, tomate deshidratado, sal de apio y aire de limón.",
+      "price": 7500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/0pPp0w70/Whats-App-Image-2026-07-21-at-1-59-57-PM-cropped.jpg",
+          "local": "/img/menu/carpaccio-de-res-artesanal.jpg"
+        }
+      ]
+    },
+    {
+      "id": "ramen-steak",
+      "name": "Ramen Steak",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Fondo de res, gyozas de carne, huevo duro, hongos, vegetales y solomillo angus.",
+      "price": 5400,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/k65byspD/b35a7bad-5976-4626-80c3-0a26563988b0.jpg",
+          "local": "/img/menu/ramen-steak.jpg"
+        }
+      ]
+    },
+    {
+      "id": "ensalada-smoke",
+      "name": "Ensalada Smoke",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Selección de vegetales, maíz dulce, champiñones, cebolla curtida, solomillo angus y mayonesa ahumada de cilantro.",
+      "price": 5300,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/HT5GJ9zP/a686a166-49cd-40cf-a228-4866a475a611.jpg",
+          "local": "/img/menu/ensalada-smoke.jpg"
+        }
+      ]
+    },
+    {
+      "id": "charcuteria-a-la-lena",
+      "name": "Charcutería a la Leña",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Chorizo argentino, chorizo parrillero, morcilla, salchicha parrillera y salsa bbq, acompañado con pan.",
+      "price": 10500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/DDY97yz7/DSC09335-cropped.jpg",
+          "local": "/img/menu/charcuteria-a-la-lena.jpg"
+        }
+      ]
+    },
+    {
+      "id": "croquetas-de-la-casa",
+      "name": "Croquetas de la Casa",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Bechamel enriquecida con hebras de res y espinacas salteadas.",
+      "price": 2000,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/wNMYR82s/croquteas.jpg",
+          "local": "/img/menu/croquetas-de-la-casa.jpg"
+        }
+      ]
+    },
+    {
+      "id": "pulpo-a-las-brasas-y-romesco",
+      "name": "Pulpo a las Brasas y Romesco",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Pulpo cocinado a las brasas acompañado de salsa romesco tradicional.",
+      "price": 5700,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/DPkxBr7s/f9080b36-3be2-4ea6-b3e3-712908f5ca48.jpg",
+          "local": "/img/menu/pulpo-a-las-brasas-y-romesco.jpg"
+        },
+        {
+          "url": "https://i.ibb.co/TMNhWgJr/236b0770-5025-4a8d-bc1b-a8efa22853d4-cropped.jpg",
+          "local": "/img/menu/pulpo-a-las-brasas-y-romesco-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "tabla-fuego-lento",
+      "name": "Tabla Fuego Lento",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Selección de cortes angus, costilla de cerdo, chorizo argentino, morcilla y pan.",
+      "price": 24100,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/LhR8B0St/DSC05575-cropped.jpg",
+          "local": "/img/menu/tabla-fuego-lento.jpg"
+        }
+      ]
+    },
+    {
+      "id": "provolone-ahumado-a-la-plancha",
+      "name": "Provolone Ahumado a la Plancha",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Medallón de provolone a la plancha acompañado de tostadas de baguette.",
+      "price": 5600,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/rGy9dWYQ/IMG-6263-cropped.jpg",
+          "local": "/img/menu/provolone-ahumado-a-la-plancha.jpg"
+        }
+      ]
+    },
+    {
+      "id": "tabla-de-jamones-y-queso",
+      "name": "Tabla de Jamones y Queso",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Selección de jamones ibéricos, quesos de la casa y tomaca.",
+      "price": 9800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/ZRKVn8PV/IMG-6220-cropped.jpg",
+          "local": "/img/menu/tabla-de-jamones-y-queso.jpg"
+        }
+      ]
+    },
+    {
+      "id": "tabla-de-quesos",
+      "name": "Tabla de Quesos",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Mixtos de quesos condimentados y extra virgen de oliva.",
+      "price": 5800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/9RpVxhM/DSC03483-2-cropped.jpg",
+          "local": "/img/menu/tabla-de-quesos.jpg"
+        }
+      ]
+    },
+    {
+      "id": "tataki-de-res",
+      "name": "Tataki de Res",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Corte tataki de angus, col kimchi, jengibre confitado, wasabi y ponzu del chef.",
+      "price": 9300,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/p6wHJpJv/7542edd7-3cf1-41aa-9257-c497d05dcd28-cropped.jpg",
+          "local": "/img/menu/tataki-de-res.jpg"
+        },
+        {
+          "url": "https://i.ibb.co/C5ZprQ4f/fea12549-b66d-47d7-bda9-b5d8fa3b803e-cropped.jpg",
+          "local": "/img/menu/tataki-de-res-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "jamon-iberico",
+      "name": "Jamón Ibérico",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Jamón ibérico seleccionado, ideal para abrir el apetito o compartir al centro.",
+      "price": 9500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "empanada-angus-trufada",
+      "name": "Empanada Angus Trufada",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Empanada crujiente rellena de carne angus con toque aromático trufado.",
+      "price": 5500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/WvqnHmn6/IMG-6211-cropped.jpg",
+          "local": "/img/menu/empanada-angus-trufada.jpg"
+        }
+      ]
+    },
+    {
+      "id": "ceviche-escarlata",
+      "name": "Ceviche Escarlata",
+      "categoryId": "entrantes",
+      "category": "Entrantes",
+      "description": "Entrada marina marinada, fresca y llena de sabor equilibrado.",
+      "price": 4600,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/RTfV0qZ6/IMG-4545-2-cropped.jpg",
+          "local": "/img/menu/ceviche-escarlata.jpg"
+        }
+      ]
+    },
+    {
+      "id": "raviolis-de-res-y-pomodoro-asada",
+      "name": "Raviolis de Res y Pomodoro Asada",
+      "categoryId": "pastas",
+      "category": "Pastas",
+      "description": "Pasta rellena de angus, aceitunas negras, cebolla y apio, acompañado de salsa roja de la casa, pesto y queso cabra curada.",
+      "price": 5800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/FkNzncBm/IMG-1338-JPG-cropped.jpg",
+          "local": "/img/menu/raviolis-de-res-y-pomodoro-asada.jpg"
+        }
+      ]
+    },
+    {
+      "id": "pasta-con-res-y-hongos",
+      "name": "Pasta con Res y Hongos",
+      "categoryId": "pastas",
+      "category": "Pastas",
+      "description": "Pasta larga salteada con solomillo angus, tomate deshidratado, ajo, hongos, extra virgen de oliva y queso cabra curada.",
+      "price": 9200,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/DHrnSKLQ/Whats-App-Image-2026-07-21-at-1-59-59-PM-cropped.jpg",
+          "local": "/img/menu/pasta-con-res-y-hongos.jpg"
+        }
+      ]
+    },
+    {
+      "id": "raggu-y-pasta-corta",
+      "name": "Raggú y Pasta Corta",
+      "categoryId": "pastas",
+      "category": "Pastas",
+      "description": "Salsa raggú tradicional y queso parmesano.",
+      "price": 4200,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "tagliatelle-y-costillas-guisadas",
+      "name": "Tagliatelle y Costillas Guisadas",
+      "categoryId": "pastas",
+      "category": "Pastas",
+      "description": "Pasta tagliatelle servida con sabrosas costillas guisadas en su jugo.",
+      "price": 15900,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/v64LmC8f/IMG-4622-cropped.jpg",
+          "local": "/img/menu/tagliatelle-y-costillas-guisadas.jpg"
+        }
+      ]
+    },
+    {
+      "id": "cesta-de-pan",
+      "name": "Cesta de pan",
+      "categoryId": "principales",
+      "category": "Principales",
+      "description": "",
+      "price": 3600,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "confitado-de-res",
+      "name": "Confitado de Res",
+      "categoryId": "principales",
+      "category": "Principales",
+      "description": "Dados de angus a baja temperatura, plátano maduro frito y mojo cimarrón.",
+      "price": 15800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/CsKtbd3r/confitad-de-res-cropped.jpg",
+          "local": "/img/menu/confitado-de-res.jpg"
+        }
+      ]
+    },
+    {
+      "id": "costilla-de-cerdo-asadas-y-salsa-cajun",
+      "name": "Costilla de Cerdo Asadas y Salsa Cajún",
+      "categoryId": "principales",
+      "category": "Principales",
+      "description": "Costilla de cerdo al carbón y salsa especiada.",
+      "price": 11800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/s9B3bsXh/costrillas-de-cerdo-cropped.jpg",
+          "local": "/img/menu/costilla-de-cerdo-asadas-y-salsa-cajun.jpg"
+        }
+      ]
+    },
+    {
+      "id": "cordero-fuego-lento",
+      "name": "Cordero Fuego Lento",
+      "categoryId": "principales",
+      "category": "Principales",
+      "description": "Cordero confitado con olivas, maíz dulce y tomillo.",
+      "price": 9500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/5XnkCgN5/cordero-fiego-lento.jpg",
+          "local": "/img/menu/cordero-fuego-lento.jpg"
+        }
+      ]
+    },
+    {
+      "id": "langosta-torno-bacon",
+      "name": "Langosta Torno Bacon",
+      "categoryId": "principales",
+      "category": "Principales",
+      "description": "Rolos de langosta albardados con bacon y salsa mediterránea blanca.",
+      "price": 8200,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/mrDLN85w/IMG-6215-cropped.jpg",
+          "local": "/img/menu/langosta-torno-bacon.jpg"
+        }
+      ]
+    },
+    {
+      "id": "filete-blanco-grille-y-crema-de-elotes",
+      "name": "Filete Blanco Grille y Crema de Elotes",
+      "categoryId": "principales",
+      "category": "Principales",
+      "description": "Filete de pescado blanco a la grilla acompañado de cremosa salsa de elote.",
+      "price": 6200,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "filetillo-de-res",
+      "name": "Filetillo de Res",
+      "categoryId": "principales",
+      "category": "Principales",
+      "description": "Fajas de solomillo salteadas con boniato frito y salsa.",
+      "price": 11500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/W4gzn6s2/c32220ce-b0f9-4d67-8518-1212768b6026.jpg",
+          "local": "/img/menu/filetillo-de-res.jpg"
+        }
+      ]
+    },
+    {
+      "id": "ocaso-thai-pollo-al-curry-del-chef",
+      "name": "Ocaso Thai (Pollo al Curry del Chef)",
+      "categoryId": "principales",
+      "category": "Principales",
+      "description": "Especialidad de la casa elaborada con tiernos trozos de pollo en salsa curry.",
+      "price": 5100,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/60zN1h5D/06b832ad-465a-47a5-8cc2-ecb10873a163.jpg",
+          "local": "/img/menu/ocaso-thai-pollo-al-curry-del-chef.jpg"
+        },
+        {
+          "url": "https://i.ibb.co/9HF4kMtG/7cdec9f1-8578-4a8f-b4b4-f03241a9392a-cropped.jpg",
+          "local": "/img/menu/ocaso-thai-pollo-al-curry-del-chef-2.jpg"
+        },
+        {
+          "url": "https://i.ibb.co/5hV42MFn/77a579df-3d6d-4b6e-9780-9398effa8bef-cropped.jpg",
+          "local": "/img/menu/ocaso-thai-pollo-al-curry-del-chef-3.jpg"
+        }
+      ]
+    },
+    {
+      "id": "florentina-de-la-casa",
+      "name": "Florentina de la Casa",
+      "categoryId": "principales",
+      "category": "Principales",
+      "description": "Tournedo de pollo relleno de espinaca y queso cheddar.",
+      "price": 6900,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "montura-de-cerdo",
+      "name": "Montura de Cerdo",
+      "categoryId": "principales",
+      "category": "Principales",
+      "description": "Cortes de lomo de cerdo a la brasa con salsa trufada.",
+      "price": 5900,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "gambones",
+      "name": "Gambones",
+      "categoryId": "principales",
+      "category": "Principales",
+      "description": "Gambones salteados con salsa Fuego Lento y un lecho de tomates asados.",
+      "price": 14200,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/ZRDd5N6w/ea1bf87c-40c3-4597-b0f4-152c9da29713.jpg",
+          "local": "/img/menu/gambones.jpg"
+        },
+        {
+          "url": "https://i.ibb.co/k2rYXVPV/a0b65385-f22f-41f1-b3a9-bd995a8bf711-cropped.jpg",
+          "local": "/img/menu/gambones-2.jpg"
+        },
+        {
+          "url": "https://i.ibb.co/CpPjLHs3/fa7a2e1a-c51d-4212-bd25-c0f13a452914-cropped.jpg",
+          "local": "/img/menu/gambones-3.jpg"
+        }
+      ]
+    },
+    {
+      "id": "marea-roja",
+      "name": "Marea Roja",
+      "categoryId": "principales",
+      "category": "Principales",
+      "description": "Churrasco Angus Prime y gambones flameados.",
+      "price": 26800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/vCcScFwT/IMG-0103-cropped.jpg",
+          "local": "/img/menu/marea-roja.jpg"
+        }
+      ]
+    },
+    {
+      "id": "hamburguesa-fuego-lento-230-grs",
+      "name": "Hamburguesa Fuego Lento (230 grs)",
+      "categoryId": "principales",
+      "category": "Principales",
+      "description": "Molida de angus, piña asada, pepinillos, cebolla curtida, bacon, queso de cabra ahumado, pan de hamburguesas y papas fritas.",
+      "price": 11800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/mF4LxXBx/DSC05655-2-cropped.jpg",
+          "local": "/img/menu/hamburguesa-fuego-lento-230-grs.jpg"
+        }
+      ]
+    },
+    {
+      "id": "hogaza-para-mar",
+      "name": "Hogaza para Mar",
+      "categoryId": "principales",
+      "category": "Principales",
+      "description": "Pan hogaza rústica relleno de gambones salteados al ajo y perejil, con crema blanca y emmental.",
+      "price": 20200,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "pesca-a-la-brasa",
+      "name": "Pesca a la brasa",
+      "categoryId": "principales",
+      "category": "Principales",
+      "description": "pesca entera al carbón y mantequilla saborizada",
+      "price": 6900,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "risotto-de-res-y-berenjena-escabechada",
+      "name": "Risotto de Res y Berenjena Escabechada",
+      "categoryId": "sartenes",
+      "category": "Sartenes",
+      "description": "Arroz cremoso tipo risotto preparado en sartén con hebras de res y berenjena escabechada.",
+      "price": 9100,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/4ny4JgwQ/d6bce6ae-8f10-4855-a21d-faa587c6f33c-cropped.jpg",
+          "local": "/img/menu/risotto-de-res-y-berenjena-escabechada.jpg"
+        },
+        {
+          "url": "https://i.ibb.co/1frfcqmj/97ca44ff-5c42-4409-a261-6e43592736e0-cropped.jpg",
+          "local": "/img/menu/risotto-de-res-y-berenjena-escabechada-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "arroz-meloso-de-mariscos-y-curry-verde",
+      "name": "Arroz Meloso de Mariscos y Curry Verde",
+      "categoryId": "sartenes",
+      "category": "Sartenes",
+      "description": "Arroz de textura melosa cocinado en sartén con mariscos variados y curry verde.",
+      "price": 7800,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "brocheta-de-res",
+      "name": "Brocheta de Res",
+      "categoryId": "carnes-parrilla",
+      "category": "Carnes Parrilla",
+      "description": "Brocheta de carne de res a la parrilla, sabrosa y jugosa.",
+      "price": 14200,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/HTZHbH1C/IMG-0072-cropped.jpg",
+          "local": "/img/menu/brocheta-de-res.jpg"
+        }
+      ]
+    },
+    {
+      "id": "filetillo-angus-con-esencia-de-ajo-y-miel-250-grs",
+      "name": "Filetillo Angus con Esencia de Ajo y Miel (250 grs)",
+      "categoryId": "carnes-parrilla",
+      "category": "Carnes Parrilla",
+      "description": "Corte de filetillo angus preparado a la parrilla con sutil toque de ajo y miel.",
+      "price": 16400,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/4gw631Zr/DSC05554-2-cropped.jpg",
+          "local": "/img/menu/filetillo-angus-con-esencia-de-ajo-y-miel-250-grs.jpg"
+        }
+      ]
+    },
+    {
+      "id": "ribeye-angus-prime-350-grs",
+      "name": "Ribeye Angus Prime (350 grs)",
+      "categoryId": "carnes-parrilla",
+      "category": "Carnes Parrilla",
+      "description": "Corte ribeye angus prime asado a la parrilla en porción individual.",
+      "price": 26850,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "ribeye-angus-prime-700-grs",
+      "name": "Ribeye Angus Prime (700 grs)",
+      "categoryId": "carnes-parrilla",
+      "category": "Carnes Parrilla",
+      "description": "Corte ribeye angus prime asado a la parrilla en formato grande para compartir.",
+      "price": 51500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "picana-angus-prime-230-grs",
+      "name": "Picaña Angus Prime (230 grs)",
+      "categoryId": "carnes-parrilla",
+      "category": "Carnes Parrilla",
+      "description": "Corte de picaña angus prime asado a la parrilla en porción de 230 gramos.",
+      "price": 15950,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/k6PvCB2t/IMG-4541-cropped.jpg",
+          "local": "/img/menu/picana-angus-prime-230-grs.jpg"
+        }
+      ]
+    },
+    {
+      "id": "picana-angus-prime-460-grs",
+      "name": "Picaña Angus Prime (460 grs)",
+      "categoryId": "carnes-parrilla",
+      "category": "Carnes Parrilla",
+      "description": "Corte de picaña angus prime asado a la parrilla en porción de 460 gramos.",
+      "price": 27600,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/TMCffJ85/IMG-4505-cropped.jpg",
+          "local": "/img/menu/picana-angus-prime-460-grs.jpg"
+        }
+      ]
+    },
+    {
+      "id": "picana-angus-prime-300-grs",
+      "name": "Picaña Angus Prime (300 grs)",
+      "categoryId": "carnes-parrilla",
+      "category": "Carnes Parrilla",
+      "description": "Corte de picaña angus prime asado a la parrilla en porción de 300 gramos.",
+      "price": 19800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/xqqsC9H9/DSC09441-cropped.jpg",
+          "local": "/img/menu/picana-angus-prime-300-grs.jpg"
+        }
+      ]
+    },
+    {
+      "id": "picana-angus-prime-600-grs",
+      "name": "Picaña Angus Prime (600 grs)",
+      "categoryId": "carnes-parrilla",
+      "category": "Carnes Parrilla",
+      "description": "Corte de picaña angus prime asado a la parrilla en porción de 600 gramos.",
+      "price": 37500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/KjTW28zL/IMG-4541-cropped.jpg",
+          "local": "/img/menu/picana-angus-prime-600-grs.jpg"
+        }
+      ]
+    },
+    {
+      "id": "churrasco-angus-prime-230-grs",
+      "name": "Churrasco Angus Prime (230 grs)",
+      "categoryId": "carnes-parrilla",
+      "category": "Carnes Parrilla",
+      "description": "Churrasco de res angus prime a la parrilla en porción de 230 gramos.",
+      "price": 20350,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/B5x6pgTT/churras.jpg",
+          "local": "/img/menu/churrasco-angus-prime-230-grs.jpg"
+        }
+      ]
+    },
+    {
+      "id": "churrasco-angus-prime-460-grs",
+      "name": "Churrasco Angus Prime (460 grs)",
+      "categoryId": "carnes-parrilla",
+      "category": "Carnes Parrilla",
+      "description": "Churrasco de res angus prime a la parrilla en porción de 460 gramos.",
+      "price": 34800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/Ldzxrfkw/churrasco-9-cropped.jpg",
+          "local": "/img/menu/churrasco-angus-prime-460-grs.jpg"
+        }
+      ]
+    },
+    {
+      "id": "new-york-steak-angus-prime-350-grs",
+      "name": "New York Steak Angus Prime (350 grs)",
+      "categoryId": "carnes-parrilla",
+      "category": "Carnes Parrilla",
+      "description": "Corte clásico new york steak de res angus prime asado a la parrilla.",
+      "price": 24900,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/B2J51P9S/new-york-cropped.jpg",
+          "local": "/img/menu/new-york-steak-angus-prime-350-grs.jpg"
+        }
+      ]
+    },
+    {
+      "id": "costilla-de-res-angus-prime-500-grs",
+      "name": "Costilla de Res Angus Prime (500 grs)",
+      "categoryId": "carnes-parrilla",
+      "category": "Carnes Parrilla",
+      "description": "Costilla de res angus prime asada a fuego de parrilla.",
+      "price": 22650,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "t-bone-angus-prime-400-grs",
+      "name": "T-Bone Angus Prime (400 grs)",
+      "categoryId": "carnes-parrilla",
+      "category": "Carnes Parrilla",
+      "description": "Corte t-bone de res angus prime asado a la parrilla.",
+      "price": 29400,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/7N8JvsHJ/IMG-4558-cropped.jpg",
+          "local": "/img/menu/t-bone-angus-prime-400-grs.jpg"
+        }
+      ]
+    },
+    {
+      "id": "tomahawk-angus-choice",
+      "name": "Tomahawk Angus Choice",
+      "categoryId": "carnes-parrilla",
+      "category": "Carnes Parrilla",
+      "description": "Corte tomahawk angus choice cobrado por peso (precio por kg).",
+      "price": 56000,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "tomahawk-angus-prime",
+      "name": "Tomahawk Angus Prime",
+      "categoryId": "carnes-parrilla",
+      "category": "Carnes Parrilla",
+      "description": "Corte tomahawk angus prime de calidad superior cobrado por peso (precio por kg).",
+      "price": 65900,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "cream-brulee-y-frutos-confitados",
+      "name": "Cream Brûlée y Frutos Confitados",
+      "categoryId": "postre",
+      "category": "Postre",
+      "description": "Clásico postre de crema horneada con costra crujiente de caramelo y frutos confitados.",
+      "price": 1600,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/k6wbx4YH/creme-broule.jpg",
+          "local": "/img/menu/cream-brulee-y-frutos-confitados.jpg"
+        }
+      ]
+    },
+    {
+      "id": "locura-mi-amor",
+      "name": "Locura Mi Amor",
+      "categoryId": "postre",
+      "category": "Postre",
+      "description": "Flanquesillo, quenelle de vainilla, jalea de frutas y caramelo salado.",
+      "price": 2500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/h1XBBG7Q/locura-mi-amor-cropped.jpg",
+          "local": "/img/menu/locura-mi-amor.jpg"
+        }
+      ]
+    },
+    {
+      "id": "oasis",
+      "name": "Oasis",
+      "categoryId": "postre",
+      "category": "Postre",
+      "description": "Biscocho de vainilla, boleado de coco, salsa de mango y tajín.",
+      "price": 2000,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/Jwtc1DPB/oasis-cropped.jpg",
+          "local": "/img/menu/oasis.jpg"
+        }
+      ]
+    },
+    {
+      "id": "tarta-de-queso",
+      "name": "Tarta de Queso",
+      "categoryId": "postre",
+      "category": "Postre",
+      "description": "Postre cremoso de queso horneado al estilo tradicional.",
+      "price": 2200,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/VYTVCWCL/IMG-1324-JPG-cropped.jpg",
+          "local": "/img/menu/tarta-de-queso.jpg"
+        }
+      ]
+    },
+    {
+      "id": "tarta-de-la-casa",
+      "name": "Tarta de la Casa",
+      "categoryId": "postre",
+      "category": "Postre",
+      "description": "Especialidad dulcera elaborada según la receta artesanal de la casa.",
+      "price": 3000,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/ksH8C3p6/f42b86fa-f448-4449-8d6b-e2808172a02a-cropped.jpg",
+          "local": "/img/menu/tarta-de-la-casa.jpg"
+        },
+        {
+          "url": "https://i.ibb.co/rKC61YBv/38bed475-85d5-4117-9c6d-40ed380837d1-cropped.jpg",
+          "local": "/img/menu/tarta-de-la-casa-2.jpg"
+        }
+      ]
+    },
+    {
+      "id": "agua-mineral",
+      "name": "Agua Mineral",
+      "categoryId": "bebidas",
+      "category": "Bebidas",
+      "description": "Bebida purificada y refrescante, perfecta para acompañar la comida.",
+      "price": 1050,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "agua-perrier",
+      "name": "Agua Perrier",
+      "categoryId": "bebidas",
+      "category": "Bebidas",
+      "description": "Agua con gas de burbuja fina, ideal para refrescar el paladar.",
+      "price": 2900,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "jugos-naturales",
+      "name": "Jugos Naturales",
+      "categoryId": "bebidas",
+      "category": "Bebidas",
+      "description": "Bebida refrescante preparada con frutas naturales llenas de sabor.",
+      "price": 1000,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "refrescos",
+      "name": "Refrescos",
+      "categoryId": "bebidas",
+      "category": "Bebidas",
+      "description": "Bebida carbonatada fría de sabores variados, ideal para acompañar platos.",
+      "price": 1250,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "malta",
+      "name": "Malta",
+      "categoryId": "bebidas",
+      "category": "Bebidas",
+      "description": "Bebida de cebada nutritiva, dulce y muy reconfortante.",
+      "price": 1250,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "limonada-natural",
+      "name": "Limonada Natural",
+      "categoryId": "bebidas",
+      "category": "Bebidas",
+      "description": "Bebida cítrica preparada al momento, fría y muy refrescante.",
+      "price": 1250,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "limonada-frescura",
+      "name": "Limonada Frescura",
+      "categoryId": "bebidas",
+      "category": "Bebidas",
+      "description": "Variante cítrica de la casa, súper fresca y amena para combatir el calor.",
+      "price": 1500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "copa-de-vino",
+      "name": "Copa de Vino",
+      "categoryId": "bebidas",
+      "category": "Bebidas",
+      "description": "Selección de vino servido en copa, estupendo para maridar la comida.",
+      "price": 1850,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "cerveza-nacional",
+      "name": "Cerveza Nacional",
+      "categoryId": "bebidas",
+      "category": "Bebidas",
+      "description": "Cerveza local fría y ligera, ideal para refrescar la velada.",
+      "price": 1300,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "cerveza-internacional",
+      "name": "Cerveza Internacional",
+      "categoryId": "bebidas",
+      "category": "Bebidas",
+      "description": "Cerveza embotellada de importación, perfecta para acompañar picoteos.",
+      "price": 1550,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "servicio-de-michelada",
+      "name": "Servicio de Michelada",
+      "categoryId": "bebidas",
+      "category": "Bebidas",
+      "description": "Preparación especial cítrica y salada para acompañar su cerveza preferida.",
+      "price": 1150,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "servicio-de-chelada",
+      "name": "Servicio de Chelada",
+      "categoryId": "bebidas",
+      "category": "Bebidas",
+      "description": "Toque cítrico y salado listo para añadir a la cerveza de su elección.",
+      "price": 800,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "redbull",
+      "name": "Redbull",
+      "categoryId": "bebidas",
+      "category": "Bebidas",
+      "description": "Bebida energizante fría, perfecta para mantener el impulso en la noche.",
+      "price": 2150,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "kermato",
+      "name": "Kermato",
+      "categoryId": "bebidas",
+      "category": "Bebidas",
+      "description": "Preparado ahumado y sazonado ideal para cócteles o mezclas de barra.",
+      "price": 1500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "agua-tonica",
+      "name": "Agua Tónica",
+      "categoryId": "bebidas",
+      "category": "Bebidas",
+      "description": "Bebida carbonatada con notas amargas, idónea para acompañar con ginebra.",
+      "price": 1950,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "bochorno-uva-viera",
+      "name": "Bochorno: Uva Viera",
+      "categoryId": "vino-de-la-casa",
+      "category": "Vino de la Casa",
+      "description": "Vino blanco de la casa, variedad Sauvignon Blanc.",
+      "price": 1850,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/99LmKxPX/1784214460371-cropped.jpg",
+          "local": "/img/menu/bochorno-uva-viera.jpg"
+        }
+      ]
+    },
+    {
+      "id": "dona-florencia-merlot-valle-central-chile",
+      "name": "Doña Florencia (Merlot) - Valle Central Chile",
+      "categoryId": "vino-de-la-casa",
+      "category": "Vino de la Casa",
+      "description": "Vino rosado de la casa, variedad Merlot.",
+      "price": 1850,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/htZGnDj/1784214460298-cropped.jpg",
+          "local": "/img/menu/dona-florencia-merlot-valle-central-chile.jpg"
+        }
+      ]
+    },
+    {
+      "id": "dona-florencia-cabernet-sauvignon-valle-central-chile",
+      "name": "Doña Florencia (Cabernet Sauvignon) - Valle Central Chile",
+      "categoryId": "vino-de-la-casa",
+      "category": "Vino de la Casa",
+      "description": "Vino tinto de la casa, variedad Cabernet Sauvignon.",
+      "price": 1850,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/WNpQKntY/1783957855111-cropped.jpg",
+          "local": "/img/menu/dona-florencia-cabernet-sauvignon-valle-central-chile.jpg"
+        }
+      ]
+    },
+    {
+      "id": "borges-ruby-vinho-do-porto-portugal",
+      "name": "Borges Ruby. Vinho do Porto. Portugal",
+      "categoryId": "vinos-de-postre",
+      "category": "Vinos de Postre",
+      "description": "Oporto fortificado de perfil dulce e intenso, ideal para cerrar con broche de oro.",
+      "price": 10600,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "mouton-cadet-sauternes-a-o-c-francia",
+      "name": "Mouton Cadet. Sauternes A.O.C. Francia",
+      "categoryId": "vinos-de-postre",
+      "category": "Vinos de Postre",
+      "description": "Vino de postre francés de la apelación Sauternes, de gran complejidad dulce y sedosa.",
+      "price": 33500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/nsJLtcDJ/1783957855264-cropped.jpg",
+          "local": "/img/menu/mouton-cadet-sauternes-a-o-c-francia.jpg"
+        }
+      ]
+    },
+    {
+      "id": "moet-chandon-imperial-brut-champagne-a-o-c-francia",
+      "name": "Moët & Chandon Imperial Brut. Champagne A.O.C. Francia",
+      "categoryId": "espumosos",
+      "category": "Espumosos",
+      "description": "Emblemático champagne francés de burbuja fina y perfil elegante, ideal para celebraciones.",
+      "price": 73500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/S4pmN8WL/1783957853783-cropped.jpg",
+          "local": "/img/menu/moet-chandon-imperial-brut-champagne-a-o-c-francia.jpg"
+        }
+      ]
+    },
+    {
+      "id": "krug-grande-cuvee-brut-champagne-a-o-c-francia",
+      "name": "Krug Grande Cuvée Brut. Champagne A.O.C. Francia",
+      "categoryId": "espumosos",
+      "category": "Espumosos",
+      "description": "Champagne de alta gama con perfil complejo y sofisticado, perfecto para brindis especiales.",
+      "price": 242000,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/MxFHyH8w/1783957853735-cropped.jpg",
+          "local": "/img/menu/krug-grande-cuvee-brut-champagne-a-o-c-francia.jpg"
+        }
+      ]
+    },
+    {
+      "id": "juve-camps-essential-rose-pinot-noir-brut-cava-d-o-espana",
+      "name": "Juve & Camps Essential Rosé Pinot Noir Brut. Cava. D.O. España",
+      "categoryId": "espumosos",
+      "category": "Espumosos",
+      "description": "Cava rosado de variedad Pinot Noir, fresco y de gran finura.",
+      "price": 18500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/VpB55ZKV/1784214460412-cropped.jpg",
+          "local": "/img/menu/juve-camps-essential-rose-pinot-noir-brut-cava-d-o-espana.jpg"
+        }
+      ]
+    },
+    {
+      "id": "juve-camps-essential-purpura-brut-2021-cava-d-o-espana",
+      "name": "Juve & Camps Essential Púrpura Brut 2021. Cava. D.O. España",
+      "categoryId": "espumosos",
+      "category": "Espumosos",
+      "description": "Cava brut tradicional con excelente equilibrio y dinamismo en copa.",
+      "price": 18500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "love-story-prosecco-brut-sartori-d-o-c-italia",
+      "name": "Love Story Prosecco Brut. Sartori. D.O.C. Italia",
+      "categoryId": "espumosos",
+      "category": "Espumosos",
+      "description": "Prosecco italiano brut, alegre y lleno de frescas burbujas para cualquier ocasión.",
+      "price": 21900,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/tMx2gDfg/62b65acf-07de-42e1-a104-a7ba076aaf80-cropped.jpg",
+          "local": "/img/menu/love-story-prosecco-brut-sartori-d-o-c-italia.jpg"
+        }
+      ]
+    },
+    {
+      "id": "imperial-reserva-tempranillo-2019-c-v-n-e",
+      "name": "Imperial Reserva Tempranillo 2019 C.V.N.E",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Reserva clásico de Rioja con excelente guarda y sutileza.",
+      "price": 57000,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/CKPFtwGY/1783957854399-cropped.jpg",
+          "local": "/img/menu/imperial-reserva-tempranillo-2019-c-v-n-e.jpg"
+        }
+      ]
+    },
+    {
+      "id": "altos-ibericos-crianza-2020-torres",
+      "name": "Altos Ibéricos Crianza 2020. Torres",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto crianza riojano, redondo, sabroso y frutal.",
+      "price": 12500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/sJwPKr84/1783957854217-cropped.jpg",
+          "local": "/img/menu/altos-ibericos-crianza-2020-torres.jpg"
+        }
+      ]
+    },
+    {
+      "id": "altos-ibericos-reserva-2018-torres",
+      "name": "Altos Ibéricos Reserva 2018. Torres",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto reserva maduro con equilibrio entre fruta y madera.",
+      "price": 17000,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/gbFXQkSy/1783957854140-cropped.jpg",
+          "local": "/img/menu/altos-ibericos-reserva-2018-torres.jpg"
+        }
+      ]
+    },
+    {
+      "id": "cune-crianza-2021-c-v-n-e",
+      "name": "Cune Crianza 2021. C.V.N.E",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Crianza riojano suave, fluido y de perfil muy tradicional.",
+      "price": 13900,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/Kxt4LCxh/1783957854483-cropped.jpg",
+          "local": "/img/menu/cune-crianza-2021-c-v-n-e.jpg"
+        }
+      ]
+    },
+    {
+      "id": "marques-de-murrieta-reserva-2021-finca-ygay",
+      "name": "Marqués de Murrieta Reserva 2021. Finca Ygay",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Referente de elegancia en Rioja, armonioso y sedoso.",
+      "price": 27600,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/MxjMd4WC/1783957854439-cropped.jpg",
+          "local": "/img/menu/marques-de-murrieta-reserva-2021-finca-ygay.jpg"
+        }
+      ]
+    },
+    {
+      "id": "macan-clasico-tempranillo-2020-benjamin-de-rothschild-vega-sicilia",
+      "name": "Macán Clásico Tempranillo 2020. Benjamin de Rothschild & Vega Sicilia",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto de alta gama con notable refinamiento y gran carácter.",
+      "price": 65600,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/XZJhPGxG/1783957854102-cropped.jpg",
+          "local": "/img/menu/macan-clasico-tempranillo-2020-benjamin-de-rothschild-vega-sicilia.jpg"
+        }
+      ]
+    },
+    {
+      "id": "faustino-vii-c-s-2022-familia-martinez-zabala",
+      "name": "Faustino VII c/s 2022. Familia Martínez Zabala",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto clásico y amigable, perfecto para cualquier maridaje.",
+      "price": 14200,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "celeste-roble-2023-pago-del-cielo-torres",
+      "name": "Celeste Roble 2023. Pago del Cielo. Torres",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto joven de Ribera del Duero, intenso y afrutado.",
+      "price": 10800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/dJMPPKDX/1783957854615-cropped.jpg",
+          "local": "/img/menu/celeste-roble-2023-pago-del-cielo-torres.jpg"
+        }
+      ]
+    },
+    {
+      "id": "celeste-crianza-2022-la-habana-city-skyline-edition-pago-del-cielo-torres",
+      "name": "Celeste Crianza 2022 La Habana City Skyline Edition. Pago del Cielo. Torres",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Edición especial de crianza, suave y bien pulido.",
+      "price": 18200,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/Vp07MmY7/1783957854352-cropped.jpg",
+          "local": "/img/menu/celeste-crianza-2022-la-habana-city-skyline-edition-pago-del-cielo-torres.jpg"
+        }
+      ]
+    },
+    {
+      "id": "cepa-21-tinto-fino-2022",
+      "name": "Cepa 21 Tinto Fino 2022",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto de perfil moderno de Ribera del Duero, frutal y expresivo.",
+      "price": 43200,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/cXxNJK1g/1783957854727-cropped.jpg",
+          "local": "/img/menu/cepa-21-tinto-fino-2022.jpg"
+        }
+      ]
+    },
+    {
+      "id": "emilio-moro-2022",
+      "name": "Emilio Moro 2022",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto insignia con gran fuerza frutal y refinada crianza.",
+      "price": 51200,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/VYtMRGjb/1783957854687-cropped.jpg",
+          "local": "/img/menu/emilio-moro-2022.jpg"
+        }
+      ]
+    },
+    {
+      "id": "protos-roble-2024",
+      "name": "Protos Roble 2024",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto roble ágil, sabroso y de gran intensidad cromática.",
+      "price": 19800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/8LD2738M/1783957854270-cropped.jpg",
+          "local": "/img/menu/protos-roble-2024.jpg"
+        }
+      ]
+    },
+    {
+      "id": "pruno-tempranillo-cabernet-sauvignon-merlot-2023",
+      "name": "Pruno Tempranillo, Cabernet Sauvignon-Merlot 2023",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Ensamblaje tinto muy popular, goloso y redondo.",
+      "price": 18600,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/0pSSVBrs/1783957854179-cropped.jpg",
+          "local": "/img/menu/pruno-tempranillo-cabernet-sauvignon-merlot-2023.jpg"
+        }
+      ]
+    },
+    {
+      "id": "melior-de-matarromera-2023",
+      "name": "Melior de Matarromera 2023",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Vino tinto equilibrado de gran presencia frutal.",
+      "price": 29600,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/Pv63wHTh/77c55e50-6ab5-4bcc-92e1-8b1270b24345-cropped.jpg",
+          "local": "/img/menu/melior-de-matarromera-2023.jpg"
+        }
+      ]
+    },
+    {
+      "id": "portia-10-meses-seleccion-de-barricas-2022-familia-martinez-zabala",
+      "name": "Portia 10 meses Selección de Barricas 2022. Familia Martínez Zabala",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto estructurado con crianza en barrica bien integrada.",
+      "price": 23000,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/vfYL2Q7/f179d9de-3cac-4b17-83da-4731104de848.jpg",
+          "local": "/img/menu/portia-10-meses-seleccion-de-barricas-2022-familia-martinez-zabala.jpg"
+        }
+      ]
+    },
+    {
+      "id": "melior-de-matarromera-crianza-2020",
+      "name": "Melior de Matarromera Crianza 2020",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto crianza con excelente paso por madera y taninos redondos.",
+      "price": 44800,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "mas-la-plana-cabernet-sauvignon-2019-torres",
+      "name": "Mas la Plana Cabernet Sauvignon 2019. Torres",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Icono de Cabernet Sauvignon de Penedès, complejo y de gran elegancia.",
+      "price": 47500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/JRFxssZ0/1783957854529-cropped.jpg",
+          "local": "/img/menu/mas-la-plana-cabernet-sauvignon-2019-torres.jpg"
+        }
+      ]
+    },
+    {
+      "id": "sangre-de-toro-reserva-2020-torres",
+      "name": "Sangre de Toro Reserva 2020. Torres",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto reserva con personalidad madura y especiada.",
+      "price": 22600,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/cXDkgBDP/1783957854315-cropped.jpg",
+          "local": "/img/menu/sangre-de-toro-reserva-2020-torres.jpg"
+        }
+      ]
+    },
+    {
+      "id": "camins-del-priorat-2022-d-o-q-priorat-alvaro-palacios",
+      "name": "Camins del Priorat 2022 D.O.Q Priorat. Álvaro Palacios",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Priorat de perfil moderno, expresivo y de fondo mineral.",
+      "price": 28200,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/CKVWWqT9/1783957854063-cropped.jpg",
+          "local": "/img/menu/camins-del-priorat-2022-d-o-q-priorat-alvaro-palacios.jpg"
+        }
+      ]
+    },
+    {
+      "id": "flor-de-vetus-2021-d-o-toro",
+      "name": "Flor de Vetus 2021 D.O. Toro",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto de Toro, potente, goloso y bien estructurado.",
+      "price": 21900,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/vvVNxqyT/55e0a8db-2aca-4fba-b758-b528b3ba5236.jpg",
+          "local": "/img/menu/flor-de-vetus-2021-d-o-toro.jpg"
+        }
+      ]
+    },
+    {
+      "id": "mouton-cadet-2022-cuvee-heritage-a-bordeaux-controlee-b-p-rothschild",
+      "name": "Mouton Cadet 2022. Cuvée Héritage A. Bordeaux. Controlée. B.P.Rothschild",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto burdeos clásico, elegante y bien balanceado.",
+      "price": 33400,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/60b4YNbG/1784318964142-cropped.jpg",
+          "local": "/img/menu/mouton-cadet-2022-cuvee-heritage-a-bordeaux-controlee-b-p-rothschild.jpg"
+        }
+      ]
+    },
+    {
+      "id": "calvet-grande-reserve-merlot-cabernet-sauvignon-2023-bordeaux-superieur-a-o-p",
+      "name": "Calvet Grande Reserve Merlot-Cabernet Sauvignon 2023 Bordeaux Supérieur A.O.P",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Reserva de Burdeos armonioso y fácil de disfrutar.",
+      "price": 20700,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/ksrqHfBY/1783957855226-cropped.jpg",
+          "local": "/img/menu/calvet-grande-reserve-merlot-cabernet-sauvignon-2023-bordeaux-superieur-a-o-p.jpg"
+        }
+      ]
+    },
+    {
+      "id": "couvent-des-jacobins-2022-bourgogne-a-o-c-louis-jadot",
+      "name": "Couvent des Jacobins 2022. Bourgogne A.O.C. Louis Jadot",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Pinot Noir borgoñés fino, delicado y de paso sutil.",
+      "price": 24800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/Z6ZY0CyD/1784214460091-cropped.jpg",
+          "local": "/img/menu/couvent-des-jacobins-2022-bourgogne-a-o-c-louis-jadot.jpg"
+        }
+      ]
+    },
+    {
+      "id": "combe-aux-jacques-2023-beaujolais-villages-a-o-c-louis-jadot",
+      "name": "Combe aux Jacques 2023. Beaujolais. Villages A.O.C. Louis Jadot",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto Beaujolais jugoso, muy frutal y fresco.",
+      "price": 24800,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "cotes-du-rhone-2020-guigal",
+      "name": "Côtes du Rhône 2020. Guigal",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto del Ródano suave, especiado y con notas de fruta madura.",
+      "price": 18900,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/MyPwBJjv/1784214460167-cropped.jpg",
+          "local": "/img/menu/cotes-du-rhone-2020-guigal.jpg"
+        }
+      ]
+    },
+    {
+      "id": "la-retro-2024-carinena-syrah-garnacha-tinta-domaine-lafage-d-o-vdp-des-cotes-catalanes-languedoc-rosellon",
+      "name": "La Retro 2024 Cariñena, Syrah, Garnacha Tinta. Domaine Lafage. D.O VDP des Côtes Catalanes, Languedoc - Rosellón",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto francés jugoso y directo con varietales mediterráneas.",
+      "price": 18500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "pieve-castelletto-2023-d-o-c-g-chianti",
+      "name": "Pieve Castelletto 2023 D.O.C.G. Chianti",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Chianti accesible, ligero y de buena acidez.",
+      "price": 10400,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/gZrrDcR9/1783957855007-cropped.jpg",
+          "local": "/img/menu/pieve-castelletto-2023-d-o-c-g-chianti.jpg"
+        }
+      ]
+    },
+    {
+      "id": "prunotto-barbaresco-2022-d-o-c-g-alba-piemonte",
+      "name": "Prunotto Barbaresco 2022 D.O.C.G. Alba. Piemonte",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto piamontés de gran jerarquía, complejo y longevo.",
+      "price": 72500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/gZrrDcR9/1783957855007-cropped.jpg",
+          "local": "/img/menu/prunotto-barbaresco-2022-d-o-c-g-alba-piemonte.jpg"
+        }
+      ]
+    },
+    {
+      "id": "santa-cristina-chianti-superiore-2023-d-o-c-g",
+      "name": "Santa Cristina Chianti Superiore 2023. D.O.C.G",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Chianti Superiore italiano, tradicional, fresco y gastronómico.",
+      "price": 22500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "acheclo-syrah-2023-cortona-d-o-c-antinori",
+      "name": "Acheclo Syrah 2023 Cortona. D.O.C Antinori",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Syrah italiano especiado, envolvente y de cuerpo estructurado.",
+      "price": 37400,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "casillero-del-diablo-2023-d-o-valle-central-concha-y-toro",
+      "name": "Casillero del Diablo 2023 D.O. Valle Central. Concha y Toro",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto chileno amigable y redondo en boca.",
+      "price": 11200,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/zTNd4FqW/1783957854809-cropped.jpg",
+          "local": "/img/menu/casillero-del-diablo-2023-d-o-valle-central-concha-y-toro.jpg"
+        }
+      ]
+    },
+    {
+      "id": "marques-de-casa-concha-cabernet-sauvignon-2019-d-o-maipo-concha-y-toro",
+      "name": "Marqués de Casa Concha Cabernet Sauvignon 2019 D.O. Maipo Concha y Toro",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto de gran estructura, elegante y con taninos firmes.",
+      "price": 47200,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/Gv0C5V0d/1783957854769-cropped.jpg",
+          "local": "/img/menu/marques-de-casa-concha-cabernet-sauvignon-2019-d-o-maipo-concha-y-toro.jpg"
+        }
+      ]
+    },
+    {
+      "id": "santa-digna-cabernet-sauvignon-2023-d-o-valle-central-torres",
+      "name": "Santa Digna Cabernet Sauvignon 2023. D.O. Valle Central. Torres",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Cabernet Sauvignon clásico con notas de frutos rojos.",
+      "price": 10500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/d46bRCDN/1783957854847-cropped.jpg",
+          "local": "/img/menu/santa-digna-cabernet-sauvignon-2023-d-o-valle-central-torres.jpg"
+        }
+      ]
+    },
+    {
+      "id": "manso-de-velasco-cabernet-sauvignon-2020-d-o-curico-torres",
+      "name": "Manso de Velasco Cabernet Sauvignon 2020. D.O. Curicó. Torres",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto de viñas viejas, potente, profundo y complejo.",
+      "price": 43600,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/R5Z4rrJ/1783957853950-cropped.jpg",
+          "local": "/img/menu/manso-de-velasco-cabernet-sauvignon-2020-d-o-curico-torres.jpg"
+        }
+      ]
+    },
+    {
+      "id": "trapiche-oak-cask-cabernet-sauvignon-2024-mendoza",
+      "name": "Trapiche Oak Cask Cabernet Sauvignon 2024. Mendoza",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Tinto argentino con sutil paso por roble, varietal y frutal.",
+      "price": 15400,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/mFGzGkjc/1783957854884-cropped.jpg",
+          "local": "/img/menu/trapiche-oak-cask-cabernet-sauvignon-2024-mendoza.jpg"
+        }
+      ]
+    },
+    {
+      "id": "trapiche-oak-cask-malbec-2023-mendoza",
+      "name": "Trapiche Oak Cask Malbec 2023. Mendoza",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Malbec mendocino redondo, sabroso y muy accesible.",
+      "price": 15400,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "wente-southern-hills-cabernet-sauvignon-2020-livermore-central-coast-a-v-a-california",
+      "name": "Wente Southern Hills Cabernet Sauvignon 2020. Livermore Central Coast. A.V.A. California",
+      "categoryId": "vinos-tintos",
+      "category": "Vinos Tintos",
+      "description": "Cabernet Sauvignon californiano con buena estructura y riqueza aromática.",
+      "price": 24800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/ccRBWR8B/1783957854922-cropped.jpg",
+          "local": "/img/menu/wente-southern-hills-cabernet-sauvignon-2020-livermore-central-coast-a-v-a-california.jpg"
+        }
+      ]
+    },
+    {
+      "id": "leira-albarino-2024-pazo-pondal-d-o-rias-baixas-galicia",
+      "name": "Leira Albariño 2024 Pazo Pondal. D.O. Rías Baixas. Galicia",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Albariño vibrante con característicos rasgos atlánticos.",
+      "price": 18300,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/YTthLKnB/1783957853016-cropped.jpg",
+          "local": "/img/menu/leira-albarino-2024-pazo-pondal-d-o-rias-baixas-galicia.jpg"
+        }
+      ]
+    },
+    {
+      "id": "jose-pariente-verdejo-2022-d-o-rueda",
+      "name": "José Pariente Verdejo 2022. D.O. Rueda",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Emblemático Verdejo de Rueda, muy aromático e intenso.",
+      "price": 17500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/zWQRy9mN/1783957852943-cropped.jpg",
+          "local": "/img/menu/jose-pariente-verdejo-2022-d-o-rueda.jpg"
+        }
+      ]
+    },
+    {
+      "id": "melior-de-matarromera-verdejo-2024-d-o-rueda",
+      "name": "Melior de Matarromera Verdejo 2024. D.O. Rueda",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Blanco joven de Rueda con notas frutales y buena estructura.",
+      "price": 20800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/VWh5w9RG/1783957852862-cropped.jpg",
+          "local": "/img/menu/melior-de-matarromera-verdejo-2024-d-o-rueda.jpg"
+        }
+      ]
+    },
+    {
+      "id": "celeste-verdejo-2024-d-o-rueda-torres",
+      "name": "Celeste Verdejo 2024. D.O. Rueda. Torres",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Verdejo fresco y brillante, ideal para acompañar platos ligeros.",
+      "price": 10500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/bgg1wrMb/1783957853327-cropped.jpg",
+          "local": "/img/menu/celeste-verdejo-2024-d-o-rueda-torres.jpg"
+        }
+      ]
+    },
+    {
+      "id": "vina-esmeralda-gewurztraminer-moscatel-2023-d-o-c-catalunya-torres",
+      "name": "Viña Esmeralda Gewürztraminer - Moscatel 2023. D.O.C. Catalunya. Torres",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Blanco aromático y floral, suave y delicado en paladar.",
+      "price": 9800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/DDGMq9k8/1783957853433-cropped.jpg",
+          "local": "/img/menu/vina-esmeralda-gewurztraminer-moscatel-2023-d-o-c-catalunya-torres.jpg"
+        }
+      ]
+    },
+    {
+      "id": "placet-de-valtomelloso-2022-d-o-ca-rioja-alvaro-palacios",
+      "name": "Placet de Valtomelloso 2022. D.O.Ca. Rioja. Álvaro Palacios",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Blanco de Rioja de autor, complejo y con gran elegancia en boca.",
+      "price": 62500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "fan-doro-chardonnay-fermentado-en-barrica-2021-arzuaga-d-o-ribera-del-duero",
+      "name": "Fan D´Oro Chardonnay Fermentado en Barrica 2021. Arzuaga. D.O. Ribera del Duero",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Chardonnay fermentado en barrica, untuoso y repleto de matices.",
+      "price": 23000,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "macon-villages-2022-beaune-a-o-c-louis-jadot-bourgogne",
+      "name": "Mâcon-Villages 2022. Beaune A.O.C. Louis Jadot. Bourgogne",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Blanco borgoñés de perfil clásico, fresco y mineral.",
+      "price": 22800,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/CKyv5kJK/1783957853076-cropped.jpg",
+          "local": "/img/menu/macon-villages-2022-beaune-a-o-c-louis-jadot-bourgogne.jpg"
+        }
+      ]
+    },
+    {
+      "id": "chablis-2023-a-o-c-louis-jadot-bourgogne",
+      "name": "Chablis 2023. A.O.C. Louis Jadot. Bourgogne",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Chablis tradicional con marcada personalidad mineral y perfil limpio.",
+      "price": 27900,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/84QNnDLP/1783957853136-cropped.jpg",
+          "local": "/img/menu/chablis-2023-a-o-c-louis-jadot-bourgogne.jpg"
+        }
+      ]
+    },
+    {
+      "id": "gentil-hugel-2023-alsace-a-o-c",
+      "name": "Gentil Hugel 2023. Alsace A.O.C",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Ensamblaje blanco de Alsacia, armónico y fragante.",
+      "price": 18600,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/tppJKD26/60031104-ef60-4128-bf08-e05fdb08e44c.jpg",
+          "local": "/img/menu/gentil-hugel-2023-alsace-a-o-c.jpg"
+        }
+      ]
+    },
+    {
+      "id": "les-deux-tours-ladoucette-sauvignon-blanc-2023-de-ladoucette-pouilly-sur-loire-valley",
+      "name": "Les Deux Tours Ladoucette Sauvignon Blanc 2023 de Ladoucette. Pouilly-sur-Loire Valley",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Sauvignon Blanc del Valle del Loira, refinado y de limpia acidez.",
+      "price": 21400,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/4RfsZMSy/13478e37-84cb-4769-8a81-b712efecabfd-cropped.jpg",
+          "local": "/img/menu/les-deux-tours-ladoucette-sauvignon-blanc-2023-de-ladoucette-pouilly-sur-loire-valley.jpg"
+        }
+      ]
+    },
+    {
+      "id": "pirovano-2024-d-o-c-soave",
+      "name": "Pirovano 2024. D.O.C. Soave",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Vino blanco de la región de Soave, delicado y agradable de beber.",
+      "price": 14000,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/1YwyK3HG/1783957853481-cropped.jpg",
+          "local": "/img/menu/pirovano-2024-d-o-c-soave.jpg"
+        }
+      ]
+    },
+    {
+      "id": "collezione-beatrice-pinot-grigio-delle-venezie-2024-d-o-c",
+      "name": "Collezione Beatrice Pinot Grigio delle Venezie 2024. D.O.C",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Pinot Grigio fresco y equilibrado, estupendo como aperitivo.",
+      "price": 9200,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/Vc9K59Cs/1783957853234-cropped.jpg",
+          "local": "/img/menu/collezione-beatrice-pinot-grigio-delle-venezie-2024-d-o-c.jpg"
+        }
+      ]
+    },
+    {
+      "id": "albaclara-sauvignon-blanc-2024-leyda-antinori-chile",
+      "name": "Albaclara Sauvignon Blanc 2024. Leyda. Antinori. Chile",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Sauvignon Blanc chileno, notablemente dinámico y muy frutal.",
+      "price": 22300,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/LDxpbZD3/1783957853526-cropped.jpg",
+          "local": "/img/menu/albaclara-sauvignon-blanc-2024-leyda-antinori-chile.jpg"
+        }
+      ]
+    },
+    {
+      "id": "wente-morning-fog-chardonnay-2021-central-coast-a-v-a-california-usa",
+      "name": "Wente Morning Fog Chardonnay 2021. Central Coast. A.V.A. California. USA",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Chardonnay californiano balanceado, con agradable untuosidad.",
+      "price": 22500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/0RTZDhsg/1783957853182-cropped.jpg",
+          "local": "/img/menu/wente-morning-fog-chardonnay-2021-central-coast-a-v-a-california-usa.jpg"
+        }
+      ]
+    },
+    {
+      "id": "tussock-jumper-sauvignon-blanc-2023-marlborough-new-zealand",
+      "name": "Tussock Jumper Sauvignon Blanc 2023. Marlborough. New Zealand",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Sauvignon Blanc neozelandés, súper expresivo con notas herbales y cítricas.",
+      "price": 24500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/27KwxXW6/1784318964236-cropped.jpg",
+          "local": "/img/menu/tussock-jumper-sauvignon-blanc-2023-marlborough-new-zealand.jpg"
+        }
+      ]
+    },
+    {
+      "id": "casillero-del-diablo-sauvignon-blanc-2023-concha-y-toro-valle-central-chile",
+      "name": "Casillero del Diablo Sauvignon Blanc 2023 Concha y Toro. Valle Central. Chile",
+      "categoryId": "vinos-blancos",
+      "category": "Vinos Blancos",
+      "description": "Blanco versátil chileno con marcada frescura.",
+      "price": 10500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/DgMMqBFg/1783957853283-cropped.jpg",
+          "local": "/img/menu/casillero-del-diablo-sauvignon-blanc-2023-concha-y-toro-valle-central-chile.jpg"
+        }
+      ]
+    },
+    {
+      "id": "roselin-prestige-2022-cotes-de-provence-a-o-p-francia",
+      "name": "Roselin Prestige 2022 Côtes de Provence A.O.P. Francia",
+      "categoryId": "vinos-rosados",
+      "category": "Vinos Rosados",
+      "description": "Rosado elegante de Côtes de Provence, equilibrado y muy fresco para acompañar tus momentos.",
+      "price": 19300,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/VWBbkF9g/1783957853649-cropped.jpg",
+          "local": "/img/menu/roselin-prestige-2022-cotes-de-provence-a-o-p-francia.jpg"
+        }
+      ]
+    },
+    {
+      "id": "minuty-2023-1-5-lt-cotes-de-provence-a-o-p-francia",
+      "name": "Minuty 2023 (1.5 Lt) Côtes de Provence A.O.P. Francia",
+      "categoryId": "vinos-rosados",
+      "category": "Vinos Rosados",
+      "description": "Presentación en formato magnum de este reconocido rosado francés, ideal para compartir.",
+      "price": 39500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/yckF9mmW/1783957853873-cropped.jpg",
+          "local": "/img/menu/minuty-2023-1-5-lt-cotes-de-provence-a-o-p-francia.jpg"
+        }
+      ]
+    },
+    {
+      "id": "olivia-2022-d-o-pazo-pondal-espana",
+      "name": "Olivia 2022. D.O. Pazo Pondal. España",
+      "categoryId": "vinos-rosados",
+      "category": "Vinos Rosados",
+      "description": "Vino rosado con denominación de origen, perfecto para disfrutar una copa ligera y aromática.",
+      "price": 20500,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/rf5xYFJG/1784318964190-cropped.jpg",
+          "local": "/img/menu/olivia-2022-d-o-pazo-pondal-espana.jpg"
+        }
+      ]
+    },
+    {
+      "id": "collezione-beatrice-pinot-grigio-delle-venezie-2023-d-o-c-italia",
+      "name": "Collezione Beatrice Pinot Grigio delle Venezie 2023 D.O.C. Italia",
+      "categoryId": "vinos-rosados",
+      "category": "Vinos Rosados",
+      "description": "Pinot Grigio rosado italiano, vibrante y refrescante en paladar.",
+      "price": 17900,
+      "price2": null,
+      "visible": true,
+      "images": [
+        {
+          "url": "https://i.ibb.co/qLcfGbCV/8e608867-c58a-45ab-a358-2ae57b4fb27f.jpg",
+          "local": "/img/menu/collezione-beatrice-pinot-grigio-delle-venezie-2023-d-o-c-italia.jpg"
+        }
+      ]
+    },
+    {
+      "id": "espresso",
+      "name": "Espresso",
+      "categoryId": "infusiones",
+      "category": "Infusiones",
+      "description": "Café corto e intenso, ideal para un impulso de energía directo.",
+      "price": 1050,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "americano",
+      "name": "Americano",
+      "categoryId": "infusiones",
+      "category": "Infusiones",
+      "description": "Café suave diluido en agua caliente, perfecto para beber despacio.",
+      "price": 1050,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "carajillo",
+      "name": "Carajillo",
+      "categoryId": "infusiones",
+      "category": "Infusiones",
+      "description": "Bebida reconfortante de café combinada con toque espirituoso digestivo.",
+      "price": 1400,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "cartado",
+      "name": "Cartado",
+      "categoryId": "infusiones",
+      "category": "Infusiones",
+      "description": "Café espresso manchado con una gota de leche, equilibrado y corto.",
+      "price": 1050,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "descafeinado",
+      "name": "Descafeinado",
+      "categoryId": "infusiones",
+      "category": "Infusiones",
+      "description": "Infusión de café sin cafeína, aromática y ligera para cualquier momento.",
+      "price": 850,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "capuchino",
+      "name": "Capuchino",
+      "categoryId": "infusiones",
+      "category": "Infusiones",
+      "description": "Café con leche espumosa y textura cremosa, delicioso al paladar.",
+      "price": 1250,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "cafe-con-leche",
+      "name": "Café con Leche",
+      "categoryId": "infusiones",
+      "category": "Infusiones",
+      "description": "Bebida clásica y reconfortante de café combinado con leche tibia.",
+      "price": 1250,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "cafe-bombon",
+      "name": "Café Bombón",
+      "categoryId": "infusiones",
+      "category": "Infusiones",
+      "description": "Opción dulce que combina la intensidad del café con leche condensada.",
+      "price": 1400,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "nespresso-vertuo",
+      "name": "Nespresso Vertuo",
+      "categoryId": "infusiones",
+      "category": "Infusiones",
+      "description": "Café de cápsula de perfil aromático balanceado y cuerpo definido.",
+      "price": 1800,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "nespresso-starbucks",
+      "name": "Nespresso Starbucks",
+      "categoryId": "infusiones",
+      "category": "Infusiones",
+      "description": "Selección especial de café tostado espresso, expresivo y con cuerpo.",
+      "price": 1950,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "te",
+      "name": "Té",
+      "categoryId": "infusiones",
+      "category": "Infusiones",
+      "description": "Infusión caliente y reconfortante, suave e ideal para momentos de calma.",
+      "price": 850,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "mojito",
+      "name": "Mojito",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Coctel clásico de menta y lima, sumamente fresco e ideal para la tarde.",
+      "price": 1950,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "daiquiri",
+      "name": "Daiquirí",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Bebida helada batida, refrescante y de acidez cítrica muy balanceada.",
+      "price": 1950,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "pina-colada-con-alcohol",
+      "name": "Piña Colada con Alcohol",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Coctel cremoso con perfil tropical de piña y coco, combinado con licor.",
+      "price": 3500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "pina-colada-sin-alcohol",
+      "name": "Piña Colada sin Alcohol",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Batido cremoso de frutas tropicales de piña y coco, suave y apto para todos.",
+      "price": 3200,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "cuba-libre",
+      "name": "Cuba Libre",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Trago largo tradicional de refresco de cola con toque de lima y ron.",
+      "price": 2250,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "cubata",
+      "name": "Cubata",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Variación del trago clásico con perfil intenso, ideal para compartir la mesa.",
+      "price": 2400,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "cubanito",
+      "name": "Cubanito",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Coctel sazonado y especiado con base cítrica, exótico y tonificante.",
+      "price": 1950,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "caipiroska",
+      "name": "Caipiroska",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Trago refrescante con base de lima macerada y un toque bien helado.",
+      "price": 1850,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "ron-collins",
+      "name": "Ron Collins",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Bebida larga cítrica y burbujeante, muy liviana de beber.",
+      "price": 1950,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "caipirinha",
+      "name": "Caipirinha",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Coctel frutal con limas frescas majadas, dulce y ácido a la vez.",
+      "price": 1950,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "aperol-spritz",
+      "name": "Aperol Spritz",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Bebida efervescente de color naranja y amargo ligero, perfecta para aperitivo.",
+      "price": 3350,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "gin-tonic",
+      "name": "Gin Tonic",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Combinación clásica de ginebra y agua tónica con toques cítricos.",
+      "price": 3200,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "sangria",
+      "name": "Sangría",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Bebida frutal a base de vino, muy apetecible y fresca para el grupo.",
+      "price": 2400,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "bloddy-mary",
+      "name": "Bloddy Mary",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Coctel sazonado de sabor salado y especiado con toque cítrico.",
+      "price": 1950,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "canchanchara",
+      "name": "Canchanchara",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Coctel tradicional de sabor dulce cítrico, servido bien frío.",
+      "price": 1750,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "margarita",
+      "name": "Margarita",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Coctel icónico de perfil ácido y borde salado, muy estimado y festivo.",
+      "price": 2600,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "expresso-martini",
+      "name": "Expresso Martini",
+      "categoryId": "cocteles",
+      "category": "Cocteles",
+      "description": "Coctel energizante con espresso y notas de café tostado batido.",
+      "price": 2400,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "aloha",
+      "name": "Aloha",
+      "categoryId": "cocteles-tiki-de-autor",
+      "category": "Cocteles Tiki de Autor",
+      "description": "Mejunje tropical 0% alcohol con orgeat, don's mix, zumo de limón, jugo de piña, maracuyá y agua gaseada.",
+      "price": 2150,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "kane",
+      "name": "Kane",
+      "categoryId": "cocteles-tiki-de-autor",
+      "category": "Cocteles Tiki de Autor",
+      "description": "Preparación tropical de la casa con Johnnie W. Red, zumo de limón, don's spice #9, mix #1, agua de coco, licor de coco y energizante.",
+      "price": 3750,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "laka",
+      "name": "Laka",
+      "categoryId": "cocteles-tiki-de-autor",
+      "category": "Cocteles Tiki de Autor",
+      "description": "Mezcla especial que reúne vodka, zumo de limón, don's spice #9, don's mix, mix #2, zumo de mandarina y energizante.",
+      "price": 2750,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "haka",
+      "name": "Haka",
+      "categoryId": "cocteles-tiki-de-autor",
+      "category": "Cocteles Tiki de Autor",
+      "description": "Combinado especial 0% alcohol elaborado con saúco, lychee, zumo de limón, angostura de naranja y agua tónica.",
+      "price": 2150,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "hina",
+      "name": "Hina",
+      "categoryId": "cocteles-tiki-de-autor",
+      "category": "Cocteles Tiki de Autor",
+      "description": "Creación exótica con olmeca blanco, don's spice #9, zumo de limón, jugo de melón, jugo de maracuyá, aperol y cerveza de jengibre artesanal.",
+      "price": 3750,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "kanaloa",
+      "name": "Kanaloa",
+      "categoryId": "cocteles-tiki-de-autor",
+      "category": "Cocteles Tiki de Autor",
+      "description": "Receta estilo tiki elaborada con ron HC 3 años, zumo de limón, don's spice #9, don's spice #4, mix #1 y zumo de naranja.",
+      "price": 2200,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "mojito-sunset",
+      "name": "Mojito Sunset",
+      "categoryId": "cocteles-tiki-de-autor",
+      "category": "Cocteles Tiki de Autor",
+      "description": "Versión especial de autor inspirada en el mojito clásico, refrescante y frutal.",
+      "price": 2250,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "mr-40",
+      "name": "Mr. 40",
+      "categoryId": "cocteles-clasicos-de-autor",
+      "category": "Cocteles Clásicos de Autor",
+      "description": "Coctel exclusivo elaborado con beefeater, bitter de naranja, zumo de limón, licor de manzana, mix #3 y vino espumoso.",
+      "price": 2400,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "dulce-veneno",
+      "name": "Dulce Veneno",
+      "categoryId": "cocteles-clasicos-de-autor",
+      "category": "Cocteles Clásicos de Autor",
+      "description": "Elaboración propia con vodka, zumo de limón, don's spice #9, mix #4, mix #5 y Jägermeister.",
+      "price": 2050,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "polinesia",
+      "name": "Polinesia",
+      "categoryId": "cocteles-clasicos-de-autor",
+      "category": "Cocteles Clásicos de Autor",
+      "description": "Mezcla caribeña con carta blanca, Santiago 8 años, don's spice #9, mix #1, sirope de maíz y ginger ale.",
+      "price": 3100,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "daiquiri-del-don",
+      "name": "Daiquirí del Don",
+      "categoryId": "cocteles-clasicos-de-autor",
+      "category": "Cocteles Clásicos de Autor",
+      "description": "Interpretación especial de la casa del tradicional daiquirí helado.",
+      "price": 2400,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "beefeater",
+      "name": "Beefeater",
+      "categoryId": "ginebras",
+      "category": "Ginebras",
+      "description": "Ginebra clásica y equilibrada, perfecta para disfrutar en copa o coctelería.",
+      "price": 1750,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "bombay-sapphire",
+      "name": "Bombay Sapphire",
+      "categoryId": "ginebras",
+      "category": "Ginebras",
+      "description": "Ginebra de perfil botánico y aromático, ideal para un gin tonic fresco.",
+      "price": 4550,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "tanqueray-ten",
+      "name": "Tanqueray Ten",
+      "categoryId": "ginebras",
+      "category": "Ginebras",
+      "description": "Ginebra premium con notas cítricas seleccionadas, excelente para un trago distinguido.",
+      "price": 3400,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "tanqueray",
+      "name": "Tanqueray",
+      "categoryId": "ginebras",
+      "category": "Ginebras",
+      "description": "Ginebra de estilo seco tradicional, estupenda para combinar en coctelería.",
+      "price": 2550,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "hendrick-s",
+      "name": "Hendrick's",
+      "categoryId": "ginebras",
+      "category": "Ginebras",
+      "description": "Ginebra de carácter infusionado y suave, perfecta para saborear lentamente.",
+      "price": 3000,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "ciroc",
+      "name": "Ciroc",
+      "categoryId": "vodkas",
+      "category": "Vodkas",
+      "description": "Vodka premium de textura refinada, ideal para servirse solo o en cócteles.",
+      "price": 4250,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "belvedere",
+      "name": "Belvedere",
+      "categoryId": "vodkas",
+      "category": "Vodkas",
+      "description": "Vodka suave y de trago fluido, genial para acompañar la velada.",
+      "price": 2550,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "tito-s",
+      "name": "Tito's",
+      "categoryId": "vodkas",
+      "category": "Vodkas",
+      "description": "Vodka artesanal de perfil neutro y versátil para cualquier mezcla.",
+      "price": 2200,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "stolichnaya",
+      "name": "Stolichnaya",
+      "categoryId": "vodkas",
+      "category": "Vodkas",
+      "description": "Vodka clásico de estilo tradicional, perfecto para combinados refrescantes.",
+      "price": 1950,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "absolute",
+      "name": "Absolute",
+      "categoryId": "vodkas",
+      "category": "Vodkas",
+      "description": "Vodka versátil y conocido, ideal para mezclar en coctelería de barra.",
+      "price": 1500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "absolute-raspberri",
+      "name": "Absolute Raspberri",
+      "categoryId": "vodkas",
+      "category": "Vodkas",
+      "description": "Vodka saborizado con notas a frambuesa, apetecible y aromático.",
+      "price": 1750,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "absolute-citron",
+      "name": "Absolute Citron",
+      "categoryId": "vodkas",
+      "category": "Vodkas",
+      "description": "Vodka saborizado con toques cítricos, fresco y vibrante.",
+      "price": 1750,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "absolute-tabasco",
+      "name": "Absolute Tabasco",
+      "categoryId": "vodkas",
+      "category": "Vodkas",
+      "description": "Vodka preparado con toque especiado, ideal para tragos con carácter.",
+      "price": 1750,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "grey-goose",
+      "name": "Grey Goose",
+      "categoryId": "vodkas",
+      "category": "Vodkas",
+      "description": "Vodka de alta calidad de acabado elegante, perfecto para saborear bien frío.",
+      "price": 3550,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "hennessy",
+      "name": "Hennessy",
+      "categoryId": "brandy-cognac",
+      "category": "Brandy & Cognac",
+      "description": "Cognac fino y complejo, perfecto para paladear con serenidad.",
+      "price": 3550,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "torres-5",
+      "name": "Torres 5",
+      "categoryId": "brandy-cognac",
+      "category": "Brandy & Cognac",
+      "description": "Brandy añejado de perfil equilibrado, ideal para disfrutar a temperatura.",
+      "price": 1150,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "torres-10",
+      "name": "Torres 10",
+      "categoryId": "brandy-cognac",
+      "category": "Brandy & Cognac",
+      "description": "Brandy tradicional de aroma maduro, excelente para la sobremesa.",
+      "price": 1400,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "torres-15",
+      "name": "Torres 15",
+      "categoryId": "brandy-cognac",
+      "category": "Brandy & Cognac",
+      "description": "Brandy de reserva con notas amaderadas, suave y expresivo.",
+      "price": 1750,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "torres-20",
+      "name": "Torres 20",
+      "categoryId": "brandy-cognac",
+      "category": "Brandy & Cognac",
+      "description": "Brandy distinguido de gran madurez, perfecto para ocasiones especiales.",
+      "price": 2050,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "fernet-blanca",
+      "name": "Fernet Blanca",
+      "categoryId": "cremas-y-licores",
+      "category": "Cremas y Licores",
+      "description": "Licor amargo y digestivo, excelente para tomar como aperitivo o digestivo.",
+      "price": 1600,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "frangelico",
+      "name": "Frangelico",
+      "categoryId": "cremas-y-licores",
+      "category": "Cremas y Licores",
+      "description": "Licor dulce de avellana, sabroso y reconfortante para la sobremesa.",
+      "price": 2900,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "amaretto",
+      "name": "Amaretto",
+      "categoryId": "cremas-y-licores",
+      "category": "Cremas y Licores",
+      "description": "Licor dulce con aromas de almendra, ideal para disfrutar lento tras las comidas.",
+      "price": 1250,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "jagermeister",
+      "name": "Jägermeister",
+      "categoryId": "cremas-y-licores",
+      "category": "Cremas y Licores",
+      "description": "Licor herbal de sabor intenso, perfecto para tomas frías o combinados.",
+      "price": 1750,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "sambuca",
+      "name": "Sambuca",
+      "categoryId": "cremas-y-licores",
+      "category": "Cremas y Licores",
+      "description": "Licor aromático de anís, ideal para disfrutar solo o como digestivo.",
+      "price": 1250,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "licor-43",
+      "name": "Licor 43",
+      "categoryId": "cremas-y-licores",
+      "category": "Cremas y Licores",
+      "description": "Licor dulce con notas doradas y especiadas, agradable al paladar.",
+      "price": 1850,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "baileys",
+      "name": "Baileys",
+      "categoryId": "cremas-y-licores",
+      "category": "Cremas y Licores",
+      "description": "Crema de whisky suave y cremosa, perfecta para un toque dulce final.",
+      "price": 2200,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "limoncello",
+      "name": "Limoncello",
+      "categoryId": "cremas-y-licores",
+      "category": "Cremas y Licores",
+      "description": "Licor cítrico servido bien frío, perfecto para limpiar el paladar.",
+      "price": 1250,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "cinzano-blanco",
+      "name": "Cinzano Blanco",
+      "categoryId": "cremas-y-licores",
+      "category": "Cremas y Licores",
+      "description": "Vermut blanco dulce y aperitivo, ideal para abrir el apetito.",
+      "price": 1500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "cinzano-rojo",
+      "name": "Cinzano Rojo",
+      "categoryId": "cremas-y-licores",
+      "category": "Cremas y Licores",
+      "description": "Vermut rojo especiado, clásico para disfrutar en trago corto o preparado.",
+      "price": 1600,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "kahlua",
+      "name": "Kahlua",
+      "categoryId": "cremas-y-licores",
+      "category": "Cremas y Licores",
+      "description": "Licor de café dulce y profundo, ideal para tomar en las tardes o en cócteles.",
+      "price": 1950,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "hc-7-anos",
+      "name": "HC 7 Años",
+      "categoryId": "rones",
+      "category": "Rones",
+      "description": "Ron añejo con carácter y notas amaderadas, estupendo para degustar solo.",
+      "price": 1500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "hc-smoky",
+      "name": "HC Smoky",
+      "categoryId": "rones",
+      "category": "Rones",
+      "description": "Ron con perfil ahumado y notas profundas, muy sugerente al paladar.",
+      "price": 1450,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "seleccion-de-maestros",
+      "name": "Selección de Maestros",
+      "categoryId": "rones",
+      "category": "Rones",
+      "description": "Ron de perfil complejo y premium, madurado con esmero para beber despacio.",
+      "price": 2600,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "hc-15-anos",
+      "name": "HC 15 Años",
+      "categoryId": "rones",
+      "category": "Rones",
+      "description": "Ron añejo de gran reserva con matices de roble, suave y elegante.",
+      "price": 7600,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "pacto-navio",
+      "name": "Pacto Navio",
+      "categoryId": "rones",
+      "category": "Rones",
+      "description": "Ron envejecido refinado, ideal para quienes buscan sabores delicados.",
+      "price": 4800,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "eminente-3",
+      "name": "Eminente 3",
+      "categoryId": "rones",
+      "category": "Rones",
+      "description": "Ron versátil y joven, idóneo tanto en mezclas como servido con hielo.",
+      "price": 2050,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "eminente-7",
+      "name": "Eminente 7",
+      "categoryId": "rones",
+      "category": "Rones",
+      "description": "Ron con siete años de reposo, amaderado y con mucho cuerpo.",
+      "price": 3600,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "santisima-trinidad-7",
+      "name": "Santísima Trinidad 7",
+      "categoryId": "rones",
+      "category": "Rones",
+      "description": "Ron suave de maduración intermedia, perfecto para tragos elegantes.",
+      "price": 2650,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "santisima-trinidad-15",
+      "name": "Santísima Trinidad 15",
+      "categoryId": "rones",
+      "category": "Rones",
+      "description": "Ron de reserva de sabor profundo y tostado, ideal para acompañar la velada.",
+      "price": 3100,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "bacardi",
+      "name": "Bacardí",
+      "categoryId": "rones",
+      "category": "Rones",
+      "description": "Ron blanco muy conocido, ligero e idóneo para combinar en coctelería.",
+      "price": 3000,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "zacapa",
+      "name": "Zacapa",
+      "categoryId": "rones",
+      "category": "Rones",
+      "description": "Ron premium de altura con cuerpo redondo y notas dulces e intensas.",
+      "price": 4350,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "barcelo-imperial",
+      "name": "Barcelo Imperial",
+      "categoryId": "rones",
+      "category": "Rones",
+      "description": "Ron añejo elegante con sutiles matices acaramelados, muy apetecible.",
+      "price": 3350,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "santiago-8-anos",
+      "name": "Santiago 8 Años",
+      "categoryId": "rones",
+      "category": "Rones",
+      "description": "Ron caribeño equilibrado con notas suaves de barrica.",
+      "price": 1500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "santiago-11-anos",
+      "name": "Santiago 11 Años",
+      "categoryId": "rones",
+      "category": "Rones",
+      "description": "Ron con maduración prolongada, rico en cuerpo y textura.",
+      "price": 2300,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "santiago-12-anos",
+      "name": "Santiago 12 Años",
+      "categoryId": "rones",
+      "category": "Rones",
+      "description": "Ron maduro y estructurado, perfecto para servirse solo o en rocas.",
+      "price": 2500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "buchanans-12",
+      "name": "Buchanan´s 12",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Whisky escocés de doce años, suave, frutal y fácil de degustar.",
+      "price": 4750,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "buchanans-master",
+      "name": "Buchanan´s Master",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Mezcla especial del maestro mezclador, de sabor completo y rico.",
+      "price": 5500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "buchanans-18",
+      "name": "Buchanan´s 18",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Whisky madurado durante 18 años, con notas profundas y textura sedosa.",
+      "price": 5900,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "the-glenlivet",
+      "name": "The Glenlivet",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Whisky single malt de perfil elegante con notas frutales y florales.",
+      "price": 5850,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "macallan-12",
+      "name": "Macallan 12",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Whisky malt de gran renombre, rico en matices de roble y frutos secos.",
+      "price": 14700,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "macallan-18",
+      "name": "Macallan 18",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Whisky exclusivo de gran añejamiento, suave, complejo y memorable.",
+      "price": 35000,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "chivas-regal-12",
+      "name": "Chivas Regal 12",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Whisky blended emblemático, equilibrado, cremoso y con notas de miel.",
+      "price": 2300,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "chivas-regal-15",
+      "name": "Chivas Regal 15",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Whisky de quince años reposado en barricas seleccionadas, muy suave.",
+      "price": 2400,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "chivas-regal-18",
+      "name": "Chivas Regal 18",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Whisky de mezcla compleja de 18 años con toques de cacao y sotobosque.",
+      "price": 11750,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "chivas-regal-25",
+      "name": "Chivas Regal 25",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Edición exclusiva de alto añejamiento, redonda y muy refinada.",
+      "price": 32000,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "jw-black",
+      "name": "JW Black",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Whisky de malta madura con fondo ahumado bien característico.",
+      "price": 3900,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "jw-red",
+      "name": "JW Red",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Whisky joven y vibrante, idóneo para combinar con agua de soda o hielo.",
+      "price": 1950,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "jw-green",
+      "name": "JW Green",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Blended malt proveniente de maltas seleccionadas, fresco y estructurado.",
+      "price": 5500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "jw-double-black",
+      "name": "JW Double Black",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Mezcla con carácter ahumado acentuado e intenso sabor a madera.",
+      "price": 4150,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "jw-blue",
+      "name": "JW Blue",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Cumbre del destilado con maltas excepcionales, de trago sutil y largo.",
+      "price": 19550,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "jack-daniels",
+      "name": "Jack Daniels",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Whiskey de Tennessee de filtrado suave con matices caramelizados.",
+      "price": 3000,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "jack-daniels-honey",
+      "name": "Jack Daniels Honey",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Licor de whiskey de Tennessee mezclado con miel, suave y dulce.",
+      "price": 2550,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "wild-turkey",
+      "name": "Wild Turkey",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Bourbon americano con personalidad firme, especiado y con cuerpo.",
+      "price": 2650,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "jameson",
+      "name": "Jameson",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Whiskey irlandés de triple destilación, sumamente suave y versátil.",
+      "price": 1650,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "j-b",
+      "name": "J&B",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Whisky de mezcla ligero y balanceado, idóneo para trago largo.",
+      "price": 1600,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "ballantines",
+      "name": "Ballantines",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Whisky escocés clásico de trago amable y equilibrado.",
+      "price": 1850,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "black-and-white",
+      "name": "Black and White",
+      "categoryId": "whiskys",
+      "category": "Whiskys",
+      "description": "Whisky liviano y refrescante, ideal para acompañar con hielos.",
+      "price": 1250,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "olmeca-blanco",
+      "name": "Olmeca Blanco",
+      "categoryId": "tequilas",
+      "category": "Tequilas",
+      "description": "Tequila transparente de perfil herbal, genial para caballitos o mezclas.",
+      "price": 1500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "olmeca-reposado",
+      "name": "Olmeca Reposado",
+      "categoryId": "tequilas",
+      "category": "Tequilas",
+      "description": "Tequila añejado con matices suavemente dorados y balanceados.",
+      "price": 1600,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "patron-blanco",
+      "name": "Patrón Blanco",
+      "categoryId": "tequilas",
+      "category": "Tequilas",
+      "description": "Tequila suave y fresco elaborado con agave, perfecto para tragos directos.",
+      "price": 3350,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "patron-reposado",
+      "name": "Patrón Reposado",
+      "categoryId": "tequilas",
+      "category": "Tequilas",
+      "description": "Tequila en barrica de sabor agradable con notas de madera.",
+      "price": 3550,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "don-julio-blanco",
+      "name": "Don Julio Blanco",
+      "categoryId": "tequilas",
+      "category": "Tequilas",
+      "description": "Tequila de agave puro con acabado limpio, muy apreciado en barra.",
+      "price": 3200,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "don-julio-reposado",
+      "name": "Don Julio Reposado",
+      "categoryId": "tequilas",
+      "category": "Tequilas",
+      "description": "Tequila reposado de gran elegancia y paso suave por garganta.",
+      "price": 4650,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "olmeca-altos-reposado",
+      "name": "Olmeca Altos Reposado",
+      "categoryId": "tequilas",
+      "category": "Tequilas",
+      "description": "Tequila de calidad superior con notas herbales y tostadas equilibradas.",
+      "price": 4800,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "clase-azul-plata",
+      "name": "Clase Azul Plata",
+      "categoryId": "tequilas",
+      "category": "Tequilas",
+      "description": "Tequila ultra premium artesanal, suave y con perfil refinado de agave.",
+      "price": 19300,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "clase-azul-reposado",
+      "name": "Clase Azul Reposado",
+      "categoryId": "tequilas",
+      "category": "Tequilas",
+      "description": "Tequila de lujo con prolongado reposo, sedoso y muy exclusivo.",
+      "price": 21500,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "1800-silver",
+      "name": "1800 Silver",
+      "categoryId": "tequilas",
+      "category": "Tequilas",
+      "description": "Tequila blanco balanceado, limpio y perfecto para tomar en copa.",
+      "price": 3000,
+      "price2": null,
+      "visible": true,
+      "images": []
+    },
+    {
+      "id": "1800-reposado",
+      "name": "1800 Reposado",
+      "categoryId": "tequilas",
+      "category": "Tequilas",
+      "description": "Tequila reposado en madera, de color dorado y perfil redondo.",
+      "price": 3200,
+      "price2": null,
+      "visible": true,
+      "images": []
+    }
+  ]
+}

@@ -6,24 +6,24 @@ import { LinkButton } from "@/components/shared/button";
 import { chipClass as chip } from "@/components/shared/chip";
 import { Container, Section } from "@/components/shared/layout";
 import { content } from "@/config/content";
-import { homeCategoryIds } from "@/data/categories";
-import { getAllProducts, getFeaturedProducts, getVisibleCategories } from "@/lib/catalog";
+import { getAllProducts, getFeaturedProducts, getVisibleCategoryGroups, groupCategoryIds } from "@/lib/catalog";
 import { useStoreStatus } from "@/lib/use-store-status";
 
 
 /** Menú dentro de la portada: cuadrícula funcional con selector de familia. Compra o consulta según el estado del servicio. */
 export function HomeMenu() {
   const { orderingEnabled } = useStoreStatus();
-  const cats = useMemo(() => getVisibleCategories().filter((c) => homeCategoryIds.includes(c.id)), []);
+  const cats = useMemo(() => getVisibleCategoryGroups(), []);
   const [tab, setTab] = useState("favoritos");
   const items = useMemo(() => {
     const all = getAllProducts();
     if (tab === "favoritos") {
       const fav = getFeaturedProducts();
-      return [...fav, ...all.filter((p) => p.available && !fav.includes(p) && p.categoryId !== "combos")].slice(0, 6);
+      return [...fav, ...all.filter((p) => p.available && !fav.includes(p) )].slice(0, 6);
     }
-    return all.filter((p) => p.categoryId === tab).slice(0, 6);
-  }, [tab]);
+    const group = cats.find((g) => g.id === tab);
+    return all.filter((p) => group && groupCategoryIds(group).includes(p.categoryId)).slice(0, 6);
+  }, [tab, cats]);
 
   return (
     <Section id="menu" tone="raised" labelledBy="menu-t" pad={false} className="py-16 lg:py-24">

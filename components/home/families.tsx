@@ -3,9 +3,8 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Container, Section } from "@/components/shared/layout";
 import { SectionHeading } from "@/components/shared/section-heading";
-import { categories, homeCategoryIds } from "@/data/categories";
 import { content } from "@/config/content";
-import { getAllProducts, getVisibleCategories } from "@/lib/catalog";
+import { getAllProducts, getVisibleCategoryGroups, groupCategoryIds } from "@/lib/catalog";
 
 /** Ancho de las categorías que cierran la composición, según cuántas queden (1 = franja completa). */
 const TAIL_SPAN: Record<number, string> = { 1: "lg:col-span-12", 2: "lg:col-span-6" };
@@ -16,12 +15,7 @@ const TAIL_SPAN: Record<number, string> = { 1: "lg:col-span-12", 2: "lg:col-span
  * En móvil: carrusel manual con snap (sin autoplay).
  */
 export function Families() {
-  const visible = getVisibleCategories().map((c) => c.id);
-  const items = homeCategoryIds
-    .filter((id) => visible.includes(id))
-    .map((id) => categories.find((c) => c.id === id)!)
-    .filter((c) => c.image)
-    .slice(0, 5);
+  const items = getVisibleCategoryGroups().filter((g) => g.image).slice(0, 5);
   if (items.length < 2) return null;
   const products = getAllProducts();
 
@@ -34,7 +28,7 @@ export function Families() {
           className="no-scrollbar -mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-1 scroll-px-4 min-[480px]:-mx-5 min-[480px]:px-5 min-[480px]:scroll-px-5 md:mx-0 md:px-0 md:scroll-px-0 lg:grid lg:grid-cols-12 lg:gap-4 lg:overflow-visible lg:pb-0"
         >
           {items.map((c, i) => {
-            const n = products.filter((p) => p.categoryId === c.id).length;
+            const n = products.filter((p) => groupCategoryIds(c).includes(p.categoryId)).length;
             const main = i === 0;
             const side = i > 0 && i < 3;
             const tail = TAIL_SPAN[items.length - 3] ?? "lg:col-span-4";
@@ -50,7 +44,7 @@ export function Families() {
                   <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5 sm:p-6">
                     <span>
                       <span className={`block font-display leading-none ${main ? "t-h3" : "text-[1.75rem]"}`}>{c.name}</span>
-                      <span className="mt-1.5 block text-[0.8125rem] text-cream2">{n} {n === 1 ? "plato" : "platos"}</span>
+                      <span className="mt-1.5 block text-[0.8125rem] text-cream2">{n} {n === 1 ? "opción" : "opciones"}</span>
                     </span>
                     <ArrowUpRight className="size-5 shrink-0 text-cream transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden />
                   </span>
