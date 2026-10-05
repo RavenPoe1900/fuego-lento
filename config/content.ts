@@ -10,7 +10,7 @@ export const content = {
     description: "Cortes Angus, parrilla y especialidades preparadas al fuego.",
     primaryCta: "Explorar el menú",
     coverageLink: "Consultar cobertura",
-    image: { src: "/img/menu/header-2.webp", alt: "Corte de res a la brasa rebanado sobre la mesa de Fuego Lento" },
+    image: { src: "/img/hero-costillas.webp", alt: "Costillar a la brasa sobre tabla de madera con tomate, papas gratinadas y encurtidos" },
     /** Cuando no se reciben pedidos */
     closed: {
       title: "Volvemos a encender el fuego",
