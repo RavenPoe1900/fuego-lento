@@ -21,59 +21,43 @@ export const content = {
     },
   },
 
-  /** Texto editorial que describe la oferta sin afirmar historia, trayectoria ni datos. */
-  manifesto: {
-    label: "Oficio",
-    title: "El sabor no se improvisa.",
-    text: "Cortes Angus, parrilla y especialidades preparados al fuego",
-    textOrdering: " y personalizados para cada pedido.",
-    /**
-     * Composición 5/4/3: foto de producto · texto · foto de ambiente.
-     * Fotos reales del restaurante (carta de Carrta).
-     */
-    imagesApproved: true,
-    images: [
-      { src: "/img/menu/picana-angus-prime-230-grs.webp", alt: "Picaña Angus Prime rebanada con vegetales a la brasa" },
-      { src: "/img/menu/gambones.webp", alt: "Comensal leyendo la carta de Fuego Lento junto a un plato de gambones" },
-    ],
-  },
-
   /** Pausa tipográfica: palabras clave, sin afirmaciones. PENDIENTE de revisión de copy. */
   pause: ["Fuego.", "Corte.", "Tiempo."],
   pauseLabel: "Cocina de fuego",
 
-  families: {
-    title: "Elige tu punto de partida",
-    description: "Una misma cocina de fuego.",
+  /** Carnes a domicilio: tarjetas de portada y página /carnes */
+  meat: {
+    eyebrow: "Carnes a domicilio",
+    title: "Carne premium, directo a tu parrilla",
+    description: "Cortes porcionados en Fuego Lento y combos para 2 o 4. Precios en USD, con su equivalente en CUP.",
+    allCta: "Ver toda la lista",
+    from: "Desde",
+    page: {
+      title: "Carnes premium a domicilio",
+      description: "Lista de precios de Fuego Lento. Elige tus cortes y envía tu pedido por WhatsApp.",
+      combosTitle: "Combos",
+      combosDescription: "Arma tu parrillada y ahorra con nuestros combos.",
+      groups: { 2: "Cenas para dos", 4: "Para la familia y los amigos" },
+      note: "Precios en USD; el equivalente en CUP es aproximado y depende del cambio del día. Los cortes vendidos por kg se cobran según el peso real de la pieza. Ribeye EXPORT y tapa de solomillo son piezas de peso variable. Precios y disponibilidad sujetos a cambio sin previo aviso.",
+    },
+  },
+
+  /** "Cómo pedir": tres pasos sobre fondo claro */
+  howToOrder: {
+    title: "Cómo pedir",
+    labels: ["Carne premium", "Directo a tu puerta"],
+    steps: [
+      { title: "Elige tu corte", text: "Recorre steaks, cortes de la casa, embutidos y combos. Cada precio va en USD, con su equivalente en CUP al lado." },
+      { title: "Confirma por WhatsApp", text: "Arma tu pedido y envíalo como comanda. Te confirmamos disponibilidad y, en las piezas por kg, el peso real." },
+      { title: "Recíbelo en casa", text: "Coordinamos la entrega a tu zona y el pago al confirmar. Las piezas por kg se cobran según su peso real." },
+    ],
+    image: { src: "/img/hero-costillas.webp", alt: "Costillar a la brasa sobre tabla de madera" },
   },
 
   specialties: {
     eyebrow: "Especialidades",
     title: "Lo que pasa por las brasas",
     description: "Piezas pensadas para el fuego. Abre una para ver ingredientes y opciones.",
-  },
-
-  /** Secuencia visual: palabras sueltas, sin afirmaciones. */
-  experience: {
-    eyebrow: "Secuencia",
-    title: "Del fuego a la mesa",
-    panels: [
-      { word: "Brasas", image: { src: "/img/menu/t-bone-angus-prime-400-grs.webp", alt: "T-Bone Angus Prime con marcas de la parrilla" } },
-      { word: "Corte", image: { src: "/img/menu/picana-angus-prime-460-grs.webp", alt: "Picaña Angus Prime rebanada con salsa y vegetales" } },
-      { word: "Mesa", image: { src: "/img/menu/tabla-fuego-lento.webp", alt: "Tabla Fuego Lento servida en la mesa con una copa de vino" } },
-      { word: "Plancha", image: { src: "/img/menu/churrasco-angus-prime-460-grs.webp", alt: "Churrasco Angus Prime sobre tabla de madera" } },
-    ],
-  },
-
-  community: {
-    title: "Una comunidad encendida",
-    description: "Platos, momentos y experiencias compartidas alrededor de Fuego Lento.",
-    cta: "Ver Instagram",
-    images: [
-      { src: "/img/menu/header-3.webp", alt: "Corte a la brasa con vegetales y copa de vino en la mesa" },
-      { src: "/img/menu/filetillo-de-res.webp", alt: "Filetillo de res acompañado de un cóctel" },
-      { src: "/img/menu/new-york-steak-angus-prime-350-grs.webp", alt: "New York Steak servido con vino tinto" },
-    ],
   },
 
   testimonials: { title: "Lo que dicen quienes ya pidieron" },

@@ -44,7 +44,7 @@ export function Footer() {
               <ul className="space-y-1">
                 {nav.map((n) => (
                   <li key={n.href}>
-                    <Link href={n.href} className="inline-block py-1.5 text-base text-cream2 hover:text-cream">{n.label}</Link>
+                    <Link href={n.href} className="inline-flex min-h-11 min-w-11 items-center text-base text-cream2 hover:text-cream">{n.label}</Link>
                   </li>
                 ))}
               </ul>
@@ -62,7 +62,7 @@ export function Footer() {
               {contact.map(({ icon: Icon, label, value, href }) => (
                 <li key={label} className="flex items-start gap-3 text-cream2">
                   <Icon className="mt-1 size-[18px] shrink-0 text-accent" aria-hidden />
-                  <span><span className="sr-only">{label}: </span>{href ? <a href={href} className="hover:text-cream">{value}</a> : value}</span>
+                  <span><span className="sr-only">{label}: </span>{href ? <a href={href} className="inline-flex min-h-11 items-center hover:text-cream">{value}</a> : value}</span>
                 </li>
               ))}
               <li>
@@ -79,7 +79,7 @@ export function Footer() {
           {legal.length > 0 ? (
             <ul className="flex flex-wrap gap-x-6">
               {legal.map((n) => (
-                <li key={n.href}><Link href={n.href} className="inline-block py-2 hover:text-cream">{n.label}</Link></li>
+                <li key={n.href}><Link href={n.href} className="inline-flex min-h-11 items-center hover:text-cream">{n.label}</Link></li>
               ))}
             </ul>
           ) : <span />}

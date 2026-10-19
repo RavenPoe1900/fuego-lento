@@ -14,7 +14,7 @@ type Variant = "default" | "main" | "row";
 /**
  * Tarjeta de producto. Solo lo necesario para decidir: imagen, nombre,
  * descripción corta, precio y acción. Ingredientes, alérgenos y opciones viven en el detalle.
- * - default: tarjeta vertical (menú); en móvil, fila compacta para ver ~4 productos por pantalla.
+ * - default: tarjeta vertical (menú); en móvil, fila compacta con la imagen a un lado y la acción de 44 px.
  * - main: producto principal de la portada, imagen dominante.
  * - row: tarjeta compacta horizontal (secundarios de la portada).
  */
@@ -24,7 +24,8 @@ export function ProductCard({ product, variant = "default", priority }: { produc
   const row = variant === "row";
   /** default en móvil: fila compacta con acción solo icono */
   const compact = variant === "default";
-  const iconOnly = compact ? "max-sm:!min-h-11 max-sm:w-11 max-sm:!px-0" : "";
+  // Con etiqueta el ancho es estable ("Añadir al pedido" ↔ "Añadido"); en móvil compacto es un icono de 44 px
+  const iconOnly = `${compact ? "max-sm:!min-h-11 max-sm:w-11 max-sm:!px-0 " : ""}sm:min-w-[13.25rem]`;
   const label = compact ? "max-sm:sr-only" : "";
 
   const action = soldOut || !canBuy ? (
@@ -37,7 +38,7 @@ export function ProductCard({ product, variant = "default", priority }: { produc
       <SlidersHorizontal className="size-4" aria-hidden /> <span className={label}>Elegir opciones</span>
     </Button>
   ) : (
-    <Button variant="soft" size="sm" onClick={quickAdd} aria-label={`Añadir ${product.name} al pedido`} className={`${iconOnly} ${added ? "!bg-ok" : ""}`}>
+    <Button variant="soft" size="sm" onClick={quickAdd} aria-label={`Añadir ${product.name} al pedido`} className={`${iconOnly} ${added ? "!border-ok/60 !bg-ok/15 !text-ok-soft" : ""}`}>
       {added ? <Check className="size-4" aria-hidden /> : <Plus className="size-4" aria-hidden />}
       <span className={label}>{added ? "Añadido" : "Añadir al pedido"}</span>
     </Button>
@@ -46,16 +47,17 @@ export function ProductCard({ product, variant = "default", priority }: { produc
   const price = showPrice ? (
     <div>
       {priceVaries && <span className={`block text-[0.8125rem] text-muted ${compact ? "max-sm:text-[0.75rem]" : ""}`}>Desde</span>}
-      <Price amount={product.basePrice} size={main ? "lg" : "md"} />
+      <Price amount={product.basePrice} currency={product.currency} dual size={main ? "lg" : "md"} />
+      {product.priceNote && <span className="mt-1 block text-[0.75rem] leading-snug text-muted">{product.priceNote}</span>}
     </div>
   ) : null;
 
   // Una sola etiqueta como máximo
-  const tag = soldOut ? <Badge tone="err">Agotado</Badge> : product.tags.length ? <ProductTags product={{ ...product, tags: product.tags.slice(0, 1) }} /> : null;
+  const tag = soldOut ? <Badge tone="err">Agotado</Badge> : product.tags.length || product.availableFrom ? <ProductTags product={{ ...product, tags: product.availableFrom ? [] : product.tags.slice(0, 1) }} /> : null;
 
   return (
     <article
-      className={`group relative flex h-full overflow-hidden rounded-card bg-white/[0.03] ring-1 ring-white/[0.07] transition-[transform,background-color,box-shadow] duration-[220ms] ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-1 hover:bg-white/[0.045] hover:shadow-[0_16px_32px_rgba(0,0,0,0.35)] motion-reduce:hover:translate-y-0 ${
+      className={`group relative flex h-full overflow-hidden rounded-card border border-line transition-colors duration-200 hover:border-cream/25 hover:bg-white/[0.025] ${
         row ? "flex-row" : compact ? "flex-row sm:flex-col" : "flex-col"
       } ${soldOut ? "opacity-75" : ""}`}
     >

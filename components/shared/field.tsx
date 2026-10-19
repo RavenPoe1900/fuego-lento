@@ -1,7 +1,7 @@
 import type { InputHTMLAttributes, ReactNode, SelectHTMLAttributes, TextareaHTMLAttributes } from "react";
 
 const control =
-  "w-full min-h-[52px] rounded-ui border bg-surface2 px-4 text-base text-cream placeholder:text-muted transition-colors focus:border-fire focus:outline-none focus:ring-2 focus:ring-fire/40";
+  "w-full min-h-[52px] rounded-ui border bg-surface2 px-4 text-base text-cream placeholder:text-muted transition-colors focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40";
 
 function Wrapper({ id, label, error, hint, required, children }: { id: string; label: string; error?: string; hint?: string; required?: boolean; children: ReactNode }) {
   return (

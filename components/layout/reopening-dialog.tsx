@@ -65,7 +65,7 @@ export function ReopeningForm({ compact }: { compact?: boolean }) {
       <TextField id="re-contact" label="Teléfono o correo" required autoComplete="tel" inputMode="text" value={contact} onChange={(e) => setContact(e.target.value)} error={errors.contact} />
       <div>
         <label className="flex min-h-11 items-start gap-3 text-sm">
-          <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-1 size-5 accent-[var(--ember)]" />
+          <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-1 size-5 accent-[var(--accent)]" />
           <span className="text-cream2">
             Acepto que Fuego Lento use mis datos solo para avisarme de la reapertura.
           </span>

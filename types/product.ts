@@ -16,7 +16,8 @@ export type OptionGroupKind =
   | "substitution" // sustituir un elemento incluido
   | "sauce" // salsa
   | "extra" // extras con costo
-  | "remove"; // quitar ingredientes permitidos
+  | "remove" // quitar ingredientes permitidos
+  | "weight"; // peso aproximado de una pieza que se cobra por kg
 
 export type ProductOption = {
   id: string;
@@ -41,6 +42,9 @@ export type OptionGroup = {
   helpText?: string;
 };
 
+/** Moneda en que está fijado el precio de un producto. Sin indicar, CUP. */
+export type ProductCurrency = "CUP" | "USD";
+
 export type ProductImage = {
   src: string;
   alt: string;
@@ -55,6 +59,14 @@ export type Product = {
   categoryId: string;
   images: ProductImage[];
   basePrice: number;
+  /** Moneda de `basePrice` y de los incrementos de opciones. Por defecto CUP. */
+  currency?: ProductCurrency;
+  /** Línea de venta: "carnes" = Carnes a domicilio. Sin indicar, la carta del restaurante. */
+  line?: "carnes";
+  /** Aclaración del precio, p. ej. "por kg · se cobra según el peso real" */
+  priceNote?: string;
+  /** Fecha desde la que se sirve, tal como se muestra ("21/10") */
+  availableFrom?: string;
   /** Solo si existe una promoción real */
   compareAtPrice?: number;
   featured: boolean;

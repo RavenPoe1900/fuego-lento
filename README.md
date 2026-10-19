@@ -36,6 +36,7 @@ El carrito y el borrador de datos se guardan en este dispositivo (localStorage, 
 | Productos / categorías / zonas | `data/products.ts`, `data/categories.ts`, `data/delivery-zones.ts` |
 | Testimonios reales (vacío = sección oculta) | `data/testimonials.ts` |
 | WhatsApp | `NEXT_PUBLIC_WHATSAPP_NUMBER` |
+| Reglas visuales (color, botones, enlaces, filtros, comanda) | `docs/sistema-visual.md` |
 
 ## Límites
 Es estática: los totales se recalculan en el navegador y el pedido se envía por WhatsApp. El registro de reapertura, la capacidad por franja y los cupones requieren backend. Las fotografías son referencias libres (Unsplash); hay que sustituirlas por fotos propias.

@@ -1,8 +1,8 @@
 "use client";
 
 import { CheckCircle2, MapPin, XCircle } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
+import { ArrowButton, ArrowLink } from "@/components/shared/arrow-link";
 import { Button, LinkButton } from "@/components/shared/button";
 import { SelectField } from "@/components/shared/field";
 import { Container, Section } from "@/components/shared/layout";
@@ -18,8 +18,6 @@ import { checkCoverage, etaText, OUTSIDE_ZONE } from "@/lib/delivery";
 import { hoursSummary, todayHours } from "@/lib/schedule";
 import { useStoreStatus } from "@/lib/use-store-status";
 import { useUi } from "@/store/ui-store";
-
-const linkClass = "inline-flex min-h-11 items-center text-[0.9375rem] font-medium underline underline-offset-4";
 
 /**
  * Con el servicio activo: comprobación de cobertura (resultado inmediato, detalle bajo demanda).
@@ -42,7 +40,7 @@ export function DeliveryCoverage() {
             {(sf.signupEnabled || faq) && (
               <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 {sf.signupEnabled && <Button size="lg" onClick={() => setReopeningOpen(true)}>{content.hero.closed.signupCta}</Button>}
-                {faq && <Link href="/preguntas-frecuentes/" className={linkClass}>Preguntas frecuentes</Link>}
+                {faq && <ArrowLink href="/preguntas-frecuentes/" onLight>Preguntas frecuentes</ArrowLink>}
               </div>
             )}
           </div>
@@ -77,7 +75,7 @@ function CoverageChecker({ faq }: { faq: boolean }) {
           <div aria-live="polite" className="mt-4">
             {result.status === "covered" && (
               <div className="border-y border-ink/15 py-5">
-                <p className="flex items-center gap-2 text-[1.0625rem] font-semibold"><CheckCircle2 className="size-5 text-[#3f6a30]" aria-hidden /> Sí entregamos en tu zona</p>
+                <p className="flex items-center gap-2 text-[1.0625rem] font-semibold"><CheckCircle2 className="size-5 text-ok-light" aria-hidden /> Sí entregamos en tu zona</p>
                 <dl className="mt-4 grid grid-cols-3 gap-4 text-sm">
                   <div><dt className="label-mono text-ink/60">Envío</dt><dd className="mt-1">{result.fee !== null ? <Price amount={result.fee} size="sm" onLight /> : <span className="text-base font-semibold">Por confirmar</span>}</dd></div>
                   <div><dt className="label-mono text-ink/60">Tiempo</dt><dd className="mt-1 font-mono text-[0.9375rem] tabular-nums">{etaText(result.zone) ?? "—"}</dd></div>
@@ -110,9 +108,12 @@ function CoverageChecker({ faq }: { faq: boolean }) {
               ))}
             </ul>
             {today && (
-              <span className="py-2 text-[0.9375rem] text-ink/70">Hoy: {today} · <button type="button" onClick={() => setHoursOpen(true)} className="font-medium underline underline-offset-4">Ver horarios</button></span>
+              <div className="flex flex-wrap items-center gap-x-6 text-[0.9375rem] text-ink/70">
+                <span>Hoy: {today}</span>
+                <ArrowButton onLight onClick={() => setHoursOpen(true)}>Ver horarios</ArrowButton>
+              </div>
             )}
-            {faq && <Link href="/preguntas-frecuentes/" className={`${linkClass} justify-start`}>¿Tienes dudas sobre la entrega?</Link>}
+            {faq && <ArrowLink href="/preguntas-frecuentes/" onLight caps={false}>¿Tienes dudas sobre la entrega?</ArrowLink>}
           </aside>
         </div>
       </Container>

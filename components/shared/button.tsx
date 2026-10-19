@@ -5,18 +5,22 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 type Variant = "primary" | "secondary" | "soft" | "ghost" | "link";
 type Size = "md" | "lg" | "sm";
 
+/**
+ * Los botones de acción son píldoras; el resto de superficies (campos, tarjetas, paneles) conserva el radio de 3–4 px.
+ * Sin sombras ni escalados: la jerarquía la dan el relleno, el borde y el color.
+ */
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-ui transition-colors duration-150 select-none active:scale-[0.98] disabled:pointer-events-none disabled:opacity-45 aria-disabled:pointer-events-none aria-disabled:opacity-45";
+  "inline-flex items-center justify-center gap-2 py-2 text-center transition-colors duration-150 select-none disabled:pointer-events-none disabled:opacity-40 aria-disabled:pointer-events-none aria-disabled:opacity-40";
 const variants: Record<Variant, string> = {
-  /** Rojo brasa: solo la acción principal de cada sección */
-  primary: "bg-ember text-cream shadow-[0_8px_28px_rgba(214,73,47,0.16)] hover:bg-[var(--ember-hover)]",
-  /** Borde neutro: acciones secundarias */
-  secondary: "border border-cream/[0.22] bg-cream/[0.025] text-cream hover:border-cream/45 hover:bg-cream/[0.07]",
-  /** Acciones repetidas (tarjetas): discretas también en hover, nunca rojas */
-  soft: "bg-cream/[0.08] text-cream hover:bg-cream/[0.15]",
-  ghost: "text-cream2 hover:bg-white/5 hover:text-cream",
-  /** Terciaria: texto, sin contenedor */
-  link: "!min-h-0 !px-0 gap-1.5 text-cream2 underline-offset-4 hover:text-cream hover:underline",
+  /** Rojo brasa: solo la acción principal de cada sección (texto crema ≥ 4.5:1 en reposo, hover y active) */
+  primary: "rounded-full bg-ember text-cream hover:bg-ember-hover active:bg-ember-active",
+  /** Contorno fino: acciones secundarias */
+  secondary: "rounded-full border border-cream/40 text-cream hover:border-cream/70 hover:bg-cream/[0.06] active:bg-cream/10",
+  /** Acción repetida (tarjetas): contorno dorado, nunca rojo */
+  soft: "rounded-full border border-gold/50 text-gold hover:border-gold hover:bg-gold/10 active:bg-gold/15",
+  ghost: "rounded-full text-cream2 hover:bg-cream/[0.06] hover:text-cream active:bg-cream/10",
+  /** Terciaria: texto, sin contenedor (mantiene 44 px de alto) */
+  link: "gap-1.5 !px-0 text-cream2 underline-offset-4 hover:text-cream hover:underline",
 };
 const sizes: Record<Size, string> = {
   sm: "min-h-[46px] px-5",
@@ -42,9 +46,10 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 export function Button({ variant = "primary", size = "md", loading, className = "", children, disabled, ...rest }: Props) {
   return (
-    <button className={buttonClass(variant, size, className)} disabled={disabled || loading} aria-busy={loading || undefined} {...rest}>
-      {loading && <Loader2 className="size-4 animate-spin" aria-hidden />}
-      {children}
+    <button className={buttonClass(variant, size, `relative ${className}`)} disabled={disabled || loading} aria-busy={loading || undefined} {...rest}>
+      {/* El contenido se queda en el flujo (transparente) para que el botón no cambie de tamaño al cargar */}
+      {loading && <Loader2 className="absolute size-4 animate-spin" aria-hidden />}
+      <span className={loading ? "inline-flex items-center gap-2 opacity-0" : "contents"}>{children}</span>
     </button>
   );
 }
@@ -89,7 +94,7 @@ export function IconButton({
     <button
       aria-label={label}
       title={label}
-      className={`inline-flex size-11 items-center justify-center rounded-full text-cream transition-colors hover:bg-white/10 active:scale-95 disabled:opacity-40 ${className}`}
+      className={`inline-flex size-11 items-center justify-center rounded-full text-cream transition-colors hover:bg-white/10 disabled:opacity-40 ${className}`}
       {...rest}
     >
       {children}

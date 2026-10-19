@@ -12,7 +12,7 @@ import { content } from "@/config/content";
 import { track } from "@/lib/analytics";
 import { isDev } from "@/lib/dev";
 import { getProduct } from "@/lib/catalog";
-import { formatDelta, formatPrice } from "@/lib/currency";
+import { formatCupEquivalent, formatDelta, formatMoney } from "@/lib/currency";
 import { defaultSelections, groupRuleText, normalizeNote, unitPrice, validateSelections } from "@/lib/order-calculations";
 import { useStoreStatus } from "@/lib/use-store-status";
 import { useCart } from "@/store/cart-store";
@@ -126,7 +126,7 @@ function ProductDetail({ open, product, line, onClose, onExitComplete }: { open:
             <QuantitySelector value={quantity} onChange={setQuantity} label={product.name} />
             <Button size="lg" className="flex-1" onClick={submit}>
               <span>{buttonLabel} {line ? "" : quantity > 1 ? `${quantity} al pedido` : "al pedido"}</span>
-              {showPrice && <span className="tabular-nums">· {formatPrice(total)}</span>}
+              {showPrice && <span className="tabular-nums">· {formatMoney(total, product.currency)}</span>}
             </Button>
           </div>
         ) : (
@@ -150,10 +150,14 @@ function ProductDetail({ open, product, line, onClose, onExitComplete }: { open:
             </div>
             <h2 className="text-[2rem] leading-tight sm:text-4xl">{product.name}</h2>
             {showPrice ? (
-              <p className="mt-2 flex items-baseline gap-2">
-                <span className="text-2xl font-bold tabular-nums">{formatPrice(unit)}</span>
-                {product.compareAtPrice && <s className="text-cream2 tabular-nums">{formatPrice(product.compareAtPrice)}</s>}
-              </p>
+              <>
+                <p className="mt-2 flex items-baseline gap-2">
+                  <span className="text-2xl font-bold tabular-nums">{formatMoney(unit, product.currency)}</span>
+                  {product.compareAtPrice && <s className="text-cream2 tabular-nums">{formatMoney(product.compareAtPrice, product.currency)}</s>}
+                </p>
+                {product.currency === "USD" && <p className="mt-0.5 font-mono text-[0.8125rem] tabular-nums text-muted">{formatCupEquivalent(unit)}</p>}
+                {product.priceNote && <p className="mt-0.5 text-sm text-muted">{product.priceNote}</p>}
+              </>
             ) : (
               <p className="mt-2 text-cream2">Precio por confirmar</p>
             )}
@@ -173,7 +177,7 @@ function ProductDetail({ open, product, line, onClose, onExitComplete }: { open:
           )}
 
           {product.optionGroups.map((g) => (
-            <OptionGroupField key={g.id} group={g} chosen={selections[g.id] ?? []} error={errors[g.id]} onToggle={toggle} disabled={!canBuy} showPrice={showPrice} />
+            <OptionGroupField key={g.id} group={g} currency={product.currency} chosen={selections[g.id] ?? []} error={errors[g.id]} onToggle={toggle} disabled={!canBuy} showPrice={showPrice} />
           ))}
 
           {canBuy && (
@@ -187,7 +191,7 @@ function ProductDetail({ open, product, line, onClose, onExitComplete }: { open:
                 maxLength={restaurant.ordering.maxNoteLength}
                 onChange={(e) => setNote(e.target.value)}
                 placeholder="Ej.: sin sal, salsa aparte…"
-                className="min-h-20 w-full rounded-ui border border-line bg-surface px-4 py-3 text-base focus:border-fire focus:outline-none focus:ring-2 focus:ring-fire/40"
+                className="min-h-20 w-full rounded-ui border border-line bg-surface px-4 py-3 text-base focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40"
               />
               <p className="text-right text-xs text-cream2">{note.length}/{restaurant.ordering.maxNoteLength}</p>
             </div>
@@ -201,7 +205,7 @@ function ProductDetail({ open, product, line, onClose, onExitComplete }: { open:
               </div>
             )}
             <div className="rounded-ui border border-gold/40 bg-gold/10 p-3">
-              <p className="font-semibold text-[#e3bd88]">
+              <p className="font-semibold text-gold-soft">
                 Alérgenos: {product.allergens.length ? product.allergens.join(", ") : "ninguno declarado"}
               </p>
               {orderingEnabled && <p className="mt-1 text-cream2">{content.allergyNotice}</p>}
@@ -215,6 +219,7 @@ function ProductDetail({ open, product, line, onClose, onExitComplete }: { open:
 
 function OptionGroupField({
   group,
+  currency,
   chosen,
   error,
   onToggle,
@@ -222,6 +227,7 @@ function OptionGroupField({
   showPrice,
 }: {
   group: OptionGroup;
+  currency: Product["currency"];
   chosen: string[];
   error?: string;
   onToggle: (g: OptionGroup, id: string) => void;
@@ -242,7 +248,7 @@ function OptionGroupField({
         <span className="text-lg font-semibold">{group.name}</span>
       </legend>
       <div className="mb-3 flex flex-wrap items-center gap-2 text-sm">
-        {group.required ? <Badge tone="ember">Obligatorio</Badge> : <Badge>Opcional</Badge>}
+        {group.required ? <Badge tone="gold">Obligatorio</Badge> : <Badge>Opcional</Badge>}
         <span className="text-cream2">{groupRuleText(group)}</span>
         {!single && <span className="ml-auto text-cream2 tabular-nums">{chosen.length}/{group.maxSelections}</span>}
       </div>
@@ -277,7 +283,7 @@ function OptionGroupField({
                 {!o.available && <span className="text-xs text-err">Agotado</span>}
                 {o.included && o.available && <span className="text-xs text-ok">Incluido</span>}
               </span>
-              {showPrice && o.priceDelta > 0 && <span className="text-sm font-semibold tabular-nums text-cream2">{formatDelta(o.priceDelta)}</span>}
+              {showPrice && o.priceDelta > 0 && <span className="text-sm font-semibold tabular-nums text-cream2">{formatDelta(o.priceDelta, currency)}</span>}
             </label>
           );
         })}

@@ -1,4 +1,4 @@
-import { formatPrice } from "@/lib/currency";
+import { formatPrice, formatRate, formatUsd } from "@/lib/currency";
 import type { Totals } from "@/types/order";
 import type { DeliveryMethod } from "@/types/restaurant";
 
@@ -11,6 +11,7 @@ export function CartSummary({ totals, method }: { totals: Totals; method: Delive
   return (
     <dl className="space-y-1.5 text-[0.9375rem]">
       <Row label="Productos" value={formatPrice(totals.subtotal)} />
+      {totals.usdSubtotal > 0 && <p className="text-[0.8125rem] leading-snug text-muted">Incluye {formatUsd(totals.usdSubtotal)} convertidos a CUP ({formatRate()}).</p>}
       {method === "delivery" ? (
         <Row label="Envío" value={feeKnown ? formatPrice(totals.deliveryFee as number) : "Por confirmar"} muted={!feeKnown} />
       ) : (

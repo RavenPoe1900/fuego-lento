@@ -3,7 +3,7 @@
 import { Dialog as DialogPrimitive } from "radix-ui";
 import { X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 import { EASE_EDITORIAL, tDrawer } from "@/lib/motion";
 import { IconButton } from "./button";
 
@@ -39,6 +39,8 @@ export function Dialog({
   split?: boolean;
 }) {
   const reduce = useReducedMotion();
+  // Los diálogos se abren desde estado (no hay Dialog.Trigger): se recuerda quién tenía el foco para devolvérselo al cerrar.
+  const returnFocus = useRef<HTMLElement | null>(null);
 
   const panelClass =
     variant === "drawer"
@@ -71,7 +73,23 @@ export function Dialog({
                   transition={{ duration: 0.25 }}
                 />
               </DialogPrimitive.Overlay>
-              <DialogPrimitive.Content forceMount asChild aria-describedby={undefined}>
+              <DialogPrimitive.Content
+                forceMount
+                asChild
+                aria-describedby={undefined}
+                onOpenAutoFocus={() => {
+                  returnFocus.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+                }}
+                onCloseAutoFocus={(event) => {
+                  event.preventDefault();
+                  const el = returnFocus.current;
+                  // Si el disparador se desmontó mientras el diálogo estaba abierto (p. ej. la barra móvil de la comanda),
+                  // se usa otro elemento marcado con el mismo data-focus-return.
+                  const key = el?.dataset.focusReturn;
+                  const target = el?.isConnected ? el : key ? document.querySelector<HTMLElement>(`[data-focus-return="${key}"]`) : null;
+                  target?.focus({ preventScroll: true });
+                }}
+              >
                 <motion.div
                   {...motionProps}
                   className={`relative flex flex-col overflow-clip border border-line bg-warm shadow-[var(--shadow)] outline-none ${panelClass}`}

@@ -30,7 +30,7 @@ export function DemoPanel() {
             <div className="space-y-1">
               {(Object.keys(PREVIEW_PRESETS) as PreviewPreset[]).map((k) => (
                 <label key={k} className="flex min-h-10 cursor-pointer items-center gap-2 rounded-ui px-2 text-sm hover:bg-white/5">
-                  <input type="radio" name="preview-status" checked={current === k} onChange={() => setOverride(k)} className="accent-[var(--ember)]" />
+                  <input type="radio" name="preview-status" checked={current === k} onChange={() => setOverride(k)} className="accent-[var(--accent)]" />
                   {PREVIEW_PRESETS[k].label}
                 </label>
               ))}

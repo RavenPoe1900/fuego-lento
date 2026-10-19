@@ -70,7 +70,7 @@ export function CartDrawer() {
         lines.length > 0 && (
           <div className="space-y-4">
             {belowMin && (
-              <p role="status" className="rounded-ui bg-gold/10 px-3 py-2 text-sm text-[#e3bd88]">
+              <p role="status" className="rounded-ui bg-gold/10 px-3 py-2 text-sm text-gold-soft">
                 Pedido mínimo para entrega: {formatPrice(minOrder)}. Te faltan {formatPrice(minOrder - totals.subtotal)}.
               </p>
             )}
@@ -79,7 +79,9 @@ export function CartDrawer() {
             <Button size="lg" onClick={send} disabled={blocked} className="w-full">
               <MessageCircle className="size-5" aria-hidden /> Enviar comanda por WhatsApp
             </Button>
-            <p className="text-[0.8125rem] leading-snug text-muted">El restaurante confirma disponibilidad, envío y pago por WhatsApp.</p>
+            <p className="border-t border-line pt-3 text-[0.8125rem] leading-snug text-cream2">
+              Se abrirá WhatsApp con tu comanda. El restaurante confirma disponibilidad, envío y pago por ahí.
+            </p>
           </div>
         )
       }

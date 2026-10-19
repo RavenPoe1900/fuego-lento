@@ -13,6 +13,7 @@ export type CommerceEvent =
   | "whatsapp_order_clicked"
   | "order_summary_copied"
   | "view_menu"
+  | "view_meat"
   | "view_category"
   | "coverage_error"
   | "reopening_signup";

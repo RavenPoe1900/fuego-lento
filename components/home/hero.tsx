@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ArrowLink } from "@/components/shared/arrow-link";
 import { Button, LinkButton } from "@/components/shared/button";
 import { content } from "@/config/content";
 import { restaurant } from "@/config/restaurant";
@@ -39,12 +40,12 @@ export function Hero() {
           </h1>
           <p className="lead anim-rise mt-6 max-w-[34rem] text-balance text-cream/90" style={{ animationDelay: "120ms" }}>{c.description}</p>
 
-          <div className="anim-rise mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center" style={{ animationDelay: "180ms" }}>
+          <div className="anim-rise mt-9 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center" style={{ animationDelay: "180ms" }}>
             {ordering ? (
               <>
                 <LinkButton href="#menu" size="lg">{content.hero.primaryCta}</LinkButton>
                 {sf.showDelivery && (
-                  <a href="#cobertura" className="py-3 text-[0.9375rem] font-medium text-cream underline underline-offset-4 hover:text-accent">{content.hero.coverageLink}</a>
+                  <ArrowLink href="#cobertura">{content.hero.coverageLink}</ArrowLink>
                 )}
               </>
             ) : (

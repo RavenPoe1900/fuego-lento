@@ -46,7 +46,7 @@ export function MobileCartBar() {
             animate={{ scale: 1 }}
             transition={{ duration: 0.25, ease: EASE_EDITORIAL }}
           >
-            <Button size="lg" className="w-full !justify-between whitespace-nowrap" onClick={open} aria-label={`Ver comanda: ${totals.itemCount} productos, ${formatPrice(totals.subtotal)}`}>
+            <Button size="lg" className="w-full !justify-between whitespace-nowrap" data-focus-return="cart" onClick={open} aria-label={`Ver comanda: ${totals.itemCount} productos, ${formatPrice(totals.subtotal)}`}>
               <span className="flex items-center gap-2.5">
                 <ReceiptText className="size-[18px]" aria-hidden />
                 <span>Ver comanda · <AnimatedCounter value={totals.itemCount} /></span>

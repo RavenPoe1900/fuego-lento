@@ -6,7 +6,7 @@
  */
 import { restaurant } from "@/config/restaurant";
 import { getProduct } from "@/lib/catalog";
-import { formatDelta } from "@/lib/currency";
+import { formatDelta, toCup } from "@/lib/currency";
 import { sanitizeText } from "@/lib/text";
 import type { CartLine, PricedLine, Selections, Totals } from "@/types/order";
 import type { OptionGroup, Product } from "@/types/product";
@@ -107,9 +107,10 @@ export function selectionDetails(product: Product, selections: Selections): stri
       .map((id) => group.options.find((o) => o.id === id))
       .filter((o): o is NonNullable<typeof o> => Boolean(o));
     if (!chosen.length) continue;
-    const names = chosen.map((o) => (o.priceDelta > 0 ? `${o.name} (${formatDelta(o.priceDelta)})` : o.name)).join(", ");
+    const names = chosen.map((o) => (o.priceDelta > 0 && group.kind !== "weight" ? `${o.name} (${formatDelta(o.priceDelta, product.currency)})` : o.name)).join(", ");
     details.push(group.kind === "remove" ? names : `${group.name.replace(/ incluido$/, "")}: ${names}`);
   }
+  if (product.availableFrom) details.push(`Disponible desde el ${product.availableFrom}`);
   return details;
 }
 
@@ -151,7 +152,9 @@ export function priceCart(lines: CartLine[]): { priced: PricedLine[]; issues: Ca
       issues.push({ lineId: line.id, type: "options", message: "Alguna opción cambió. Edita el artículo para revisarlo." });
     }
     const quantity = Math.max(1, Math.min(20, Math.floor(line.quantity)));
-    const price = unitPrice(product, line.selections);
+    const nativePrice = unitPrice(product, line.selections);
+    const currency = product.currency ?? "CUP";
+    const price = toCup(nativePrice, currency);
     priced.push({
       lineId: line.id,
       productId: product.id,
@@ -159,6 +162,10 @@ export function priceCart(lines: CartLine[]): { priced: PricedLine[]; issues: Ca
       quantity,
       unitPrice: price,
       lineTotal: price * quantity,
+      currency,
+      nativeUnitPrice: nativePrice,
+      nativeLineTotal: Math.round(nativePrice * quantity * 100) / 100,
+      line: product.line === "carnes" ? "carnes" : "carta",
       details: selectionDetails(product, line.selections),
       note: normalizeNote(line.note),
     });
@@ -177,6 +184,7 @@ export function computeTotals(priced: PricedLine[], deliveryFee: number | null):
     serviceFee,
     discount,
     total: subtotal + (deliveryFee ?? 0) + serviceFee - discount,
+    usdSubtotal: Math.round(priced.filter((l) => l.currency === "USD").reduce((sum, l) => sum + l.nativeLineTotal, 0) * 100) / 100,
     itemCount: priced.reduce((n, l) => n + l.quantity, 0),
   };
 }

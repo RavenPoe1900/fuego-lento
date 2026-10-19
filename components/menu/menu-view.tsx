@@ -145,7 +145,7 @@ export function MenuView() {
   const sortSelect = (
     <label className="flex items-center gap-3 text-[0.9375rem] text-cream2">
       <span className="shrink-0 font-medium">Ordenar</span>
-      <select value={sort} onChange={(e) => setSort(e.target.value as Sort)} className="min-h-[52px] flex-1 rounded-ui border border-line bg-surface2 px-4 text-base text-cream focus:border-fire focus:outline-none focus:ring-2 focus:ring-fire/40">
+      <select value={sort} onChange={(e) => setSort(e.target.value as Sort)} className="min-h-[52px] flex-1 rounded-ui border border-line bg-surface2 px-4 text-base text-cream focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40">
         <option value="featured">Destacados</option>
         <option value="price-asc">Precio: menor a mayor</option>
         <option value="price-desc">Precio: mayor a menor</option>
@@ -154,7 +154,7 @@ export function MenuView() {
   );
 
   const tagChips = (
-    <div role="group" aria-label="Tipo de plato" className="flex flex-wrap gap-2">
+    <div role="group" aria-label="Tipo de plato" className="flex flex-wrap gap-x-7">
       {activeTags.map((f) => {
         const on = tags.includes(f.tag);
         return (
@@ -171,7 +171,7 @@ export function MenuView() {
     <Button variant="secondary" size="md" className="min-h-[52px]" aria-label={filtersLabel}>
       <SlidersHorizontal className="size-[18px]" aria-hidden />
       <span className="max-sm:sr-only">{filtersLabel}</span>
-      {tags.length > 0 && <span className="rounded-full bg-ember px-2 text-xs font-bold leading-5 sm:hidden">{tags.length}</span>}
+      {tags.length > 0 && <span className="rounded-full bg-gold px-2 text-xs font-bold leading-5 text-carbon sm:hidden">{tags.length}</span>}
     </Button>
   );
 
@@ -196,7 +196,7 @@ export function MenuView() {
                 placeholder="Buscar plato, ingrediente…"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="min-h-[52px] w-full rounded-ui border border-white/[0.08] bg-white/[0.04] pl-12 pr-4 text-base placeholder:text-muted focus:border-fire focus:outline-none focus:ring-2 focus:ring-fire/40"
+                className="min-h-[52px] w-full rounded-ui border border-white/[0.08] bg-white/[0.04] pl-12 pr-4 text-base placeholder:text-muted focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40"
               />
             </div>
             <div className="hidden w-72 lg:block">{sortSelect}</div>
@@ -228,9 +228,9 @@ export function MenuView() {
       <div ref={sentinel} aria-hidden className="h-px" />
 
       {/* Fila 2: categorías, pegadas bajo el header (top = altura real) */}
-      <div className={`sticky top-[var(--header-height)] z-30 h-[var(--chips-height)] bg-carbon/95 backdrop-blur-md transition-[box-shadow,top] duration-200 ${stuck ? "shadow-[0_10px_24px_rgba(0,0,0,0.45)]" : ""}`}>
+      <div className={`sticky top-[var(--header-height)] z-30 h-[var(--chips-height)] bg-carbon/95 backdrop-blur-md border-b transition-colors duration-200 ${stuck ? "border-line" : "border-transparent"}`}>
         <Container className="flex h-full items-center">
-          <div ref={chipsRef} role="group" aria-label="Categorías" className="no-scrollbar flex w-full gap-2 overflow-x-auto">
+          <div ref={chipsRef} role="group" aria-label="Categorías" className="no-scrollbar flex w-full gap-x-7 overflow-x-auto">
             {[{ id: "all", slug: "all", name: "Todo" }, ...chipItems].map((c) => (
               <button
                 key={c.id}
@@ -253,7 +253,7 @@ export function MenuView() {
         {!sf.orderingEnabled && <p role="note" className="mb-6 rounded-ui bg-white/[0.05] px-4 py-3 text-[0.9375rem] text-cream2">{content.menu.catalogNote}</p>}
 
         {activeGroup && activeGroup.children.length > 1 && (
-          <div role="group" aria-label={`Tipos de ${activeGroup.name.toLowerCase()}`} className="no-scrollbar -mt-4 mb-7 flex gap-2 overflow-x-auto">
+          <div role="group" aria-label={`Tipos de ${activeGroup.name.toLowerCase()}`} className="no-scrollbar -mt-4 mb-7 flex gap-x-7 overflow-x-auto">
             {[{ id: activeGroup.id, label: activeGroup.allLabel, slug: activeGroup.slug }, ...activeGroup.children.map((ch) => ({ ...ch, slug: ch.sections ? ch.id : categories.find((c) => c.id === ch.id)?.slug ?? ch.id }))].map((ch) => (
               <button
                 key={ch.id}
@@ -288,9 +288,9 @@ export function MenuView() {
           </EmptyState>
         ) : sections ? (
           <>
-            <nav aria-label="Ir a la sección" className="no-scrollbar mb-8 flex gap-2 overflow-x-auto">
+            <nav aria-label="Ir a la sección" className="no-scrollbar mb-8 flex gap-x-7 overflow-x-auto">
               {sections.map((sec) => (
-                <a key={sec.id} href={`#cat-${sec.id}`} className="shrink-0 whitespace-nowrap rounded-full border border-line px-3.5 py-1.5 text-[0.8125rem] text-cream2 transition-colors hover:border-cream2 hover:text-cream">
+                <a key={sec.id} href={`#cat-${sec.id}`} className={`${chip(false)} whitespace-nowrap`}>
                   {sec.label}
                 </a>
               ))}

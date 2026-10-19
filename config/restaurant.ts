@@ -60,6 +60,11 @@ export const restaurant = {
 
   /** PENDIENTE confirmar moneda de venta (CUP / USD) */
   currency: { code: "CUP", locale: "es-CU" },
+  /**
+   * Cambio para convertir a CUP los productos fijados en USD (Carnes a domicilio).
+   * PENDIENTE: confirmar la tasa con el restaurante. El entorno puede sobrescribirla.
+   */
+  fx: { usdToCup: Number(process.env.NEXT_PUBLIC_USD_CUP_RATE) || 450 },
   /** PENDIENTE confirmar si los precios incluyen impuestos */
   pricesIncludeTax: true,
   /** Cargo por servicio en porcentaje. 0 = no existe (no se muestra) */

@@ -1,17 +1,18 @@
 "use client";
 
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, Check } from "lucide-react";
 import { toast } from "sonner";
 import { restaurant } from "@/config/restaurant";
 import { track } from "@/lib/analytics";
 import { getProduct } from "@/lib/catalog";
-import { formatPrice } from "@/lib/currency";
+import { formatLineTotal, formatPrice, formatRate, formatUsd } from "@/lib/currency";
 import { useOrderSummary } from "@/lib/use-order-summary";
 import { useCart } from "@/store/cart-store";
 import { useCheckout } from "@/store/checkout-store";
 import { useUi } from "@/store/ui-store";
 
-const ctl = "min-h-9 px-1.5 underline underline-offset-4 hover:text-[#7a2b1f]";
+// 44 px de alto para el dedo; el subrayado fino mantiene el aire de ticket
+const ctl = "inline-flex min-h-11 items-center px-2 underline decoration-ticket-rule decoration-1 underline-offset-4 transition-colors hover:text-ticket-alert disabled:no-underline disabled:opacity-40";
 
 /** Comanda: el pedido como ticket de cocina sobre papel crema. Solo se usa en el drawer. */
 export function CartTicket({ onEdit }: { onEdit?: () => void }) {
@@ -22,10 +23,10 @@ export function CartTicket({ onEdit }: { onEdit?: () => void }) {
   const feeKnown = totals.deliveryFee !== null;
 
   return (
-    <div className="relative bg-[#e9dfce] px-4 py-5 font-mono text-[0.75rem] tabular-nums text-ink shadow-[var(--shadow-sm)] [clip-path:polygon(0_0,100%_0,100%_calc(100%-6px),97%_100%,94%_calc(100%-6px),91%_100%,88%_calc(100%-6px),85%_100%,82%_calc(100%-6px),79%_100%,76%_calc(100%-6px),73%_100%,70%_calc(100%-6px),67%_100%,64%_calc(100%-6px),61%_100%,58%_calc(100%-6px),55%_100%,52%_calc(100%-6px),49%_100%,46%_calc(100%-6px),43%_100%,40%_calc(100%-6px),37%_100%,34%_calc(100%-6px),31%_100%,28%_calc(100%-6px),25%_100%,22%_calc(100%-6px),19%_100%,16%_calc(100%-6px),13%_100%,10%_calc(100%-6px),7%_100%,4%_calc(100%-6px),1%_100%,0_calc(100%-6px))] pb-7">
-      <p className="text-center text-[0.8125rem] font-medium tracking-[0.3em]">FUEGO LENTO</p>
-      <p className="mb-3 text-center text-[0.65rem] tracking-[0.12em] text-[#6b5a47]">CAFÉ DE TUESTE LENTO</p>
-      <hr className="border-t border-dashed border-[#8a7860]" />
+    <div className="relative bg-ticket px-4 py-5 font-mono text-[0.75rem] tabular-nums text-ink [clip-path:polygon(0_0,100%_0,100%_calc(100%-6px),97%_100%,94%_calc(100%-6px),91%_100%,88%_calc(100%-6px),85%_100%,82%_calc(100%-6px),79%_100%,76%_calc(100%-6px),73%_100%,70%_calc(100%-6px),67%_100%,64%_calc(100%-6px),61%_100%,58%_calc(100%-6px),55%_100%,52%_calc(100%-6px),49%_100%,46%_calc(100%-6px),43%_100%,40%_calc(100%-6px),37%_100%,34%_calc(100%-6px),31%_100%,28%_calc(100%-6px),25%_100%,22%_calc(100%-6px),19%_100%,16%_calc(100%-6px),13%_100%,10%_calc(100%-6px),7%_100%,4%_calc(100%-6px),1%_100%,0_calc(100%-6px))] pb-7">
+      <p className="text-center text-[0.8125rem] font-medium uppercase tracking-[0.3em]">{restaurant.shortName}</p>
+      <p className="mb-3 text-center text-[0.65rem] tracking-[0.3em] text-ticket-muted">COMANDA</p>
+      <hr className="border-t border-dashed border-ticket-rule" />
 
       <ul className="py-1">
         {priced.map((p) => {
@@ -33,24 +34,24 @@ export function CartTicket({ onEdit }: { onEdit?: () => void }) {
           const issue = issues.find((i) => i.lineId === p.lineId);
           const line = lines.find((l) => l.id === p.lineId)!;
           return (
-            <li key={p.lineId} className="py-2">
+            <li key={p.lineId} className="py-3">
               <div className="grid grid-cols-[1.5rem_1fr_auto] gap-x-2">
                 <span className="font-medium">{line.quantity}</span>
                 <span className="text-[0.8125rem] leading-snug">{p.name}</span>
-                <span className="text-[0.8125rem] font-medium">{formatPrice(p.lineTotal)}</span>
+                <span className="text-[0.8125rem] font-medium">{formatLineTotal(p)}</span>
               </div>
               {(p.details.length > 0 || p.note) && (
-                <div className="pl-8 text-[0.6875rem] leading-snug text-[#6b5a47]">
+                <div className="pl-8 text-[0.6875rem] leading-snug text-ticket-muted">
                   {p.details.map((d) => (<div key={d}>{d}</div>))}
                   {p.note && <div className="italic">“{p.note}”</div>}
                 </div>
               )}
               {issue && (
-                <p role="alert" className="mt-1 flex gap-1.5 pl-8 text-[#7a2b1f]">
+                <p role="alert" className="mt-1 flex gap-1.5 pl-8 text-ticket-alert">
                   <AlertTriangle className="mt-0.5 size-3.5 shrink-0" aria-hidden /> {issue.message}
                 </p>
               )}
-              <div className="mt-0.5 flex flex-wrap justify-end gap-x-1 text-[0.6875rem]">
+              <div className="-mb-1.5 mt-0.5 flex flex-wrap justify-end text-[0.6875rem]">
                 <button type="button" aria-label={`Quitar uno de ${p.name}`} className={ctl} onClick={() => setQuantity(line.id, line.quantity - 1)}>− menos</button>
                 <button type="button" aria-label={`Agregar uno de ${p.name}`} className={ctl} disabled={line.quantity >= 20} onClick={() => setQuantity(line.id, line.quantity + 1)}>+ más</button>
                 {product.available && product.optionGroups.length > 0 && (
@@ -59,7 +60,7 @@ export function CartTicket({ onEdit }: { onEdit?: () => void }) {
                 <button
                   type="button"
                   aria-label={`Quitar ${p.name} de la comanda`}
-                  className={`${ctl} text-[#7a2b1f]`}
+                  className={`${ctl} text-ticket-alert`}
                   onClick={() => {
                     remove(line.id);
                     track("product_removed", { id: p.productId });
@@ -74,18 +75,19 @@ export function CartTicket({ onEdit }: { onEdit?: () => void }) {
         })}
       </ul>
 
-      <hr className="border-t border-dashed border-[#8a7860]" />
+      <hr className="border-t border-dashed border-ticket-rule" />
       <dl className="space-y-1 py-2">
         <TicketRow label="Subtotal" value={formatPrice(totals.subtotal)} />
+        {totals.usdSubtotal > 0 && <p className="text-[0.6875rem] leading-snug text-ticket-muted">Incluye {formatUsd(totals.usdSubtotal)} convertidos a CUP ({formatRate()}).</p>}
         {method === "delivery" ? (
-          <TicketRow label="Envío" value={feeKnown ? formatPrice(totals.deliveryFee as number) : "Por confirmar"} />
+          <TicketRow label="Envío" value={feeKnown ? formatPrice(totals.deliveryFee as number) : "Por confirmar"} pending={!feeKnown} />
         ) : (
           <TicketRow label="Recogida" value="Gratis" />
         )}
         {totals.serviceFee > 0 && <TicketRow label="Servicio" value={formatPrice(totals.serviceFee)} />}
         {totals.discount > 0 && <TicketRow label="Descuento" value={`−${formatPrice(totals.discount)}`} />}
       </dl>
-      <hr className="border-t border-dashed border-[#8a7860]" />
+      <hr className="border-t border-dashed border-ticket-rule" />
       <div className="flex items-baseline justify-between pt-3 text-[0.9375rem] font-medium">
         <span>{method === "delivery" && !feeKnown ? "SUBTOTAL" : "TOTAL"}</span>
         <span>{formatPrice(totals.total)}</span>
@@ -107,10 +109,11 @@ export function MethodToggle() {
           type="button"
           aria-pressed={method === m}
           onClick={() => set({ deliveryMethod: m })}
-          className={`min-h-11 rounded-ui border font-mono text-[0.6875rem] font-medium uppercase tracking-[0.16em] transition-colors ${
-            method === m ? "border-gold bg-surface2 text-gold" : "border-line text-cream2 hover:border-cream/30"
+          className={`inline-flex min-h-11 items-center justify-center gap-2 rounded-ui border font-mono text-[0.6875rem] font-medium uppercase tracking-[0.16em] transition-colors ${
+            method === m ? "border-gold bg-gold/10 text-gold" : "border-line text-cream2 hover:border-cream/30"
           }`}
         >
+          {method === m && <Check className="size-3.5" aria-hidden />}
           {m === "delivery" ? "Delivery" : "Recogida"}
         </button>
       ))}
@@ -118,11 +121,12 @@ export function MethodToggle() {
   );
 }
 
-function TicketRow({ label, value }: { label: string; value: string }) {
+/** `pending`: dato por confirmar por el restaurante; se marca con una superficie dorada tenue sobre el papel. */
+function TicketRow({ label, value, pending }: { label: string; value: string; pending?: boolean }) {
   return (
-    <div className="flex justify-between gap-4">
+    <div className="flex items-center justify-between gap-4">
       <dt>{label}</dt>
-      <dd>{value}</dd>
+      <dd className={pending ? "rounded-ui bg-accent-light/10 px-1.5 py-0.5" : undefined}>{value}</dd>
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { ProductCard } from "@/components/menu/product-card";
-import { LinkButton } from "@/components/shared/button";
+import { ArrowLink } from "@/components/shared/arrow-link";
 import { chipClass as chip } from "@/components/shared/chip";
 import { Container, Section } from "@/components/shared/layout";
 import { content } from "@/config/content";
@@ -34,10 +34,10 @@ export function HomeMenu() {
             <h2 id="menu-t" className="t-h2">{content.menu.title}</h2>
             <p className="lead mt-3 text-cream2">{orderingEnabled ? content.menu.description : content.menu.catalogNote}</p>
           </div>
-          <LinkButton href={`/menu/${tab !== "favoritos" ? `?categoria=${cats.find((c) => c.id === tab)?.slug}` : ""}`} variant="link" size="sm" className="self-start">Ver menú completo →</LinkButton>
+          <ArrowLink href={`/menu/${tab !== "favoritos" ? `?categoria=${cats.find((c) => c.id === tab)?.slug}` : ""}`} className="self-start">Ver menú completo</ArrowLink>
         </div>
 
-        <div role="group" aria-label="Familia de platos" className="no-scrollbar -mx-4 mb-7 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+        <div role="group" aria-label="Familia de platos" className="no-scrollbar -mx-4 mb-7 flex gap-x-7 overflow-x-auto px-4 sm:mx-0 sm:px-0">
           {[{ id: "favoritos", name: "Favoritos" }, ...cats].map((c) => (
             <button key={c.id} type="button" aria-pressed={tab === c.id} onClick={() => setTab(c.id)} className={chip(tab === c.id)}>{c.name}</button>
           ))}

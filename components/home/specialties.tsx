@@ -68,7 +68,7 @@ export function Specialties() {
 
           {/* Vista previa (solo escritorio): se cruza con fundido al cambiar de elemento */}
           <div className="relative hidden lg:col-span-5 lg:col-start-8 lg:block" aria-hidden>
-            <div className="sticky top-[calc(var(--header-height)+32px)] aspect-[4/5] overflow-hidden rounded-card">
+            <div className="sticky top-[calc(var(--header-height)+32px)] frame-arch aspect-[4/5]">
               {items.map((p, i) => (
                 <Image key={p.id} src={p.images[0].src} alt="" fill sizes="480px" className={`food-image object-cover transition-opacity duration-300 ${active === i ? "opacity-100" : "opacity-0"}`} />
               ))}

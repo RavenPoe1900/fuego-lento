@@ -13,7 +13,7 @@ import { EmptyState, ErrorState } from "@/components/shared/state-panels";
 import { restaurant } from "@/config/restaurant";
 import { deliveryZones } from "@/data/delivery-zones";
 import { track } from "@/lib/analytics";
-import { formatPrice } from "@/lib/currency";
+import { formatLineTotal, formatPrice } from "@/lib/currency";
 import { etaText, OUTSIDE_ZONE } from "@/lib/delivery";
 import { isPreview } from "@/lib/dev";
 import { getSlots, slotLabel } from "@/lib/schedule";
@@ -26,8 +26,17 @@ import { useCheckout } from "@/store/checkout-store";
 import type { DeliveryMethod } from "@/types/restaurant";
 
 const STEPS = ["Tu pedido", "Entrega", "Confirmar"] as const;
+/** Marca de selección que no depende solo del color: círculo relleno con check. */
+function RadioMark({ on }: { on: boolean }) {
+  return (
+    <span aria-hidden className={`ml-auto mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full border ${on ? "border-accent bg-accent text-carbon" : "border-cream2/60"}`}>
+      {on && <Check className="size-3.5" strokeWidth={3} />}
+    </span>
+  );
+}
+
 const radioCard = (on: boolean) =>
-  `flex min-h-16 cursor-pointer items-start gap-4 rounded-card p-4 ring-1 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-fire ${on ? "bg-ember/15 ring-fire" : "bg-white/[0.03] ring-white/10 hover:bg-white/[0.06]"}`;
+  `flex min-h-16 cursor-pointer items-start gap-4 rounded-card p-4 ring-1 has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-fire ${on ? "bg-accent/10 ring-accent" : "bg-white/[0.03] ring-white/10 hover:bg-white/[0.06]"}`;
 
 export function CheckoutFlow() {
   const cartHydrated = useCart((s) => s.hydrated);
@@ -213,6 +222,7 @@ export function CheckoutFlow() {
                               <span className="block font-semibold">{m === "delivery" ? "Entrega a domicilio" : "Recogida en el restaurante"}</span>
                               <span className="text-sm text-cream2">{m === "delivery" ? "Te lo llevamos a tu dirección." : "Sin costo de envío."}</span>
                             </span>
+                            <RadioMark on={on} />
                           </label>
                         );
                       })}
@@ -255,10 +265,12 @@ export function CheckoutFlow() {
                         <label className={`${radioCard(co.schedule.type === "asap")} ${sf.canOrderNow ? "" : "!cursor-not-allowed opacity-45"}`}>
                           <input type="radio" name="when" className="sr-only" disabled={!sf.canOrderNow} checked={co.schedule.type === "asap"} onChange={() => co.set({ schedule: { type: "asap" } })} />
                           <span><span className="block font-semibold">Lo antes posible</span><span className="text-sm text-cream2">{sf.canOrderNow ? "Sujeto a confirmación." : "No disponible ahora."}</span></span>
+                          <RadioMark on={co.schedule.type === "asap"} />
                         </label>
                         <label className={radioCard(co.schedule.type === "scheduled")}>
                           <input type="radio" name="when" className="sr-only" checked={co.schedule.type === "scheduled"} onChange={() => co.set({ schedule: { type: "scheduled", slot: "" } })} />
                           <span><span className="block font-semibold">{method === "pickup" ? "Hora deseada" : "Programar"}</span><span className="text-sm text-cream2">Elige día y hora.</span></span>
+                          <RadioMark on={co.schedule.type === "scheduled"} />
                         </label>
                       </div>
                       {co.schedule.type === "scheduled" && (
@@ -284,6 +296,7 @@ export function CheckoutFlow() {
                           <label key={p.id} className={radioCard(co.paymentMethod === p.id)}>
                             <input type="radio" name="pay" className="sr-only" checked={co.paymentMethod === p.id} onChange={() => co.set({ paymentMethod: p.id })} />
                             <span className="font-semibold">{p.label}</span>
+                            <RadioMark on={co.paymentMethod === p.id} />
                           </label>
                         ))}
                       </div>
@@ -316,7 +329,7 @@ export function CheckoutFlow() {
                             {l.details.map((d) => <p key={d} className="text-sm text-cream2">{d}</p>)}
                             {l.note && <p className="text-sm italic text-cream2">“{l.note}”</p>}
                           </div>
-                          <span className="tabular-nums">{formatPrice(l.lineTotal)}</span>
+                          <span className="tabular-nums">{formatLineTotal(l)}</span>
                         </li>
                       ))}
                     </ul>
@@ -367,7 +380,7 @@ export function CheckoutFlow() {
           <aside aria-label="Resumen del pedido" className="col-span-12 h-fit rounded-card bg-white/[0.03] p-5 ring-1 ring-white/[0.07] lg:col-span-4 lg:col-start-9 lg:sticky lg:top-[calc(var(--header-height)+24px)]">
             <h2 className="mb-3 text-[1.5rem]">Tu pedido</h2>
             <ul className="mb-4 space-y-2 text-sm">
-              {sum.priced.map((l) => (<li key={l.lineId} className="flex justify-between gap-3"><span>{l.quantity} × {l.name}</span><span className="tabular-nums text-cream2">{formatPrice(l.lineTotal)}</span></li>))}
+              {sum.priced.map((l) => (<li key={l.lineId} className="flex justify-between gap-3"><span>{l.quantity} × {l.name}</span><span className="tabular-nums text-cream2">{formatLineTotal(l)}</span></li>))}
             </ul>
             <CartSummary totals={sum.totals} method={method} />
           </aside>

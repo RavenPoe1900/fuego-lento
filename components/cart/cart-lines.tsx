@@ -7,7 +7,7 @@ import { ProductImage } from "@/components/menu/product-image";
 import { QuantitySelector } from "@/components/shared/quantity-selector";
 import { track } from "@/lib/analytics";
 import { getProduct } from "@/lib/catalog";
-import { formatPrice } from "@/lib/currency";
+import { formatCupEquivalent, formatLineTotal, formatMoney } from "@/lib/currency";
 import { useOrderSummary } from "@/lib/use-order-summary";
 import { useCart } from "@/store/cart-store";
 import { useUi } from "@/store/ui-store";
@@ -41,9 +41,9 @@ export function CartLines({ onEdit }: { onEdit?: () => void }) {
               <div className="min-w-0 flex-1">
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="text-[1.25rem] leading-tight">{p.name}</h3>
-                  <span className="font-mono text-[0.9375rem] font-medium text-accent tabular-nums">{formatPrice(p.lineTotal)}</span>
+                  <span className="font-mono text-[0.9375rem] font-medium text-accent tabular-nums">{formatLineTotal(p)}</span>
                 </div>
-                <p className="font-mono text-[0.75rem] text-muted tabular-nums">{formatPrice(p.unitPrice)} c/u</p>
+                <p className="font-mono text-[0.75rem] text-muted tabular-nums">{formatMoney(p.nativeUnitPrice, p.currency)} c/u{p.currency === "USD" ? ` · ${formatCupEquivalent(p.nativeLineTotal)} total` : ""}</p>
                 {p.details.length > 0 && (
                   <ul className="mt-1.5 text-sm leading-snug text-cream2">{p.details.map((d) => (<li key={d}>{d}</li>))}</ul>
                 )}

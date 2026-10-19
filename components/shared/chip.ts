@@ -1,8 +1,10 @@
 /**
- * Filtro rectangular en mono. Activo: acento cobre tenue (no rojo brasa),
- * para que el CTA principal siga siendo la única superficie roja.
+ * Filtro: texto mono sin contenedor. El estado activo se marca en dorado y con un subrayado fino
+ * (no depende solo del color); el rojo brasa queda reservado al CTA principal.
+ * Sin padding horizontal para que el texto se alinee con el contenido: separa los filtros con `gap-x-7`.
+ * Sirve para botones (aria-pressed) y para enlaces de navegación interna.
  */
 export const chipClass = (on: boolean) =>
-  `min-h-11 shrink-0 rounded-ui border px-4 font-mono text-[0.75rem] font-medium uppercase tracking-[0.16em] transition-colors ${
-    on ? "border-accent/60 bg-accent/15 text-accent" : "border-transparent text-cream2 hover:bg-white/[0.05] hover:text-cream"
+  `relative inline-flex min-h-11 min-w-11 shrink-0 items-center justify-center font-mono text-[0.75rem] font-medium uppercase tracking-[0.16em] transition-colors after:absolute after:inset-x-0 after:bottom-2 after:h-px after:origin-left after:transition-transform after:duration-300 after:ease-(--ease-editorial) ${
+    on ? "text-accent after:scale-x-100 after:bg-accent" : "text-cream2 after:scale-x-0 after:bg-cream/40 hover:text-cream hover:after:scale-x-100"
   }`;

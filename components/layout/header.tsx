@@ -41,7 +41,7 @@ export function Header() {
     <>
       <header className="sticky top-0 z-40 h-[var(--header-height)] bg-carbon/80 backdrop-blur-md transition-[height] duration-200">
         <div className="container-x flex h-full items-center justify-between gap-4">
-          <Link href="/" className="flex shrink-0 items-center gap-2.5 whitespace-nowrap font-display text-[1.65rem] font-semibold tracking-tight lg:text-[1.9rem]" aria-label={`${restaurant.shortName}, inicio`}>
+          <Link href="/" className="flex min-h-11 shrink-0 items-center gap-2.5 whitespace-nowrap font-display text-[1.65rem] font-semibold tracking-tight lg:text-[1.9rem]" aria-label={`${restaurant.shortName}, inicio`}>
             <Image src="/img/logo-mark.webp" alt="" width={40} height={40} preload className="size-9 lg:size-10" />
             {restaurant.shortName}
           </Link>
@@ -57,32 +57,30 @@ export function Header() {
           )}
 
           <div className="flex items-center gap-1.5 sm:gap-3">
-            {sf.orderingEnabled && (
+            {sf.orderingEnabled ? (
+              // Una sola entrada a la comanda: icono con contador y, en escritorio, etiqueta y total.
               <button
                 type="button"
                 onClick={openCart}
+                data-focus-return="cart"
                 aria-label={`Abrir comanda, ${count} ${count === 1 ? "producto" : "productos"}${count ? `, ${formatPrice(totals.subtotal)}` : ""}`}
-                className="relative inline-flex min-h-[46px] items-center gap-3 rounded-ui border border-line px-3 transition-colors hover:border-cream/30 hover:bg-white/[0.06] lg:px-4"
+                className="inline-flex min-h-11 min-w-11 items-center justify-center gap-3 rounded-full border border-cream/40 px-3 text-cream transition-colors hover:border-cream/70 hover:bg-cream/[0.06] lg:px-5"
               >
                 <span className="relative inline-flex">
-                  <ReceiptText className="size-[24px]" strokeWidth={1.5} aria-hidden />
+                  <ReceiptText className="size-[22px]" strokeWidth={1.5} aria-hidden />
                   {count > 0 && (
                     <span key={lastAddedAt + "-" + count} aria-hidden className="anim-pop absolute -right-2 -top-2 flex min-w-[18px] items-center justify-center rounded-full bg-ember px-1 text-[0.6875rem] font-bold leading-[18px] tabular-nums text-cream">
                       {count}
                     </span>
                   )}
                 </span>
-                {count > 0 && <span className="hidden font-mono text-[0.75rem] font-medium tracking-[0.08em] tabular-nums lg:inline">{formatPrice(totals.subtotal)}</span>}
+                <span className="label-mono hidden lg:inline">Comanda</span>
+                {count > 0 && <span className="hidden font-mono text-[0.75rem] font-medium tracking-[0.08em] tabular-nums text-accent lg:inline">{formatPrice(totals.subtotal)}</span>}
                 <span className="sr-only" role="status" aria-live="polite">{count === 0 ? "Pedido vacío" : `${count} ${count === 1 ? "producto" : "productos"} en el pedido`}</span>
               </button>
-            )}
-            <div className="hidden lg:block">
-              {sf.orderingEnabled ? (
-                <Button size="sm" className="!shadow-none" onClick={openCart}>Ver comanda</Button>
-              ) : sf.signupEnabled ? (
-                <Button size="sm" className="!shadow-none" onClick={() => setReopeningOpen(true)}>Avísame</Button>
-              ) : null}
-            </div>
+            ) : sf.signupEnabled ? (
+              <div className="hidden lg:block"><Button size="sm" onClick={() => setReopeningOpen(true)}>Avísame</Button></div>
+            ) : null}
             <IconButton label="Abrir menú de navegación" className="lg:hidden" onClick={() => setNavOpen(true)}>
               <Menu className="size-6" aria-hidden />
             </IconButton>

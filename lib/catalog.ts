@@ -1,15 +1,31 @@
 import { categories, categoryGroups } from "@/data/categories";
+import { meatCategories, meatProducts, type MeatCategory } from "@/data/carnes";
 import { products } from "@/data/products";
 import type { Category, CategoryGroup, CategoryGroupChild, Product } from "@/types/product";
 
-const byId = new Map(products.map((p) => [p.id, p]));
+/** Carta y Carnes a domicilio comparten carrito y detalle, así que se buscan por id en las dos. */
+const byId = new Map([...products, ...meatProducts].map((p) => [p.id, p]));
 
 export function getProduct(id: string): Product | undefined {
   return byId.get(id);
 }
 
+/** Productos de la carta del restaurante (las carnes a domicilio tienen su propio listado). */
 export function getAllProducts(): Product[] {
   return products;
+}
+
+export function getMeatCategories(): MeatCategory[] {
+  return meatCategories;
+}
+
+export function getMeatProducts(categoryId: MeatCategory["id"]): Product[] {
+  return meatProducts.filter((p) => p.categoryId === categoryId);
+}
+
+/** Precio más bajo de una categoría de carnes, en USD (el del producto más barato). */
+export function getMeatStartingPrice(categoryId: MeatCategory["id"]): number {
+  return Math.min(...getMeatProducts(categoryId).map((p) => p.basePrice));
 }
 
 /** Solo categorías con productos: no se muestran categorías vacías. */
@@ -49,5 +65,5 @@ export function getFeaturedProducts(): Product[] {
 }
 
 export function getCombos(): Product[] {
-  return products.filter((p) => p.categoryId === "combos");
+  return getMeatProducts("combos");
 }

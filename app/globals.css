@@ -16,12 +16,31 @@
   --cream-2: #d8cdbd;
   --muted: #aaa093;
 
-  --ember: #d6492f;
-  --ember-hover: #e45739;
+  /* Rojo brasa: relleno del CTA principal. Con texto crema da 4.85:1 (hover 4.63:1, active 5.71:1). */
+  --ember: #b93a22;
+  --ember-hover: #bf3b23;
+  --ember-active: #a8321c;
   --fire: #ef6845;
   --gold: #b98b58;
   --available: #7d9b70;
   --error: #e0594b;
+  /* Variantes claras para texto pequeño sobre superficies oscuras (insignias, avisos, estados) */
+  --gold-soft: #e3bd88;
+  --ok-soft: #a9c79a;
+  --err-soft: #f0867b;
+  --ok-on-light: #3f6a30;
+
+  /* Comanda (ticket de cocina): papel y tintas propias, independientes del resto de superficies */
+  --ticket: #e9dfce;
+  --ticket-muted: #6b5a47;
+  --ticket-rule: #8a7860;
+  --ticket-alert: #7a2b1f;
+
+  /* Paneles de las tarjetas de Carnes a domicilio: dos marrones cálidos que alternan con el crema (--paper).
+     Texto crema sobre ambos: 7.2:1 y 9.1:1. */
+  --panel-brasa: #5a4426;
+  --panel-ceniza: #46352d;
+  --panel-radius: 24px;
 
   --border: rgba(244, 236, 223, 0.1);
   --border-strong: rgba(244, 236, 223, 0.18);
@@ -43,7 +62,8 @@
   --gutter: 16px;
   --container-max: 1280px;
 
-  /* Alturas de navegación (el header NO cambia de altura al hacer scroll) */
+  /* Alturas de navegación. En escritorio el header pasa de 76 a 64 px al hacer scroll (html[data-scrolled]);
+     los sticky y las anclas leen esta variable, así que se recolocan solos. */
   --header-height: 64px;
   --chips-height: 64px;
 }
@@ -69,10 +89,23 @@
   --color-cream2: var(--cream-2);
   --color-muted: var(--muted);
   --color-ember: var(--ember);
+  --color-ember-hover: var(--ember-hover);
+  --color-ember-active: var(--ember-active);
   --color-fire: var(--fire);
   --color-gold: var(--gold);
   --color-ok: var(--available);
   --color-err: var(--error);
+  --color-gold-soft: var(--gold-soft);
+  --color-ok-soft: var(--ok-soft);
+  --color-err-soft: var(--err-soft);
+  --color-ok-light: var(--ok-on-light);
+  --color-ticket: var(--ticket);
+  --color-ticket-muted: var(--ticket-muted);
+  --color-ticket-rule: var(--ticket-rule);
+  --color-ticket-alert: var(--ticket-alert);
+  --color-panel-brasa: var(--panel-brasa);
+  --color-panel-ceniza: var(--panel-ceniza);
+  --radius-panel: var(--panel-radius);
   --color-line: var(--border);
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-on-light);
@@ -203,6 +236,13 @@ h1, h2, h3, .font-display {
 .section-pad { padding-block: 64px; }
 @media (min-width: 768px) { .section-pad { padding-block: 88px; } }
 @media (min-width: 1024px) { .section-pad { padding-block: 112px; } }
+
+/* Marco editorial: arco rebajado (más ancho que alto). Solo en la vista previa de especialidades.
+   Usa border-radius, así convive con el revelado por clip-path de RevealImage sin pisarlo. */
+.frame-arch {
+  overflow: hidden;
+  border-radius: 50% 50% var(--radius-lg) var(--radius-lg) / 24% 24% var(--radius-lg) var(--radius-lg);
+}
 
 /* Luz de brasas muy discreta */
 .ember-glow {

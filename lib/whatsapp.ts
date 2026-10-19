@@ -1,4 +1,4 @@
-import { formatPrice } from "@/lib/currency";
+import { formatCupEquivalent, formatPrice, formatRate, formatUsd } from "@/lib/currency";
 import type { OrderSummary } from "@/types/order";
 
 /**
@@ -40,18 +40,30 @@ export function buildWhatsAppMessage(order: OrderSummary, businessName: string):
     order.scheduleLabel && `Horario solicitado: ${order.scheduleLabel}`,
   ]);
 
+  // Con carnes a domicilio y carta en el mismo pedido, cada línea de venta va en su bloque
+  const blocks = [
+    { title: "Carta del restaurante", lines: order.lines.filter((l) => l.line === "carta") },
+    { title: "Carnes a domicilio", lines: order.lines.filter((l) => l.line === "carnes") },
+  ].filter((b) => b.lines.length);
+  const split = blocks.length > 1;
+  let n = 0;
   out.push("", "*Pedido*");
-  order.lines.forEach((l, i) => {
-    out.push("", `${i + 1}. ${l.quantity} × ${l.name}`);
-    for (const d of l.details) out.push(`   - ${d}`);
-    if (l.note) out.push(`   - Nota: ${l.note}`);
-    out.push(`   - Subtotal: ${formatPrice(l.lineTotal)}`);
-  });
+  for (const block of blocks) {
+    if (split) out.push("", `_${block.title}_`);
+    for (const l of block.lines) {
+      out.push("", `${++n}. ${l.quantity} × ${l.name}`);
+      for (const d of l.details) out.push(`   - ${d}`);
+      if (l.note) out.push(`   - Nota: ${l.note}`);
+      out.push(`   - Subtotal: ${l.currency === "USD" ? `${formatUsd(l.nativeLineTotal)} (${formatCupEquivalent(l.nativeLineTotal)})` : formatPrice(l.lineTotal)}`);
+    }
+  }
 
   const t = order.totals;
   const feeKnown = t.deliveryFee !== null;
   section("Resumen", [
     `Productos: ${formatPrice(t.subtotal)}`,
+    t.usdSubtotal > 0 && `Incluye ${formatUsd(t.usdSubtotal)} convertidos a CUP (${formatRate()})`,
+    order.lines.some((l) => l.line === "carnes" && l.details.some((d) => d.startsWith("Peso aproximado"))) && "Las piezas por kg se cobran según su peso real.",
     order.deliveryMethod === "delivery" ? `Envío: ${feeKnown ? formatPrice(t.deliveryFee as number) : "Por confirmar"}` : null,
     t.serviceFee > 0 && `Servicio: ${formatPrice(t.serviceFee)}`,
     t.discount > 0 && `Descuento: −${formatPrice(t.discount)}`,
