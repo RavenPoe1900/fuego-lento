@@ -65,6 +65,8 @@ export type Product = {
   line?: "carnes";
   /** Aclaración del precio, p. ej. "por kg · se cobra según el peso real" */
   priceNote?: string;
+  /** Se cobra por peso real: el importe del pedido es una estimación hasta pesar la pieza */
+  byWeight?: boolean;
   /** Fecha desde la que se sirve, tal como se muestra ("21/10") */
   availableFrom?: string;
   /** Solo si existe una promoción real */

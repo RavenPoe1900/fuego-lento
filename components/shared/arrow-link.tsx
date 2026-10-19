@@ -12,7 +12,7 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 type Style = { onLight?: boolean; caps?: boolean; className?: string };
 
 const wrap = ({ onLight, caps = true, className = "" }: Style) =>
-  `group inline-flex min-h-11 items-center gap-6 font-mono text-[0.75rem] font-medium transition-colors ${caps ? "uppercase tracking-[0.16em]" : "tracking-[0.06em]"} ${
+  `group inline-flex min-h-11 items-center gap-5 text-[0.75rem] font-semibold transition-colors ${caps ? "uppercase tracking-[0.08em]" : "tracking-[0.02em]"} ${
     onLight ? "text-ink hover:text-ink" : "text-cream hover:text-cream"
   } ${className}`;
 

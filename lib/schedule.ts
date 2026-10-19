@@ -70,36 +70,6 @@ export function nextOpening(date: Date): string | null {
   return null;
 }
 
-export type Slot = { value: string; label: string; day: string };
-
-/**
- * Franjas válidas para pedidos programados: respeta tiempo mínimo de
- * preparación, última hora de pedidos, feriados y días cerrados.
- * La capacidad máxima por franja requiere backend (pendiente).
- */
-export function getSlots(date: Date): Slot[] {
-  const { minPrepMinutes, slotMinutes, lastOrderMinutesBeforeClose, maxDaysAhead } = restaurant.ordering;
-  const slots: Slot[] = [];
-  for (let offset = 0; offset <= maxDaysAhead; offset++) {
-    const z = zoned(new Date(date.getTime() + offset * 86_400_000));
-    const earliestToday = offset === 0 ? z.minutes + minPrepMinutes : 0;
-    for (const i of intervalsFor(z)) {
-      const first = Math.max(i.open + minPrepMinutes, earliestToday);
-      const start = Math.ceil(first / slotMinutes) * slotMinutes;
-      const last = i.close - lastOrderMinutesBeforeClose;
-      for (let m = start; m <= last; m += slotMinutes) {
-        slots.push({ value: `${z.dateKey}T${toHHMM(m)}`, label: toHHMM(m), day: dayLabel(offset, z.day) });
-      }
-    }
-  }
-  return slots;
-}
-
-export function slotLabel(value: string, slots: Slot[]): string {
-  const s = slots.find((x) => x.value === value);
-  return s ? `${s.day}, ${s.label}` : value.replace("T", " ");
-}
-
 export function hoursSummary(): { day: string; text: string }[] {
   const order = [1, 2, 3, 4, 5, 6, 0];
   return order.map((d) => {
@@ -117,4 +87,12 @@ export function todayHours(date: Date = new Date()): string | null {
   const z = zoned(date);
   const list = intervalsFor(z);
   return list.length ? list.map((i) => `${toHHMM(i.open)}–${toHHMM(i.close)}`).join(", ") : null;
+}
+
+/** "Todos los días · 12:30–19:00" si el horario es el mismo cada día; si no, null (se usa hoursSummary). */
+export function hoursLine(): string | null {
+  const rows = hoursSummary();
+  const first = rows[0]?.text;
+  if (!first || first === "Cerrado" || rows.some((r) => r.text !== first)) return null;
+  return `Todos los días · ${first.replace(" – ", "–")}`;
 }

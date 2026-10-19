@@ -32,6 +32,8 @@ export function useProductAction(product: Product) {
     openProduct(product.id);
   };
   const quickAdd = () => {
+    // Mientras dura la confirmación se ignoran pulsaciones repetidas (evita añadir dos veces por accidente)
+    if (added) return;
     add({ productId: product.id, quantity: 1, selections: defaultSelections(product), note: "" });
     track("product_added", { id: product.id });
     toast.success("Producto añadido", { description: product.name });

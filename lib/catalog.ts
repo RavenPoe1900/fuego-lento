@@ -10,6 +10,14 @@ export function getProduct(id: string): Product | undefined {
   return byId.get(id);
 }
 
+/**
+ * Nombre sin el peso entre paréntesis: "Picaña Angus Prime (230 g)" → "Picaña Angus Prime".
+ * En tarjetas y fichas el peso va aparte (`product.size`); en el pedido se usa el nombre completo para no confundir porciones.
+ */
+export function baseName(product: Pick<Product, "name">): string {
+  return product.name.replace(/\s*\(\d+\s*g\)\s*$/, "");
+}
+
 /** Productos de la carta del restaurante (las carnes a domicilio tienen su propio listado). */
 export function getAllProducts(): Product[] {
   return products;

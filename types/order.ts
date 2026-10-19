@@ -1,5 +1,5 @@
 import type { ProductCurrency } from "./product";
-import type { DeliveryMethod, PaymentMethodId } from "./restaurant";
+import type { DeliveryMethod } from "./restaurant";
 
 /** groupId -> ids de opciones elegidas */
 export type Selections = Record<string, string[]>;
@@ -15,33 +15,30 @@ export type CartLine = {
 
 export type Customer = {
   name: string;
-  phone: string;
   /** Observaciones generales del pedido */
   notes: string;
 };
 
 export type Address = {
-  zoneId: string;
   /** Dirección completa: calle, número, apartamento… */
   street: string;
-  /** Referencia para localizar el lugar */
-  reference: string;
-  /** Instrucciones opcionales para el repartidor */
-  instructions: string;
 };
 
-export type Schedule = { type: "asap" } | { type: "scheduled"; slot: string };
-
 export type Totals = {
+  /** Todo el pedido en CUP (los productos en USD, convertidos). Solo para cálculos internos: nunca se muestra como total único si hay dos monedas. */
   subtotal: number;
-  /** null = tarifa por confirmar: no se suma al total */
+  /** Platos preparados, en CUP */
+  cartaSubtotal: number;
+  /** null = envío por confirmar: no se suma al total */
   deliveryFee: number | null;
   serviceFee: number;
   discount: number;
-  /** Total estimado: subtotal + tarifa conocida + cargos − descuento */
+  /** Total estimado: subtotal + envío conocido + cargos − descuento */
   total: number;
-  /** Parte del subtotal que viene de productos fijados en USD, en USD (0 si no hay) */
+  /** Carnes para cocinar, en USD (0 si no hay) */
   usdSubtotal: number;
+  /** Alguna línea se cobra por peso real: el importe es una estimación */
+  hasWeighted: boolean;
   itemCount: number;
 };
 
@@ -57,8 +54,10 @@ export type PricedLine = {
   currency: ProductCurrency;
   nativeUnitPrice: number;
   nativeLineTotal: number;
-  /** Línea de venta, para agrupar la comanda */
+  /** Línea de venta, para agrupar el pedido: platos preparados o carnes para cocinar */
   line: "carta" | "carnes";
+  /** Se cobra por peso real */
+  weighted: boolean;
   /** Textos legibles de las opciones elegidas: "Término: Medio" */
   details: string[];
   note: string;
@@ -69,10 +68,6 @@ export type OrderSummary = {
   deliveryMethod: DeliveryMethod;
   customer: Customer;
   address: Address | null;
-  zoneName: string | null;
-  scheduleLabel: string | null;
-  paymentMethod: PaymentMethodId | null;
-  paymentLabel: string | null;
   lines: PricedLine[];
   totals: Totals;
 };

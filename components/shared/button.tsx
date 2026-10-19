@@ -31,7 +31,7 @@ const sizes: Record<Size, string> = {
 /** Rótulo en mono mayúsculas para botones; el enlace terciario conserva la sans de lectura. */
 function labelClass(variant: Variant, size: Size) {
   if (variant === "link") return "text-[0.9375rem] font-semibold";
-  return `font-mono font-medium uppercase tracking-[0.16em] ${size === "lg" ? "text-[0.8125rem]" : "text-[0.75rem]"}`;
+  return `font-semibold uppercase tracking-[0.08em] ${size === "lg" ? "text-[0.8125rem]" : "text-[0.75rem]"}`;
 }
 
 export function buttonClass(variant: Variant = "primary", size: Size = "md", extra = "") {

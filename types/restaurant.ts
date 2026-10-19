@@ -13,7 +13,6 @@ export interface StorefrontConfig {
   statusMessage: string;
   orderingEnabled: boolean;
   hoursStatus: HoursStatus;
-  coverageEnabled: boolean;
   historyApproved: boolean;
   faqRouteEnabled: boolean;
   /** Menú (nombres, fotos, descripciones) aprobado por el restaurante */
@@ -23,8 +22,6 @@ export interface StorefrontConfig {
   reopeningSignupEnabled: boolean;
   /** El canal de pedido es WhatsApp: debe estar habilitado explícitamente */
   whatsappOrderingEnabled: boolean;
-  /** Métodos de pago confirmados por el restaurante (si false: "Pago: por coordinar") */
-  paymentMethodsConfirmed: boolean;
 }
 
 export type TimeInterval = {
@@ -41,30 +38,6 @@ export type BusinessHours = {
 };
 
 export type DeliveryMethod = "delivery" | "pickup";
-
-export type PaymentMethodId = "cash-on-delivery" | "transfer" | "pay-on-pickup" | "online";
-
-export type PaymentMethod = {
-  id: PaymentMethodId;
-  label: string;
-  description: string;
-  enabled: boolean;
-  /** Métodos de entrega con los que se puede usar */
-  deliveryMethods: DeliveryMethod[];
-};
-
-export type DeliveryZone = {
-  id: string;
-  name: string;
-  description?: string;
-  /** null = tarifa por confirmar (no se suma al total) */
-  fee: number | null;
-  /** Pedido mínimo específico de la zona (sobrescribe el global) */
-  minOrder?: number;
-  /** Tiempo estimado en minutos [mín, máx] */
-  etaMinutes?: [number, number];
-  available: boolean;
-};
 
 export type FaqItem = {
   id: string;

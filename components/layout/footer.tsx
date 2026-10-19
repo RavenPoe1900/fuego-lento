@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { MapPin, MessageCircle } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Instagram } from "@/components/shared/icons";
@@ -8,27 +8,23 @@ import { Container } from "@/components/shared/layout";
 import { content } from "@/config/content";
 import { getFooterNavigation, legalNavigation } from "@/config/navigation";
 import { restaurant } from "@/config/restaurant";
-import { isPreview } from "@/lib/dev";
-import { todayHours } from "@/lib/schedule";
+import { hoursLine } from "@/lib/schedule";
 import { useStoreStatus } from "@/lib/use-store-status";
 
 const COL = "eyebrow mb-4 !text-muted";
+const link = "inline-flex min-h-11 items-center text-base text-cream2 hover:text-cream";
+const DOT = { ok: "bg-ok", gold: "bg-gold", err: "bg-err" } as const;
 
-/** Tres columnas. Cada fila existe solo si el dato está confirmado. */
+/** Marca, navegación, contacto y aviso legal. Cada dato existe solo si está confirmado. */
 export function Footer() {
   const sf = useStoreStatus();
   const nav = getFooterNavigation(sf);
-  const hoursToday = sf.showHours && sf.ready ? todayHours() : null;
-  const contact = [
-    restaurant.address && { icon: MapPin, label: "Dirección", value: [restaurant.address, restaurant.city].filter(Boolean).join(", ") },
-    restaurant.phone && { icon: Phone, label: "Teléfono", value: restaurant.phone, href: `tel:${restaurant.phone.replace(/\s/g, "")}` },
-    restaurant.whatsapp && { icon: MessageCircle, label: "WhatsApp", value: `+${restaurant.whatsapp}`, href: `https://wa.me/${restaurant.whatsapp}` },
-    restaurant.email && { icon: Mail, label: "Correo", value: restaurant.email, href: `mailto:${restaurant.email}` },
-  ].filter(Boolean) as { icon: typeof Phone; label: string; value: string; href?: string }[];
-  const legal = isPreview ? legalNavigation : [];
+  const hours = sf.showHours ? hoursLine() : null;
+  const address = [restaurant.address, restaurant.city].filter(Boolean).join(", ");
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${restaurant.name}, ${address}`)}`;
 
   return (
-    <footer id="contacto" className="bg-warm pb-24 pt-14 md:pb-10 lg:pt-16">
+    <footer id="contacto" className="bg-warm pb-10 pt-14 lg:pt-16">
       <Container>
         <div className="grid gap-10 md:grid-cols-3">
           <div className="space-y-4">
@@ -36,15 +32,19 @@ export function Footer() {
               <Image src="/img/logo-mark.webp" alt="" width={48} height={48} className="size-11" /> {restaurant.shortName}
             </p>
             <p className="max-w-xs text-base text-cream2">{content.footer.description}</p>
+            <p className="flex items-center gap-2 text-[0.9375rem] text-cream2" role="status">
+              <span className={`size-2 rounded-full ${sf.ready ? DOT[sf.tone] : "bg-cream2/40"}`} aria-hidden />
+              {sf.ready ? sf.label : "…"}
+            </p>
           </div>
 
           {nav.length > 0 && (
             <nav aria-label="Pie de página">
-              <h2 className={COL} style={{ fontFamily: "var(--font-ui)" }}>Navegación</h2>
+              <h2 className={COL}>Navegación</h2>
               <ul className="space-y-1">
                 {nav.map((n) => (
                   <li key={n.href}>
-                    <Link href={n.href} className="inline-flex min-h-11 min-w-11 items-center text-base text-cream2 hover:text-cream">{n.label}</Link>
+                    <Link href={n.href} className={link}>{n.label}</Link>
                   </li>
                 ))}
               </ul>
@@ -52,22 +52,31 @@ export function Footer() {
           )}
 
           <div>
-            <h2 className={COL} style={{ fontFamily: "var(--font-ui)" }}>Contacto</h2>
-            <ul className="space-y-3 text-base">
-              <li className="flex items-center gap-2 text-cream2">
-                <span className={`size-2 rounded-full ${sf.tone === "ok" ? "bg-ok" : sf.tone === "gold" ? "bg-gold" : "bg-err"}`} aria-hidden />
-                {sf.message || sf.label}
-              </li>
-              {hoursToday && <li className="text-cream2">Hoy · {hoursToday}</li>}
-              {contact.map(({ icon: Icon, label, value, href }) => (
-                <li key={label} className="flex items-start gap-3 text-cream2">
-                  <Icon className="mt-1 size-[18px] shrink-0 text-accent" aria-hidden />
-                  <span><span className="sr-only">{label}: </span>{href ? <a href={href} className="inline-flex min-h-11 items-center hover:text-cream">{value}</a> : value}</span>
+            <h2 className={COL}>Contacto</h2>
+            <ul className="space-y-1 text-base">
+              {address && (
+                <li className="flex items-start gap-3 text-cream2">
+                  <MapPin className="mt-3 size-[18px] shrink-0 text-cream2" aria-hidden />
+                  <span>
+                    <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center hover:text-cream">
+                      {address}
+                      <span className="sr-only"> (se abre en una pestaña nueva)</span>
+                    </a>
+                  </span>
                 </li>
-              ))}
+              )}
+              {hours && <li className="pl-[30px] text-[0.9375rem] text-cream2">Horario: {hours}</li>}
+              {restaurant.whatsapp && (
+                <li>
+                  <a href={`https://wa.me/${restaurant.whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex min-h-11 items-center gap-3 text-cream2 hover:text-cream">
+                    <MessageCircle className="size-[18px] shrink-0" aria-hidden /> WhatsApp +{restaurant.whatsapp}
+                    <span className="sr-only">(se abre en una pestaña nueva)</span>
+                  </a>
+                </li>
+              )}
               <li>
                 <a href={restaurant.instagram.url} target="_blank" rel="noopener noreferrer" className="flex min-h-11 items-center gap-3 text-cream2 hover:text-cream">
-                  <Instagram className="size-[18px] shrink-0 text-accent" /> {restaurant.instagram.handle}
+                  <Instagram className="size-[18px] shrink-0" /> {restaurant.instagram.handle}
                   <span className="sr-only">(se abre en una pestaña nueva)</span>
                 </a>
               </li>
@@ -75,15 +84,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 pt-2 text-[0.9375rem] text-cream2 lg:flex-row lg:items-center lg:justify-between">
-          {legal.length > 0 ? (
-            <ul className="flex flex-wrap gap-x-6">
-              {legal.map((n) => (
-                <li key={n.href}><Link href={n.href} className="inline-flex min-h-11 items-center hover:text-cream">{n.label}</Link></li>
-              ))}
-            </ul>
-          ) : <span />}
-          <p>© {new Date().getFullYear()} {restaurant.name}. Todos los derechos reservados.</p>
+        <div className="mt-12 flex flex-col gap-3 border-t border-line pt-6 text-[0.9375rem] text-cream2 lg:flex-row lg:items-center lg:justify-between">
+          <ul className="flex flex-wrap gap-x-6">
+            {legalNavigation.map((n) => (
+              <li key={n.href}><Link href={n.href} className="inline-flex min-h-11 items-center hover:text-cream">{n.label}</Link></li>
+            ))}
+          </ul>
+          <p>© {new Date().getFullYear()} {restaurant.name}</p>
         </div>
       </Container>
     </footer>

@@ -11,41 +11,41 @@ export type PreviewPreset = StoreStatus;
 export const PREVIEW_PRESETS: Record<PreviewPreset, { label: string; config: Partial<StorefrontConfig>; forceOpen?: boolean }> = {
   open: {
     label: "Tienda abierta",
-    config: { status: "open", statusMessage: "", orderingEnabled: true, whatsappOrderingEnabled: true, paymentMethodsConfirmed: true, hoursStatus: "confirmed", coverageEnabled: true },
+    config: { status: "open", statusMessage: "", orderingEnabled: true, whatsappOrderingEnabled: true, hoursStatus: "confirmed" },
     forceOpen: true,
   },
-  temporarily_closed: { label: "Cerrado por reparaciones (real)", config: {} },
+  temporarily_closed: { label: "Cerrado por reparaciones", config: { status: "temporarily_closed", orderingEnabled: false } },
   coming_soon: {
     label: "Próxima reapertura",
-    config: { status: "coming_soon", statusMessage: "Próxima reapertura", reopeningSignupEnabled: true },
+    config: { status: "coming_soon", orderingEnabled: false, statusMessage: "Próxima reapertura", reopeningSignupEnabled: true },
   },
 };
 
 export type Storefront = {
   config: StorefrontConfig;
   status: StoreStatus;
-  /** Texto corto para el indicador de estado */
+  /** Estado corto y único para hero, pie y avisos: "Abierto · Aceptamos pedidos", "Cerrado ahora"… */
   label: string;
   tone: "ok" | "err" | "gold";
   message: string;
   showMenu: boolean;
   showPrices: boolean;
   showHours: boolean;
-  /** Tiempos, costos de envío y pedido mínimo */
-  showDelivery: boolean;
   orderingEnabled: boolean;
   /** Canal de pedido: número válido y habilitado */
   whatsappNumber: string | null;
   whatsappReady: boolean;
   deliveryEnabled: boolean;
   pickupEnabled: boolean;
-  paymentsConfirmed: boolean;
   businessName: string;
   currencyCode: string;
+  /** El local está dentro de su horario */
   openNow: boolean;
+  /** Se puede enviar el pedido ahora mismo */
   canOrderNow: boolean;
-  canSchedule: boolean;
   canOrder: boolean;
+  /** Qué puede hacer el usuario cuando no se puede enviar ahora (null si puede enviar o no hay pedidos) */
+  closedNote: string | null;
   signupEnabled: boolean;
   next: string | null;
 };
@@ -65,36 +65,46 @@ export function resolveStorefront(override: PreviewPreset | null, now: Date | nu
   const orderingEnabled = config.status === "open" && config.orderingEnabled && whatsappReady && showMenu && showPrices && hasProducts;
   const openNow = config.status === "open" && (preset?.forceOpen || !showHours || !now || isAcceptingAt(now));
   const canOrderNow = orderingEnabled && openNow;
-  const o = restaurant.ordering;
-  const canSchedule = orderingEnabled && !openNow && showHours && o.scheduledEnabled && o.allowScheduledWhenClosed;
+  const next = showHours && config.status === "open" && !openNow && now ? nextOpening(now) : null;
 
   const label =
-    config.status === "open" ? (openNow ? "Abierto" : "Cerrado ahora") : config.status === "coming_soon" ? "Próxima reapertura" : "Cerrado temporalmente";
+    config.status === "open"
+      ? openNow
+        ? orderingEnabled
+          ? "Abierto · Aceptamos pedidos"
+          : "Abierto · Pedidos temporalmente pausados"
+        : "Cerrado ahora"
+      : config.status === "coming_soon"
+        ? "Próxima reapertura"
+        : "Cerrado temporalmente";
+
+  const closedNote =
+    orderingEnabled && !openNow
+      ? `Ahora estamos cerrados${next ? `. Abrimos ${next.toLowerCase()}` : ""}. Puedes preparar tu pedido y enviarlo cuando abramos.`
+      : null;
 
   return {
     config,
     status: config.status,
     label,
-    tone: config.status === "open" && openNow ? "ok" : config.status === "coming_soon" ? "gold" : "err",
+    tone: config.status === "open" && openNow && orderingEnabled ? "ok" : config.status === "coming_soon" ? "gold" : "err",
     message: config.statusMessage,
     showMenu,
     showPrices,
     showHours,
-    showDelivery: orderingEnabled && config.coverageEnabled,
     orderingEnabled,
     whatsappNumber,
     whatsappReady,
-    deliveryEnabled: o.deliveryEnabled,
-    pickupEnabled: o.pickupEnabled,
-    paymentsConfirmed: config.paymentMethodsConfirmed,
+    deliveryEnabled: restaurant.ordering.deliveryEnabled,
+    pickupEnabled: restaurant.ordering.pickupEnabled,
     businessName: restaurant.shortName,
     currencyCode: restaurant.currency.code,
     openNow,
     canOrderNow,
-    canSchedule,
-    canOrder: canOrderNow || canSchedule,
+    canOrder: canOrderNow,
+    closedNote,
     signupEnabled: config.reopeningSignupEnabled && config.status !== "open",
-    next: showHours && config.status === "open" && !openNow && now ? nextOpening(now) : null,
+    next,
   };
 }
 

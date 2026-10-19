@@ -1,9 +1,10 @@
 "use client";
 
-import { Check, ChevronRight, Plus, SlidersHorizontal } from "lucide-react";
+import { Ban, Check, ChevronRight, Plus, SlidersHorizontal } from "lucide-react";
 import { Badge } from "@/components/shared/badge";
 import { Button } from "@/components/shared/button";
 import { Price } from "@/components/shared/price";
+import { baseName } from "@/lib/catalog";
 import type { Product } from "@/types/product";
 import { ProductImage } from "./product-image";
 import { ProductTags } from "./product-labels";
@@ -12,11 +13,13 @@ import { useProductAction } from "./use-product-action";
 type Variant = "default" | "main" | "row";
 
 /**
- * Tarjeta de producto. Solo lo necesario para decidir: imagen, nombre,
- * descripción corta, precio y acción. Ingredientes, alérgenos y opciones viven en el detalle.
+ * Tarjeta de producto. Solo lo necesario para decidir: imagen, nombre, peso, descripción corta, precio y acción.
+ * Ingredientes, alérgenos y opciones viven en la ficha.
  * - default: tarjeta vertical (menú); en móvil, fila compacta con la imagen a un lado y la acción de 44 px.
- * - main: producto principal de la portada, imagen dominante.
- * - row: tarjeta compacta horizontal (secundarios de la portada).
+ * - main: producto principal, imagen dominante.
+ * - row: tarjeta compacta horizontal.
+ * Acciones: «Añadir» (sin decisiones obligatorias), «Elegir opciones» (hay que decidir algo), «No disponible»
+ * (agotado, deshabilitado) o «Ver detalle» (cuando no se reciben pedidos).
  */
 export function ProductCard({ product, variant = "default", priority }: { product: Product; variant?: Variant; priority?: boolean }) {
   const { soldOut, canBuy, showPrice, needsChoice, priceVaries, added, open, quickAdd } = useProductAction(product);
@@ -24,23 +27,29 @@ export function ProductCard({ product, variant = "default", priority }: { produc
   const row = variant === "row";
   /** default en móvil: fila compacta con acción solo icono */
   const compact = variant === "default";
-  // Con etiqueta el ancho es estable ("Añadir al pedido" ↔ "Añadido"); en móvil compacto es un icono de 44 px
-  const iconOnly = `${compact ? "max-sm:!min-h-11 max-sm:w-11 max-sm:!px-0 " : ""}sm:min-w-[13.25rem]`;
+  // Con etiqueta el ancho es estable ("Añadir" ↔ "Añadido"); en móvil compacto es un icono de 44 px
+  const iconOnly = `${compact ? "max-sm:!min-h-11 max-sm:w-11 max-sm:!px-0 " : ""}sm:min-w-[10.5rem]`;
   const label = compact ? "max-sm:sr-only" : "";
+  const title = baseName(product);
 
-  const action = soldOut || !canBuy ? (
-    <Button variant="soft" size="sm" onClick={open} aria-label={`Ver detalle de ${product.name}`} className={iconOnly}>
+  const action = soldOut ? (
+    <Button variant="soft" size="sm" disabled aria-label={`${title}: no disponible`} className={iconOnly}>
+      {compact && <Ban className="size-4 sm:hidden" aria-hidden />}
+      <span className={label}>No disponible</span>
+    </Button>
+  ) : !canBuy ? (
+    <Button variant="soft" size="sm" onClick={open} aria-label={`Ver detalle de ${title}`} className={iconOnly}>
       <span className={label}>Ver detalle</span>{compact && <ChevronRight className="size-4 sm:hidden" aria-hidden />}
     </Button>
   ) : needsChoice ? (
-    // Falta una elección obligatoria sin valor por defecto (cocción, salsas…): se hace en el detalle
-    <Button variant="soft" size="sm" onClick={open} aria-label={`Elegir opciones de ${product.name}`} className={iconOnly}>
+    // Falta una elección obligatoria sin valor por defecto (cocción, salsas…): se hace en la ficha
+    <Button variant="soft" size="sm" onClick={open} aria-label={`Elegir opciones de ${title}`} className={iconOnly}>
       <SlidersHorizontal className="size-4" aria-hidden /> <span className={label}>Elegir opciones</span>
     </Button>
   ) : (
-    <Button variant="soft" size="sm" onClick={quickAdd} aria-label={`Añadir ${product.name} al pedido`} className={`${iconOnly} ${added ? "!border-ok/60 !bg-ok/15 !text-ok-soft" : ""}`}>
+    <Button variant="soft" size="sm" onClick={quickAdd} aria-label={`Añadir ${title} al pedido`} className={`${iconOnly} ${added ? "!border-ok/60 !bg-ok/15 !text-ok-soft" : ""}`}>
       {added ? <Check className="size-4" aria-hidden /> : <Plus className="size-4" aria-hidden />}
-      <span className={label}>{added ? "Añadido" : "Añadir al pedido"}</span>
+      <span className={label}>{added ? "Añadido" : "Añadir"}</span>
     </Button>
   );
 
@@ -61,7 +70,7 @@ export function ProductCard({ product, variant = "default", priority }: { produc
         row ? "flex-row" : compact ? "flex-row sm:flex-col" : "flex-col"
       } ${soldOut ? "opacity-75" : ""}`}
     >
-      <button type="button" onClick={open} aria-label={`Ver detalle de ${product.name}`} className={`relative block text-left ${row ? "min-h-[132px] w-[38%] shrink-0" : ""} ${compact ? "max-sm:w-[34%] max-sm:shrink-0" : ""} ${main ? "flex-1" : ""}`}>
+      <button type="button" onClick={open} aria-label={`Ver detalle de ${title}`} tabIndex={-1} className={`relative block text-left ${row ? "min-h-[132px] w-[38%] shrink-0" : ""} ${compact ? "max-sm:w-[34%] max-sm:shrink-0" : ""} ${main ? "flex-1" : ""}`}>
         {row ? (
           <div className="absolute inset-0">
             <ProductImage product={product} sizes="240px" ratio="h-full w-full" className={soldOut ? "grayscale" : ""} />
@@ -70,7 +79,7 @@ export function ProductCard({ product, variant = "default", priority }: { produc
           <ProductImage
             product={product}
             priority={priority}
-            sizes={main ? "(min-width:1024px) 640px, 100vw" : "(min-width:1024px) 420px, (min-width:640px) 50vw, 40vw"}
+            sizes={main ? "(min-width:1024px) 640px, 100vw" : "(min-width:1280px) 300px, (min-width:640px) 50vw, 40vw"}
             ratio={main ? "aspect-[4/3] lg:aspect-auto lg:absolute lg:inset-0" : "aspect-[4/3] max-sm:aspect-auto max-sm:absolute max-sm:inset-0"}
             className={soldOut ? "grayscale" : ""}
           />
@@ -82,10 +91,11 @@ export function ProductCard({ product, variant = "default", priority }: { produc
       <div className={`flex flex-col ${row ? "flex-1 p-4" : main ? "p-6 lg:p-8" : "min-w-0 flex-1 p-3.5 sm:p-6"}`}>
         {row && tag && <div className="mb-2 flex">{tag}</div>}
         <h3 className={`leading-tight ${main ? "text-[1.75rem] lg:text-[2.25rem]" : row ? "text-[1.25rem]" : "text-[1.1875rem] sm:text-[1.375rem]"}`}>
-          <button type="button" onClick={open} className="text-left hover:text-accent focus-visible:text-accent">{product.name}</button>
+          <button type="button" onClick={open} className="text-left hover:text-accent focus-visible:text-accent">{title}</button>
         </h3>
+        {product.size && <p className="mt-0.5 text-[0.8125rem] text-muted">{product.size}</p>}
         {!row && (
-          <p className={`mt-2 leading-relaxed text-cream2 ${main ? "line-clamp-1 text-base" : "line-clamp-1 text-[0.875rem] max-sm:mt-1 sm:line-clamp-2 sm:text-base"}`}>{product.shortDescription}</p>
+          <p className={`mt-2 leading-relaxed text-cream2 ${main ? "line-clamp-2 text-base" : "line-clamp-1 text-[0.875rem] max-sm:mt-1 sm:line-clamp-2 sm:text-base"}`}>{product.shortDescription}</p>
         )}
         <div className={`mt-auto flex flex-wrap items-end justify-between gap-x-4 gap-y-3 ${row ? "pt-3" : main ? "pt-5" : "flex-nowrap pt-2.5 sm:flex-wrap sm:pt-5"}`}>
           {price}

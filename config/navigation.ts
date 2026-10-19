@@ -5,15 +5,15 @@ export type NavItem = { label: string; href: string };
 
 /**
  * Navegación principal: solo enlaces a secciones que se renderizan.
- * Entrega existe siempre (muestra el estado del servicio);
- * Carnes, Menú y Especialidades dependen de que el menú esté aprobado.
+ * Cada etiqueta dice a dónde lleva; "Platos preparados" y "Carnes para cocinar" son las dos formas de comprar.
+ * Entrega existe siempre (muestra el estado del servicio).
  */
 export function getMainNavigation(sf: Storefront): NavItem[] {
   return [
-    sf.showMenu && { label: "Carnes", href: "/carnes/" },
-    sf.showMenu && { label: "Menú", href: "/menu/" },
-    sf.showMenu && { label: "Especialidades", href: "/#especialidades" },
-    { label: "Entrega", href: "/#cobertura" },
+    sf.showMenu && { label: "Platos preparados", href: "/menu/" },
+    sf.showMenu && { label: "Carnes para cocinar", href: "/carnes/" },
+    sf.orderingEnabled && { label: "Cómo pedir", href: "/#como-pedir" },
+    { label: "Entrega", href: "/#entrega" },
   ].filter(Boolean) as NavItem[];
 }
 
@@ -24,7 +24,7 @@ export function getFooterNavigation(sf: Storefront): NavItem[] {
   ].filter(Boolean) as NavItem[];
 }
 
-/** Páginas legales: placeholders hasta que el negocio las apruebe; solo se enlazan en la vista previa. */
+/** Páginas legales: texto real basado en cómo funciona la web; pendiente de revisión legal (se indica en cada página). */
 export const legalNavigation: NavItem[] = [
   { label: "Aviso de privacidad", href: "/legal/privacidad/" },
   { label: "Términos del servicio", href: "/legal/terminos/" },

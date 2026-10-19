@@ -12,17 +12,24 @@ export type MeatCategory = {
   name: string;
   /** Una línea para la tarjeta de portada */
   description: string;
+  /** Cómo se vende: lo que significa el precio */
+  saleFormat: string;
   /** Texto del botón de la tarjeta */
   cta: string;
-  image: string;
 };
 
 export const meatCategories: MeatCategory[] = [
-  { id: "steaks", name: "Steaks en porción", description: "Porciones individuales de 8 a 12 oz. Precio por pieza.", cta: "Ver steaks", image: "/img/menu/new-york-steak-angus-prime-350-grs.webp" },
-  { id: "cortes", name: "Cortes de la casa", description: "Ribeye, lip-on, vacío y lomo de tira, porcionados en Fuego Lento.", cta: "Ver cortes", image: "/img/menu/picana-angus-prime-460-grs.webp" },
-  { id: "embutidos", name: "Embutidos para la parrilla", description: "Morcilla, longaniza y cuerda de chorizo por paquete.", cta: "Ver embutidos", image: "/img/menu/charcuteria-a-la-lena.webp" },
-  { id: "combos", name: "Combos", description: "Parrilladas para 2 y para 4 personas, con ahorro.", cta: "Ver combos", image: "/img/menu/tabla-fuego-lento.webp" },
+  { id: "steaks", name: "Steaks en porción", description: "Porciones individuales de 8 a 12 oz.", saleFormat: "Precio por pieza", cta: "Ver steaks" },
+  { id: "cortes", name: "Cortes de la casa", description: "Ribeye, lip-on, vacío y lomo de tira, porcionados en Fuego Lento.", saleFormat: "Porciones de peso fijo y piezas por kg", cta: "Ver cortes" },
+  { id: "embutidos", name: "Embutidos para la parrilla", description: "Morcilla, longaniza y cuerda de chorizo.", saleFormat: "Precio por paquete", cta: "Ver embutidos" },
+  { id: "combos", name: "Combos", description: "Parrilladas para 2 y para 4 personas, con su contenido detallado.", saleFormat: "Precio por combo", cta: "Ver combos" },
 ];
+
+/**
+ * Las fotos de las carnes son provisionales (cortes ya cocinados) y pueden confundir con la pieza cruda:
+ * se muestran solo cuando exista la fotografía real de cada pieza. Poner a true entonces.
+ */
+const SHOW_PHOTOS = false;
 
 const USD_ROUND = (n: number) => Math.round(n * 100) / 100;
 
@@ -59,7 +66,7 @@ const toProduct = (categoryId: string) => (item: Item): Product => ({
   shortDescription: item.description,
   description: item.description,
   categoryId,
-  images: item.image ? [{ src: `/img/menu/${item.image}.webp`, alt: item.name }] : [],
+  images: SHOW_PHOTOS && item.image ? [{ src: `/img/menu/${item.image}.webp`, alt: item.name }] : [],
   basePrice: item.price,
   currency: "USD",
   line: "carnes",
@@ -68,8 +75,9 @@ const toProduct = (categoryId: string) => (item: Item): Product => ({
   tags: [],
   ingredients: [],
   allergens: [],
-  ...(item.size && { size: item.size }),
-  ...(item.priceNote && { priceNote: item.priceNote }),
+  // Las conversiones de unidad son redondeadas: se marcan como aproximadas ("12 oz (≈ 340 g)")
+  ...(item.size && { size: item.size.replace(/\((\d[\d.,]*\s*(?:g|kg))\)/, "(≈ $1)") }),
+  ...(item.priceNote && { priceNote: item.priceNote, byWeight: true }),
   ...(item.availableFrom && { availableFrom: item.availableFrom }),
   optionGroups: item.optionGroups ?? [],
 });
@@ -149,7 +157,7 @@ const comboToProduct = (c: Combo): Product => ({
   allergens: [],
   serves: c.serves,
   includes: c.includes,
-  ...(c.id === "experiencia-fuego-lento" || c.id === "gran-parrillada-fuego-lento" ? { priceNote: "pieza de peso variable · el peso indicado es aproximado" } : {}),
+  ...(c.id === "experiencia-fuego-lento" || c.id === "gran-parrillada-fuego-lento" ? { priceNote: "pieza de peso variable · el peso indicado es aproximado", byWeight: true } : {}),
   optionGroups: [],
 });
 

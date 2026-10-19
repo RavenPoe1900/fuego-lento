@@ -4,38 +4,36 @@ import { useStoreStatus } from "@/lib/use-store-status";
 import { DeliveryCoverage } from "./delivery-coverage";
 import { FinalCta } from "./final-cta";
 import { Hero } from "./hero";
+import { HomeFaq } from "./home-faq";
 import { HomeMenu } from "./home-menu";
 import { HowToOrder } from "./how-to-order";
 import { MeatCards } from "./meat-cards";
-import { Pause } from "./pause";
 import { Specialties } from "./specialties";
 import { Testimonials } from "./testimonials";
-import { TrustStrip } from "./trust-strip";
 
 /**
- * Dos recorridos sobre una misma página:
- * - Rápido: hero → menú → producto → carrito o estado del servicio.
- * - Exploratorio: hero → carnes a domicilio → menú → especialidades → cómo pedir → confianza → cobertura.
- * Cada sección tiene una composición distinta. Sin menú aprobado solo se muestran las que no dependen de datos de producto.
+ * Cada bloque responde a una pregunta, en este orden:
+ * ¿qué hay? (hero) → ¿qué platos preparados? → ¿qué cortes de la parrilla? → ¿qué carnes para cocinar? →
+ * ¿cómo lo pido? → ¿cómo lo recibo? → ¿dudas?
+ * Sin carta aprobada solo se muestran los bloques que no dependen de datos de producto.
  */
 export function HomeContent() {
-  const { showMenu } = useStoreStatus();
+  const { showMenu, orderingEnabled } = useStoreStatus();
   return (
     <>
       <Hero />
       {showMenu && (
         <>
-          <MeatCards />
           <HomeMenu />
-          <Pause />
           <Specialties />
-          <HowToOrder />
-          <TrustStrip />
+          <MeatCards />
+          {orderingEnabled && <HowToOrder />}
           <Testimonials />
         </>
       )}
       <FinalCta />
       <DeliveryCoverage />
+      <HomeFaq />
     </>
   );
 }

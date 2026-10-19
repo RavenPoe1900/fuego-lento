@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { Toaster } from "sonner";
 import { CartDrawer } from "@/components/cart/cart-drawer";
-import { MobileCartBar } from "@/components/cart/mobile-cart-bar";
 import { DemoPanel } from "@/components/demo/demo-panel";
 import { ReopeningDialog } from "@/components/layout/reopening-dialog";
 import { ProductDetailHost } from "@/components/menu/product-detail";
@@ -23,7 +22,6 @@ export function Providers() {
       <CartDrawer />
       <ProductDetailHost />
       <ReopeningDialog />
-      <MobileCartBar />
       <DemoPanel />
       <Toaster
         position="top-center"
@@ -32,10 +30,10 @@ export function Providers() {
         toastOptions={{
           classNames: {
             toast:
-              "!gap-3.5 !rounded-ui !border !border-accent/45 !bg-carbon !px-5 !py-4 !font-sans !text-accent !shadow-[0_20px_50px_-12px_rgba(0,0,0,0.75),inset_3px_0_0_var(--accent)]",
-            title: "!font-mono !text-[0.75rem] !font-medium !uppercase !tracking-[0.16em] !text-gold-soft",
-            description: "!mt-0.5 !text-[0.9375rem] !leading-snug !text-accent",
-            icon: "!text-accent",
+              "!gap-3.5 !rounded-ui !border !border-line !bg-surface2 !px-5 !py-4 !font-sans !text-cream !shadow-[var(--shadow-sm)]",
+            title: "!text-[0.9375rem] !font-semibold !text-cream",
+            description: "!mt-0.5 !text-[0.9375rem] !leading-snug !text-cream2",
+            icon: "!text-cream2",
           },
         }}
       />

@@ -143,13 +143,13 @@ export function priceCart(lines: CartLine[]): { priced: PricedLine[]; issues: Ca
   for (const line of lines) {
     const product = getProduct(line.productId);
     if (!product) {
-      issues.push({ lineId: line.id, type: "missing", message: "Este producto ya no está en el menú." });
+      issues.push({ lineId: line.id, type: "missing", message: "Este producto ya no está en la carta." });
       continue;
     }
     if (!product.available) {
-      issues.push({ lineId: line.id, type: "unavailable", message: "Este producto se ha agotado. Elimínalo para continuar." });
+      issues.push({ lineId: line.id, type: "unavailable", message: "Este producto no está disponible ahora. Quítalo para poder enviar el pedido." });
     } else if (validateSelections(product, line.selections).length) {
-      issues.push({ lineId: line.id, type: "options", message: "Alguna opción cambió. Edita el artículo para revisarlo." });
+      issues.push({ lineId: line.id, type: "options", message: "Falta elegir una opción o cambió alguna. Edita el producto para revisarlo." });
     }
     const quantity = Math.max(1, Math.min(20, Math.floor(line.quantity)));
     const nativePrice = unitPrice(product, line.selections);
@@ -166,6 +166,7 @@ export function priceCart(lines: CartLine[]): { priced: PricedLine[]; issues: Ca
       nativeUnitPrice: nativePrice,
       nativeLineTotal: Math.round(nativePrice * quantity * 100) / 100,
       line: product.line === "carnes" ? "carnes" : "carta",
+      weighted: Boolean(product.byWeight),
       details: selectionDetails(product, line.selections),
       note: normalizeNote(line.note),
     });
@@ -180,11 +181,13 @@ export function computeTotals(priced: PricedLine[], deliveryFee: number | null):
   const discount = 0;
   return {
     subtotal,
+    cartaSubtotal: priced.filter((l) => l.line === "carta").reduce((sum, l) => sum + l.lineTotal, 0),
     deliveryFee,
     serviceFee,
     discount,
     total: subtotal + (deliveryFee ?? 0) + serviceFee - discount,
     usdSubtotal: Math.round(priced.filter((l) => l.currency === "USD").reduce((sum, l) => sum + l.nativeLineTotal, 0) * 100) / 100,
+    hasWeighted: priced.some((l) => l.weighted),
     itemCount: priced.reduce((n, l) => n + l.quantity, 0),
   };
 }

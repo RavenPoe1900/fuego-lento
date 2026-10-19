@@ -1,107 +1,111 @@
 /**
  * TEXTOS EDITABLES DE LA WEB.
  * Nada aquí afirma historia, trayectoria ni datos operativos: el estado
- * comercial (abierto, horarios, cobertura…) vive en `restaurant.storefront`.
+ * comercial (abierto, horarios…) vive en `restaurant.storefront`.
+ * Dos experiencias de compra, siempre con el mismo nombre:
+ *   - "Platos preparados": la carta del restaurante (precios en CUP).
+ *   - "Carnes para cocinar": cortes, embutidos y combos crudos para la parrilla de casa (precios en USD).
  */
 export const content = {
   hero: {
-    eyebrow: "Steakhouse · Cortes & carnes",
-    title: "De las brasas a tu puerta",
-    description: "Cortes Angus, parrilla y especialidades preparadas al fuego.",
-    primaryCta: "Explorar el menú",
-    coverageLink: "Consultar cobertura",
+    eyebrow: "Fuego Lento · Steakhouse",
+    title: "El fuego pone el sabor. Tú eliges dónde disfrutarlo.",
+    description: "Pide nuestros platos preparados o descubre cortes para cocinar en casa.",
+    primaryCta: "Ver platos preparados",
+    secondaryCta: "Comprar carnes para cocinar",
     image: { src: "/img/hero-costillas.webp", alt: "Costillar a la brasa sobre tabla de madera con tomate, papas gratinadas y encurtidos" },
     /** Cuando no se reciben pedidos */
     closed: {
       title: "Volvemos a encender el fuego",
-      description: "Estamos preparando nuestro regreso. Mientras tanto, síguenos para conocer las novedades.",
-      exploreCta: "Explorar el menú",
+      description: "Estamos preparando nuestro regreso. Mientras tanto, puedes consultar la carta y seguirnos para conocer las novedades.",
+      exploreCta: "Ver platos preparados",
+      meatCta: "Ver carnes para cocinar",
       signupCta: "Avísame cuando vuelvan",
       instagramCta: "Seguir en Instagram",
     },
   },
 
-  /** Pausa tipográfica: palabras clave, sin afirmaciones. PENDIENTE de revisión de copy. */
-  pause: ["Fuego.", "Corte.", "Tiempo."],
-  pauseLabel: "Cocina de fuego",
+  /** Platos preparados: carta del restaurante */
+  menu: {
+    eyebrow: "La carta",
+    title: "Platos preparados",
+    description: "Explora la carta y elige cómo disfrutar cada plato.",
+    pageDescription: "Entrantes, platos principales, postres y bebidas de la carta, con precios en CUP. Elige y envía tu pedido por WhatsApp.",
+    featuredLabel: "Selección de la casa",
+    allCta: "Ver toda la carta",
+    noResults: "No encontramos ese plato. Prueba con otra búsqueda o explora las categorías.",
+    catalogNote: "Carta de consulta: ahora mismo no estamos recibiendo pedidos.",
+    unavailableTitle: "La carta se publicará pronto",
+    unavailableText: "Estamos preparando nuestra carta. Síguenos en Instagram para conocer las novedades.",
+    emptyCategory: "Esta categoría no tiene platos por ahora. Prueba con otra.",
+    otherExperience: { text: "¿Prefieres cocinar en casa?", cta: "Ver carnes para cocinar", href: "/carnes/" },
+  },
 
-  /** Carnes a domicilio: tarjetas de portada y página /carnes */
+  /** Carnes para cocinar: tarjetas de portada y página /carnes */
   meat: {
-    eyebrow: "Carnes a domicilio",
-    title: "Carne premium, directo a tu parrilla",
-    description: "Cortes porcionados en Fuego Lento y combos para 2 o 4. Precios en USD, con su equivalente en CUP.",
-    allCta: "Ver toda la lista",
+    eyebrow: "Para cocinar en casa",
+    title: "Carnes para cocinar en casa",
+    description: "Explora cortes porcionados, embutidos y combos para tu parrilla.",
+    allCta: "Ver todas las carnes",
     from: "Desde",
     page: {
-      title: "Carnes premium a domicilio",
-      description: "Lista de precios de Fuego Lento. Elige tus cortes y envía tu pedido por WhatsApp.",
+      title: "Carnes para cocinar en casa",
+      description: "Cortes porcionados, embutidos y combos para tu parrilla. Se entregan crudos; los precios van en USD, con su equivalente aproximado en CUP.",
       combosTitle: "Combos",
-      combosDescription: "Arma tu parrillada y ahorra con nuestros combos.",
-      groups: { 2: "Cenas para dos", 4: "Para la familia y los amigos" },
-      note: "Precios en USD; el equivalente en CUP es aproximado y depende del cambio del día. Los cortes vendidos por kg se cobran según el peso real de la pieza. Ribeye EXPORT y tapa de solomillo son piezas de peso variable. Precios y disponibilidad sujetos a cambio sin previo aviso.",
+      combosDescription: "Elige un combo para 2 o para 4 personas. Cada uno muestra su contenido y el precio de las piezas por separado.",
+      groups: { 2: "Combos para 2 personas", 4: "Combos para 4 personas" },
+      blurbs: {
+        steaks: "Precio por pieza. El peso va indicado en cada porción.",
+        cortes: "Porciones de peso fijo y piezas que se cobran por kg: en estas, el importe del pedido es una estimación hasta pesar la pieza.",
+        embutidos: "Precio por paquete.",
+      } as Record<string, string>,
+      note: "Precios en USD; el equivalente en CUP es aproximado y se confirma al responder tu pedido. Las piezas que se cobran por kg se pagan según el peso real. Ribeye EXPORT y tapa de solomillo son piezas de peso variable. Precios y disponibilidad pueden cambiar.",
+      otherExperience: { text: "¿Prefieres recibirlo ya preparado?", cta: "Ver platos preparados", href: "/menu/" },
     },
   },
 
-  /** "Cómo pedir": tres pasos sobre fondo claro */
+  /** "Cómo pedir": tres pasos */
   howToOrder: {
     title: "Cómo pedir",
-    labels: ["Carne premium", "Directo a tu puerta"],
     steps: [
-      { title: "Elige tu corte", text: "Recorre steaks, cortes de la casa, embutidos y combos. Cada precio va en USD, con su equivalente en CUP al lado." },
-      { title: "Confirma por WhatsApp", text: "Arma tu pedido y envíalo como comanda. Te confirmamos disponibilidad y, en las piezas por kg, el peso real." },
-      { title: "Recíbelo en casa", text: "Coordinamos la entrega a tu zona y el pago al confirmar. Las piezas por kg se cobran según su peso real." },
+      { title: "Elige tus productos", text: "Explora los platos preparados o las carnes para cocinar." },
+      { title: "Revisa tu pedido", text: "Comprueba cantidades, opciones e importes antes de enviarlo." },
+      { title: "Envía tu solicitud por WhatsApp", text: "El equipo confirmará disponibilidad, entrega y pago." },
     ],
-    image: { src: "/img/hero-costillas.webp", alt: "Costillar a la brasa sobre tabla de madera" },
+    weightNote: "En las piezas que se cobran por kg, el importe final depende del peso real.",
   },
 
   specialties: {
-    eyebrow: "Especialidades",
-    title: "Lo que pasa por las brasas",
-    description: "Piezas pensadas para el fuego. Abre una para ver ingredientes y opciones.",
+    eyebrow: "Platos preparados",
+    title: "Especialidades de la parrilla",
+    description: "Cortes y brocheta de la carta, servidos a la parrilla. Abre uno para elegir el término de cocción, la salsa y las guarniciones.",
   },
 
   testimonials: { title: "Lo que dicen quienes ya pidieron" },
 
-  menu: {
-    title: "Elige lo que enciende tu apetito",
-    description: "Explora la carta y personaliza cada plato.",
-    noResults: "No encontramos ese plato. Prueba con otra búsqueda o explora las categorías.",
-    catalogNote: "Menú de consulta: ahora mismo no estamos recibiendo pedidos.",
-    unavailableTitle: "El menú se publicará pronto",
-    unavailableText: "Estamos preparando nuestra carta. Síguenos en Instagram para conocer las novedades.",
-  },
-
-  coverage: {
+  delivery: {
+    eyebrow: "Entrega y recogida",
     title: "Hasta dónde llega el fuego",
-    description: "Elige tu zona para conocer el costo de envío y el tiempo estimado.",
-    closedTitle: "Estado del servicio",
-    closedText: "Cuando volvamos a recibir pedidos, aquí podrás comprobar si entregamos en tu zona.",
+    description: "Recibe tu pedido en casa o pásalo a recoger al local.",
+    homeTitle: "Entrega a domicilio",
+    homeText: "Indica tu dirección al preparar el pedido. El equipo confirma por WhatsApp si llegamos a tu zona y cuánto cuesta el envío.",
+    pickupTitle: "Recogida en el local",
+    pickupText: "Recoge tu pedido en el local, sin costo de envío.",
+    paymentTitle: "Pago",
+    paymentText: "El método de pago se coordina por WhatsApp al confirmar tu pedido.",
+    pausedTitle: "Pedidos",
+    closedText: "Ahora no estamos recibiendo pedidos. Puedes consultar la carta y las carnes, y seguirnos para conocer la reapertura.",
   },
 
-  /** Respuestas null = pendientes de aprobación del restaurante */
-  packaging: {
-    title: "Así llega tu pedido",
-    items: [
-      { id: "empaque", question: "¿Cómo se empaca la comida?", answer: null },
-      { id: "salsas", question: "¿Cómo viajan las salsas y acompañamientos?", answer: null },
-      { id: "consumo", question: "Recomendaciones de consumo y recalentado", answer: null },
-      { id: "faltante", question: "¿Qué hago si falta un producto?", answer: null },
-    ],
-  },
-
-  /** Texto de seguridad: debe aprobarlo el restaurante antes de mostrarse al público. */
+  /** Texto de seguridad para alérgenos */
   allergyNotice:
-    "Si tienes alguna alergia o restricción alimentaria, indícalo antes de confirmar tu pedido. La disponibilidad y el manejo deben ser confirmados por el restaurante.",
-
-  cookingGuide:
-    "Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).",
+    "Los alérgenos que ves aquí son orientativos: se deducen de los ingredientes que cita la carta y no incluyen trazas. Si tienes una alergia o restricción alimentaria, indícalo por WhatsApp antes de enviar tu pedido y el restaurante te lo confirmará.",
 
   finalCta: {
-    open: { title: "Hoy se come al fuego", description: "Elige tus favoritos y lleva la experiencia Fuego Lento a tu mesa.", cta: "Comenzar pedido", secondary: "Comprobar cobertura" },
     closed: { title: "Síguenos mientras volvemos", description: "Las novedades y la fecha de reapertura se anuncian en Instagram.", cta: "Seguir en Instagram" },
   },
 
   footer: {
-    description: "Steakhouse especializado en cortes y carnes.",
+    description: "Steakhouse en el Vedado, La Habana. Platos preparados y carnes para cocinar.",
   },
 };

@@ -1,4 +1,4 @@
-import { formatCupEquivalent, formatPrice, formatRate, formatUsd } from "@/lib/currency";
+import { formatCupEquivalent, formatPrice, formatUsd } from "@/lib/currency";
 import type { OrderSummary } from "@/types/order";
 
 /**
@@ -28,22 +28,16 @@ export function buildWhatsAppMessage(order: OrderSummary, businessName: string):
   };
 
   out.push(`*NUEVO PEDIDO — ${businessName.toUpperCase()}*`);
-  section("Cliente", [`Nombre: ${order.customer.name}`, order.customer.phone && `Teléfono: ${order.customer.phone}`]);
-  section("Modalidad", [order.deliveryMethod === "delivery" ? "Entrega a domicilio" : "Recogida en el restaurante"]);
-
-  const a = order.address;
+  section("Cliente", [`Nombre: ${order.customer.name}`]);
   section("Entrega", [
-    order.deliveryMethod === "delivery" && order.zoneName && `Zona: ${order.zoneName}`,
-    order.deliveryMethod === "delivery" && a?.street && `Dirección: ${a.street}`,
-    order.deliveryMethod === "delivery" && a?.reference && `Referencia: ${a.reference}`,
-    order.deliveryMethod === "delivery" && a?.instructions && `Instrucciones: ${a.instructions}`,
-    order.scheduleLabel && `Horario solicitado: ${order.scheduleLabel}`,
+    order.deliveryMethod === "delivery" ? "Entrega a domicilio" : "Recoger en el local",
+    order.deliveryMethod === "delivery" && order.address?.street && `Dirección: ${order.address.street}`,
   ]);
 
-  // Con carnes a domicilio y carta en el mismo pedido, cada línea de venta va en su bloque
+  // Con platos preparados y carnes para cocinar en el mismo pedido, cada tipo va en su bloque
   const blocks = [
-    { title: "Carta del restaurante", lines: order.lines.filter((l) => l.line === "carta") },
-    { title: "Carnes a domicilio", lines: order.lines.filter((l) => l.line === "carnes") },
+    { title: "Platos preparados", lines: order.lines.filter((l) => l.line === "carta") },
+    { title: "Carnes para cocinar", lines: order.lines.filter((l) => l.line === "carnes") },
   ].filter((b) => b.lines.length);
   const split = blocks.length > 1;
   let n = 0;
@@ -54,21 +48,25 @@ export function buildWhatsAppMessage(order: OrderSummary, businessName: string):
       out.push("", `${++n}. ${l.quantity} × ${l.name}`);
       for (const d of l.details) out.push(`   - ${d}`);
       if (l.note) out.push(`   - Nota: ${l.note}`);
-      out.push(`   - Subtotal: ${l.currency === "USD" ? `${formatUsd(l.nativeLineTotal)} (${formatCupEquivalent(l.nativeLineTotal)})` : formatPrice(l.lineTotal)}`);
+      out.push(`   - Subtotal: ${l.currency === "USD" ? `${formatUsd(l.nativeLineTotal)} (${formatCupEquivalent(l.nativeLineTotal)})` : formatPrice(l.lineTotal)}${l.weighted ? " (estimado, según peso real)" : ""}`);
     }
   }
 
   const t = order.totals;
-  const feeKnown = t.deliveryFee !== null;
+  const hasCup = t.cartaSubtotal > 0;
+  const hasUsd = t.usdSubtotal > 0;
+  const delivery = order.deliveryMethod === "delivery";
+  const subtotalWord = delivery ? "Subtotal estimado" : "Total estimado";
   section("Resumen", [
-    `Productos: ${formatPrice(t.subtotal)}`,
-    t.usdSubtotal > 0 && `Incluye ${formatUsd(t.usdSubtotal)} convertidos a CUP (${formatRate()})`,
-    order.lines.some((l) => l.line === "carnes" && l.details.some((d) => d.startsWith("Peso aproximado"))) && "Las piezas por kg se cobran según su peso real.",
-    order.deliveryMethod === "delivery" ? `Envío: ${feeKnown ? formatPrice(t.deliveryFee as number) : "Por confirmar"}` : null,
+    hasCup && `Platos preparados: ${formatPrice(t.cartaSubtotal)}`,
+    hasUsd && `Carnes para cocinar: ${formatUsd(t.usdSubtotal)} (${formatCupEquivalent(t.usdSubtotal)}, aproximado)`,
+    t.hasWeighted && "Las piezas por kg se cobran según su peso real.",
+    delivery ? "Envío: se confirma por WhatsApp" : "Recogida en el local: sin costo",
     t.serviceFee > 0 && `Servicio: ${formatPrice(t.serviceFee)}`,
     t.discount > 0 && `Descuento: −${formatPrice(t.discount)}`,
-    `Total estimado: ${order.deliveryMethod === "delivery" && !feeKnown ? "Pendiente de confirmar" : formatPrice(t.total)}`,
-    `Pago preferido: ${order.paymentLabel ?? "Por coordinar"}`,
+    hasCup && !hasUsd && `${subtotalWord}: ${formatPrice(t.total)}`,
+    hasUsd && !hasCup && `${subtotalWord}: ${formatUsd(t.usdSubtotal)}`,
+    "Pago: se coordina por WhatsApp",
   ]);
 
   if (order.customer.notes) section("Observaciones generales", [order.customer.notes]);

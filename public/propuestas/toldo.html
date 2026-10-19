@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fuego Lento · 04 El Mostrador</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700;800&family=Courier+Prime:wght@400;700&display=swap">
+<style>
+/* Concepto: carnicería. Toldo a rayas, etiquetas de cartón colgadas, esquema de la res y recibo de compra. Carnes para cocinar al frente, la carta como "listo para comer". */
+:root{--bone:#f4efe4;--kraft:#c9a36a;--kraft-d:#a8824c;--wine:#6d1a12;--ink:#2a1510;--green:#2f4a33}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bone);color:var(--ink);font:16px/1.55 Manrope,sans-serif}
+img{display:block;max-width:100%}a{color:inherit}
+h1,h2,h3{font-family:"Bebas Neue",sans-serif;font-weight:400;margin:0;letter-spacing:.02em;line-height:.92}
+.top{position:sticky;top:0;z-index:40;background:var(--bone)}
+.awn{height:34px;background:repeating-linear-gradient(90deg,var(--wine) 0 40px,var(--bone) 40px 80px);border-bottom:6px solid var(--ink);position:relative}
+.awn::after{content:"";position:absolute;inset:100% 0 auto;height:14px;background:radial-gradient(circle at 20px 0,var(--wine) 19px,transparent 20px) 0 0/80px 14px,radial-gradient(circle at 60px 0,var(--bone) 19px,transparent 20px) 0 0/80px 14px;filter:drop-shadow(0 2px 0 var(--ink))}
+header{display:flex;justify-content:space-between;align-items:center;padding:26px clamp(16px,4vw,48px) 10px;gap:14px;flex-wrap:nowrap}
+html{scroll-padding-top:120px}
+header b{font:400 30px "Bebas Neue";letter-spacing:.08em;display:flex;gap:10px;align-items:center}
+header img{width:36px;height:36px;border-radius:50%}
+header nav{display:flex;gap:22px;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.08em}
+header nav a{text-decoration:none}header nav a:hover{color:var(--wine);text-decoration:underline}
+.wrap{padding-inline:clamp(16px,4vw,48px);max-width:1280px;margin:0 auto}
+.sec{padding-block:clamp(44px,7vw,90px)}
+.sn{font:700 12px "Courier Prime",monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);display:block;margin-bottom:8px}
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(60px,9.5vw,148px);color:var(--wine);margin-bottom:6px}
+.hero p{max-width:46ch;font-size:18px;margin:16px 0 26px}
+.hero .acts{display:flex;gap:14px;flex-wrap:wrap}
+.hero .ph{aspect-ratio:4/5;border:6px solid var(--ink);overflow:hidden;box-shadow:12px 12px 0 var(--kraft);max-height:620px;width:100%}
+.hero .ph img{width:100%;height:100%;object-fit:cover}
+.btn{display:inline-block;padding:14px 24px;background:var(--wine);color:var(--bone);text-decoration:none;font:400 22px "Bebas Neue";letter-spacing:.08em;border:3px solid var(--ink);transition:transform .15s,box-shadow .15s;box-shadow:4px 4px 0 var(--ink)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.bp{padding:3px 14px;font-size:17px;line-height:1.2;border-width:2px;box-shadow:2px 2px 0 var(--ink)}
+header .bp{position:relative;top:-4px}
+.bp:hover{box-shadow:3px 3px 0 var(--ink);transform:translate(-1px,-1px)}
+.btn.k{background:var(--kraft);color:var(--ink)}
+.stat{display:inline-flex;gap:8px;align-items:center;font:700 13px "Courier Prime";background:var(--ink);color:var(--bone);padding:6px 12px;margin-bottom:16px}
+.stat i{width:9px;height:9px;border-radius:50%;background:#8fd07a}
+.board{background:var(--ink);color:var(--bone)}
+.board .sn{color:var(--kraft)}
+.board h2{font-size:clamp(46px,7vw,100px)}
+.dg{display:grid;grid-template-columns:1.6fr 1fr;gap:40px;margin-top:30px;align-items:center}
+.dg svg{width:100%;height:auto}
+.body{fill:#3a241d;stroke:var(--bone);stroke-width:2.5}
+.z{fill:#5a2f24;stroke:var(--bone);stroke-width:2;cursor:pointer;transition:fill .2s}
+.z:hover,.z.on,.z:focus{fill:var(--kraft);outline:none}
+.zt{font:700 14px Manrope;fill:var(--bone);pointer-events:none}
+.z.on+.zt,.z:hover+.zt{fill:var(--ink)}
+.tag{background:var(--kraft);color:var(--ink);padding:22px 22px 18px;position:relative;border-radius:4px;transform-origin:50% -20px}
+.tag::before{content:"";position:absolute;left:50%;top:-12px;width:16px;height:16px;border-radius:50%;background:var(--ink);border:3px solid var(--bone);transform:translateX(-50%)}
+.tag h3{font-size:42px}.tag p{margin:6px 0 10px}.tag .pr{font:700 26px "Courier Prime"}
+.zl{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;justify-content:center}
+.zl button{background:transparent;border:2px solid var(--kraft);color:var(--kraft);padding:8px 14px;font:700 13px Manrope;cursor:pointer}
+.zl button.on{background:var(--kraft);color:var(--ink)}
+.tags{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.t{background:var(--kraft);padding:26px 18px 18px;position:relative;border-radius:4px;box-shadow:4px 4px 0 var(--ink);transform:rotate(var(--r,0deg));transition:transform .3s}
+.t:nth-child(1){--r:-1.2deg}.t:nth-child(2){--r:.8deg}.t:nth-child(3){--r:-.6deg}
+.t:hover{transform:rotate(0) translateY(-4px)}
+.t::before{content:"";position:absolute;left:50%;top:9px;width:12px;height:12px;border-radius:50%;background:var(--bone);border:2px solid var(--ink);transform:translateX(-50%)}
+.t::after{content:"";position:absolute;left:50%;bottom:100%;width:2px;height:30px;background:var(--bone)}
+.t h3{font-size:30px;margin-bottom:2px}.t small{display:block;font:700 11px "Courier Prime";margin-bottom:10px}.t .pr{font:700 22px "Courier Prime"}
+.scale{margin-top:34px}
+.scale .r{display:grid;grid-template-columns:1fr auto auto;gap:14px;padding:13px 0;border-bottom:2px dotted var(--ink);align-items:baseline}
+.scale .r span:nth-child(2){font:700 12px "Courier Prime";color:var(--wine)}
+.scale .r b{font:700 18px "Courier Prime";white-space:nowrap}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,60px)}
+.boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+.box{border:4px solid var(--ink);background:#fff9;padding:16px;display:flex;flex-direction:column;gap:8px;position:relative}
+.box::before{content:"";position:absolute;inset:0 0 auto;height:10px;background:var(--wine)}
+.box small{margin-top:10px;font:700 11px "Courier Prime";text-transform:uppercase;color:var(--wine)}
+.box h3{font-size:30px}.box ul{margin:0;padding-left:16px;font-size:13px}.box .pr{margin-top:auto;font:700 20px "Courier Prime"}
+.ready{background:var(--green);color:var(--bone)}
+.vw{position:relative}
+.nv{position:absolute;top:50%;transform:translateY(-50%);z-index:2;display:grid;place-items:center;cursor:pointer}
+.nv.l{left:12px}.nv.r{right:12px}
+.nv{width:46px;height:46px;background:var(--kraft);color:var(--ink);border:3px solid var(--ink)}
+.nv:hover{background:var(--bone)}
+.ready .vp{overflow:hidden;touch-action:pan-y;border:6px solid var(--ink);box-shadow:10px 10px 0 var(--kraft);background:var(--ink)}
+.ready .trk{display:flex;transition:transform .8s cubic-bezier(.65,0,.25,1)}
+.ready .vp img{flex:0 0 100%;width:100%;aspect-ratio:16/10;object-fit:cover}
+.ready .tag{min-height:112px}
+
+
+.ready .sn{color:#e8cf9a}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.pc{background:var(--bone);color:var(--ink);border:3px solid var(--ink)}
+.pc .im{aspect-ratio:4/3;overflow:hidden}.pc img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.pc:hover img{transform:scale(1.07)}
+.pc div.tx{padding:10px 12px}.pc b{font:400 24px/1 "Bebas Neue";letter-spacing:.03em;display:block}.pc span{font:700 14px "Courier Prime"}
+.receipt{max-width:460px;background:#fffdf6;border:1px solid #cfc7b5;padding:26px 24px 30px;font:14px/1.6 "Courier Prime",monospace;position:relative;margin-inline:auto;transform:rotate(-1deg);box-shadow:0 12px 30px #0003;
+ -webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/16px 100% repeat-x;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/16px 100% repeat-x;padding-bottom:40px}
+.receipt h3{font-size:34px;text-align:center;border-bottom:2px dashed var(--ink);padding-bottom:8px;margin-bottom:12px}
+.receipt .l{display:grid;grid-template-columns:28px 1fr;gap:6px;padding:6px 0}
+.receipt .l b{font-size:20px}
+details{border-bottom:2px dotted var(--ink);padding:14px 0}
+summary{cursor:pointer;font-weight:800;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";font:400 28px "Bebas Neue"}details[open] summary::after{content:"–"}
+details p{margin:8px 0 0}
+footer{background:var(--wine);color:var(--bone);padding:40px clamp(16px,4vw,48px) 30px}
+footer .wrap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;padding:0}
+footer h3{font-size:44px}
+footer h4{font:700 12px "Courier Prime";text-transform:uppercase;letter-spacing:.1em;margin:0 0 6px;color:#f3cf94}
+footer a{color:var(--bone)}
+:focus-visible{outline:3px solid var(--wine);outline-offset:3px}
+.board :focus-visible,footer :focus-visible{outline-color:var(--kraft)}
+@media (max-width:900px){.hero,.dg,.cols2,footer .wrap{grid-template-columns:1fr}.tags,.strip{grid-template-columns:1fr 1fr}.boxes{grid-template-columns:1fr 1fr}header nav{display:none}.hero .ph{max-width:380px;margin-inline:auto}}
+@media (max-width:520px){.tags,.strip,.boxes{grid-template-columns:1fr}.scale .r{grid-template-columns:1fr auto}.scale .r span:nth-child(2){display:none}}
+@media (max-width:700px){.hero .ph{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.tag.sw{animation:sw .7s}
+@keyframes sw{25%{transform:rotate(3deg)}55%{transform:rotate(-2deg)}80%{transform:rotate(1deg)}}
+</style>
+<style id="o-css">/* ===== Pedido: carta, carnes, ventana de opciones y panel "Mi pedido" (tematizado con variables --o-*) ===== */
+.o-ov [hidden],.o-form [hidden]{display:none!important}
+.o-chips{display:flex;flex-wrap:wrap;gap:6px 22px;margin:26px 0 22px}
+.o-chip{background:none;border:0;border-bottom:2px solid transparent;color:var(--o-muted);font:700 .8125rem var(--o-ui);letter-spacing:.08em;text-transform:uppercase;padding:8px 2px;cursor:pointer;transition:color .15s,border-color .15s}
+.o-chip:hover{color:var(--o-fg)}
+.o-chip[aria-pressed="true"]{color:var(--o-accent);border-bottom-color:var(--o-accent)}
+.o-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.o-card{display:flex;flex-direction:column;background:var(--o-card);color:var(--o-fg);border:var(--o-bw) solid var(--o-line);border-radius:var(--o-r);overflow:hidden;box-shadow:var(--o-shadow)}
+.o-card .im{aspect-ratio:4/3;background:var(--o-card2);overflow:hidden}
+.o-card .im img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.o-card:hover .im img{transform:scale(1.04)}
+.o-card .tx{display:flex;flex-direction:column;gap:6px;padding:14px 16px 16px;flex:1}
+.o-card h3,.o-combo h3{font-family:var(--o-disp);font-weight:var(--o-dw);text-transform:var(--o-dt);font-size:var(--o-h3);line-height:1.02;letter-spacing:var(--o-dls);margin:0}
+.o-card .d{margin:0;color:var(--o-muted);font-size:.875rem;line-height:1.45}
+.o-card .ft,.o-combo .ft{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto;padding-top:10px}
+.o-pr{font:700 1rem var(--o-ui);font-variant-numeric:tabular-nums;color:var(--o-fg);white-space:nowrap}
+.o-pr small{display:block;font-weight:500;font-size:.75rem;color:var(--o-muted)}
+.o-pn{font-size:.75rem;color:var(--o-muted)}
+.o-add,.o-prim,.o-ghost{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:8px 20px;border-radius:var(--o-btn-r);font:var(--o-btn-font);letter-spacing:var(--o-btn-ls);text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background-color .15s,color .15s,border-color .15s}
+.o-add{background:var(--o-add-bg);color:var(--o-add-ink);border:var(--o-bwb) solid var(--o-add-b)}
+.o-add:hover{background:var(--o-add-hover)}
+.o-add.ok{background:var(--o-ok);border-color:var(--o-ok);color:#fff}
+.o-prim{background:var(--o-prim);color:var(--o-prim-ink);border:var(--o-bwb) solid var(--o-prim-b)}
+.o-prim:hover{filter:brightness(1.08)}
+.o-prim:disabled{opacity:.45;cursor:not-allowed}
+.o-ghost{background:none;color:inherit;border:var(--o-bwb) solid currentColor;opacity:.85}
+.o-ghost:hover{opacity:1}
+.o-link{background:none;border:0;color:inherit;text-decoration:underline;text-underline-offset:4px;font:600 .875rem var(--o-ui);cursor:pointer;padding:10px 4px}
+.o-intro{max-width:62ch;color:var(--o-muted);margin:12px 0 0}
+.o-note{font-size:.8125rem;color:var(--o-muted);max-width:80ch;margin-top:22px}
+
+/* Carnes */
+.o-cat-d{color:var(--o-muted);font-size:.9375rem;margin:0 0 6px}
+.o-row{display:grid;grid-template-columns:1fr auto auto;gap:16px;align-items:center;padding:14px 0;border-bottom:var(--o-rowb) solid var(--o-line)}
+.o-row b{display:block;font-weight:700}
+.o-row small{display:block;color:var(--o-muted);font-size:.8125rem}
+.o-combos{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.o-combo{display:flex;flex-direction:column;gap:6px;background:var(--o-card);color:var(--o-fg);border:var(--o-bw) solid var(--o-line);border-radius:var(--o-r);padding:18px;box-shadow:var(--o-shadow)}
+.o-combo .for{font:700 .6875rem var(--o-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--o-accent)}
+.o-combo p{margin:0;color:var(--o-muted);font-size:.875rem}
+.o-combo ul{margin:4px 0 0;padding-left:18px;font-size:.875rem}
+.o-combo .sep{font-size:.8125rem;color:var(--o-muted)}
+
+/* Botón Mi pedido (cabecera) */
+.o-mi{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:3px 14px;border-radius:var(--o-btn-r);background:none;color:inherit;border:var(--o-bwb) solid currentColor;font:var(--o-mi-font);letter-spacing:var(--o-btn-ls);text-transform:uppercase;cursor:pointer;white-space:nowrap}
+.o-mi:hover{background:var(--o-mi-hover)}
+.o-n{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:var(--o-prim);color:var(--o-prim-ink);font:800 .6875rem var(--o-ui);transition:transform .2s}
+.o-n.pop{transform:scale(1.35)}
+
+/* Ventanas */
+.o-ov{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.62);display:flex;animation:o-fade .2s ease both}
+.o-ov.dlg{align-items:center;justify-content:center;padding:16px}
+.o-ov.drawer{justify-content:flex-end}
+@keyframes o-fade{from{opacity:0}}
+@keyframes o-slide{from{transform:translateX(100%)}}
+@keyframes o-pop{from{opacity:0;transform:translateY(10px) scale(.98)}}
+.o-panel{background:var(--o-panel);color:var(--o-panel-fg);display:flex;flex-direction:column;max-height:100%;border:var(--o-bw) solid var(--o-line);font-family:var(--o-ui)}
+.o-ov.drawer .o-panel{width:min(460px,100%);height:100%;border-width:0 0 0 var(--o-bw);border-radius:0;animation:o-slide .3s cubic-bezier(.2,.7,.2,1) both}
+.o-ov.dlg .o-panel{width:min(520px,100%);border-radius:var(--o-r);animation:o-pop .25s ease both}
+.o-ph{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--o-pline)}
+.o-ph h2{font-family:var(--o-disp);font-weight:var(--o-dw);text-transform:var(--o-dt);font-size:1.6rem;margin:0;line-height:1;letter-spacing:var(--o-dls)}
+.o-x{width:44px;height:44px;display:grid;place-items:center;background:none;border:0;color:inherit;font-size:1.6rem;cursor:pointer;border-radius:50%}
+.o-x:hover{background:var(--o-pline)}
+.o-pb{padding:18px 20px;overflow:auto;flex:1}
+.o-pf{padding:16px 20px 20px;border-top:1px solid var(--o-pline);display:grid;gap:10px}
+.o-fs{border:0;margin:0 0 18px;padding:0}
+.o-fs legend{font:700 .75rem var(--o-ui);letter-spacing:.12em;text-transform:uppercase;padding:0;margin-bottom:6px;color:var(--o-panel-muted)}
+.o-fs .h{font-size:.8125rem;color:var(--o-panel-muted);margin:0 0 6px}
+.o-opt{display:flex;align-items:center;gap:10px;padding:10px 12px;margin-bottom:6px;border:1px solid var(--o-pline);border-radius:var(--o-r);cursor:pointer}
+.o-opt:hover{border-color:var(--o-accent2)}
+.o-opt input{accent-color:var(--o-accent2);width:18px;height:18px;flex:none}
+.o-opt span{flex:1;font-size:.9375rem}
+.o-opt small{display:block;color:var(--o-panel-muted);font-size:.75rem}
+.o-opt em{font-style:normal;font-weight:700;font-variant-numeric:tabular-nums;font-size:.875rem}
+.o-opt:has(input:checked){border-color:var(--o-accent2);background:var(--o-sel)}
+.o-err{color:var(--o-err);font-size:.8125rem;margin:4px 0 0}
+.o-total{display:flex;justify-content:space-between;font-weight:800;font-size:1.05rem}
+
+/* Comanda (ticket de papel) */
+.o-ticket{background:var(--o-paper);color:var(--o-paper-fg);padding:18px 16px 26px;font-size:.8125rem;font-variant-numeric:tabular-nums;
+ -webkit-mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/14px 100% repeat-x;mask:conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/14px 100% repeat-x;padding-bottom:30px}
+.o-ticket h3{margin:0;text-align:center;font:600 .8125rem var(--o-ui);letter-spacing:.2em;text-transform:uppercase}
+.o-ticket .sub{text-align:center;font:600 .6875rem var(--o-ui);letter-spacing:.2em;text-transform:uppercase;color:var(--o-paper-muted);margin-bottom:6px}
+.o-ticket hr{border:0;border-top:1px dashed var(--o-paper-rule);margin:10px 0}
+.o-ticket h4{margin:10px 0 0;font:700 .75rem var(--o-ui);letter-spacing:.1em;text-transform:uppercase;color:var(--o-paper-muted)}
+.o-ln{display:grid;grid-template-columns:1fr auto;gap:2px 10px;padding:10px 0;border-bottom:1px dotted var(--o-paper-rule)}
+.o-ln b{font-weight:700;font-size:.875rem;font-family:var(--o-ui)}
+.o-ln .dt{grid-column:1/2;color:var(--o-paper-muted);font-size:.75rem;line-height:1.35}
+.o-ln .lt{font-weight:700;text-align:right}
+.o-q{grid-column:1/-1;display:flex;align-items:center;gap:6px;margin-top:4px}
+.o-q button{width:30px;height:30px;border:1px solid var(--o-paper-rule);background:none;color:inherit;font-size:1rem;cursor:pointer;border-radius:3px}
+.o-q button:hover{background:rgba(0,0,0,.08)}
+.o-q span{min-width:22px;text-align:center;font-weight:700}
+.o-q .rm{margin-left:auto;width:auto;padding:0 8px;font-size:.75rem;text-decoration:underline;border:0}
+.o-sums p{display:flex;justify-content:space-between;gap:10px;margin:4px 0;font-weight:700}
+.o-sums small{display:block;font-weight:400;color:var(--o-paper-muted)}
+.o-form{display:grid;gap:12px;margin-top:18px}
+.o-form label{display:grid;gap:4px;font:700 .75rem var(--o-ui);letter-spacing:.08em;text-transform:uppercase;color:var(--o-panel-muted)}
+.o-form input,.o-form textarea{font:400 1rem var(--o-ui);padding:11px 12px;background:transparent;color:var(--o-panel-fg);border:1px solid var(--o-pline2);border-radius:var(--o-r);text-transform:none;letter-spacing:0}
+.o-form input:focus,.o-form textarea:focus{outline:2px solid var(--o-accent2);outline-offset:1px}
+.o-seg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
+.o-seg label{display:flex;align-items:center;justify-content:center;text-align:center;min-height:46px;padding:6px 10px;border:1px solid var(--o-pline2);border-radius:var(--o-r);font:700 .8125rem var(--o-ui);cursor:pointer}
+.o-seg input{position:absolute;opacity:0;pointer-events:none}
+.o-seg label:has(input:checked){border-color:var(--o-accent2);background:var(--o-sel)}
+.o-seg label:has(input:focus-visible){outline:2px solid var(--o-accent2);outline-offset:2px}
+.o-help{font-size:.8125rem;color:var(--o-panel-muted);margin:0;line-height:1.4}
+.o-empty{text-align:center;padding:40px 10px;display:grid;gap:14px;justify-items:center}
+.o-empty h3{font-family:var(--o-disp);font-weight:var(--o-dw);text-transform:var(--o-dt);font-size:1.8rem;margin:0}
+.o-toast{position:fixed;left:50%;bottom:20px;z-index:300;transform:translate(-50%,30px);opacity:0;background:var(--o-toast-bg);color:var(--o-toast-fg);padding:11px 18px;border-radius:var(--o-btn-r);font:600 .875rem var(--o-ui);pointer-events:none;transition:.25s;max-width:calc(100% - 32px)}
+.o-toast.on{opacity:1;transform:translate(-50%,0)}
+.o-add:focus-visible,.o-prim:focus-visible,.o-ghost:focus-visible,.o-mi:focus-visible,.o-chip:focus-visible,.o-x:focus-visible,.o-link:focus-visible,.o-q button:focus-visible{outline:2px solid var(--o-focus);outline-offset:2px}
+@media (max-width:640px){.o-row{grid-template-columns:1fr auto}.o-row .o-add{grid-column:1/-1;justify-self:start}.o-grid{grid-template-columns:1fr}.o-ov.dlg{align-items:flex-end;padding:0}.o-ov.dlg .o-panel{width:100%;border-radius:var(--o-r) var(--o-r) 0 0;max-height:92%}}
+@media (prefers-reduced-motion:reduce){.o-ov,.o-panel{animation:none!important}.o-card .im img{transition:none}}
+
+:root{--o-ui:Manrope,sans-serif;--o-disp:"Bebas Neue",sans-serif;--o-dw:400;--o-dt:none;--o-dls:.02em;--o-h3:28px;
+--o-fg:#2a1510;--o-muted:#6b5a52;--o-card:#fffdf6;--o-card2:#e9dfce;--o-line:#2a1510;--o-bw:3px;--o-r:4px;--o-shadow:4px 4px 0 #2a1510;--o-rowb:2px;
+--o-accent:#6d1a12;--o-accent2:#6d1a12;--o-sel:rgba(109,26,18,.08);--o-btn-r:0;--o-btn-font:400 20px "Bebas Neue",Impact,sans-serif;--o-mi-font:400 17px "Bebas Neue",Impact,sans-serif;--o-btn-ls:.08em;--o-bwb:3px;
+--o-add-bg:#c9a36a;--o-add-ink:#2a1510;--o-add-b:#2a1510;--o-add-hover:#f4efe4;--o-ok:#3e6b32;--o-prim:#6d1a12;--o-prim-ink:#f4efe4;--o-prim-b:#2a1510;
+--o-panel:#f4efe4;--o-panel-fg:#2a1510;--o-panel-muted:#6b5a52;--o-pline:rgba(42,21,16,.2);--o-pline2:rgba(42,21,16,.45);
+--o-paper:#fffdf6;--o-paper-fg:#2a1510;--o-paper-muted:#6b5a47;--o-paper-rule:#8a7860;--o-toast-bg:#2a1510;--o-toast-fg:#f4efe4;--o-focus:#6d1a12;--o-err:#a02015;--o-mi-hover:rgba(42,21,16,.08)}
+.o-ticket{font-family:"Courier Prime",monospace}.o-ticket h3{font-family:"Bebas Neue";font-size:1.7rem;letter-spacing:.08em;font-weight:400}
+.o-pr{font-family:"Courier Prime",monospace}
+.o-mi{padding:2px 12px;border-width:2px;margin-left:auto}
+.o-add{padding:6px 16px}
+.o-fs legend{font-family:"Courier Prime",monospace}
+</style>
+</head>
+<body>
+<div class="top"><div class="awn" aria-hidden="true"></div>
+<header><b><img src="img/logo-mark.webp" alt="">FUEGO LENTO</b><nav aria-label="Principal"><a href="#despiece">Despiece</a><a href="#listo">Listo para comer</a><a href="#faq">Preguntas</a></nav><a class="btn bp" href="https://wa.me/5358465895?text=Hola%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir</a></header>
+</div>
+
+<main>
+<section class="wrap sec" id="letrero">
+  <div class="hero">
+    <div>
+      <span class="stat"><i></i>ABIERTO · 12:30 A 19:00</span><br>
+      <h1>El fuego pone el sabor.</h1>
+      <p>Pide nuestros platos preparados o descubre cortes para cocinar en casa.</p>
+      <div class="acts"><a class="btn" href="#despiece">Ver carnes para cocinar</a><a class="btn k" href="#listo">Platos preparados</a></div>
+    </div>
+    <div class="ph"><img src="img/picana-angus-prime-300-grs.webp" alt="Picaña angus prime a la parrilla"></div>
+  </div>
+</section>
+
+<section class="board sec" id="despiece">
+  <div class="wrap">
+    <h2>¿De dónde sale cada corte?</h2>
+    <div class="dg">
+      <div>
+        <svg viewBox="0 0 600 270" role="img" aria-label="Esquema ilustrativo de la res con zonas de corte">
+          <path class="body" d="M70 90 Q70 50 130 50 L470 50 Q540 55 545 110 L545 170 Q540 200 515 200 L505 250 L470 250 L465 205 L190 205 L180 250 L145 250 L140 200 Q80 195 75 150 Z"/>
+          <path class="body" d="M70 90 L20 120 Q12 150 40 158 L75 150"/>
+          <path class="z" tabindex="0" role="button" aria-label="Ribeye" data-z="0" d="M170 55 L330 55 L330 130 L170 130 Z"/><text class="zt" x="225" y="98">Ribeye</text>
+          <path class="z" tabindex="0" role="button" aria-label="Lomo" data-z="1" d="M335 55 L470 55 Q535 60 540 110 L335 130 Z"/><text class="zt" x="400" y="98">Lomo</text>
+          <path class="z" tabindex="0" role="button" aria-label="Lomo de tira" data-z="2" d="M170 135 L335 135 L335 200 L190 203 Z"/><text class="zt" x="205" y="172">Lomo de tira</text>
+          <path class="z" tabindex="0" role="button" aria-label="Vacío" data-z="3" d="M340 138 L538 118 L540 170 Q535 198 510 198 L340 200 Z"/><text class="zt" x="400" y="172">Vacío</text>
+        </svg>
+        <p style="font-size:13px;color:#cdbfa8">Esquema ilustrativo, no un despiece exacto. Toca una zona.</p>
+      </div>
+      <div>
+        <div class="tag" id="tag"></div>
+        <div class="zl"><a class="btn k" href="#listo">Ver cortes</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ready sec" id="listo">
+  <div class="wrap">
+  <h2>¿Sin ganas de encender el fuego?</h2>
+  <div class="dg">
+    <div class="vw"><div class="vp" id="pvp" tabindex="0" role="region" aria-label="Platos preparados"><div class="trk" id="trk"><img src="img/empanada-angus-trufada.webp" alt="Empanada Angus Trufada" loading="lazy"><img src="img/ceviche-escarlata.webp" alt="Ceviche Escarlata" loading="lazy"><img src="img/tataki-de-res.webp" alt="Tataki de Res" loading="lazy"><img src="img/gambones.webp" alt="Gambones" loading="lazy"><img src="img/cordero-fuego-lento.webp" alt="Cordero Fuego Lento" loading="lazy"><img src="img/hamburguesa-fuego-lento-230-grs.webp" alt="Hamburguesa Fuego Lento" loading="lazy"><img src="img/churrasco-angus-prime-230-grs.webp" alt="Churrasco Angus Prime" loading="lazy"><img src="img/charcuteria-a-la-lena.webp" alt="Charcutería a la Leña" loading="lazy"><img src="img/tabla-fuego-lento.webp" alt="Tabla Fuego Lento" loading="lazy"></div></div><button class="nv l" id="pp" type="button" aria-label="Plato anterior"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><polyline points="15 5 8 12 15 19" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></button><button class="nv r" id="pn" type="button" aria-label="Plato siguiente"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><polyline points="9 5 16 12 9 19" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></button></div>
+    <div>
+      <div class="tag" id="ptag" aria-live="polite"></div>
+      <div class="zl"><a class="btn k" href="#pedir">Ver platos</a></div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="wrap sec" id="pedir">
+  <div class="cols2" style="align-items:center">
+    <div><h2 style="font-size:clamp(46px,7vw,100px)">Tu pedido, como un recibo.</h2><p style="max-width:42ch">Sin pedido mínimo. Eliges, revisas y lo envías por WhatsApp. El equipo confirma disponibilidad, entrega y pago.</p><p style="max-width:42ch"><b>Recoger</b> en Calle 1ra esquina C, Vedado, sin costo de envío. <b>Domicilio:</b> se confirma por WhatsApp.</p><a class="btn" href="https://wa.me/5358465895?text=Hola%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Enviar por WhatsApp</a></div>
+    <div class="receipt"><h3>FUEGO LENTO</h3><div class="l"><b>1</b><span>ELIGE tus productos</span></div><div class="l"><b>2</b><span>REVISA cantidades, opciones e importes</span></div><div class="l"><b>3</b><span>ENVÍA por WhatsApp</span></div><div style="border-top:2px dashed var(--ink);margin-top:10px;padding-top:10px;font-size:12px">Las piezas por kg se cobran según el peso real. Abrir WhatsApp no confirma el pedido.</div></div>
+  </div>
+</section>
+
+<section class="wrap sec" id="faq" style="padding-top:0;max-width:900px">
+  <h2 style="font-size:clamp(46px,7vw,100px);margin-bottom:18px">Antes de pedir.</h2>
+  <details><summary>¿Qué diferencia hay entre platos preparados y carnes para cocinar?</summary><p>Los platos preparados son los de la carta y van en CUP. Las carnes para cocinar son crudas, van en USD y se preparan en casa.</p></details>
+  <details><summary>¿Cómo se confirma mi pedido?</summary><p>La web prepara un resumen y abre WhatsApp para que lo envíes. El equipo confirma disponibilidad, entrega y pago por ese chat.</p></details>
+  <details><summary>¿Puedo pedir platos y carnes en el mismo pedido?</summary><p>Sí. Verás un subtotal para cada tipo, en su propia moneda.</p></details>
+  <details><summary>¿Cómo se cobran las piezas por peso?</summary><p>Según el peso real de la pieza; el importe del pedido es una estimación hasta pesarla.</p></details>
+  <details><summary>¿Cómo se paga?</summary><p>El método de pago se coordina por WhatsApp al confirmar tu pedido.</p></details>
+</section>
+</main>
+
+<footer><div class="wrap"><div><h3>FUEGO LENTO STEAKHOUSE</h3><p>Calle 1ra esquina C, Vedado, La Habana</p></div><div><h4>Horario</h4><p>Todos los días<br>12:30 a 19:00</p></div><div><h4>Síguenos</h4><p><a href="https://www.instagram.com/fuegolento_steakhouse" target="_blank" rel="noopener">@fuegolento_steakhouse</a></p></div></div></footer>
+
+<script>
+var Z=[["Ribeye lip-on CHOICE","Porción de 300 g, con el borde de grasa.","15,39 USD"],["Filete de lomo","Porción individual de 8 oz.","5,96 USD"],["Lomo de tira Certified Angus","Porción de 300 g.","12,18 USD"],["Churrasco de vacío Angus","Porción de 300 g.","12,47 USD"]];
+var zs=document.querySelectorAll('.z'),bs=document.querySelectorAll('.zl button'),tag=document.getElementById('tag');
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches,tt=null;
+function pick(i){zs.forEach(function(z){z.classList.toggle('on',z.dataset.z==i)});bs.forEach(function(b){b.classList.toggle('on',b.dataset.z==i)});
+ var h='<h3>'+Z[i][0]+'</h3><p>'+Z[i][1]+'</p><span class="pr">'+Z[i][2]+'</span>';
+ tag.innerHTML=h;if(!RM){tag.classList.remove('sw');void tag.offsetWidth;tag.classList.add('sw')}}
+zs.forEach(function(z){z.addEventListener('click',function(){pick(z.dataset.z)});z.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(z.dataset.z)}})});
+bs.forEach(function(b){b.addEventListener('click',function(){pick(b.dataset.z)})});
+pick(0);
+
+(function(){var D=[["Empanada Angus Trufada","5 500 CUP"],["Ceviche Escarlata","4 600 CUP"],["Tataki de Res","9 300 CUP"],["Gambones","14 200 CUP"],["Cordero Fuego Lento","9 500 CUP"],["Hamburguesa Fuego Lento","11 800 CUP"],["Churrasco Angus Prime","20 350 CUP"],["Charcutería a la Leña","10 500 CUP"],["Tabla Fuego Lento","24 100 CUP"]],vp=document.getElementById('pvp'),tg=document.getElementById('ptag'),i=0,r=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var n=D.length,trk=document.getElementById('trk'),w=vp.parentNode,pos=1,busy=false,first=true,fin=null,ft=null;
+ var a=trk.firstElementChild.cloneNode(true),b=trk.lastElementChild.cloneNode(true);
+ [a,b].forEach(function(c){c.alt='';c.setAttribute('aria-hidden','true')});
+ trk.insertBefore(b,trk.firstChild);trk.appendChild(a);
+ function place(anim){trk.style.transition=anim?'':'none';trk.style.transform='translateX('+(-pos*100)+'%)'}
+ var cur=-1,st=null;function show(k){if(k===cur)return;cur=k;tg.innerHTML='<h3>'+D[k][0]+'</h3><span class="pr">'+D[k][1]+'</span>';if(!r&&!first){tg.classList.remove('sw');void tg.offsetWidth;tg.classList.add('sw')}first=false}
+ function settle(){if(!busy)return;clearTimeout(ft);if(pos===0)pos=n;if(pos===n+1)pos=1;place(false);void trk.offsetWidth;busy=false;clearTimeout(st);show(((pos-1)%n+n)%n)}
+ function move(d){if(busy)return;busy=true;pos+=d;place(!r);var k=((pos-1)%n+n)%n;if(r){show(k);settle()}else{clearTimeout(st);st=setTimeout(function(){show(k)},400);ft=setTimeout(settle,950)}}
+ trk.addEventListener('transitionend',function(e){if(e.target===trk)settle()});
+ place(false);
+ var x0=null;vp.addEventListener('pointerdown',function(e){x0=e.clientX});
+ vp.addEventListener('pointerup',function(e){if(x0===null)return;var dx=e.clientX-x0;x0=null;if(Math.abs(dx)>40)move(dx<0?1:-1)});
+ vp.addEventListener('pointercancel',function(){x0=null});
+ document.getElementById('pp').onclick=function(){move(-1)};document.getElementById('pn').onclick=function(){move(1)};
+ var hold=false;function tick(){if(!hold)move(1)}
+ if(!r){setInterval(tick,5000);['mouseenter','touchstart'].forEach(function(e){w.addEventListener(e,function(){hold=true})});['mouseleave','touchend','touchcancel'].forEach(function(e){w.addEventListener(e,function(){hold=false})});w.addEventListener('focusin',function(e){if(e.target.matches(':focus-visible'))hold=true});w.addEventListener('focusout',function(){hold=false});document.addEventListener('visibilitychange',function(){hold=document.hidden})}
+ vp.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();move(1)}if(e.key==='ArrowLeft'){e.preventDefault();move(-1)}});
+ show(0)})();
+</script>
+<script>window.FL_DATA={"cats":[{"id":"entrantes","n":"Entrantes"},{"id":"pastas","n":"Pastas"},{"id":"principales","n":"Principales"},{"id":"sartenes","n":"Sartenes"},{"id":"carnes-parrilla","n":"Carnes Parrilla"},{"id":"postre","n":"Postre"}],"menu":[{"i":"aguachile-de-mariscos","n":"Aguachile de Mariscos","d":"Preparación fresca de mariscos marinados, ideal para comenzar la experiencia.","p":6100,"c":"entrantes","im":"aguachile-de-mariscos","pn":"","og":[]},{"i":"tartaleta-de-tartar","n":"Tartaleta de Tartar","d":"Solomillo angus macerado con tomate deshidratado, especias, alcaparras, extra virgen, yema curada y mayonesa trufada.","p":6100,"c":"entrantes","im":"tartaleta-de-tartar","pn":"","og":[]},{"i":"carpaccio-de-res-artesanal","n":"Carpaccio de Res Artesanal","d":"Láminas de angus, pepino escabechado, olivos negros, tomate deshidratado, sal de apio y aire de limón.","p":7500,"c":"entrantes","im":"carpaccio-de-res-artesanal","pn":"","og":[]},{"i":"ramen-steak","n":"Ramen Steak","d":"Fondo de res, gyozas de carne, huevo duro, hongos, vegetales y solomillo angus.","p":5400,"c":"entrantes","im":"ramen-steak","pn":"","og":[]},{"i":"ensalada-smoke","n":"Ensalada Smoke","d":"Selección de vegetales, maíz dulce, champiñones, cebolla curtida, solomillo angus y mayonesa ahumada de cilantro.","p":5300,"c":"entrantes","im":"ensalada-smoke","pn":"","og":[]},{"i":"charcuteria-a-la-lena","n":"Charcutería a la Leña","d":"Chorizo argentino, chorizo parrillero, morcilla, salchicha parrillera y salsa bbq, acompañado con pan.","p":10500,"c":"entrantes","im":"charcuteria-a-la-lena","pn":"","og":[]},{"i":"croquetas-de-la-casa","n":"Croquetas de la Casa","d":"Bechamel enriquecida con hebras de res y espinacas salteadas.","p":2000,"c":"entrantes","im":"croquetas-de-la-casa","pn":"","og":[]},{"i":"pulpo-a-las-brasas-y-romesco","n":"Pulpo a las Brasas y Romesco","d":"Pulpo cocinado a las brasas acompañado de salsa romesco tradicional.","p":5700,"c":"entrantes","im":"pulpo-a-las-brasas-y-romesco","pn":"","og":[]},{"i":"tabla-fuego-lento","n":"Tabla Fuego Lento","d":"Selección de cortes angus, costilla de cerdo, chorizo argentino, morcilla y pan.","p":24100,"c":"entrantes","im":"tabla-fuego-lento","pn":"","og":[]},{"i":"provolone-ahumado-a-la-plancha","n":"Provolone Ahumado a la Plancha","d":"Medallón de provolone a la plancha acompañado de tostadas de baguette.","p":5600,"c":"entrantes","im":"provolone-ahumado-a-la-plancha","pn":"","og":[]},{"i":"tabla-de-jamones-y-queso","n":"Tabla de Jamones y Queso","d":"Selección de jamones ibéricos, quesos de la casa y tomaca.","p":9800,"c":"entrantes","im":"tabla-de-jamones-y-queso","pn":"","og":[]},{"i":"tabla-de-quesos","n":"Tabla de Quesos","d":"Mixtos de quesos condimentados y extra virgen de oliva.","p":5800,"c":"entrantes","im":"tabla-de-quesos","pn":"","og":[]},{"i":"tataki-de-res","n":"Tataki de Res","d":"Corte tataki de angus, col kimchi, jengibre confitado, wasabi y ponzu del chef.","p":9300,"c":"entrantes","im":"tataki-de-res","pn":"","og":[]},{"i":"jamon-iberico","n":"Jamón Ibérico","d":"Jamón ibérico seleccionado, ideal para abrir el apetito o compartir al centro.","p":9500,"c":"entrantes","im":"","pn":"","og":[]},{"i":"empanada-angus-trufada","n":"Empanada Angus Trufada","d":"Empanada crujiente rellena de carne angus con toque aromático trufado.","p":5500,"c":"entrantes","im":"empanada-angus-trufada","pn":"","og":[]},{"i":"ceviche-escarlata","n":"Ceviche Escarlata","d":"Entrada marina marinada, fresca y llena de sabor equilibrado.","p":4600,"c":"entrantes","im":"ceviche-escarlata","pn":"","og":[]},{"i":"raviolis-de-res-y-pomodoro-asada","n":"Raviolis de Res y Pomodoro Asada","d":"Pasta rellena de angus, aceitunas negras, cebolla y apio, acompañado de salsa roja de la casa, pesto y queso cabra curada.","p":5800,"c":"pastas","im":"raviolis-de-res-y-pomodoro-asada","pn":"","og":[]},{"i":"pasta-con-res-y-hongos","n":"Pasta con Res y Hongos","d":"Pasta larga salteada con solomillo angus, tomate deshidratado, ajo, hongos, extra virgen de oliva y queso cabra curada.","p":9200,"c":"pastas","im":"pasta-con-res-y-hongos","pn":"","og":[]},{"i":"raggu-y-pasta-corta","n":"Raggú y Pasta Corta","d":"Salsa raggú tradicional y queso parmesano.","p":4200,"c":"pastas","im":"","pn":"","og":[]},{"i":"tagliatelle-y-costillas-guisadas","n":"Tagliatelle y Costillas Guisadas","d":"Pasta tagliatelle servida con sabrosas costillas guisadas en su jugo.","p":15900,"c":"pastas","im":"tagliatelle-y-costillas-guisadas","pn":"","og":[]},{"i":"cesta-de-pan","n":"Cesta de pan","d":"","p":3600,"c":"principales","im":"","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"confitado-de-res","n":"Confitado de Res","d":"Dados de angus a baja temperatura, plátano maduro frito y mojo cimarrón.","p":15800,"c":"principales","im":"confitado-de-res","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"costilla-de-cerdo-asadas-y-salsa-cajun","n":"Costilla de Cerdo Asadas y Salsa Cajún","d":"Costilla de cerdo al carbón y salsa especiada.","p":11800,"c":"principales","im":"costilla-de-cerdo-asadas-y-salsa-cajun","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"cordero-fuego-lento","n":"Cordero Fuego Lento","d":"Cordero confitado con olivas, maíz dulce y tomillo.","p":9500,"c":"principales","im":"cordero-fuego-lento","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"langosta-torno-bacon","n":"Langosta Torno Bacon","d":"Rolos de langosta albardados con bacon y salsa mediterránea blanca.","p":8200,"c":"principales","im":"langosta-torno-bacon","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"filete-blanco-grille-y-crema-de-elotes","n":"Filete Blanco Grille y Crema de Elotes","d":"Filete de pescado blanco a la grilla acompañado de cremosa salsa de elote.","p":6200,"c":"principales","im":"","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"filetillo-de-res","n":"Filetillo de Res","d":"Fajas de solomillo salteadas con boniato frito y salsa.","p":11500,"c":"principales","im":"filetillo-de-res","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"ocaso-thai-pollo-al-curry-del-chef","n":"Ocaso Thai (Pollo al Curry del Chef)","d":"Especialidad de la casa elaborada con tiernos trozos de pollo en salsa curry.","p":5100,"c":"principales","im":"ocaso-thai-pollo-al-curry-del-chef","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"florentina-de-la-casa","n":"Florentina de la Casa","d":"Tournedo de pollo relleno de espinaca y queso cheddar.","p":6900,"c":"principales","im":"","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"montura-de-cerdo","n":"Montura de Cerdo","d":"Cortes de lomo de cerdo a la brasa con salsa trufada.","p":5900,"c":"principales","im":"","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"gambones","n":"Gambones","d":"Gambones salteados con salsa Fuego Lento y un lecho de tomates asados.","p":14200,"c":"principales","im":"gambones","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"marea-roja","n":"Marea Roja","d":"Churrasco Angus Prime y gambones flameados.","p":26800,"c":"principales","im":"marea-roja","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"hamburguesa-fuego-lento-230-grs","n":"Hamburguesa Fuego Lento (230 g)","d":"Molida de angus, piña asada, pepinillos, cebolla curtida, bacon, queso de cabra ahumado, pan de hamburguesas y papas fritas.","p":11800,"c":"principales","im":"hamburguesa-fuego-lento-230-grs","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"hogaza-para-mar","n":"Hogaza para Mar","d":"Pan hogaza rústica relleno de gambones salteados al ajo y perejil, con crema blanca y emmental.","p":20200,"c":"principales","im":"","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"pesca-a-la-brasa","n":"Pesca a la brasa","d":"pesca entera al carbón y mantequilla saborizada","p":6900,"c":"principales","im":"","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"risotto-de-res-y-berenjena-escabechada","n":"Risotto de Res y Berenjena Escabechada","d":"Arroz cremoso tipo risotto preparado en sartén con hebras de res y berenjena escabechada.","p":9100,"c":"sartenes","im":"risotto-de-res-y-berenjena-escabechada","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"arroz-meloso-de-mariscos-y-curry-verde","n":"Arroz Meloso de Mariscos y Curry Verde","d":"Arroz de textura melosa cocinado en sartén con mariscos variados y curry verde.","p":7800,"c":"sartenes","im":"","pn":"","og":[{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"brocheta-de-res","n":"Brocheta de Res","d":"Brocheta de carne de res a la parrilla, sabrosa y jugosa.","p":14200,"c":"carnes-parrilla","im":"brocheta-de-res","pn":"","og":[{"id":"termino-de-coccion","n":"Término de cocción","k":"cooking","r":true,"mx":1,"h":"Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).","o":[["poco-hecho","Poco hecho",0,0],["medio","Medio",0,0],["tres-cuartos","Tres cuartos",0,0],["bien-hecho","Bien hecho",0,0]]},{"id":"salsas-a-elegir","n":"Salsas a Elegir","k":"sauce","r":true,"mx":1,"h":"","o":[["chimichurri","Chimichurri",0,1],["barbecue-de-la-casa","Barbecue de la Casa",0,1],["salsa-fuego-lento","Salsa Fuego Lento",0,1],["refrito-de-ajo-y-tomate-deshidratado","Refrito de Ajo y Tomate Deshidratado",0,1],["pico-de-gallo","Pico de Gallo",0,1]]},{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"filetillo-angus-con-esencia-de-ajo-y-miel-250-grs","n":"Filetillo Angus con Esencia de Ajo y Miel (250 g)","d":"Corte de filetillo angus preparado a la parrilla con sutil toque de ajo y miel.","p":16400,"c":"carnes-parrilla","im":"filetillo-angus-con-esencia-de-ajo-y-miel-250-grs","pn":"","og":[{"id":"termino-de-coccion","n":"Término de cocción","k":"cooking","r":true,"mx":1,"h":"Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).","o":[["poco-hecho","Poco hecho",0,0],["medio","Medio",0,0],["tres-cuartos","Tres cuartos",0,0],["bien-hecho","Bien hecho",0,0]]},{"id":"salsas-a-elegir","n":"Salsas a Elegir","k":"sauce","r":true,"mx":1,"h":"","o":[["chimichurri","Chimichurri",0,1],["barbecue-de-la-casa","Barbecue de la Casa",0,1],["salsa-fuego-lento","Salsa Fuego Lento",0,1],["refrito-de-ajo-y-tomate-deshidratado","Refrito de Ajo y Tomate Deshidratado",0,1],["pico-de-gallo","Pico de Gallo",0,1]]},{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"ribeye-angus-prime-350-grs","n":"Ribeye Angus Prime (350 g)","d":"Corte ribeye angus prime asado a la parrilla en porción individual.","p":26850,"c":"carnes-parrilla","im":"","pn":"","og":[{"id":"termino-de-coccion","n":"Término de cocción","k":"cooking","r":true,"mx":1,"h":"Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).","o":[["poco-hecho","Poco hecho",0,0],["medio","Medio",0,0],["tres-cuartos","Tres cuartos",0,0],["bien-hecho","Bien hecho",0,0]]},{"id":"salsas-a-elegir","n":"Salsas a Elegir","k":"sauce","r":true,"mx":1,"h":"","o":[["chimichurri","Chimichurri",0,1],["barbecue-de-la-casa","Barbecue de la Casa",0,1],["salsa-fuego-lento","Salsa Fuego Lento",0,1],["refrito-de-ajo-y-tomate-deshidratado","Refrito de Ajo y Tomate Deshidratado",0,1],["pico-de-gallo","Pico de Gallo",0,1]]},{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"ribeye-angus-prime-700-grs","n":"Ribeye Angus Prime (700 g)","d":"Corte ribeye angus prime asado a la parrilla en formato grande para compartir.","p":51500,"c":"carnes-parrilla","im":"","pn":"","og":[{"id":"termino-de-coccion","n":"Término de cocción","k":"cooking","r":true,"mx":1,"h":"Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).","o":[["poco-hecho","Poco hecho",0,0],["medio","Medio",0,0],["tres-cuartos","Tres cuartos",0,0],["bien-hecho","Bien hecho",0,0]]},{"id":"salsas-a-elegir","n":"Salsas a Elegir","k":"sauce","r":true,"mx":1,"h":"","o":[["chimichurri","Chimichurri",0,1],["barbecue-de-la-casa","Barbecue de la Casa",0,1],["salsa-fuego-lento","Salsa Fuego Lento",0,1],["refrito-de-ajo-y-tomate-deshidratado","Refrito de Ajo y Tomate Deshidratado",0,1],["pico-de-gallo","Pico de Gallo",0,1]]},{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"picana-angus-prime-230-grs","n":"Picaña Angus Prime (230 g)","d":"Corte de picaña angus prime asado a la parrilla en porción de 230 gramos.","p":15950,"c":"carnes-parrilla","im":"picana-angus-prime-230-grs","pn":"","og":[{"id":"termino-de-coccion","n":"Término de cocción","k":"cooking","r":true,"mx":1,"h":"Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).","o":[["poco-hecho","Poco hecho",0,0],["medio","Medio",0,0],["tres-cuartos","Tres cuartos",0,0],["bien-hecho","Bien hecho",0,0]]},{"id":"salsas-a-elegir","n":"Salsas a Elegir","k":"sauce","r":true,"mx":1,"h":"","o":[["chimichurri","Chimichurri",0,1],["barbecue-de-la-casa","Barbecue de la Casa",0,1],["salsa-fuego-lento","Salsa Fuego Lento",0,1],["refrito-de-ajo-y-tomate-deshidratado","Refrito de Ajo y Tomate Deshidratado",0,1],["pico-de-gallo","Pico de Gallo",0,1]]},{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"picana-angus-prime-460-grs","n":"Picaña Angus Prime (460 g)","d":"Corte de picaña angus prime asado a la parrilla en porción de 460 gramos.","p":27600,"c":"carnes-parrilla","im":"picana-angus-prime-460-grs","pn":"","og":[{"id":"termino-de-coccion","n":"Término de cocción","k":"cooking","r":true,"mx":1,"h":"Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).","o":[["poco-hecho","Poco hecho",0,0],["medio","Medio",0,0],["tres-cuartos","Tres cuartos",0,0],["bien-hecho","Bien hecho",0,0]]},{"id":"salsas-a-elegir","n":"Salsas a Elegir","k":"sauce","r":true,"mx":1,"h":"","o":[["chimichurri","Chimichurri",0,1],["barbecue-de-la-casa","Barbecue de la Casa",0,1],["salsa-fuego-lento","Salsa Fuego Lento",0,1],["refrito-de-ajo-y-tomate-deshidratado","Refrito de Ajo y Tomate Deshidratado",0,1],["pico-de-gallo","Pico de Gallo",0,1]]},{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"picana-angus-prime-300-grs","n":"Picaña Angus Prime (300 g)","d":"Corte de picaña angus prime asado a la parrilla en porción de 300 gramos.","p":19800,"c":"carnes-parrilla","im":"picana-angus-prime-300-grs","pn":"","og":[{"id":"termino-de-coccion","n":"Término de cocción","k":"cooking","r":true,"mx":1,"h":"Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).","o":[["poco-hecho","Poco hecho",0,0],["medio","Medio",0,0],["tres-cuartos","Tres cuartos",0,0],["bien-hecho","Bien hecho",0,0]]},{"id":"salsas-a-elegir","n":"Salsas a Elegir","k":"sauce","r":true,"mx":1,"h":"","o":[["chimichurri","Chimichurri",0,1],["barbecue-de-la-casa","Barbecue de la Casa",0,1],["salsa-fuego-lento","Salsa Fuego Lento",0,1],["refrito-de-ajo-y-tomate-deshidratado","Refrito de Ajo y Tomate Deshidratado",0,1],["pico-de-gallo","Pico de Gallo",0,1]]},{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"picana-angus-prime-600-grs","n":"Picaña Angus Prime (600 g)","d":"Corte de picaña angus prime asado a la parrilla en porción de 600 gramos.","p":37500,"c":"carnes-parrilla","im":"picana-angus-prime-600-grs","pn":"","og":[{"id":"termino-de-coccion","n":"Término de cocción","k":"cooking","r":true,"mx":1,"h":"Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).","o":[["poco-hecho","Poco hecho",0,0],["medio","Medio",0,0],["tres-cuartos","Tres cuartos",0,0],["bien-hecho","Bien hecho",0,0]]},{"id":"salsas-a-elegir","n":"Salsas a Elegir","k":"sauce","r":true,"mx":1,"h":"","o":[["chimichurri","Chimichurri",0,1],["barbecue-de-la-casa","Barbecue de la Casa",0,1],["salsa-fuego-lento","Salsa Fuego Lento",0,1],["refrito-de-ajo-y-tomate-deshidratado","Refrito de Ajo y Tomate Deshidratado",0,1],["pico-de-gallo","Pico de Gallo",0,1]]},{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"churrasco-angus-prime-230-grs","n":"Churrasco Angus Prime (230 g)","d":"Churrasco de res angus prime a la parrilla en porción de 230 gramos.","p":20350,"c":"carnes-parrilla","im":"churrasco-angus-prime-230-grs","pn":"","og":[{"id":"termino-de-coccion","n":"Término de cocción","k":"cooking","r":true,"mx":1,"h":"Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).","o":[["poco-hecho","Poco hecho",0,0],["medio","Medio",0,0],["tres-cuartos","Tres cuartos",0,0],["bien-hecho","Bien hecho",0,0]]},{"id":"salsas-a-elegir","n":"Salsas a Elegir","k":"sauce","r":true,"mx":1,"h":"","o":[["chimichurri","Chimichurri",0,1],["barbecue-de-la-casa","Barbecue de la Casa",0,1],["salsa-fuego-lento","Salsa Fuego Lento",0,1],["refrito-de-ajo-y-tomate-deshidratado","Refrito de Ajo y Tomate Deshidratado",0,1],["pico-de-gallo","Pico de Gallo",0,1]]},{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"churrasco-angus-prime-460-grs","n":"Churrasco Angus Prime (460 g)","d":"Churrasco de res angus prime a la parrilla en porción de 460 gramos.","p":34800,"c":"carnes-parrilla","im":"churrasco-angus-prime-460-grs","pn":"","og":[{"id":"termino-de-coccion","n":"Término de cocción","k":"cooking","r":true,"mx":1,"h":"Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).","o":[["poco-hecho","Poco hecho",0,0],["medio","Medio",0,0],["tres-cuartos","Tres cuartos",0,0],["bien-hecho","Bien hecho",0,0]]},{"id":"salsas-a-elegir","n":"Salsas a Elegir","k":"sauce","r":true,"mx":1,"h":"","o":[["chimichurri","Chimichurri",0,1],["barbecue-de-la-casa","Barbecue de la Casa",0,1],["salsa-fuego-lento","Salsa Fuego Lento",0,1],["refrito-de-ajo-y-tomate-deshidratado","Refrito de Ajo y Tomate Deshidratado",0,1],["pico-de-gallo","Pico de Gallo",0,1]]},{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"new-york-steak-angus-prime-350-grs","n":"New York Steak Angus Prime (350 g)","d":"Corte clásico new york steak de res angus prime asado a la parrilla.","p":24900,"c":"carnes-parrilla","im":"new-york-steak-angus-prime-350-grs","pn":"","og":[{"id":"termino-de-coccion","n":"Término de cocción","k":"cooking","r":true,"mx":1,"h":"Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).","o":[["poco-hecho","Poco hecho",0,0],["medio","Medio",0,0],["tres-cuartos","Tres cuartos",0,0],["bien-hecho","Bien hecho",0,0]]},{"id":"salsas-a-elegir","n":"Salsas a Elegir","k":"sauce","r":true,"mx":1,"h":"","o":[["chimichurri","Chimichurri",0,1],["barbecue-de-la-casa","Barbecue de la Casa",0,1],["salsa-fuego-lento","Salsa Fuego Lento",0,1],["refrito-de-ajo-y-tomate-deshidratado","Refrito de Ajo y Tomate Deshidratado",0,1],["pico-de-gallo","Pico de Gallo",0,1]]},{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"costilla-de-res-angus-prime-500-grs","n":"Costilla de Res Angus Prime (500 g)","d":"Costilla de res angus prime asada a fuego de parrilla.","p":22650,"c":"carnes-parrilla","im":"","pn":"","og":[{"id":"termino-de-coccion","n":"Término de cocción","k":"cooking","r":true,"mx":1,"h":"Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).","o":[["poco-hecho","Poco hecho",0,0],["medio","Medio",0,0],["tres-cuartos","Tres cuartos",0,0],["bien-hecho","Bien hecho",0,0]]},{"id":"salsas-a-elegir","n":"Salsas a Elegir","k":"sauce","r":true,"mx":1,"h":"","o":[["chimichurri","Chimichurri",0,1],["barbecue-de-la-casa","Barbecue de la Casa",0,1],["salsa-fuego-lento","Salsa Fuego Lento",0,1],["refrito-de-ajo-y-tomate-deshidratado","Refrito de Ajo y Tomate Deshidratado",0,1],["pico-de-gallo","Pico de Gallo",0,1]]},{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"t-bone-angus-prime-400-grs","n":"T-Bone Angus Prime (400 g)","d":"Corte t-bone de res angus prime asado a la parrilla.","p":29400,"c":"carnes-parrilla","im":"t-bone-angus-prime-400-grs","pn":"","og":[{"id":"termino-de-coccion","n":"Término de cocción","k":"cooking","r":true,"mx":1,"h":"Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).","o":[["poco-hecho","Poco hecho",0,0],["medio","Medio",0,0],["tres-cuartos","Tres cuartos",0,0],["bien-hecho","Bien hecho",0,0]]},{"id":"salsas-a-elegir","n":"Salsas a Elegir","k":"sauce","r":true,"mx":1,"h":"","o":[["chimichurri","Chimichurri",0,1],["barbecue-de-la-casa","Barbecue de la Casa",0,1],["salsa-fuego-lento","Salsa Fuego Lento",0,1],["refrito-de-ajo-y-tomate-deshidratado","Refrito de Ajo y Tomate Deshidratado",0,1],["pico-de-gallo","Pico de Gallo",0,1]]},{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"tomahawk-angus-choice","n":"Tomahawk Angus Choice","d":"Corte tomahawk angus choice cobrado por peso (precio por kg).","p":56000,"c":"carnes-parrilla","im":"","pn":"por kg · se cobra según el peso real","og":[{"id":"termino-de-coccion","n":"Término de cocción","k":"cooking","r":true,"mx":1,"h":"Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).","o":[["poco-hecho","Poco hecho",0,0],["medio","Medio",0,0],["tres-cuartos","Tres cuartos",0,0],["bien-hecho","Bien hecho",0,0]]},{"id":"salsas-a-elegir","n":"Salsas a Elegir","k":"sauce","r":true,"mx":1,"h":"","o":[["chimichurri","Chimichurri",0,1],["barbecue-de-la-casa","Barbecue de la Casa",0,1],["salsa-fuego-lento","Salsa Fuego Lento",0,1],["refrito-de-ajo-y-tomate-deshidratado","Refrito de Ajo y Tomate Deshidratado",0,1],["pico-de-gallo","Pico de Gallo",0,1]]},{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"tomahawk-angus-prime","n":"Tomahawk Angus Prime","d":"Corte tomahawk angus prime de calidad superior cobrado por peso (precio por kg).","p":65900,"c":"carnes-parrilla","im":"","pn":"por kg · se cobra según el peso real","og":[{"id":"termino-de-coccion","n":"Término de cocción","k":"cooking","r":true,"mx":1,"h":"Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).","o":[["poco-hecho","Poco hecho",0,0],["medio","Medio",0,0],["tres-cuartos","Tres cuartos",0,0],["bien-hecho","Bien hecho",0,0]]},{"id":"salsas-a-elegir","n":"Salsas a Elegir","k":"sauce","r":true,"mx":1,"h":"","o":[["chimichurri","Chimichurri",0,1],["barbecue-de-la-casa","Barbecue de la Casa",0,1],["salsa-fuego-lento","Salsa Fuego Lento",0,1],["refrito-de-ajo-y-tomate-deshidratado","Refrito de Ajo y Tomate Deshidratado",0,1],["pico-de-gallo","Pico de Gallo",0,1]]},{"id":"guarniciones","n":"Guarniciones","k":"extra","r":false,"mx":5,"h":"","o":[["pasta-de-ajo-y-mantequilla","Pasta de ajo y mantequilla",1100,0],["arroz-montero","Arroz Montero",2000,0],["pure-del-dia","Puré del día",990,0],["vegetales-grillados-y-salsa-de-yogurt","Vegetales grillados y salsa de yogurt",990,0],["papas-fritas-gratinadas","Papas fritas gratinadas",1700,0]]}]},{"i":"cream-brulee-y-frutos-confitados","n":"Cream Brûlée y Frutos Confitados","d":"Clásico postre de crema horneada con costra crujiente de caramelo y frutos confitados.","p":1600,"c":"postre","im":"cream-brulee-y-frutos-confitados","pn":"","og":[]},{"i":"locura-mi-amor","n":"Locura Mi Amor","d":"Flanquesillo, quenelle de vainilla, jalea de frutas y caramelo salado.","p":2500,"c":"postre","im":"locura-mi-amor","pn":"","og":[]},{"i":"oasis","n":"Oasis","d":"Biscocho de vainilla, boleado de coco, salsa de mango y tajín.","p":2000,"c":"postre","im":"oasis","pn":"","og":[]},{"i":"tarta-de-queso","n":"Tarta de Queso","d":"Postre cremoso de queso horneado al estilo tradicional.","p":2200,"c":"postre","im":"tarta-de-queso","pn":"","og":[]},{"i":"tarta-de-la-casa","n":"Tarta de la Casa","d":"Especialidad dulcera elaborada según la receta artesanal de la casa.","p":3000,"c":"postre","im":"tarta-de-la-casa","pn":"","og":[]}],"mc":[{"id":"steaks","n":"Steaks en porción","d":"Porciones individuales de 8 a 12 oz.","f":"Precio por pieza"},{"id":"cortes","n":"Cortes de la casa","d":"Ribeye, lip-on, vacío y lomo de tira, porcionados en Fuego Lento.","f":"Porciones de peso fijo y piezas por kg"},{"id":"embutidos","n":"Embutidos para la parrilla","d":"Morcilla, longaniza y cuerda de chorizo.","f":"Precio por paquete"},{"id":"combos","n":"Combos","d":"Parrilladas para 2 y para 4 personas, con su contenido detallado.","f":"Precio por combo"}],"meat":[{"i":"ribeye-boneless-choice","n":"Ribeye boneless CHOICE","d":"Ribeye deshuesado CHOICE, porción individual.","p":14.93,"c":"steaks","sz":"12 oz (≈ 340 g)","pn":"","af":"","og":[],"inc":null,"reg":null,"serves":null},{"i":"chuleton-deshuesado-choice","n":"Chuletón deshuesado CHOICE","d":"Chuletón deshuesado CHOICE, porción individual.","p":12.37,"c":"steaks","sz":"10 oz (≈ 283 g)","pn":"","af":"","og":[],"inc":null,"reg":null,"serves":null},{"i":"filete-ribeye-roll","n":"Filete Ribeye Roll","d":"Filete de ribeye roll, porción individual.","p":9,"c":"steaks","sz":"10 oz (≈ 283 g)","pn":"","af":"","og":[],"inc":null,"reg":null,"serves":null},{"i":"filete-de-lomo","n":"Filete de lomo","d":"Filete de lomo, porción individual.","p":5.96,"c":"steaks","sz":"8 oz (≈ 227 g)","pn":"","af":"","og":[],"inc":null,"reg":null,"serves":null},{"i":"t-bone-choice","n":"T-bone CHOICE","d":"T-bone CHOICE, porción individual.","p":18.64,"c":"steaks","sz":"12 oz (≈ 340 g)","pn":"","af":"21/10","og":[],"inc":null,"reg":null,"serves":null},{"i":"solomillo-top-2-3","n":"Solomillo top 2/3","d":"Solomillo top 2/3, porción individual.","p":10.13,"c":"steaks","sz":"8 oz (≈ 227 g)","pn":"","af":"21/10","og":[],"inc":null,"reg":null,"serves":null},{"i":"ribeye-export","n":"Ribeye EXPORT","d":"Ribeye EXPORT porcionado en Fuego Lento, de 1 a 2 kg.","p":48.55,"c":"cortes","sz":"porción de 1 a 2 kg","pn":"por kg · se cobra según el peso real","af":"","og":[{"id":"peso","n":"Peso aproximado","k":"weight","r":true,"mx":1,"h":"Se cobra según el peso real de la pieza; el importe del pedido es una estimación.","o":[["1-kg","1 kg",0,0],["1.5-kg","1.5 kg",24.28,0],["2-kg","2 kg",48.55,0]]}],"inc":null,"reg":null,"serves":null},{"i":"ribeye-lip-on-choice","n":"Ribeye lip-on CHOICE","d":"Ribeye lip-on CHOICE, porción de 300 g.","p":15.39,"c":"cortes","sz":"porción 300 g","pn":"","af":"","og":[],"inc":null,"reg":null,"serves":null},{"i":"chuleton-lip-on-choice","n":"Chuletón lip-on CHOICE","d":"Chuletón lip-on CHOICE, porción de 300 g.","p":14.33,"c":"cortes","sz":"porción 300 g","pn":"","af":"","og":[],"inc":null,"reg":null,"serves":null},{"i":"churrasco-de-vacio-angus","n":"Churrasco de vacío Angus","d":"Churrasco de vacío Angus, porción de 300 g.","p":12.47,"c":"cortes","sz":"porción 300 g","pn":"","af":"","og":[],"inc":null,"reg":null,"serves":null},{"i":"lomo-de-tira-certified-angus","n":"Lomo de tira Certified Angus","d":"Lomo de tira Certified Angus, porción de 300 g.","p":12.18,"c":"cortes","sz":"porción 300 g","pn":"","af":"","og":[],"inc":null,"reg":null,"serves":null},{"i":"tapa-de-solomillo-certified-angus","n":"Tapa de solomillo Certified Angus","d":"Tapa de solomillo Certified Angus, pieza completa de unos 1.2 kg.","p":27.67,"c":"cortes","sz":"pieza completa","pn":"por kg · se cobra según el peso real","af":"","og":[{"id":"peso","n":"Peso aproximado","k":"weight","r":true,"mx":1,"h":"Se cobra según el peso real de la pieza; el importe del pedido es una estimación.","o":[["1.2-kg","Pieza completa (~1.2 kg)",5.53,0]]}],"inc":null,"reg":null,"serves":null},{"i":"morcilla","n":"Morcilla","d":"Morcilla para la parrilla, paquete de 2.5 lb.","p":19.8,"c":"embutidos","sz":"paquete 2.5 lb (≈ 1.13 kg)","pn":"","af":"","og":[],"inc":null,"reg":null,"serves":null},{"i":"longaniza-chorizo-argentino","n":"Longaniza chorizo argentino","d":"Longaniza de chorizo argentino, paquete de 2.5 lb.","p":19.56,"c":"embutidos","sz":"paquete 2.5 lb (≈ 1.13 kg)","pn":"","af":"","og":[],"inc":null,"reg":null,"serves":null},{"i":"cuerda-parrillera-de-chorizo","n":"Cuerda parrillera de chorizo","d":"Cuerda parrillera de chorizo, paquete de 2 lb.","p":15.83,"c":"embutidos","sz":"paquete 2 lb (≈ 907 g)","pn":"","af":"","og":[],"inc":null,"reg":null,"serves":null},{"i":"noche-de-ribeye","n":"Noche de Ribeye","d":"La cena clásica de steakhouse","p":27.99,"c":"combos","sz":"","pn":"","af":"","og":[],"inc":["2 ribeye boneless CHOICE de 12 oz"],"reg":29.87,"serves":2},{"i":"parrilla-criolla-para-dos","n":"Parrilla Criolla para Dos","d":"Sabor de parrillada en casa","p":38.99,"c":"combos","sz":"","pn":"","af":"","og":[],"inc":["2 churrascos de vacío de 300 g","1 cuerda parrillera de chorizo (2 lb)"],"reg":40.77,"serves":2},{"i":"dos-cortes-dos-gustos","n":"Dos Cortes, Dos Gustos","d":"Para quien quiere probar de todo","p":44.99,"c":"combos","sz":"","pn":"","af":"","og":[],"inc":["1 ribeye lip-on de 300 g","1 lomo de tira Angus de 300 g","1 paquete de longaniza argentina"],"reg":47.13,"serves":2},{"i":"experiencia-fuego-lento","n":"Experiencia Fuego Lento","d":"Un gran corte para compartir","p":64.99,"c":"combos","sz":"","pn":"pieza de peso variable · el peso indicado es aproximado","af":"","og":[],"inc":["1 ribeye EXPORT de 1 kg","1 paquete de morcilla"],"reg":68.34,"serves":2},{"i":"seleccion-premium","n":"Selección Premium","d":"Lo mejor del CHOICE","p":68.99,"c":"combos","sz":"","pn":"","af":"","og":[],"inc":["2 ribeye lip-on de 300 g","2 chuletones lip-on de 300 g","1 cuerda parrillera de chorizo"],"reg":75.26,"serves":4},{"i":"steak-night","n":"Steak Night","d":"Dos steaks por persona","p":69.99,"c":"combos","sz":"","pn":"","af":"","og":[],"inc":["4 filetes ribeye roll de 10 oz","4 filetes de lomo de 8 oz","1 cuerda parrillera de chorizo"],"reg":75.67,"serves":4},{"i":"parrillada-familiar","n":"Parrillada Familiar","d":"La parrillada completa","p":81.99,"c":"combos","sz":"","pn":"","af":"","og":[],"inc":["4 churrascos de vacío de 300 g","1 paquete de longaniza argentina","1 paquete de morcilla"],"reg":89.24,"serves":4},{"i":"gran-parrillada-fuego-lento","n":"Gran Parrillada Fuego Lento","d":"Para celebrar en grande","p":111.99,"c":"combos","sz":"","pn":"pieza de peso variable · el peso indicado es aproximado","af":"","og":[],"inc":["1 tapa de solomillo entera (~1.2 kg)","2 lomos de tira Angus de 300 g","2 chuletones de 10 oz","Longaniza y morcilla"],"reg":121.67,"serves":4}]};</script>
+<script>
+/* ===== Pedido: carta, carnes, opciones y "Mi pedido" (JavaScript sin librerías) ===== */
+(function () {
+  var D = window.FL_DATA, RATE = 450, PHONE = "5358465895", KEY = "fl-pedido-v1", NAME = "Fuego Lento Steakhouse";
+  var cart = [], method = "pickup", cust = { name: "", address: "", notes: "" }, opened = false;
+  try { var st = JSON.parse(localStorage.getItem(KEY) || "null"); if (st && st.cart) { cart = st.cart; method = st.method || "pickup"; cust = st.cust || cust; } } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify({ cart: cart, method: method, cust: cust })); } catch (e) {} }
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function grp(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, " "); }
+  function cup(n) { return grp(n) + " CUP"; }
+  function usd(n) { return n.toFixed(2).replace(".", ",") + " USD"; }
+  var ALL = D.menu.map(function (p) { p.line = "carta"; p.cur = "CUP"; return p; }).concat(D.meat.map(function (p) { p.line = "carnes"; p.cur = "USD"; return p; }));
+  function find(id) { return ALL.filter(function (p) { return p.i === id; })[0]; }
+  function priceHtml(p, v) {
+    v = v == null ? p.p : v;
+    return p.cur === "USD" ? usd(v) + "<small>≈ " + cup(v * RATE) + "</small>" : cup(v);
+  }
+
+  /* ---------- Carta ---------- */
+  var cat = "all";
+  function card(p) {
+    var opts = p.og.length > 0;
+    return '<article class="o-card">' + (p.im ? '<div class="im"><img src="img/' + p.im + '.webp" alt="' + esc(p.n) + '" loading="lazy"></div>' : "") +
+      '<div class="tx"><h3>' + esc(p.n) + "</h3>" + (p.d ? '<p class="d">' + esc(p.d) + "</p>" : "") +
+      (p.pn ? '<span class="o-pn">' + esc(p.pn) + "</span>" : "") +
+      '<div class="ft"><span class="o-pr">' + priceHtml(p) + '</span><button class="o-add" type="button" data-id="' + p.i + '" aria-label="' + (opts ? "Elegir opciones de " : "Añadir ") + esc(p.n) + '">' + (opts ? "Elegir" : "Añadir") + "</button></div></div></article>";
+  }
+  function renderMenu() {
+    var root = $("#o-menu"); if (!root) return;
+    var chips = [{ id: "all", n: "Todo" }].concat(D.cats);
+    var items = D.menu.filter(function (p) { return cat === "all" || p.c === cat; });
+    root.innerHTML = '<div class="o-chips" role="group" aria-label="Categorías de la carta">' + chips.map(function (c) {
+      return '<button class="o-chip" type="button" data-cat="' + c.id + '" aria-pressed="' + (c.id === cat) + '">' + esc(c.n) + "</button>";
+    }).join("") + '</div><div class="o-grid">' + items.map(card).join("") + "</div>";
+  }
+
+  /* ---------- Carnes ---------- */
+  var mcat = "steaks";
+  function renderMeat() {
+    var root = $("#o-meat"); if (!root) return;
+    var c = D.mc.filter(function (x) { return x.id === mcat; })[0];
+    var items = D.meat.filter(function (p) { return p.c === mcat; });
+    var body;
+    if (mcat === "combos") {
+      body = '<div class="o-combos">' + items.map(function (p) {
+        return '<article class="o-combo"><span class="for">Para ' + p.serves + " personas</span><h3>" + esc(p.n) + "</h3><p>" + esc(p.d) + "</p><ul>" +
+          (p.inc || []).map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>" +
+          (p.reg ? '<span class="sep">Las piezas por separado: ' + usd(p.reg) + "</span>" : "") +
+          '<div class="ft"><span class="o-pr">' + priceHtml(p) + '</span><button class="o-add" type="button" data-id="' + p.i + '" aria-label="Añadir ' + esc(p.n) + '">Añadir</button></div></article>';
+      }).join("") + "</div>";
+    } else {
+      body = items.map(function (p) {
+        var opts = p.og.length > 0;
+        var meta = [p.sz, p.pn, p.af ? "Disponible desde el " + p.af : ""].filter(Boolean).join(" · ");
+        return '<div class="o-row"><div><b>' + esc(p.n) + "</b>" + (meta ? "<small>" + esc(meta) + "</small>" : "") + '</div><span class="o-pr">' + priceHtml(p) + '</span><button class="o-add" type="button" data-id="' + p.i + '" aria-label="' + (opts ? "Elegir peso de " : "Añadir ") + esc(p.n) + '">' + (opts ? "Elegir" : "Añadir") + "</button></div>";
+      }).join("");
+    }
+    root.innerHTML = '<div class="o-chips" role="group" aria-label="Tipos de carne">' + D.mc.map(function (x) {
+      return '<button class="o-chip" type="button" data-mcat="' + x.id + '" aria-pressed="' + (x.id === mcat) + '">' + esc(x.n) + "</button>";
+    }).join("") + '</div><p class="o-cat-d">' + esc(c.d) + " " + esc(c.f) + ".</p>" + body;
+  }
+
+  /* ---------- Carrito ---------- */
+  var count = function () { return cart.reduce(function (a, l) { return a + l.qty; }, 0); };
+  function totals() {
+    var t = { cup: 0, usd: 0, weighted: false };
+    cart.forEach(function (l) { if (l.cur === "USD") t.usd += l.unit * l.qty; else t.cup += l.unit * l.qty; if (l.weighted) t.weighted = true; });
+    return t;
+  }
+  function addLine(p, details, unit, weighted) {
+    var key = p.i + "|" + details.join(";");
+    var ex = cart.filter(function (l) { return l.key === key; })[0];
+    if (ex) ex.qty++; else cart.push({ key: key, id: p.i, line: p.line, name: p.n, cur: p.cur, unit: unit, qty: 1, details: details, weighted: !!weighted });
+    afterChange(true); toast("Añadido: " + p.n);
+  }
+  function afterChange(bump) {
+    save();
+    var n = count();
+    $$(".o-count").forEach(function (e) { e.textContent = n; if (bump) { e.classList.add("pop"); setTimeout(function () { e.classList.remove("pop"); }, 220); } });
+    $$(".o-mi").forEach(function (b) { b.setAttribute("aria-label", "Abrir mi pedido, " + n + (n === 1 ? " producto" : " productos")); });
+    if ($("#o-lines")) renderLines();
+  }
+  var tt; function toast(m) { var t = $("#o-toast"); if (!t) return; t.textContent = m; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(function () { t.classList.remove("on"); }, 1600); }
+
+  /* ---------- Ventanas (diálogo y panel) ---------- */
+  var current = null;
+  function openModal(kind, html, onOpen) {
+    closeModal();
+    var ov = document.createElement("div"); ov.className = "o-ov " + kind;
+    ov.innerHTML = '<div class="o-panel" role="dialog" aria-modal="true">' + html + "</div>";
+    var returnTo = document.activeElement;
+    ov.addEventListener("mousedown", function (e) { if (e.target === ov) closeModal(); });
+    document.body.appendChild(ov); document.body.style.overflow = "hidden";
+    current = { ov: ov, returnTo: returnTo };
+    var panel = $(".o-panel", ov);
+    panel.setAttribute("aria-labelledby", "o-title");
+    ov.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { e.stopPropagation(); closeModal(); }
+      if (e.key === "Tab") {
+        var f = $$('button,[href],input,textarea,select,[tabindex]:not([tabindex="-1"])', panel).filter(function (x) { return !x.disabled && x.offsetParent !== null; });
+        if (!f.length) return; var a = f[0], z = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+      }
+    });
+    $(".o-x", ov).addEventListener("click", closeModal);
+    if (onOpen) onOpen(panel);
+    (reduce ? $(".o-x", ov) : $(".o-x", ov)).focus();
+    return panel;
+  }
+  function closeModal() {
+    if (!current) return;
+    var c = current; current = null;
+    c.ov.remove(); document.body.style.overflow = "";
+    if (c.returnTo && c.returnTo.focus && document.contains(c.returnTo)) c.returnTo.focus();
+  }
+
+  /* ---------- Opciones de un producto ---------- */
+  function openOptions(p) {
+    var html = '<div class="o-ph"><h2 id="o-title">' + esc(p.n) + '</h2><button class="o-x" type="button" aria-label="Cerrar">×</button></div><form class="o-pb" id="o-opts" novalidate>' +
+      (p.d ? '<p class="o-help" style="margin-bottom:14px">' + esc(p.d) + "</p>" : "") +
+      p.og.map(function (g) {
+        var single = g.mx === 1, type = single ? "radio" : "checkbox";
+        var help = g.h || (g.mx > 1 ? "Elige hasta " + g.mx + "." : "");
+        return '<fieldset class="o-fs" data-g="' + g.id + '"><legend>' + esc(g.n) + (g.r ? " · obligatorio" : " · opcional") + "</legend>" + (help ? '<p class="h">' + esc(help) + "</p>" : "") +
+          g.o.map(function (o) {
+            return '<label class="o-opt"><input type="' + type + '" name="' + g.id + '" value="' + o[0] + '"><span>' + esc(o[1]) + (o[3] ? "<small>Incluida</small>" : "") + "</span>" +
+              (o[2] ? "<em>+" + (p.cur === "USD" ? usd(o[2]) : cup(o[2])) + "</em>" : "") + "</label>";
+          }).join("") + '<p class="o-err" role="alert" hidden></p></fieldset>';
+      }).join("") + "</form>" +
+      '<div class="o-pf"><div class="o-total"><span>Total</span><span id="o-tot"></span></div><button class="o-prim" type="submit" form="o-opts" id="o-ok">Añadir al pedido</button></div>';
+    openModal("dlg", html, function (panel) {
+      var form = $("#o-opts", panel);
+      function sel() { var s = {}; p.og.forEach(function (g) { s[g.id] = $$("input:checked", $('[data-g="' + g.id + '"]', form)).map(function (x) { return x.value; }); }); return s; }
+      function unit(s) { var u = p.p; p.og.forEach(function (g) { g.o.forEach(function (o) { if (s[g.id].indexOf(o[0]) > -1) u += o[2]; }); }); return u; }
+      function upd() { $("#o-tot", panel).innerHTML = (p.cur === "USD" ? usd(unit(sel())) : cup(unit(sel()))); }
+      form.addEventListener("change", function (e) {
+        var fs = e.target.closest(".o-fs"), g = p.og.filter(function (x) { return x.id === fs.dataset.g; })[0];
+        if (g.mx > 1 && $$("input:checked", fs).length > g.mx) { e.target.checked = false; toast("Máximo " + g.mx + " opciones"); }
+        $(".o-err", fs).hidden = true; upd();
+      });
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); var s = sel(), bad = null;
+        p.og.forEach(function (g) {
+          var fs = $('[data-g="' + g.id + '"]', form), er = $(".o-err", fs);
+          if (g.r && s[g.id].length < 1) { er.textContent = "Elige una opción."; er.hidden = false; if (!bad) bad = fs; } else er.hidden = true;
+        });
+        if (bad) { $("input", bad).focus(); return; }
+        var details = [], weighted = false;
+        p.og.forEach(function (g) { var names = g.o.filter(function (o) { return s[g.id].indexOf(o[0]) > -1; }).map(function (o) { return o[1]; }); if (names.length) details.push(g.n + ": " + names.join(", ")); if (g.k === "weight" && names.length) weighted = true; });
+        addLine(p, details, unit(s), weighted || !!p.pn && /kg/.test(p.pn)); closeModal();
+      });
+      upd();
+    });
+  }
+
+  /* ---------- Mi pedido ---------- */
+  function lineHtml(l) {
+    var tot = l.unit * l.qty;
+    return '<div class="o-ln"><b>' + l.qty + " × " + esc(l.name) + '</b><span class="lt">' + (l.cur === "USD" ? usd(tot) : cup(tot)) + "</span>" +
+      (l.details.length ? '<span class="dt">' + l.details.map(esc).join("<br>") + "</span>" : "") +
+      '<div class="o-q" data-k="' + esc(l.key) + '"><button type="button" data-d="-1" aria-label="Quitar uno de ' + esc(l.name) + '">−</button><span aria-live="polite">' + l.qty + '</span><button type="button" data-d="1" aria-label="Añadir uno más de ' + esc(l.name) + '">+</button><button class="rm" type="button" data-d="0">Quitar</button></div></div>';
+  }
+  function renderLines() {
+    var box = $("#o-lines"); if (!box) return;
+    var carta = cart.filter(function (l) { return l.line === "carta"; }), carnes = cart.filter(function (l) { return l.line === "carnes"; });
+    var t = totals(), h = "";
+    if (carta.length) h += "<h4>Platos preparados</h4>" + carta.map(lineHtml).join("");
+    if (carnes.length) h += "<h4>Carnes para cocinar</h4>" + carnes.map(lineHtml).join("");
+    h += '<hr><div class="o-sums">' + (carta.length ? "<p><span>Platos preparados</span><span>" + cup(t.cup) + "</span></p>" : "") +
+      (carnes.length ? "<p><span>Carnes para cocinar</span><span>" + usd(t.usd) + "</span></p><small>≈ " + cup(t.usd * RATE) + ", aproximado</small>" : "") +
+      (t.weighted ? "<small>Las piezas por kg se cobran según su peso real.</small>" : "") +
+      "<small>" + (method === "delivery" ? "Envío: se confirma por WhatsApp" : "Recogida en el local: sin costo") + "</small></div>";
+    box.innerHTML = h;
+    var title = $("#o-title"); if (title && title.dataset.cart) title.textContent = "Mi pedido · " + count() + (count() === 1 ? " producto" : " productos");
+    if (!cart.length) openCart(true);
+  }
+  function message() {
+    var o = ["*NUEVO PEDIDO — " + NAME.toUpperCase() + "*", "", "*Cliente*", "Nombre: " + cust.name.trim(), "", "*Entrega*", method === "delivery" ? "Entrega a domicilio" : "Recoger en el local"];
+    if (method === "delivery" && cust.address.trim()) o.push("Dirección: " + cust.address.trim());
+    var blocks = [["Platos preparados", cart.filter(function (l) { return l.line === "carta"; })], ["Carnes para cocinar", cart.filter(function (l) { return l.line === "carnes"; })]].filter(function (b) { return b[1].length; });
+    var n = 0; o.push("", "*Pedido*");
+    blocks.forEach(function (b) {
+      if (blocks.length > 1) o.push("", "_" + b[0] + "_");
+      b[1].forEach(function (l) {
+        o.push("", ++n + ". " + l.qty + " × " + l.name); l.details.forEach(function (d) { o.push("   - " + d); });
+        var tot = l.unit * l.qty; o.push("   - Subtotal: " + (l.cur === "USD" ? usd(tot) + " (≈ " + cup(tot * RATE) + ")" : cup(tot)) + (l.weighted ? " (estimado, según peso real)" : ""));
+      });
+    });
+    var t = totals();
+    o.push("", "*Resumen*");
+    if (t.cup) o.push("Platos preparados: " + cup(t.cup));
+    if (t.usd) o.push("Carnes para cocinar: " + usd(t.usd) + " (≈ " + cup(t.usd * RATE) + ", aproximado)");
+    if (t.weighted) o.push("Las piezas por kg se cobran según su peso real.");
+    o.push(method === "delivery" ? "Envío: se confirma por WhatsApp" : "Recogida en el local: sin costo", "Pago: se coordina por WhatsApp");
+    if (cust.notes.trim()) o.push("", "*Observaciones generales*", cust.notes.trim());
+    o.push("", "Pedido enviado desde la web de " + NAME + ".", "Quedo a la espera de confirmación.");
+    return o.join("\n");
+  }
+  function openCart(refresh) {
+    if (!cart.length) {
+      var html = '<div class="o-ph"><h2 id="o-title">Mi pedido</h2><button class="o-x" type="button" aria-label="Cerrar">×</button></div><div class="o-pb"><div class="o-empty"><h3>Tu pedido está vacío</h3><p class="o-help">Elige platos preparados o carnes para cocinar y aparecerán aquí.</p><a class="o-prim" href="#listo" data-close>Ver platos preparados</a></div></div>';
+      var p = openModal("drawer", html); $$("[data-close]", p).forEach(function (a) { a.addEventListener("click", closeModal); }); return;
+    }
+    var html2 = '<div class="o-ph"><h2 id="o-title" data-cart="1">Mi pedido</h2><button class="o-x" type="button" aria-label="Cerrar">×</button></div>' +
+      '<div class="o-pb"><div class="o-ticket"><h3>' + NAME.split(" ").slice(0, 2).join(" ") + '</h3><p class="sub">Mi pedido</p><div id="o-lines"></div></div>' +
+      '<fieldset class="o-seg" style="border:0;padding:0;margin-bottom:0"><legend class="o-help" style="margin-bottom:6px">¿Cómo lo recibes?</legend><label><input type="radio" name="o-m" value="pickup"' + (method === "pickup" ? " checked" : "") + '>Recoger en el local</label><label><input type="radio" name="o-m" value="delivery"' + (method === "delivery" ? " checked" : "") + '>Entrega a domicilio</label></fieldset>' +
+      '<form class="o-form" id="o-form" novalidate><label>Tu nombre<input id="o-name" autocomplete="name" value="' + esc(cust.name) + '"><span class="o-err" role="alert" hidden></span></label>' +
+      '<label id="o-addr"' + (method === "delivery" ? "" : " hidden") + '>Dirección de entrega<input id="o-street" autocomplete="street-address" value="' + esc(cust.address) + '"><span class="o-err" role="alert" hidden></span></label>' +
+      '<label>Observaciones (opcional)<textarea id="o-notes" rows="2" maxlength="140">' + esc(cust.notes) + "</textarea></label></form></div>" +
+      '<div class="o-pf"><button class="o-prim" type="button" id="o-send">Enviar pedido por WhatsApp</button><p class="o-help" id="o-info">Se abrirá WhatsApp con el resumen. La disponibilidad, la entrega y el pago se confirman por WhatsApp.</p>' +
+      '<div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center"><button class="o-link" type="button" id="o-copy">Copiar resumen</button><span id="o-clr"><button class="o-link" type="button" id="o-clear">Vaciar pedido</button></span></div></div>';
+    var panel = openModal("drawer", html2, function (pn) {
+      renderLines();
+      $$('input[name="o-m"]', pn).forEach(function (r) { r.addEventListener("change", function () { method = r.value; save(); $("#o-addr", pn).hidden = method !== "delivery"; renderLines(); }); });
+      $("#o-name", pn).addEventListener("input", function (e) { cust.name = e.target.value; save(); });
+      $("#o-street", pn).addEventListener("input", function (e) { cust.address = e.target.value; save(); });
+      $("#o-notes", pn).addEventListener("input", function (e) { cust.notes = e.target.value; save(); });
+      pn.addEventListener("click", function (e) {
+        var b = e.target.closest(".o-q button"); if (!b) return;
+        var k = b.parentNode.dataset.k, l = cart.filter(function (x) { return x.key === k; })[0]; if (!l) return;
+        var d = +b.dataset.d; if (d === 0) l.qty = 0; else l.qty += d;
+        if (l.qty <= 0) cart.splice(cart.indexOf(l), 1);
+        afterChange(false);
+      });
+      $("#o-send", pn).addEventListener("click", function () {
+        var ok = true, ne = $("#o-name", pn).nextElementSibling, ae = $("#o-street", pn).nextElementSibling;
+        if (!cust.name.trim()) { ne.textContent = "Escribe tu nombre."; ne.hidden = false; ok = false; } else ne.hidden = true;
+        if (method === "delivery" && !cust.address.trim()) { ae.textContent = "Escribe tu dirección."; ae.hidden = false; ok = false; } else ae.hidden = true;
+        if (!ok) { $("#o-name", pn).focus(); if (cust.name.trim()) $("#o-street", pn).focus(); return; }
+        var url = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(message());
+        var w = window.open(url, "_blank"); if (w) w.opener = null; else location.assign(url);
+        opened = true; $("#o-send", pn).textContent = "Volver a abrir WhatsApp";
+        $("#o-info", pn).textContent = "Abrimos WhatsApp con tu pedido, pero todavía no está confirmado: el restaurante te responderá por ahí. Conservamos tu pedido por si necesitas volver.";
+      });
+      $("#o-copy", pn).addEventListener("click", function () {
+        var m = message();
+        (navigator.clipboard ? navigator.clipboard.writeText(m) : Promise.reject()).then(function () { toast("Resumen copiado"); }, function () { toast("No pudimos copiar el resumen"); });
+      });
+      $("#o-clear", pn).addEventListener("click", function () {
+        var box = $("#o-clr", pn);
+        box.innerHTML = '¿Vaciar el pedido? <button class="o-link" type="button" id="o-yes">Sí, vaciar</button><button class="o-link" type="button" id="o-no">Cancelar</button>';
+        $("#o-yes", pn).addEventListener("click", function () { cart = []; cust = { name: "", address: "", notes: "" }; opened = false; save(); afterChange(false); toast("Pedido vaciado"); });
+        $("#o-no", pn).addEventListener("click", function () { box.innerHTML = '<button class="o-link" type="button" id="o-clear2">Vaciar pedido</button>'; });
+      });
+    });
+  }
+
+  /* ---------- Eventos globales ---------- */
+  document.addEventListener("click", function (e) {
+    var b;
+    if ((b = e.target.closest("[data-cat]"))) { cat = b.dataset.cat; renderMenu(); var c = $('[data-cat="' + cat + '"]'); if (c) c.focus(); return; }
+    if ((b = e.target.closest("[data-mcat]"))) { mcat = b.dataset.mcat; renderMeat(); var m = $('[data-mcat="' + mcat + '"]'); if (m) m.focus(); return; }
+    if ((b = e.target.closest(".o-add[data-id]"))) {
+      var p = find(b.dataset.id); if (!p) return;
+      if (p.og.length) openOptions(p); else { addLine(p, [], p.p, /kg/.test(p.pn || "")); b.classList.add("ok"); var tx = b.textContent; b.textContent = "✓ Añadido"; setTimeout(function () { b.classList.remove("ok"); b.textContent = tx; }, 1100); }
+      return;
+    }
+    if (e.target.closest(".o-mi")) { openCart(); }
+  });
+  renderMenu(); renderMeat(); afterChange(false);
+  if (!$("#o-toast")) { var t = document.createElement("div"); t.id = "o-toast"; t.className = "o-toast"; t.setAttribute("role", "status"); document.body.appendChild(t); }
+})();
+
+</script>
+</body>
+</html>

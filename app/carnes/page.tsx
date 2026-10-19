@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { CarnesView } from "@/components/carnes/carnes-view";
 
 export const metadata: Metadata = {
-  title: "Carnes a domicilio",
+  title: "Carnes para cocinar",
   alternates: { canonical: "/carnes/" },
 };
 

@@ -1,16 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
-import { useMemo, useState } from "react";
+import { ChevronRight } from "lucide-react";
+import { useMemo } from "react";
 import { Container, Section } from "@/components/shared/layout";
 import { Price } from "@/components/shared/price";
 import { content } from "@/config/content";
-import { getAllProducts } from "@/lib/catalog";
+import { baseName, getAllProducts } from "@/lib/catalog";
 import { useStoreStatus } from "@/lib/use-store-status";
 import { useUi } from "@/store/ui-store";
 
-/** Lista editorial numerada con vista previa que cambia: no es otra cuadrícula de tarjetas. */
+/**
+ * Especialidades de la parrilla: lista editorial de filas amplias, cada una abre su ficha.
+ * Es una selección de la carta (cortes con foto que no están ya en la selección de la casa), sin ranking ni numeración.
+ */
 export function Specialties() {
   const { showPrices } = useStoreStatus();
   const openProduct = useUi((s) => s.openProduct);
@@ -20,60 +23,53 @@ export function Specialties() {
     return getAllProducts()
       .filter((p) => p.available && p.images[0] && p.categoryId === "carnes-parrilla" && !p.featured)
       .filter((p) => {
-        const base = p.name.replace(/\s*\(.*$/, "");
+        const base = baseName(p);
         if (seen.has(base)) return false;
         seen.add(base);
         return true;
       })
-      .slice(0, 5);
+      .slice(0, 4);
   }, []);
-  const [active, setActive] = useState(0);
   if (items.length < 3) return null;
   const s = content.specialties;
 
   return (
-    <Section tone="soft" labelledBy="especialidades" pad={false} className="py-16 lg:py-24">
+    <Section id="especialidades" tone="soft" labelledBy="especialidades-t" pad={false} className="py-16 lg:py-24">
       <Container>
         <div className="editorial-grid gap-y-10">
-          <div className="col-span-12 lg:col-span-6">
+          <div className="col-span-12 lg:col-span-4">
             <p className="eyebrow mb-4">{s.eyebrow}</p>
-            <h2 id="especialidades" className="t-h2">{s.title}</h2>
-            <p className="lead mt-3 max-w-lg text-cream2">{s.description}</p>
-            <ol className="mt-10 divide-y divide-white/[0.07]">
-              {items.map((p, i) => (
-                <li key={p.id}>
-                  <button
-                    type="button"
-                    onClick={() => openProduct(p.id)}
-                    onMouseEnter={() => setActive(i)}
-                    onFocus={() => setActive(i)}
-                    className="group flex w-full items-center gap-5 py-5 text-left lg:gap-7 lg:py-6"
-                    aria-label={`Ver ${p.name}`}
-                  >
-                    <span className={`w-9 shrink-0 font-display text-[1.375rem] tabular-nums transition-colors ${active === i ? "text-accent" : "text-muted"}`}>{String(i + 1).padStart(2, "0")}</span>
-                    <span className="min-w-0 flex-1">
-                      <span className={`block font-display text-[clamp(1.6rem,2.6vw,2.4rem)] leading-tight transition-colors ${active === i ? "text-cream" : "text-cream2"}`}>{p.name}</span>
-                      <span className="mt-1 block line-clamp-1 text-[0.9375rem] text-muted">{p.shortDescription}</span>
-                    </span>
-                    <span className="relative size-16 shrink-0 overflow-hidden rounded-ui lg:hidden">
-                      <Image src={p.images[0].src} alt="" fill sizes="64px" className="object-cover" />
-                    </span>
-                    {showPrices && <Price amount={p.basePrice} size="sm" className="hidden sm:block" />}
-                    <ArrowUpRight className="hidden size-5 shrink-0 text-cream2 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 lg:block" aria-hidden />
-                  </button>
-                </li>
-              ))}
-            </ol>
+            <h2 id="especialidades-t" className="t-h2">{s.title}</h2>
+            <p className="lead mt-3 max-w-md text-cream2">{s.description}</p>
           </div>
 
-          {/* Vista previa (solo escritorio): se cruza con fundido al cambiar de elemento */}
-          <div className="relative hidden lg:col-span-5 lg:col-start-8 lg:block" aria-hidden>
-            <div className="sticky top-[calc(var(--header-height)+32px)] frame-arch aspect-[4/5]">
-              {items.map((p, i) => (
-                <Image key={p.id} src={p.images[0].src} alt="" fill sizes="480px" className={`food-image object-cover transition-opacity duration-300 ${active === i ? "opacity-100" : "opacity-0"}`} />
-              ))}
-            </div>
-          </div>
+          <ul className="col-span-12 divide-y divide-line border-y border-line lg:col-span-8">
+            {items.map((p) => (
+              <li key={p.id}>
+                <button
+                  type="button"
+                  onClick={() => openProduct(p.id)}
+                  className="group grid w-full grid-cols-[4.5rem_minmax(0,1fr)_auto] items-center gap-4 py-5 text-left sm:grid-cols-[6rem_minmax(0,1fr)_auto] sm:gap-6"
+                  aria-label={`Ver ficha de ${p.name}`}
+                >
+                  <span className="relative block aspect-square overflow-hidden rounded-ui bg-surface2">
+                    <Image src={p.images[0].src} alt="" fill sizes="96px" className="food-image object-cover" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block font-display text-[1.5rem] leading-tight transition-colors group-hover:text-accent sm:text-[1.875rem]">{baseName(p)}</span>
+                    {p.size && <span className="mt-0.5 block text-[0.875rem] text-muted">{p.size}</span>}
+                    <span className="mt-1 hidden text-[0.9375rem] leading-snug text-cream2 sm:block">{p.shortDescription}</span>
+                  </span>
+                  <span className="flex flex-col items-end gap-1.5">
+                    {showPrices && <Price amount={p.basePrice} size="md" />}
+                    <span className="inline-flex items-center gap-0.5 text-[0.8125rem] font-semibold text-cream2 group-hover:text-cream">
+                      Ver ficha <ChevronRight className="size-4 transition-transform motion-safe:group-hover:translate-x-0.5" aria-hidden />
+                    </span>
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
       </Container>
     </Section>

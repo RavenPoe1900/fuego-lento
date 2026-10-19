@@ -1,3 +1,4 @@
+import { deduceAllergens } from "@/data/allergens";
 import type { OptionGroup, Product, ProductOption } from "@/types/product";
 
 /**
@@ -48,16 +49,33 @@ const salsasAElegir: OptionGroup = {
   ],
 };
 
+/** Término de cocción de los cortes a la parrilla. Sin valor por defecto: hay que elegirlo. */
+const terminoDeCoccion: OptionGroup = {
+  id: "termino-de-coccion",
+  name: "Término de cocción",
+  kind: "cooking",
+  required: true,
+  minSelections: 1,
+  maxSelections: 1,
+  helpText: "Guía orientativa: poco hecho (centro rojo y jugoso), medio (centro rosado), tres cuartos (apenas rosado), bien hecho (sin rosado).",
+  options: [
+    opt("poco-hecho", "Poco hecho", 0, { description: "Centro rojo y jugoso" }),
+    opt("medio", "Medio", 0, { description: "Centro rosado" }),
+    opt("tres-cuartos", "Tres cuartos", 0, { description: "Apenas rosado" }),
+    opt("bien-hecho", "Bien hecho", 0, { description: "Sin rosado" }),
+  ],
+};
+
 /** Opciones que la carta asocia a cada categoría. */
 const CATEGORY_OPTIONS: Record<string, OptionGroup[]> = {
   "principales": [guarniciones],
   "sartenes": [guarniciones],
-  "carnes-parrilla": [guarniciones, salsasAElegir],
+  "carnes-parrilla": [terminoDeCoccion, salsasAElegir, guarniciones],
 };
 
 const FEATURED = new Set(["picana-angus-prime-600-grs", "churrasco-angus-prime-460-grs", "t-bone-angus-prime-400-grs", "new-york-steak-angus-prime-350-grs"]);
 
-type Item = { id: string; name: string; description?: string; price: number; images?: string[] };
+type Item = { id: string; name: string; description?: string; price: number; images?: string[]; priceNote?: string };
 
 /** Peso indicado en el nombre, p. ej. "Ribeye Angus Prime (350 grs)" → "350 g". */
 const sizeFromName = (name: string) => name.match(/\((\d+)\s*grs?\)/i)?.[1];
@@ -65,20 +83,23 @@ const sizeFromName = (name: string) => name.match(/\((\d+)\s*grs?\)/i)?.[1];
 const toProduct = (categoryId: string) => (item: Item): Product => {
   const description = item.description ?? "";
   const grams = sizeFromName(item.name);
+  // Misma cantidad, unidad uniforme: "(350 grs)" → "(350 g)"
+  const name = item.name.replace(/\((\d+)\s*grs?\)/i, "($1 g)");
   return {
     id: item.id,
     slug: item.id,
-    name: item.name,
+    name,
     shortDescription: description,
     description,
     categoryId,
-    images: (item.images ?? []).map((file) => ({ src: `/img/menu/${file}.webp`, alt: item.name })),
+    images: (item.images ?? []).map((file) => ({ src: `/img/menu/${file}.webp`, alt: name })),
     basePrice: item.price,
     featured: FEATURED.has(item.id),
     available: true,
     tags: [],
     ingredients: [],
-    allergens: [],
+    allergens: deduceAllergens(`${item.name} ${description}`, categoryId),
+    ...(item.priceNote && { priceNote: item.priceNote, byWeight: true }),
     ...(grams && { size: `${grams} g` }),
     optionGroups: CATEGORY_OPTIONS[categoryId] ?? [],
   };
@@ -144,8 +165,8 @@ const MENU: Record<string, Item[]> = {
     { id: "new-york-steak-angus-prime-350-grs", name: "New York Steak Angus Prime (350 grs)", description: "Corte clásico new york steak de res angus prime asado a la parrilla.", price: 24900, images: ["new-york-steak-angus-prime-350-grs"] },
     { id: "costilla-de-res-angus-prime-500-grs", name: "Costilla de Res Angus Prime (500 grs)", description: "Costilla de res angus prime asada a fuego de parrilla.", price: 22650 },
     { id: "t-bone-angus-prime-400-grs", name: "T-Bone Angus Prime (400 grs)", description: "Corte t-bone de res angus prime asado a la parrilla.", price: 29400, images: ["t-bone-angus-prime-400-grs"] },
-    { id: "tomahawk-angus-choice", name: "Tomahawk Angus Choice", description: "Corte tomahawk angus choice cobrado por peso (precio por kg).", price: 56000 },
-    { id: "tomahawk-angus-prime", name: "Tomahawk Angus Prime", description: "Corte tomahawk angus prime de calidad superior cobrado por peso (precio por kg).", price: 65900 },
+    { id: "tomahawk-angus-choice", name: "Tomahawk Angus Choice", description: "Corte tomahawk angus choice cobrado por peso (precio por kg).", price: 56000, priceNote: "por kg · se cobra según el peso real" },
+    { id: "tomahawk-angus-prime", name: "Tomahawk Angus Prime", description: "Corte tomahawk angus prime de calidad superior cobrado por peso (precio por kg).", price: 65900, priceNote: "por kg · se cobra según el peso real" },
   ],
   "postre": [
     { id: "cream-brulee-y-frutos-confitados", name: "Cream Brûlée y Frutos Confitados", description: "Clásico postre de crema horneada con costra crujiente de caramelo y frutos confitados.", price: 1600, images: ["cream-brulee-y-frutos-confitados"] },

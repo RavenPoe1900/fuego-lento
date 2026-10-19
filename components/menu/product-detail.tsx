@@ -9,9 +9,9 @@ import { Dialog } from "@/components/shared/modal";
 import { QuantitySelector } from "@/components/shared/quantity-selector";
 import { restaurant } from "@/config/restaurant";
 import { content } from "@/config/content";
+import { deduceAllergens } from "@/data/allergens";
 import { track } from "@/lib/analytics";
-import { isDev } from "@/lib/dev";
-import { getProduct } from "@/lib/catalog";
+import { baseName, getProduct } from "@/lib/catalog";
 import { formatCupEquivalent, formatDelta, formatMoney } from "@/lib/currency";
 import { defaultSelections, groupRuleText, normalizeNote, unitPrice, validateSelections } from "@/lib/order-calculations";
 import { useStoreStatus } from "@/lib/use-store-status";
@@ -56,6 +56,14 @@ function ProductDetail({ open, product, line, onClose, onExitComplete }: { open:
   const showPrice = showPrices;
   const unit = unitPrice(product, selections);
   const total = unit * quantity;
+  const title = baseName(product);
+  const hasImage = Boolean(product.images[0]);
+  const isMeat = product.line === "carnes";
+  /** Qué falta elegir antes de poder añadir (se explica junto al botón, no solo al fallar) */
+  const missing = useMemo(
+    () => validateSelections(product, selections).map((e) => product.optionGroups.find((g) => g.id === e.groupId)?.name).filter(Boolean) as string[],
+    [product, selections],
+  );
 
   useEffect(() => {
     if (!line) track("product_viewed", { id: product.id });
@@ -98,19 +106,19 @@ function ProductDetail({ open, product, line, onClose, onExitComplete }: { open:
     } else {
       add(input);
       track("product_added", { id: product.id, quantity });
-      toast.success("Producto añadido", { description: product.name });
+      toast.success("Añadido a tu pedido", { description: product.name });
     }
     onClose();
     if (line) openCart();
   };
 
   const stateText = useMemo(() => {
-    if (!product.available) return "Producto agotado por ahora.";
+    if (!product.available) return "Este producto no está disponible por ahora.";
     if (!orderingEnabled) return `${message || "Ahora mismo no estamos recibiendo pedidos"}. Este producto es de consulta.`;
     return null;
   }, [product.available, orderingEnabled, message]);
 
-  const buttonLabel = line ? "Guardar cambios" : "Añadir";
+  const allergens = product.allergens.length ? product.allergens : [];
 
   return (
     <Dialog
@@ -119,15 +127,22 @@ function ProductDetail({ open, product, line, onClose, onExitComplete }: { open:
       onExitComplete={onExitComplete}
       title={product.name}
       hideTitle
-      split
+      split={hasImage}
       footer={
         canBuy ? (
-          <div className="flex items-center gap-3">
-            <QuantitySelector value={quantity} onChange={setQuantity} label={product.name} />
-            <Button size="lg" className="flex-1" onClick={submit}>
-              <span>{buttonLabel} {line ? "" : quantity > 1 ? `${quantity} al pedido` : "al pedido"}</span>
-              {showPrice && <span className="tabular-nums">· {formatMoney(total, product.currency)}</span>}
-            </Button>
+          <div className="space-y-3">
+            {missing.length > 0 && (
+              <p className="flex items-center gap-2 text-sm text-gold-soft" role="status">
+                <AlertCircle className="size-4 shrink-0" aria-hidden /> Antes de añadir, elige: {missing.join(", ")}.
+              </p>
+            )}
+            <div className="flex items-center gap-3">
+              <QuantitySelector value={quantity} onChange={setQuantity} label={title} />
+              <Button size="lg" className="flex-1" onClick={submit}>
+                <span>{line ? "Guardar cambios" : quantity > 1 ? `Añadir ${quantity} al pedido` : "Añadir al pedido"}</span>
+                {showPrice && <span className="tabular-nums">· {formatMoney(total, product.currency)}</span>}
+              </Button>
+            </div>
           </div>
         ) : (
           <p className="flex items-center gap-2 text-sm text-cream2" role="status">
@@ -136,33 +151,35 @@ function ProductDetail({ open, product, line, onClose, onExitComplete }: { open:
         )
       }
     >
-      <div ref={bodyRef} className="sm:grid sm:h-full sm:grid-cols-[1fr_1.05fr] sm:grid-rows-[minmax(0,1fr)]">
-        <div className="relative sm:h-full">
-          <ProductImage product={product} ratio="aspect-[4/3] sm:aspect-auto sm:h-full" sizes="(min-width:640px) 480px, 100vw" priority />
-          {product.images[0] && <span className="sr-only">{product.images[0].alt}</span>}
-        </div>
+      <div ref={bodyRef} className={hasImage ? "sm:grid sm:h-full sm:grid-cols-[1fr_1.05fr] sm:grid-rows-[minmax(0,1fr)]" : ""}>
+        {hasImage && (
+          <div className="relative sm:h-full">
+            <ProductImage product={product} ratio="aspect-[4/3] sm:aspect-auto sm:h-full" sizes="(min-width:640px) 480px, 100vw" priority />
+          </div>
+        )}
 
-        <div className="min-h-0 space-y-6 p-5 sm:overflow-y-auto sm:overscroll-contain sm:p-7">
+        <div className={`min-h-0 space-y-6 p-5 sm:p-7 ${hasImage ? "sm:overflow-y-auto sm:overscroll-contain" : "mx-auto max-w-2xl"}`}>
           <header>
             <div className="mb-3 flex flex-wrap gap-1.5">
+              <Badge>{isMeat ? "Carne para cocinar" : "Plato preparado"}</Badge>
               {!product.available ? <Badge tone="err">Agotado</Badge> : <ProductTags product={product} />}
-              {isDev && product.isDemo && <Badge tone="gold">[DEV] Producto de ejemplo</Badge>}
             </div>
-            <h2 className="text-[2rem] leading-tight sm:text-4xl">{product.name}</h2>
+            <h2 className="text-[2rem] leading-tight sm:text-4xl">{title}</h2>
+            {product.size && <p className="mt-1 text-base text-cream2">{product.size}</p>}
+            {product.description && <p className="mt-3 leading-relaxed text-cream2">{product.description}</p>}
             {showPrice ? (
-              <>
-                <p className="mt-2 flex items-baseline gap-2">
+              <div className="mt-4">
+                <p className="flex items-baseline gap-2">
                   <span className="text-2xl font-bold tabular-nums">{formatMoney(unit, product.currency)}</span>
                   {product.compareAtPrice && <s className="text-cream2 tabular-nums">{formatMoney(product.compareAtPrice, product.currency)}</s>}
                 </p>
-                {product.currency === "USD" && <p className="mt-0.5 font-mono text-[0.8125rem] tabular-nums text-muted">{formatCupEquivalent(unit)}</p>}
-                {product.priceNote && <p className="mt-0.5 text-sm text-muted">{product.priceNote}</p>}
-              </>
+                {product.compareAtPrice && <p className="text-[0.8125rem] text-muted">Tachado: suma de las piezas por separado.</p>}
+                {product.currency === "USD" && <p className="mt-0.5 text-[0.8125rem] tabular-nums text-muted">{formatCupEquivalent(unit)} · equivalente aproximado</p>}
+                {product.priceNote && <p className="mt-0.5 text-sm text-cream2">{product.priceNote}</p>}
+              </div>
             ) : (
-              <p className="mt-2 text-cream2">Precio por confirmar</p>
+              <p className="mt-4 text-cream2">Precio por confirmar</p>
             )}
-            <p className="mt-3 leading-relaxed text-cream2">{product.description}</p>
-            {product.size && <p className="mt-2 text-sm text-cream2">Tamaño: {product.size}</p>}
           </header>
 
           {product.includes && (
@@ -204,11 +221,14 @@ function ProductDetail({ open, product, line, onClose, onExitComplete }: { open:
                 <p className="text-cream2">{product.ingredients.join(", ")}.</p>
               </div>
             )}
-            <div className="rounded-ui border border-gold/40 bg-gold/10 p-3">
-              <p className="font-semibold text-gold-soft">
-                Alérgenos: {product.allergens.length ? product.allergens.join(", ") : "ninguno declarado"}
+            <div className="rounded-ui border border-line bg-white/[0.03] p-3">
+              <h3 className="font-semibold">Alérgenos (orientativo)</h3>
+              <p className="mt-1 text-cream2">
+                {allergens.length
+                  ? `Según los ingredientes de la carta: ${allergens.join(", ").toLowerCase()}.`
+                  : "No identificamos alérgenos en la descripción de este producto."}
               </p>
-              {orderingEnabled && <p className="mt-1 text-cream2">{content.allergyNotice}</p>}
+              <p className="mt-1 text-muted">{content.allergyNotice}</p>
             </div>
           </section>
         </div>
@@ -257,6 +277,7 @@ function OptionGroupField({
         {group.options.map((o) => {
           const checked = chosen.includes(o.id);
           const off = disabled || !o.available || (!single && full && !checked);
+          const optAllergens = deduceAllergens(`${o.name} ${o.description ?? ""}`);
           return (
             <label
               key={o.id}
@@ -280,6 +301,8 @@ function OptionGroupField({
               </span>
               <span className="flex-1">
                 <span className="block leading-tight">{o.name}</span>
+                {o.description && <span className="mt-0.5 block text-[0.8125rem] leading-snug text-cream2">{o.description}</span>}
+                {optAllergens.length > 0 && <span className="mt-0.5 block text-xs text-muted">Alérgenos: {optAllergens.join(", ").toLowerCase()}</span>}
                 {!o.available && <span className="text-xs text-err">Agotado</span>}
                 {o.included && o.available && <span className="text-xs text-ok">Incluido</span>}
               </span>

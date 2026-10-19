@@ -4,6 +4,7 @@ import { chipClass as chip } from "@/components/shared/chip";
 import { Popover } from "radix-ui";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { ArrowLink } from "@/components/shared/arrow-link";
 import { Button, LinkButton } from "@/components/shared/button";
 import { Container } from "@/components/shared/layout";
 import { Dialog } from "@/components/shared/modal";
@@ -179,8 +180,12 @@ export function MenuView() {
     <div>
       <section className="bg-warm pb-8 pt-10 lg:pb-10 lg:pt-14">
         <Container>
+          <p className="eyebrow mb-4">{content.menu.eyebrow}</p>
           <h1 className="t-h2">{content.menu.title}</h1>
-          <p className="lead mt-3 max-w-xl text-cream2">{content.menu.description}</p>
+          <p className="lead mt-3 max-w-xl text-cream2">{content.menu.pageDescription}</p>
+          <p className="mt-5 flex flex-wrap items-center gap-x-4 text-[0.9375rem] text-cream2">
+            {content.menu.otherExperience.text} <ArrowLink href={content.menu.otherExperience.href} caps={false}>{content.menu.otherExperience.cta}</ArrowLink>
+          </p>
         </Container>
       </section>
 
@@ -192,7 +197,7 @@ export function MenuView() {
               <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-muted" aria-hidden />
               <input
                 type="search"
-                aria-label="Buscar en el menú"
+                aria-label="Buscar en los platos preparados"
                 placeholder="Buscar plato, ingrediente…"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
@@ -230,7 +235,7 @@ export function MenuView() {
       {/* Fila 2: categorías, pegadas bajo el header (top = altura real) */}
       <div className={`sticky top-[var(--header-height)] z-30 h-[var(--chips-height)] bg-carbon/95 backdrop-blur-md border-b transition-colors duration-200 ${stuck ? "border-line" : "border-transparent"}`}>
         <Container className="flex h-full items-center">
-          <div ref={chipsRef} role="group" aria-label="Categorías" className="no-scrollbar flex w-full gap-x-7 overflow-x-auto">
+          <div ref={chipsRef} role="group" aria-label="Categorías" className="no-scrollbar fade-x flex w-full gap-x-7 overflow-x-auto">
             {[{ id: "all", slug: "all", name: "Todo" }, ...chipItems].map((c) => (
               <button
                 key={c.id}
@@ -253,7 +258,7 @@ export function MenuView() {
         {!sf.orderingEnabled && <p role="note" className="mb-6 rounded-ui bg-white/[0.05] px-4 py-3 text-[0.9375rem] text-cream2">{content.menu.catalogNote}</p>}
 
         {activeGroup && activeGroup.children.length > 1 && (
-          <div role="group" aria-label={`Tipos de ${activeGroup.name.toLowerCase()}`} className="no-scrollbar -mt-4 mb-7 flex gap-x-7 overflow-x-auto">
+          <div role="group" aria-label={`Tipos de ${activeGroup.name.toLowerCase()}`} className="no-scrollbar fade-x -mt-4 mb-7 flex gap-x-7 overflow-x-auto">
             {[{ id: activeGroup.id, label: activeGroup.allLabel, slug: activeGroup.slug }, ...activeGroup.children.map((ch) => ({ ...ch, slug: ch.sections ? ch.id : categories.find((c) => c.id === ch.id)?.slug ?? ch.id }))].map((ch) => (
               <button
                 key={ch.id}
@@ -283,7 +288,7 @@ export function MenuView() {
             <Button onClick={() => window.location.reload()}>Reintentar</Button>
           </ErrorState>
         ) : results.length === 0 ? (
-          <EmptyState title="Sin resultados" text={content.menu.noResults}>
+          <EmptyState title="Sin resultados" text={cat !== "all" && !q && tags.length === 0 ? content.menu.emptyCategory : content.menu.noResults}>
             <Button variant="secondary" onClick={clear}><X className="size-4" aria-hidden /> Limpiar filtros</Button>
           </EmptyState>
         ) : sections ? (

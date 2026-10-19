@@ -3,23 +3,13 @@ import { sanitizeText } from "@/lib/text";
 
 const clean = (max: number) => z.string().transform((v) => sanitizeText(v, max));
 
-/** Teléfonos cubanos: 8 dígitos, con o sin prefijo 53 / +53. */
-const phone = z
-  .string()
-  .transform((v) => v.replace(/[\s().-]/g, ""))
-  .refine((v) => /^(\+?53)?\d{8}$/.test(v), "Escribe un teléfono válido de 8 dígitos, por ejemplo 5X XXX XXX.");
-
 export const customerSchema = z.object({
   name: clean(80).pipe(z.string().min(2, "Escribe tu nombre.")),
-  phone,
   notes: clean(300),
 });
 
 export const addressSchema = z.object({
-  zoneId: z.string().min(1, "Elige tu zona de entrega."),
   street: clean(160).pipe(z.string().min(4, "Escribe la dirección completa: calle, número y apartamento.")),
-  reference: clean(200).pipe(z.string().min(3, "Añade una referencia para localizar el lugar.")),
-  instructions: clean(200),
 });
 
 export const reopeningSchema = z

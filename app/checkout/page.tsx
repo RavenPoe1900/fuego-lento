@@ -1,8 +1,6 @@
-import type { Metadata } from "next";
-import { CheckoutFlow } from "@/components/checkout/checkout-flow";
+import { notFound } from "next/navigation";
 
-export const metadata: Metadata = { title: "Finalizar pedido", robots: { index: false } };
-
+/** El pedido se prepara y se envía desde "Mi pedido" (panel lateral): esta ruta ya no existe. */
 export default function CheckoutPage() {
-  return <CheckoutFlow />;
+  notFound();
 }

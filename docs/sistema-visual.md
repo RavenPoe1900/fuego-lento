@@ -52,3 +52,10 @@ El hover aclara solo lo que permite mantener 4.5:1. El botón se distingue del f
 - **Página `/carnes/`**: lista de precios en filas (nombre, medida, precio, acción) y combos en tarjetas de 3–4 px, como el resto de superficies funcionales.
 - **Precios en dos monedas**: `Price` con `currency="USD"` y `dual` muestra el USD y debajo el equivalente en CUP. El cambio vive en `restaurant.fx.usdToCup` (o `NEXT_PUBLIC_USD_CUP_RATE`); **está pendiente de confirmar**. El carrito calcula siempre en CUP y guarda el importe original de cada línea para mostrarlo.
 
+
+## Ajustes de la revisión integral (oct. 2026)
+- **Dos familias tipográficas**: Cormorant (titulares) y Manrope (interfaz, etiquetas y precios). Se retiró IBM Plex Mono: `font-mono` ahora es Manrope.
+- **Precio**: la cifra va en color de texto (no dorado) y la moneda explícita y discreta; el equivalente en CUP es secundario. El dorado queda para etiquetas, selección activa y acciones suaves.
+- **Etiquetas fijas**: "Platos preparados" (carta, CUP) y "Carnes para cocinar" (USD). Se usan igual en navegación, encabezados, fichas, pedido y mensaje de WhatsApp.
+- **Una sola entrada al pedido**: botón "Mi pedido" en la cabecera. Sin barra inferior móvil ni botón flotante.
+- Se retiró el grano de fondo y el bloque "Fuego. Corte. Tiempo.". Las tarjetas de carnes son de texto hasta tener fotos propias.

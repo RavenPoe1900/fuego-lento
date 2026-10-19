@@ -21,9 +21,7 @@ export function MobileNavigation({ open, onClose }: { open: boolean; onClose: ()
           </Link>
         ))}
         <div className="mt-6 space-y-3">
-          {sf.orderingEnabled ? (
-            <LinkButton href="/menu/" size="lg" className="w-full">Pedir</LinkButton>
-          ) : sf.signupEnabled ? (
+          {!sf.orderingEnabled && sf.signupEnabled ? (
             <Button size="lg" className="w-full" onClick={() => { onClose(); setReopeningOpen(true); }}>Avísame cuando vuelvan</Button>
           ) : null}
           <LinkButton href={restaurant.instagram.url} external variant="secondary" size="lg" className="w-full">

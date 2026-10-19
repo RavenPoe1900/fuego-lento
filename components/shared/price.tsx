@@ -6,8 +6,8 @@ const nf = new Intl.NumberFormat(restaurant.currency.locale, { maximumFractionDi
 const usdNf = new Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 /**
- * Precio compacto en mono: cifra en el acento cobre y moneda discreta en la misma línea.
- * Con `currency="USD"` y `dual`, debajo va el equivalente aproximado en CUP.
+ * Precio compacto: la cifra domina (color de texto, sin acento) y la moneda va explícita y discreta en la misma línea.
+ * Con `currency="USD"` y `dual`, debajo va el equivalente aproximado en CUP, subordinado.
  */
 export function Price({
   amount,
@@ -29,10 +29,10 @@ export function Price({
   const soft = onLight ? "text-ink/60" : "text-muted";
   return (
     <span className={`whitespace-nowrap font-mono ${className}`}>
-      <span className={`${num} font-medium tabular-nums leading-none ${onLight ? "text-accent-light" : "text-accent"}`}>${usd ? usdNf.format(amount) : nf.format(amount)}</span>
-      <span className={`ml-1 text-[0.6875rem] uppercase tracking-[0.12em] ${soft}`}>{usd ? "USD" : restaurant.currency.code}</span>
+      <span className={`${num} font-semibold tabular-nums leading-none ${onLight ? "text-ink" : "text-cream"}`}>${usd ? usdNf.format(amount) : nf.format(amount)}</span>
+      <span className={`ml-1 text-[0.75rem] uppercase tracking-[0.08em] ${soft}`}>{usd ? "USD" : restaurant.currency.code}</span>
       {usd && dual && (
-        <span className={`mt-1 block text-[0.6875rem] tabular-nums tracking-[0.06em] ${soft}`}>≈ ${nf.format(toCup(amount, "USD"))} {restaurant.currency.code}</span>
+        <span className={`mt-1 block text-[0.75rem] tabular-nums ${soft}`}>≈ ${nf.format(toCup(amount, "USD"))} {restaurant.currency.code}</span>
       )}
     </span>
   );
