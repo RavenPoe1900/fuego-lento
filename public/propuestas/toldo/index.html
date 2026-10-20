@@ -242,7 +242,7 @@ footer a{color:var(--bone)}
 </head>
 <body>
 <div class="top"><div class="awn" aria-hidden="true"></div>
-<header><b><img src="img/logo-mark.webp" alt="">FUEGO LENTO</b><nav aria-label="Principal"><a href="#despiece">Despiece</a><a href="#listo">Listo para comer</a><a href="#faq">Preguntas</a></nav><a class="btn bp" href="https://wa.me/5358465895?text=Hola%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir</a></header>
+<header><b><img src="/propuestas/img/logo-mark.webp" alt="">FUEGO LENTO</b><nav aria-label="Principal"><a href="#despiece">Despiece</a><a href="#listo">Listo para comer</a><a href="#faq">Preguntas</a></nav><a class="btn bp" href="https://wa.me/5358465895?text=Hola%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir</a></header>
 </div>
 
 <main>
@@ -254,7 +254,7 @@ footer a{color:var(--bone)}
       <p>Pide nuestros platos preparados o descubre cortes para cocinar en casa.</p>
       <div class="acts"><a class="btn" href="#despiece">Ver carnes para cocinar</a><a class="btn k" href="#listo">Platos preparados</a></div>
     </div>
-    <div class="ph"><img src="img/picana-angus-prime-300-grs.webp" alt="Picaña angus prime a la parrilla"></div>
+    <div class="ph"><img src="/propuestas/img/picana-angus-prime-300-grs.webp" alt="Picaña angus prime a la parrilla"></div>
   </div>
 </section>
 
@@ -285,7 +285,7 @@ footer a{color:var(--bone)}
   <div class="wrap">
   <h2>¿Sin ganas de encender el fuego?</h2>
   <div class="dg">
-    <div class="vw"><div class="vp" id="pvp" tabindex="0" role="region" aria-label="Platos preparados"><div class="trk" id="trk"><img src="img/empanada-angus-trufada.webp" alt="Empanada Angus Trufada" loading="lazy"><img src="img/ceviche-escarlata.webp" alt="Ceviche Escarlata" loading="lazy"><img src="img/tataki-de-res.webp" alt="Tataki de Res" loading="lazy"><img src="img/gambones.webp" alt="Gambones" loading="lazy"><img src="img/cordero-fuego-lento.webp" alt="Cordero Fuego Lento" loading="lazy"><img src="img/hamburguesa-fuego-lento-230-grs.webp" alt="Hamburguesa Fuego Lento" loading="lazy"><img src="img/churrasco-angus-prime-230-grs.webp" alt="Churrasco Angus Prime" loading="lazy"><img src="img/charcuteria-a-la-lena.webp" alt="Charcutería a la Leña" loading="lazy"><img src="img/tabla-fuego-lento.webp" alt="Tabla Fuego Lento" loading="lazy"></div></div><button class="nv l" id="pp" type="button" aria-label="Plato anterior"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><polyline points="15 5 8 12 15 19" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></button><button class="nv r" id="pn" type="button" aria-label="Plato siguiente"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><polyline points="9 5 16 12 9 19" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></button></div>
+    <div class="vw"><div class="vp" id="pvp" tabindex="0" role="region" aria-label="Platos preparados"><div class="trk" id="trk"><img src="/propuestas/img/empanada-angus-trufada.webp" alt="Empanada Angus Trufada" loading="lazy"><img src="/propuestas/img/ceviche-escarlata.webp" alt="Ceviche Escarlata" loading="lazy"><img src="/propuestas/img/tataki-de-res.webp" alt="Tataki de Res" loading="lazy"><img src="/propuestas/img/gambones.webp" alt="Gambones" loading="lazy"><img src="/propuestas/img/cordero-fuego-lento.webp" alt="Cordero Fuego Lento" loading="lazy"><img src="/propuestas/img/hamburguesa-fuego-lento-230-grs.webp" alt="Hamburguesa Fuego Lento" loading="lazy"><img src="/propuestas/img/churrasco-angus-prime-230-grs.webp" alt="Churrasco Angus Prime" loading="lazy"><img src="/propuestas/img/charcuteria-a-la-lena.webp" alt="Charcutería a la Leña" loading="lazy"><img src="/propuestas/img/tabla-fuego-lento.webp" alt="Tabla Fuego Lento" loading="lazy"></div></div><button class="nv l" id="pp" type="button" aria-label="Plato anterior"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><polyline points="15 5 8 12 15 19" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></button><button class="nv r" id="pn" type="button" aria-label="Plato siguiente"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><polyline points="9 5 16 12 9 19" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg></button></div>
     <div>
       <div class="tag" id="ptag" aria-live="polite"></div>
       <div class="zl"><a class="btn k" href="#pedir">Ver platos</a></div>
@@ -370,7 +370,7 @@ pick(0);
   var cat = "all";
   function card(p) {
     var opts = p.og.length > 0;
-    return '<article class="o-card">' + (p.im ? '<div class="im"><img src="img/' + p.im + '.webp" alt="' + esc(p.n) + '" loading="lazy"></div>' : "") +
+    return '<article class="o-card">' + (p.im ? '<div class="im"><img src="/propuestas/img/' + p.im + '.webp" alt="' + esc(p.n) + '" loading="lazy"></div>' : "") +
       '<div class="tx"><h3>' + esc(p.n) + "</h3>" + (p.d ? '<p class="d">' + esc(p.d) + "</p>" : "") +
       (p.pn ? '<span class="o-pn">' + esc(p.pn) + "</span>" : "") +
       '<div class="ft"><span class="o-pr">' + priceHtml(p) + '</span><button class="o-add" type="button" data-id="' + p.i + '" aria-label="' + (opts ? "Elegir opciones de " : "Añadir ") + esc(p.n) + '">' + (opts ? "Elegir" : "Añadir") + "</button></div></div></article>";
